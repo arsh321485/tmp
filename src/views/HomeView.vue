@@ -21,17 +21,13 @@
 
                     <div class="hero-top-right">
                         <p class="hero-description">
-                            Turn plans on paper into confident action. Run realistic drills, train teams, measure
-                            readiness of your teams.
+                            Don’t wait for a real incident to discover gaps. Convert your plans into involuntary,
+                            repeatable muscle memory with our preparedness platform.
                         </p>
 
-                        <p class="hero-description">
-                            Don't let your first test be a real crisis. We turn static plans into involuntary muscle
-                            memory with the our preparedness platform.
-                        </p>
                         <button class="hero-cta-btn">
                             <!-- <span class="hero-cta-icon">✦</span> -->
-                            <span>CTA</span>
+                            <span>Start Preparedness Now</span>
                             <span class="hero-cta-icon"><i class="bi bi-arrow-right"></i></span>
                         </button>
                     </div>
@@ -44,9 +40,13 @@
             <div class="container">
                 <!-- big heading only -->
                 <div class="selling-header">
-                    <h2 class="selling-heading">
+                    <!-- <h2 class="selling-heading wow fadeInUp" data-wow-delay="0.1s">
+                        WHY TMP?
+                    </h2> -->
+                    <h2 class="selling-heading wow animate__animated animate__fadeInUp" data-wow-delay="2s">
                         WHY TMP?
                     </h2>
+
                 </div>
 
                 <!-- Insert this right after .selling-header -->
@@ -156,8 +156,6 @@
                                     <span class="num">{{ step.num }}</span>
                                     <span class="label">
                                         <strong>{{ step.title }}</strong>
-                                        <div class="d-none d-md-inline-block ms-2 small text-muted">— {{ step.sub }}
-                                        </div>
                                     </span>
                                 </button>
 
@@ -231,8 +229,9 @@
 
       <section class="bp-section">
     <div class="container-fluid">
-      <!-- headers row -->
-      <div class="row bp-headers gx-0">
+
+      <!-- DESKTOP HEADERS ROW: visible on md+ only -->
+      <div class="row bp-headers gx-0 d-none d-md-flex">
         <div class="col-6 bp-col">
           <div class="bp-header">Bear the bottleneck</div>
         </div>
@@ -241,62 +240,45 @@
         </div>
       </div>
 
-      <!-- main content -->
+      <!-- MAIN: both columns present; note mobile-only headers inside columns below -->
       <div class="row bp-main gx-0">
-        <!-- LEFT: animated scattered pile -->
-        <div class="col-6 bp-column bp-left">
-          <div class="bp-pile-area" ref="pileArea">
-            <transition-group name="bp-left" tag="div" class="bp-pile">
-              <button
-                v-for="(p, idx) in leftPills"
-                :key="p.id"
-                v-show="show"
-                class="bp-pill bp-pill-scattered"
-                :style="pillStyle(p, idx)"
-                type="button"
-                aria-hidden="true"
-              >
-                <span class="bp-index">{{ p.num }}</span>
-                <span class="bp-text">{{ p.text }}</span>
-              </button>
-            </transition-group>
+        <!-- LEFT: will be full width on small screens -->
+        <div class="col-12 col-md-6 bp-column bp-left">
+          <!-- MOBILE HEADER (shown only on small screens) -->
+          <div class="bp-header d-block d-md-none text-center mb-2">Bear the bottleneck</div>
+
+          <div class="bp-pile-area">
+            <div class="bp-pile" aria-hidden="true">
+              <button class="pill" data-order="1"><span class="idx">①</span><span class="text">Have an idea</span></button>
+              <button class="pill" data-order="2"><span class="idx">②</span><span class="text">Submit a ticket to IT</span></button>
+              <button class="pill" data-order="3"><span class="idx">③</span><span class="text">Wait (they're swamped)</span></button>
+              <button class="pill" data-order="4"><span class="idx">④</span><span class="text">Follow up (they're still swamped).</span></button>
+              <button class="pill" data-order="5"><span class="idx">⑤</span><span class="text">Meet to clarify requirements.</span></button>
+              <button class="pill" data-order="6"><span class="idx">⑥</span><span class="text">Add it to the backlog</span></button>
+              <button class="pill" data-order="7"><span class="idx">⑦</span><span class="text">Wait weeks (or months)</span></button>
+              <button class="pill" data-order="8"><span class="idx">⑧</span><span class="text">See a prototype (it's not quite right)</span></button>
+              <button class="pill" data-order="9"><span class="idx">⑨</span><span class="text">Repeat</span></button>
+            </div>
           </div>
         </div>
 
-        <!-- RIGHT: stacked pills -->
-        <div class="col-6 bp-column bp-right">
+        <!-- RIGHT: on mobile this column appears below left content so its mobile header will be after left pills -->
+        <div class="col-12 col-md-6 bp-column bp-right">
+          <!-- MOBILE HEADER (only on small screens) -->
+          <div class="bp-header d-block d-md-none text-center mb-2">Or use Zapier</div>
+
           <div class="bp-stack-area">
-            <transition-group name="bp-stack" tag="div" class="bp-stack">
-              <button
-                v-for="(t, i) in rightPills"
-                :key="t"
-                v-show="show"
-                class="bp-pill bp-pill-stack-item"
-                :style="{ transitionDelay: (i * 160) + 'ms' }"
-                type="button"
-                aria-hidden="true"
-              >
-                <span class="bp-index">{{ toCircled(i+1) }}</span>
-                <span class="bp-text">{{ t }}</span>
-              </button>
-            </transition-group>
+            <div class="bp-stack" aria-hidden="true">
+              <div class="stack-item"><span class="idx">①</span><span>Have an idea</span></div>
+              <div class="stack-item"><span class="idx">②</span><span>IT says go for it</span></div>
+              <div class="stack-item"><span class="idx">③</span><span>You go for it</span></div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- sticky CTA like screenshot -->
-    <div class="bp-cta-bar">
-      <div class="container-fluid">
-        <div class="row gx-0">
-          <div class="col-9"></div>
-          <div class="col-3 d-flex justify-content-end align-items-center">
-            <button class="bp-cta-btn">Start automating today →</button>
-          </div>
-        </div>
-      </div>
+      </div> <!-- /bp-main -->
     </div>
   </section>
+
 
         <!-- ========== HERO BANNER STRIP ========== -->
         <section class="hero-banner-section">
@@ -861,6 +843,33 @@
             </div>
         </section>
 
+        <!-- Banner with aimation -->
+        <div class="container-fluid">
+            <section id="heroSection"
+                class="hero-banner position-relative d-flex align-items-center justify-content-center text-center"
+                style="--bg-url: url('https://ethiqual.co.in/wp-content/uploads/2025/03/Emergency-Preparedness-768x692.png?utm_source=chatgpt.com');">
+                <div class="overlay"></div>
+
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+
+                            <h1 class="hero-title">
+                                Plans on paper don’t save you. Practice does.
+                            </h1>
+
+                            <a href="#drill" class="btn  hero-cta">
+                                Launch a 2-minute drill
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+
 
         <!-- ========== CONTACT / GET IN TOUCH ========= -->
         <section class="contact-section" id="contact">
@@ -878,30 +887,43 @@
                         </p>
 
                         <div class="contact-info-columns">
-                            <div class="contact-info-block">
+                            <!-- <div class="contact-info-block">
                                 <div class="contact-info-block-title">Call Center</div>
                                 <p>800 100 975 20 34</p>
                                 <p>+ (123) 1800-234-5678</p>
                                 <p style="margin-top: 10px;">800 100 975 20 34</p>
                                 <p>+ (123) 1800-234-5678</p>
-                            </div>
+                            </div> -->
 
-                            <div class="contact-info-block">
+                            <!-- <div class="contact-info-block">
                                 <div class="contact-info-block-title">Our Location</div>
                                 <p>USA, New York – 1060</p>
                                 <p>Str. First Avenue 1</p>
                                 <p style="margin-top: 10px;">USA, New York – 1060</p>
                                 <p>Str. First Avenue 1</p>
-                            </div>
+                            </div> -->
 
-                            <div class="contact-info-block">
+                            <!-- <div class="contact-info-block">
                                 <div class="contact-info-block-title">Email</div>
                                 <p><a href="mailto:neuros@mail.co">neuros@mail.co</a></p>
+                            </div> -->
+
+
+
+                            <div class="contact-info-block">
+                                <div class="contact-info-block-title fs-6">Social network</div>
+                                <div class="d-flex gap-3">
+                                    <i class="bi bi-linkedin fs-5"></i>
+                                    <i class="bi bi-twitter-x fs-5"></i>
+                                </div>
                             </div>
 
                             <div class="contact-info-block">
-                                <div class="contact-info-block-title">Social network</div>
-                                <p>f &nbsp; x &nbsp; in &nbsp; ⧉</p>
+                                <button type="submit" class="contact-submit-btn">
+
+                                    <span>SignUp</span>
+                                    <span class="contact-submit-icon-wrap">›</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -943,6 +965,9 @@
         </section>
 
 
+
+
+
         <!-- FOOTER -->
         <MainFooter />
     </div>
@@ -951,178 +976,7 @@
 
 
 
-<!-- 
-<script lang="ts">
-import { defineComponent } from "vue";
-import MainNavbar from "../components/MainNavbar.vue";
-import MainFooter from "../components/MainFooter.vue";
 
-/** Step shape */
-interface Step {
-    id: number;
-    num: string;
-    pane: string;
-    title: string;
-    sub: string;
-    img: string;
-    desc: string;
-}
-
-
-/** Component instance extension for typed access to runtime props & observer */
-interface HomeViewInstance {
-    _sellingObserver?: IntersectionObserver;
-    steps: Step[];
-    activePane: string;
-}
-
-export default defineComponent({
-    name: "HomeView",
-
-    components: {
-        MainNavbar,
-        MainFooter,
-    },
-
-    data() {
-        const steps: Step[] = [
-            {
-                id: 1,
-                num: "01",
-                pane: "pane-1",
-                title: "Record once",
-                sub: "Record in app or upload",
-                img: "https://via.placeholder.com/640x360.png?text=Video+Placeholder",
-                desc:
-                    "Find a great light source, angle, and talking points. Record directly in-app or upload pre-recorded videos. Use the recorded clip multiple times across templates.",
-            },
-            {
-                id: 2,
-                num: "02",
-                pane: "pane-2",
-                title: "Choose",
-                sub: "Choose templates & clips",
-                img: "https://via.placeholder.com/640x360.png?text=Choose+Placeholder",
-                desc:
-                    "Pick templates and styles that match your brand. Preview how your recorded clip maps into different formats.",
-            },
-            {
-                id: 3,
-                num: "03",
-                pane: "pane-3",
-                title: "Build",
-                sub: "Combine & edit",
-                img: "https://via.placeholder.com/640x360.png?text=Build+Placeholder",
-                desc:
-                    "Drag & drop components, add captions and CTAs. No-code editing with instant previews.",
-            },
-            {
-                id: 4,
-                num: "04",
-                pane: "pane-4",
-                title: "Share",
-                sub: "Publish instantly",
-                img: "https://via.placeholder.com/640x360.png?text=Share+Placeholder",
-                desc:
-                    "Publish to multiple channels, or export video files. Track delivery from one dashboard.",
-            },
-            {
-                id: 5,
-                num: "05",
-                pane: "pane-5",
-                title: "Streamline",
-                sub: "Automate workflows",
-                img: "https://via.placeholder.com/640x360.png?text=Streamline+Placeholder",
-                desc:
-                    "Automate recurring tasks and schedule content. Optimize repeatable workflows for scale.",
-            },
-        ];
-
-        return {
-            steps,
-            activePane: "pane-1",
-        };
-    },
-
-    mounted(): void {
-        // --- Selling-points IntersectionObserver logic ---
-        const list = document.getElementById("sellingPainpoints");
-        if (list) {
-            if (!("IntersectionObserver" in window)) {
-                // fallback: add class immediately
-                list.classList.add("in-view");
-            } else {
-                const observer = new IntersectionObserver(
-                    (entries, obs) => {
-                        for (const entry of entries) {
-                            if (entry.isIntersecting) {
-                                list.classList.add("in-view");
-                                obs.unobserve(entry.target);
-                            }
-                        }
-                    },
-                    { threshold: 0.18 }
-                );
-
-                observer.observe(list);
-
-                // store typed observer on the instance for cleanup
-                (this as unknown as HomeViewInstance)._sellingObserver = observer;
-            }
-        }
-
-        // --- Steps: handle hash deep link if present ---
-        const hash = window.location.hash.replace("#", "");
-        if (hash) {
-            const instance = this as unknown as HomeViewInstance;
-            const exists = instance.steps.find((s) => s.pane === hash);
-            if (exists) {
-                instance.activePane = hash;
-            }
-        }
-    },
-
-    beforeUnmount(): void {
-        const instance = this as unknown as HomeViewInstance;
-        if (instance._sellingObserver) {
-            instance._sellingObserver.disconnect();
-            instance._sellingObserver = undefined;
-        }
-    },
-
-    methods: {
-        /**
-         * Activate a content pane (steps)
-         * @param targetId string id of the pane, e.g. "pane-2"
-         * @param e optional Event (click)
-         */
-        activate(targetId: string, e?: Event): void {
-            const instance = this as unknown as HomeViewInstance;
-            instance.activePane = targetId;
-
-            // On small screens scroll content into view for better UX
-            if (window.innerWidth < 992) {
-                this.$nextTick(() => {
-                    const pane = document.getElementById(targetId);
-                    if (pane) {
-                        pane.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }
-                });
-            }
-
-            // update the hash without jumping
-            try {
-                history.replaceState(null, "", `#${targetId}`);
-            } catch {
-                // ignore if history API blocked
-            }
-
-            // prevent default navigation if event present
-            e?.preventDefault();
-        },
-    },
-});
-</script> -->
 
 
 <script lang="ts">
@@ -1136,7 +990,6 @@ interface Step {
     num: string;
     pane: string;
     title: string;
-    sub: string;
     img: string;
     desc: string;
 }
@@ -1150,17 +1003,7 @@ interface Tab {
     points: string[];
     image: string;
 }
-/** single pill for left pile */
-/** single pill for left pile */
-interface LeftPill {
-  id: string;
-  num: string;
-  text: string;
-  // final placement (px) relative to pile container: left (x) and bottom (y)
-  left: number;
-  bottom: number;
-  rot: number;
-}
+
 /** Component instance extension for typed access to runtime props & observer */
 interface HomeViewInstance {
     _sellingObserver?: IntersectionObserver;
@@ -1184,127 +1027,109 @@ export default defineComponent({
                 id: 1,
                 num: "01",
                 pane: "pane-1",
-                title: "Record once",
-                sub: "Record in app or upload",
+                title: "Sign up",
                 img: "https://via.placeholder.com/640x360.png?text=Video+Placeholder",
                 desc:
-                    "Find a great light source, angle, and talking points. Record directly in-app or upload pre-recorded videos. Use the recorded clip multiple times across templates.",
+                    "Create your workspace in seconds using SSO or email. No setup barriers — just log in and get started instantly.",
             },
             {
                 id: 2,
                 num: "02",
                 pane: "pane-2",
-                title: "Choose",
-                sub: "Choose templates & clips",
+                title: "Configure users & teams",
                 img: "https://via.placeholder.com/640x360.png?text=Choose+Placeholder",
                 desc:
-                    "Pick templates and styles that match your brand. Preview how your recorded clip maps into different formats.",
+                    "Add your teams and assign them to communication channels like Slack, Teams, or Mattermost. Everyone is mapped, reachable, and ready for action.",
             },
             {
                 id: 3,
                 num: "03",
                 pane: "pane-3",
-                title: "Build",
-                sub: "Combine & edit",
+                title: " Configure threats",
                 img: "https://via.placeholder.com/640x360.png?text=Build+Placeholder",
                 desc:
-                    "Drag & drop components, add captions and CTAs. No-code editing with instant previews.",
+                    "Use the built-in Threat Agent to identify what needs testing. It recommends relevant threats and helps you configure precise, context-aware scenarios.",
             },
             {
                 id: 4,
                 num: "04",
                 pane: "pane-4",
-                title: "Share",
-                sub: "Publish instantly",
+                title: "Initiate preparedness",
                 img: "https://via.placeholder.com/640x360.png?text=Share+Placeholder",
                 desc:
-                    "Publish to multiple channels, or export video files. Track delivery from one dashboard.",
+                    "Launch tests with just a few clicks. TMP orchestrates the entire workflow — notifications, tasks, timing, escalations — automatically.",
             },
             {
                 id: 5,
                 num: "05",
                 pane: "pane-5",
-                title: "Streamline",
-                sub: "Automate workflows",
+                title: "Report & improve",
                 img: "https://via.placeholder.com/640x360.png?text=Streamline+Placeholder",
                 desc:
-                    "Automate recurring tasks and schedule content. Optimize repeatable workflows for scale.",
+                    "Access analytics that show real-world readiness. Get compliance-ready reports aligned to regulatory standards, complete with insights and actionable gaps.",
             },
         ];
 
         const tabs: Tab[] = [
             {
                 id: "marketing",
-                label: "CS",
-                title: "Drive campaigns with smarter creative",
+                label: "Cybersecurity",
+                title: "Raise your organization’s cyber readiness before attackers test it for you",
                 lead:
-                    "Automate A/B tests, generate tailored ad copy, and use data-driven insights to optimize channel performance.",
+                    "Cyber incidents strike in minutes — but detection, coordination, and decision-making often take hours. TMP transforms static cyber plans into automated, repeatable, measurable preparedness exercises tailored to your tech stack.",
                 points: [
-                    "Generate 10+ ad variants from one brief",
-                    "Personalize creatives by audience segments",
-                    "Measure uplift automatically and iterate fast",
+                    "Simulate real-world threats: ransomware, phishing, supply chain, insider abuse",
+                    "Automated drills across SOC, IR, IAM, AppSec & Cloud teams",
+                    "Role-mapped task execution with time-bound decision prompts",
+                    "Compliance-ready reporting aligned with ISO 27001, NIST CSF, SOC 2, RBI, NIS2",
                 ],
                 image: "https://via.placeholder.com/720x420.png?text=Marketing+Image",
             },
             {
                 id: "sales",
-                label: "BC ",
-                title: "Coach your team to close more deals",
+                label: "Business Continuity",
+                title: "Ensure your business keeps running — no matter what breaks",
                 lead:
-                    "Give your sales team a leg up with personalized, data-driven coaching after every call—helping them close more deals without expanding your team.",
+                    "Downtime destroys customer trust, revenue, and reputation. TMP brings life to your Business Continuity Plans with realistic, coordinated drills that test people, processes, vendors, and technology across the company.",
                 points: [
-                    "Automated call summarization and coaching tips",
-                    "Deal-risk signals surfaced in real time",
-                    "Follow-up automation with calibrated messaging",
+                    "Stress-test continuity processes across departments & critical services",
+                    "Measure recovery readiness for RTO, RPO, dependencies & escalation chains",
+                    "Automate communication workflows for executives, teams & vendors",
+                    "Evidence packs aligned with ISO 22301 and enterprise audit needs",
                 ],
                 image: "https://via.placeholder.com/720x420.png?text=Sales+Image",
             },
             {
                 id: "product",
-                label: "DP",
-                title: "Ship features faster and smarter",
+                label: "Data Privacy",
+                title: "Protect customer data and prove compliance — with confidence",
                 lead:
-                    "Use AI to prioritize bugs, synthesize user feedback, and expedite prototyping cycles so your product team moves from insight to iteration faster.",
+                    "Breaches are inevitable; mishandling them is not. TMP helps privacy, legal, and security teams rehearse breach-handling workflows, ensuring a fast, compliant response across global regulations.",
                 points: [
-                    "Auto-prioritize backlog by impact",
-                    "Generate user-story drafts from research",
-                    "Prototype concepts with AI-driven suggestions",
+                    "Run data breach simulations that test legal, DPO, IT & comms workflows",
+                    "Validate regulatory response timelines (KSA PDPL, GDPR, CCPA, PDPB, HIPAA)",
+                    "Prebuilt privacy incident templates: unauthorized access, misdelivery, deletion failures",
+                    "Generate audit-ready evidence for investigations, reporting & post-incident reviews",
                 ],
                 image: "https://via.placeholder.com/720x420.png?text=Product+Image",
             },
             {
                 id: "it",
-                label: "ES",
-                title: "Make ops and support proactive",
+                label: "Environmental Security & Governance",
+                title: "Strengthen resilience across environmental, operational & governance risks",
                 lead:
-                    "Reduce toil with auto-triage, root-cause suggestions, and runbooks that update themselves when your system changes.",
+                    "Modern ESG expectations demand operational integrity, transparency and preparedness. TMP helps organizations test their ESG policies, crisis responses, and governance structures with clarity and accountability.",
                 points: [
-                    "Auto-triage incidents and suggest fixes",
-                    "Self-updating runbooks for common outages",
-                    "Predictive alerts to avoid downtime",
+                    "Simulate ESG events: environmental disruptions, safety failures, supplier risks",
+                    "Test governance workflows: board escalations, whistleblowing, third-party risk",
+                    "Validate response alignment with sustainability and compliance frameworks",
+                    "Produce assurance-ready reports for auditors, regulators & stakeholders",
                 ],
                 image: "https://via.placeholder.com/720x420.png?text=IT+Image",
             },
         ];
 
-        const leftPills: LeftPill[] = [
-      { id: "p1", num: "①", text: "Have an idea", left: 18, bottom: 12, rot: -2 },
-      { id: "p2", num: "②", text: "Submit a ticket to IT", left: 86, bottom: 26, rot: -6 },
-      { id: "p3", num: "③", text: "Wait (they're swamped)", left: 150, bottom: 42, rot: 8 },
-      { id: "p4", num: "④", text: "Follow up (they're still swamped).", left: 220, bottom: 64, rot: -8 },
-      { id: "p5", num: "⑤", text: "Meet to clarify requirements.", left: 280, bottom: 86, rot: 6 },
-      { id: "p6", num: "⑥", text: "Add it to the backlog", left: 340, bottom: 108, rot: -14 },
-      { id: "p7", num: "⑦", text: "Wait weeks (or months)", left: 180, bottom: 128, rot: 14 },
-      { id: "p8", num: "⑧", text: "See a prototype (it's not quite right)", left: 80, bottom: 148, rot: -18 },
-      { id: "p9", num: "⑨", text: "Repeat", left: 260, bottom: 170, rot: 28 }
-    ];
 
-        
-    const rightPills: string[] = [
-      "Have an idea",
-      "IT says go for it",
-      "You go for it"
-    ];
 
         return {
             steps,
@@ -1313,8 +1138,7 @@ export default defineComponent({
             activeTab: "sales", // default selected tab
             // show toggles entrance animation
             show: false as boolean,
-            leftPills,
-            rightPills,
+
 
         };
     },
@@ -1366,12 +1190,27 @@ export default defineComponent({
             const tabExists = instance.tabs.some((t) => t.id === hash);
             if (tabExists) instance.activeTab = hash;
         }
-        // you can increase delay if you want a slower start
-        setTimeout(() => {
-            this.show = true;
-        }, 110);
-    },
+        // use native DOM lookup — no ts-plugin complaints
+        const section = document.getElementById("heroSection");
+        if (!section) return;
 
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    const el = entry.target; // Element; safe to use .classList
+
+                    if (entry.isIntersecting) {
+                        el.classList.add("show");
+                    } else {
+                        el.classList.remove("show");
+                    }
+                });
+            },
+            { threshold: 0.4 }
+        );
+
+        observer.observe(section); // no red line now
+    },
     beforeUnmount(): void {
         const instance = this as unknown as HomeViewInstance;
         if (instance._sellingObserver) {
@@ -1425,28 +1264,7 @@ export default defineComponent({
                 });
             }
         },
-        // style object for left scattered pill final transform + stagger
-  pillStyle(p: LeftPill, idx: number): Record<string, string> {
-      const style: Record<string, string> = {
-        left: `${p.left}px`,
-        bottom: `${p.bottom}px`,
-        // we set initial transform to translateY(-260px) so pills fly in from above
-        transform: `translateY(-260px) rotate(0deg)`,
-        // final rotation passed in custom property
-        "--rot": `${p.rot}deg`,
-        // stagger entrance
-        transitionDelay: `${idx * 120}ms`,
-      };
 
-      return style;
-    },
-
-
-    // helper: convert 1,2,3 to circled numbers (① ② ③)
-    toCircled(n: number): string {
-      const map: Record<number, string> = { 1: "①", 2: "②", 3: "③", 4: "④", 5: "⑤" };
-      return map[n] ?? `${n}`;
-    }
     },
 });
 </script>

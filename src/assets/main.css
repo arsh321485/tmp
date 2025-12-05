@@ -2851,3 +2851,822 @@ footer {
     width: 100%;
   }
 }
+
+
+
+
+/* Cybersecurity pge css */
+/* ---------------------------
+  BEAUTIFIED STYLES (Replace existing <style scoped>)
+--------------------------- */
+
+/* tiny reset for this component */
+#top {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* -------------------------------------------------------
+   HERO WRAPPER (bigger, airy, premium)
+/* HERO (crisp background — no blur or heavy filters) */
+.cyber-hero {
+    height: 420px;
+    border-radius: 22px;
+    margin: 1.8rem;
+    overflow: hidden;
+    position: relative;
+    color: #0b1220;
+    background: linear-gradient(180deg, rgba(7, 18, 40, 0.04), rgba(7, 18, 40, 0.02));
+    box-shadow: 0 10px 40px rgba(9, 16, 35, 0.08);
+}
+
+/* background image: crisp, no blur, minimal filter */
+.cyber-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/011/061/956/original/cyber-security-awareness-background-free-vector.jpg');
+    background-size: cover;
+    background-position: center center;
+    z-index: 0;
+    /* removed blur and heavy image filters so image stays sharp */
+    filter: saturate(1) contrast(1);
+    mix-blend-mode: normal;
+}
+
+/* left readable overlay to keep text legible */
+.cyber-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 62%;
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(245, 247, 250, 0.75) 45%,
+            rgba(255, 255, 255, 0.35) 65%,
+            rgba(255, 255, 255, 0.00) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* subtle decorative spark (keeps shape but no blur) */
+.cyber-hero::before {
+    content: "";
+    position: absolute;
+    right: -120px;
+    top: -60px;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle at 30% 20%, rgba(37, 99, 235, 0.10), rgba(99, 102, 241, 0.06) 30%, transparent 55%);
+    transform: rotate(12deg);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* CONTENT AREA */
+.content-wrap {
+    position: relative;
+    z-index: 2;
+    padding-top: 2.6rem;
+    padding-left: 5.2rem;
+    padding-right: 3rem;
+    max-width: 1150px;
+}
+
+/* animated decorative dots */
+.cyber-icon {
+    display: inline-block;
+    transform: translateY(0);
+    margin-bottom: 0.6rem;
+}
+
+.cyber-icon .dot {
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(180deg, #0b1220, #263244);
+    opacity: 0.95;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    box-shadow: 0 4px 12px rgba(9, 16, 35, 0.12);
+    animation: float .9s ease-in-out infinite alternate;
+}
+
+.cyber-icon .dot:nth-child(2) {
+    animation-delay: .12s;
+    transform-origin: center;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-4px);
+    }
+}
+
+/* Title */
+.cyber-title {
+    font-size: 2.9rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: #07122a;
+    letter-spacing: -0.6px;
+    line-height: 1.02;
+}
+
+/* Description */
+.cyber-desc {
+    color: #273246;
+    font-size: 1.06rem;
+    line-height: 1.7;
+    max-width: 720px;
+    margin-bottom: 10px;
+    opacity: .95;
+}
+
+/* CTA */
+.cyber-btn-sm {
+    font-weight: 800;
+    padding: 8px 16px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #ffffff, #f7fbff);
+    color: #0b1220;
+    border: 1px solid rgba(11, 18, 32, 0.06);
+    box-shadow: 0 10px 26px rgba(37, 99, 235, 0.06), 0 3px 8px rgba(12, 18, 32, 0.06);
+    font-size: 0.95rem;
+    margin-top: 2px;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.cyber-btn-sm:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(37, 99, 235, 0.12);
+}
+
+/* -------------------------------------------------------
+   BREADCRUMB PILL (more refined)
+------------------------------------------------------- */
+.breadcrumb-pill {
+    position: absolute;
+    right: 22px;
+    bottom: -10px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(247, 250, 255, 0.95));
+    color: #07122a;
+    border-radius: 28px 28px 28px 10px;
+    padding: 10px 18px;
+    box-shadow: 0 18px 36px rgba(8, 14, 28, 0.09);
+    z-index: 5;
+    border: 1px solid rgba(11, 18, 32, 0.04);
+}
+
+.breadcrumb a {
+    font-weight: 700;
+    color: #0d1726;
+}
+
+.breadcrumb .active {
+    color: #b42b2b;
+    font-weight: 700;
+}
+
+/* -------------------------------------------------------
+   RESPONSIVE HERO ADJUSTMENTS
+------------------------------------------------------- */
+@media (max-width: 992px) {
+    .content-wrap {
+        padding-left: 2rem;
+        padding-right: 1.2rem;
+    }
+
+    .cyber-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .cyber-hero {
+        height: auto;
+        padding-bottom: 3rem;
+        border-radius: 18px;
+        margin: 1rem;
+    }
+
+    .cyber-hero::after {
+        width: 100%;
+    }
+
+    .content-wrap {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .cyber-title {
+        font-size: 1.6rem;
+    }
+
+    .breadcrumb-pill {
+        bottom: -4px;
+        right: 10px;
+        padding: 8px 12px;
+    }
+}
+
+/* -------------------------------------------------------
+   SECTION: THE CYBER REALITY (cards with glass + color)
+------------------------------------------------------- */
+.cyber-reality {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    --accent: #6c5ce7;
+    --accent-2: #3b82f6;
+    --muted: #6b7280;
+    color: #07122a;
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+}
+
+/* header */
+.cyber-section-title {
+    font-size: 1.22rem;
+    font-weight: 800;
+    margin-bottom: .25rem;
+}
+
+.cyber-section-sub {
+    color: var(--muted);
+    margin-bottom: 1.4rem;
+}
+
+/* grid: wider gap and two-column masonry feeling */
+.cyber-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+/* card: frosted glass with soft gradient and lifted shadow */
+.cyber-card {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.25rem;
+    border-radius: 14px;
+    /* background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,252,255,0.95)); */
+    background: #dfe6eb;
+    backdrop-filter: blur(6px) saturate(1.02);
+    border: 1px solid rgba(12, 18, 32, 0.04);
+    box-shadow: 0 10px 28px rgba(12, 18, 32, 0.06);
+    transition: transform .22s cubic-bezier(.2, .9, .2, 1), box-shadow .22s ease, border-color .22s ease;
+    position: relative;
+    overflow: visible;
+}
+
+/* small accent circle on left for polish */
+.cyber-card::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    border-radius: 50%;
+    opacity: .85;
+    transform: translateX(-40px);
+    transition: transform .28s ease, opacity .18s ease;
+}
+
+/* hover lift + glow */
+.cyber-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 70px rgba(37, 99, 235, 0.085);
+    border-color: rgba(37, 99, 235, 0.08);
+}
+
+.cyber-card:hover::before {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* left number block: gradient + depth */
+.cyber-left {
+    flex: 0 0 74px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.cyber-number {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1rem;
+    box-shadow: 0 8px 26px rgba(108, 92, 231, 0.14);
+    transform: translateY(-6px);
+}
+
+/* right column text adjustments */
+.cyber-right {
+    flex: 1;
+}
+
+.cyber-card-title {
+    margin: 0 0 .5rem 0;
+    font-size: 1.03rem;
+    font-weight: 800;
+    color: #07122a;
+}
+
+.cyber-card-body {
+    margin: 0;
+    color: #374151;
+    line-height: 1.7;
+    font-size: 0.98rem;
+}
+
+.cyber-card-note {
+    margin-top: .6rem;
+    color: #07122a;
+    font-weight: 800;
+}
+
+/* lists styling */
+.cyber-list {
+    margin-top: .6rem;
+    margin-bottom: .2rem;
+    padding-left: 1.25rem;
+    color: #374151;
+}
+
+.cyber-list li {
+    margin: .4rem 0;
+}
+
+/* inline chips */
+.inline-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
+    padding-left: 0;
+    margin: .55rem 0;
+}
+
+.inline-list li {
+    list-style: none;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.09), rgba(99, 102, 241, 0.04));
+    color: #0f172a;
+    font-weight: 700;
+    font-size: .9rem;
+}
+
+/* responsive single column */
+@media (max-width: 900px) {
+    .cyber-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cyber-left {
+        flex: 0 0 64px;
+    }
+
+    .cyber-number {
+        width: 48px;
+        height: 48px;
+        font-size: .95rem;
+        transform: translateY(0);
+    }
+}
+
+/* smaller devices tweaks */
+@media (max-width:420px) {
+    .cyber-card {
+        padding: .95rem;
+        border-radius: 12px;
+    }
+
+    .cyber-number {
+        width: 44px;
+        height: 44px;
+    }
+
+    .cyber-card-title {
+        font-size: 1rem;
+    }
+
+    .cyber-card-body {
+        font-size: .95rem;
+        line-height: 1.55;
+    }
+}
+
+/* entrance animation (gentle stagger) */
+.cyber-card {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: cardIn .6s ease forwards;
+}
+
+.cyber-card:nth-child(1) {
+    animation-delay: .06s;
+}
+
+.cyber-card:nth-child(2) {
+    animation-delay: .12s;
+}
+
+.cyber-card:nth-child(3) {
+    animation-delay: .18s;
+}
+
+.cyber-card:nth-child(4) {
+    animation-delay: .24s;
+}
+
+.cyber-card:nth-child(5) {
+    animation-delay: .30s;
+}
+
+@keyframes cardIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .cyber-card {
+        animation: none;
+        transition: none;
+    }
+
+    .cyber-icon .dot {
+        animation: none;
+    }
+}
+
+/* -------------------------------------------------------
+   TABS: TMP-SOLVES (modern left tabs with indicator)
+------------------------------------------------------- */
+.tmp-solves {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #07122a;
+    --accent: #2563eb;
+    --muted: #6b7280;
+    padding-top: 2rem;
+    padding-bottom: 2.6rem;
+}
+
+/* header */
+.section-heading {
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-bottom: .2rem;
+    letter-spacing: -0.2px;
+}
+
+.section-sub {
+    color: var(--muted);
+    margin-bottom: 1.4rem;
+}
+
+/* layout */
+.solves-wrap {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* tabs column */
+.tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 6px;
+    background: transparent;
+}
+
+.tab-btn {
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #ffffff, #fbfdff);
+    border: 1px solid rgba(12, 18, 32, 0.04);
+    cursor: pointer;
+    text-align: left;
+    color: #07122a;
+    transition: all .18s ease;
+    box-shadow: 0 8px 22px rgba(12, 18, 32, 0.03);
+}
+
+.tab-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(37, 99, 235, 0.05);
+}
+
+.tab-btn:focus {
+    outline: none;
+    box-shadow: 0 24px 48px rgba(37, 99, 235, 0.10);
+    transform: translateY(-3px);
+}
+
+/* active styling with left border accent */
+.tab-btn.active {
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.06), rgba(99, 102, 241, 0.02));
+    border-left: 6px solid rgba(37, 99, 235, 0.95);
+    box-shadow: 0 18px 40px rgba(37, 99, 235, 0.06);
+    transform: translateY(-2px);
+}
+
+/* number + label */
+.tab-num {
+    font-weight: 900;
+    color: var(--accent);
+    min-width: 46px;
+    text-align: right;
+    font-size: 1.02rem;
+}
+
+.tab-label {
+    font-weight: 800;
+    font-size: 0.98rem;
+    color: #07122a;
+}
+
+/* panels */
+.panels {
+    min-height: 260px;
+}
+
+.panel {
+    background: #f4f5f8;
+    padding: 1.35rem 1.4rem;
+    border-radius: 12px;
+    box-shadow: 0 12px 36px rgba(12, 18, 32, 0.04);
+    transition: opacity .22s ease, transform .22s ease;
+    border: 1px solid rgba(12, 18, 32, 0.04);
+}
+
+.panel-title {
+    margin: 0 0 .6rem;
+    font-size: 1.04rem;
+    font-weight: 900;
+}
+
+.panel-desc {
+    color: var(--muted);
+    margin-bottom: .8rem;
+}
+
+/* lists */
+.examples-label {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 800;
+    color: #07122a;
+}
+
+.examples-list,
+.steps-list {
+    margin: 0 0 0.6rem 1rem;
+    color: #374151;
+    line-height: 1.7;
+}
+
+.examples-list li,
+.steps-list li {
+    margin: .4rem 0;
+}
+
+/* responsive: on small screens tabs horizontal */
+@media (max-width: 768px) {
+    .solves-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: .6rem;
+        padding: .4rem 0;
+    }
+
+    .tab-btn {
+        min-width: 180px;
+        flex: 0 0 auto;
+        border-left: 4px solid transparent;
+    }
+
+    .panel {
+        margin-top: .9rem;
+    }
+}
+
+/* tiny mobile tweaks */
+@media (max-width:420px) {
+    .tab-btn {
+        padding: .7rem .85rem;
+        font-size: .92rem;
+        min-width: 150px;
+    }
+
+    .panel {
+        padding: 1rem;
+    }
+}
+
+
+
+
+
+/* Faq Page css which needed */
+
+/* CTA inside FAQ section */
+.faq-cta-inside {
+    margin-top: 2.5rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background: linear-gradient(180deg, #ffffff, #f7faff);
+    border-radius: 14px;
+    border: 1px solid rgba(12, 18, 32, 0.06);
+    box-shadow: 0 10px 28px rgba(12, 18, 32, 0.05);
+}
+
+.faq-cta-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #0b1220;
+}
+
+.faq-cta-btn {
+    display: inline-block;
+    background: #01213d;
+    color: #ffffff;
+    padding: 0.85rem 1.7rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 22px rgba(37, 99, 235, 0.22);
+    transition: all 0.2s ease;
+}
+
+.faq-cta-btn:hover {
+    background: #041856;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(37, 99, 235, 0.3);
+}
+
+
+/* Industries page css */
+/* Defensive layout + prevent shift when details shown */
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  overflow: visible;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(180deg, #071029 0%, #081526 100%);
+  color: #fff;
+  padding: 2rem 0;
+}
+.breadcrumb { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-bottom: 0.75rem; display:flex; gap:0.5rem; align-items:center; }
+.hero-inner { display:flex; flex-direction:column; gap:1rem; }
+.title { font-size:1.6rem; margin:0; }
+.subtitle { color: rgba(255,255,255,0.9); margin-top:0.5rem; max-width:60ch; }
+.hero-cta { display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.75rem; }
+
+/* Buttons */
+.btn-primary { background: #06b6d4; color: #032024; border: none; padding: 0.6rem 1rem; border-radius: 8px; cursor: pointer; font-weight:600; }
+.btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.15); padding: 0.55rem 0.9rem; border-radius: 8px; }
+
+/* Section header */
+.section-header { margin-bottom: 0.75rem; }
+.section-header h2 { margin:0 0 0.25rem 0; }
+.muted { color: #6b7280; }
+
+/* grid-wrapper reserves bottom space so details insertion doesn't reflow cards */
+.grid-wrapper {
+  display: block;
+  position: relative;
+  overflow: visible;
+  /* Reserve space for details so the grid does not jump when details appear.
+     Adjust this value to the height of your detail panel (responsive). */
+  padding-bottom: 360px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+}
+
+/* Card base styles */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.9rem;
+  box-shadow: 0 6px 20px rgba(10,10,20,0.04);
+  cursor: pointer;
+  /* Entrance animation uses transform and opacity only once via .in-view */
+  transition: box-shadow .18s ease, opacity .22s ease;
+  transform: none; /* don't change layout on click */
+  opacity: 1;
+  will-change: box-shadow, opacity;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* initial entrance: keep simple fade+translate only when cards first come into view */
+.card.in-view {
+  /* we use an inline transitionDelay via Vue getCardStyle() for a stagger effect */
+  opacity: 1;
+}
+
+/* focus */
+.card:focus { box-shadow: 0 12px 34px rgba(10,10,20,0.08); }
+
+/* active: visual highlight ONLY, no transform that would cause reflow/shift */
+.card.active {
+  /* subtle highlight only */
+  box-shadow: 0 16px 36px rgba(10,10,20,0.12);
+  border: 1px solid rgba(6,182,212,0.12);
+  /* do not apply translate/scale here — that caused shifting in your layout */
+  transform: none !important;
+}
+
+/* content inside card */
+.card-top { display:flex; gap:0.9rem; align-items:flex-start; }
+.card-icon {
+  width:56px; height:56px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(135deg,#f0f9ff,#ecfeff);
+  font-weight:700;
+}
+.icon { font-size:18px }
+.card-meta { flex:1; }
+.card-title { margin:0; font-size:1.05rem; display:flex; align-items:center; gap:0.5rem; }
+.card-excerpt { margin:0.25rem 0 0 0; color:#6b7280; font-size:0.95rem; }
+
+/* footer */
+.card-footer { display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem; color:#06b6d4; font-weight:600; }
+
+/* DETAILS (below the grid) */
+.industry-detail {
+  margin-top: 1.2rem;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+.detail-main { background: #fff; padding:1rem; border-radius:12px; box-shadow: 0 8px 26px rgba(10,10,20,0.04); }
+.detail-header { display:flex; flex-direction:column; gap:0.6rem; margin-bottom:0.8rem; }
+.detail-actions.simple { margin-top:0.3rem; }
+
+/* Tabs */
+.tabs { display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.75rem; }
+.tab-btn { padding:0.45rem 0.7rem; border-radius:8px; border:1px solid #e6eef2; background:#fff; cursor:pointer; font-size:0.95rem; }
+.tab-btn.selected { background:#06b6d4; color:#022; border-color:transparent; }
+
+/* panels */
+.tab-panel h4 { margin:0 0 0.5rem 0; }
+.bulleted { list-style: disc; padding-left:1.25rem; color:#374151; }
+.bulleted li { margin-bottom:0.45rem; }
+
+/* responsive */
+@media (min-width: 640px) {
+  .grid { grid-template-columns: repeat(2,1fr); }
+  .hero-inner { flex-direction:row; justify-content:space-between; align-items:center; }
+  .title { font-size:1.9rem; }
+}
+@media (min-width: 992px) {
+  .grid { grid-template-columns: repeat(3,1fr); gap:1rem; }
+  .container { padding: 1.5rem; }
+  /* larger screens: give more bottom reserve for details */
+  .grid-wrapper { padding-bottom: 420px; }
+}
+
+/* helpers */
+.lead { color:#374151; margin-bottom:0.75rem; }

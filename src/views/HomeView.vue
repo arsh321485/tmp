@@ -44,7 +44,7 @@
                         WHY TMP?
                     </h2> -->
                     <h2 class="selling-heading wow animate__animated animate__fadeInUp" data-wow-delay="2s">
-                        WHY TMP?
+                        WHY Test My Plan (TMP) ?
                     </h2>
 
                 </div>
@@ -125,10 +125,12 @@
                     <!-- 4 -->
                     <div class="col-md-6 col-lg-3 selling-col">
                         <div>
-                            <h3 class="selling-title">Proven track record</h3>
+                            <h3 class="selling-title">The False Sense of Security Problem</h3>
                             <p class="selling-text">
-                                Showcase successful case studies or client testimonials that demonstrate
-                                the effectiveness of your services.
+                                Organizations believe they are prepared because plans exist. But without real-world
+                                validation, leadership has no visibility into actual readiness, hidden dependencies, or
+                                team performance under pressure.
+
                             </p>
                         </div>
                         <div class="selling-icon-box">
@@ -227,57 +229,67 @@
 
         <!-- Animation video tab Why it Works -->
 
-      <section class="bp-section">
-    <div class="container-fluid">
+        <section class="bp-section">
+            <div class="container-fluid">
 
-      <!-- DESKTOP HEADERS ROW: visible on md+ only -->
-      <div class="row bp-headers gx-0 d-none d-md-flex">
-        <div class="col-6 bp-col">
-          <div class="bp-header">Bear the bottleneck</div>
-        </div>
-        <div class="col-6 bp-col">
-          <div class="bp-header">Or use Zapier</div>
-        </div>
-      </div>
+                <!-- DESKTOP HEADERS ROW: visible on md+ only -->
+                <div class="row bp-headers gx-0 d-none d-md-flex">
+                    <div class="col-6 bp-col">
+                        <div class="bp-header"> Manual → Bottleneck</div>
+                    </div>
+                    <div class="col-6 bp-col">
+                        <div class="bp-header">Automated → Orchestrated</div>
+                    </div>
+                </div>
 
-      <!-- MAIN: both columns present; note mobile-only headers inside columns below -->
-      <div class="row bp-main gx-0">
-        <!-- LEFT: will be full width on small screens -->
-        <div class="col-12 col-md-6 bp-column bp-left">
-          <!-- MOBILE HEADER (shown only on small screens) -->
-          <div class="bp-header d-block d-md-none text-center mb-2">Bear the bottleneck</div>
+                <!-- MAIN: both columns present; note mobile-only headers inside columns below -->
+                <div class="row bp-main gx-0">
+                    <!-- LEFT: will be full width on small screens -->
+                    <div class="col-12 col-md-6 bp-column bp-left">
+                        <!-- MOBILE HEADER (shown only on small screens) -->
+                        <div class="bp-header d-block d-md-none text-center mb-2">Manual → Bottleneck</div>
 
-          <div class="bp-pile-area">
-            <div class="bp-pile" aria-hidden="true">
-              <button class="pill" data-order="1"><span class="idx">①</span><span class="text">Have an idea</span></button>
-              <button class="pill" data-order="2"><span class="idx">②</span><span class="text">Submit a ticket to IT</span></button>
-              <button class="pill" data-order="3"><span class="idx">③</span><span class="text">Wait (they're swamped)</span></button>
-              <button class="pill" data-order="4"><span class="idx">④</span><span class="text">Follow up (they're still swamped).</span></button>
-              <button class="pill" data-order="5"><span class="idx">⑤</span><span class="text">Meet to clarify requirements.</span></button>
-              <button class="pill" data-order="6"><span class="idx">⑥</span><span class="text">Add it to the backlog</span></button>
-              <button class="pill" data-order="7"><span class="idx">⑦</span><span class="text">Wait weeks (or months)</span></button>
-              <button class="pill" data-order="8"><span class="idx">⑧</span><span class="text">See a prototype (it's not quite right)</span></button>
-              <button class="pill" data-order="9"><span class="idx">⑨</span><span class="text">Repeat</span></button>
+                        <div class="bp-pile-area">
+                            <div class="bp-pile" aria-hidden="true">
+                                <button class="pill" data-order="1"><span class="idx">①</span><span
+                                        class="text">External coordination testing</span></button>
+                                <button class="pill" data-order="2"><span class="idx">②</span><span class="text">Paper
+                                        plans</span></button>
+                                <button class="pill" data-order="3"><span class="idx">③</span><span
+                                        class="text">Continual testing of plans</span></button>
+                                <button class="pill" data-order="4"><span class="idx">④</span><span class="text">Not
+                                        aware</span></button>
+                                <button class="pill" data-order="5"><span class="idx">⑤</span><span class="text">No
+                                        clear dependencies</span></button>
+                                <button class="pill" data-order="6"><span class="idx">⑥</span><span class="text">Lack of
+                                        matrics</span></button>
+                                <button class="pill" data-order="7"><span class="idx">⑦</span><span class="text">Team
+                                        unaware of roles</span></button>
+                                <button class="pill" data-order="8"><span class="idx">⑧</span><span
+                                        class="text">Communication issues</span></button>
+                                <button class="pill" data-order="9"><span class="idx">⑨</span><span class="text">Peocess
+                                        steps</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: on mobile this column appears below left content so its mobile header will be after left pills -->
+                    <div class="col-12 col-md-6 bp-column bp-right">
+                        <!-- MOBILE HEADER (only on small screens) -->
+                        <div class="bp-header d-block d-md-none text-center mb-2">Automated → Orchestrated</div>
+
+                        <div class="bp-stack-area">
+                            <div class="bp-stack" aria-hidden="true">
+                                <div class="stack-item"><span class="idx">①</span><span>Executable Plans</span></div>
+                                <div class="stack-item"><span class="idx">②</span><span>Clear Roles</span></div>
+                                <div class="stack-item"><span class="idx">③</span><span>Communication Real Readiness
+                                        Insights</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /bp-main -->
             </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: on mobile this column appears below left content so its mobile header will be after left pills -->
-        <div class="col-12 col-md-6 bp-column bp-right">
-          <!-- MOBILE HEADER (only on small screens) -->
-          <div class="bp-header d-block d-md-none text-center mb-2">Or use Zapier</div>
-
-          <div class="bp-stack-area">
-            <div class="bp-stack" aria-hidden="true">
-              <div class="stack-item"><span class="idx">①</span><span>Have an idea</span></div>
-              <div class="stack-item"><span class="idx">②</span><span>IT says go for it</span></div>
-              <div class="stack-item"><span class="idx">③</span><span>You go for it</span></div>
-            </div>
-          </div>
-        </div>
-      </div> <!-- /bp-main -->
-    </div>
-  </section>
+        </section>
 
 
         <!-- ========== HERO BANNER STRIP ========== -->
@@ -691,16 +703,14 @@
                             <button class="faq-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne"
                                 aria-expanded="true" aria-controls="faqOne">
                                 <span class="faq-number">01</span>
-                                <span class="faq-question">What is Artificial Intelligence?</span>
+                                <span class="faq-question">What is TestMyPlan (TMP)?</span>
                                 <span class="faq-arrow">▴</span>
                             </button>
                             <div id="faqOne" class="collapse show" data-bs-parent="#faqAccordion">
                                 <div class="faq-answer">
-                                    Artificial Intelligence (AI) refers to systems that can perform
-                                    tasks which usually require human intelligence: understanding
-                                    language, recognizing patterns, making decisions, and learning
-                                    from data. At Neuros we focus on practical, business-ready AI
-                                    powered by modern neural networks.
+                                    TMP is an automated incident preparedness platform that converts your Cybersecurity,
+                                    Business Continuity, Data Privacy, and ESG plans into executable workflows,
+                                    real-world scenarios, and measurable readiness insights.
                                 </div>
                             </div>
                         </div>
@@ -711,16 +721,16 @@
                                 data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
                                 <span class="faq-number">02</span>
                                 <span class="faq-question">
-                                    How does Machine Learning relate to Artificial Intelligence?
+                                    How is TMP different from traditional tabletop drills?
                                 </span>
                                 <span class="faq-arrow">▴</span>
                             </button>
                             <div id="faqTwo" class="collapse" data-bs-parent="#faqAccordion">
                                 <div class="faq-answer">
-                                    Machine Learning (ML) is a subset of AI focused on algorithms that
-                                    learn from data rather than being explicitly programmed. Many of
-                                    our solutions combine ML, large language models, and traditional
-                                    software engineering to deliver robust systems.
+                                    Tabletops rely on manual coordination, static documents, and subjective evaluations.
+                                    TMP automates the entire process — from scenario execution to communication, role
+                                    assignment, and reporting — making preparedness continuous, measurable, and
+                                    repeatable.
                                 </div>
                             </div>
                         </div>
@@ -731,16 +741,15 @@
                                 data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
                                 <span class="faq-number">03</span>
                                 <span class="faq-question">
-                                    Is Artificial Intelligence replacing human jobs?
+                                    Do I need to upload my plans to get started?
                                 </span>
                                 <span class="faq-arrow">▴</span>
                             </button>
                             <div id="faqThree" class="collapse" data-bs-parent="#faqAccordion">
                                 <div class="faq-answer">
-                                    Our philosophy is augmentation over replacement. We automate
-                                    repetitive work so your teams can focus on strategic, creative and
-                                    relationship-driven tasks. We design each deployment with humans
-                                    in the loop and clear control mechanisms.
+                                    No. You can upload your plans or start with our pre-built threat and incident
+                                    templates. TMP’s Threat Agent can also guide you in selecting scenarios based on
+                                    your industry and technology environment.
                                 </div>
                             </div>
                         </div>
@@ -751,17 +760,15 @@
                                 data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">
                                 <span class="faq-number">04</span>
                                 <span class="faq-question">
-                                    What are the different types of Artificial Intelligence?
+                                    We already have documented plans. Why do we need TMP?
                                 </span>
                                 <span class="faq-arrow">▴</span>
                             </button>
                             <div id="faqFour" class="collapse" data-bs-parent="#faqAccordion">
                                 <div class="faq-answer">
-                                    Broadly, AI systems can be grouped into narrow AI designed for
-                                    specific tasks, and more general AI that can handle a wide range
-                                    of tasks with human-like flexibility. In practice, today’s
-                                    business systems mostly use narrow AI tailored to particular
-                                    problems.
+                                    Most plans are never tested or are tested only annually. TMP ensures your plans are
+                                    validated continuously, uncovering gaps, clarifying roles, and showing how your
+                                    teams actually respond under pressure.
                                 </div>
                             </div>
                         </div>
@@ -871,103 +878,11 @@
 
 
 
-        <!-- ========== CONTACT / GET IN TOUCH ========= -->
-        <section class="contact-section" id="contact">
-            <div class="container">
-                <div class="row gy-5 align-items-start">
-                    <!-- LEFT SIDE -->
-                    <div class="col-lg-6">
-                        <div class="contact-left-eyebrow">/ get in touch /</div>
-                        <h2 class="contact-left-title">
-                            We are always ready to help you and answer your questions
-                        </h2>
-                        <p class="contact-left-text">
-                            Pacific hake false trevally queen parrotfish black prickleback
-                            mosshead warbonnet sweeper. Greenling sleeper.
-                        </p>
-
-                        <div class="contact-info-columns">
-                            <!-- <div class="contact-info-block">
-                                <div class="contact-info-block-title">Call Center</div>
-                                <p>800 100 975 20 34</p>
-                                <p>+ (123) 1800-234-5678</p>
-                                <p style="margin-top: 10px;">800 100 975 20 34</p>
-                                <p>+ (123) 1800-234-5678</p>
-                            </div> -->
-
-                            <!-- <div class="contact-info-block">
-                                <div class="contact-info-block-title">Our Location</div>
-                                <p>USA, New York – 1060</p>
-                                <p>Str. First Avenue 1</p>
-                                <p style="margin-top: 10px;">USA, New York – 1060</p>
-                                <p>Str. First Avenue 1</p>
-                            </div> -->
-
-                            <!-- <div class="contact-info-block">
-                                <div class="contact-info-block-title">Email</div>
-                                <p><a href="mailto:neuros@mail.co">neuros@mail.co</a></p>
-                            </div> -->
-
-
-
-                            <div class="contact-info-block">
-                                <div class="contact-info-block-title fs-6">Social network</div>
-                                <div class="d-flex gap-3">
-                                    <i class="bi bi-linkedin fs-5"></i>
-                                    <i class="bi bi-twitter-x fs-5"></i>
-                                </div>
-                            </div>
-
-                            <div class="contact-info-block">
-                                <button type="submit" class="contact-submit-btn">
-
-                                    <span>SignUp</span>
-                                    <span class="contact-submit-icon-wrap">›</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- RIGHT SIDE – WHITE CARD -->
-                    <div class="col-lg-6">
-                        <div class="contact-panel">
-                            <div class="contact-panel-title">Get in Touch</div>
-                            <p class="contact-panel-text">
-                                Define your goals and identify areas where AI can add value to
-                                your business.
-                            </p>
-
-                            <form class="contact-form-modern">
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" placeholder="Full name" />
-                                </div>
-                                <div class="mb-3">
-                                    <input type="email" class="form-control" placeholder="Email" />
-                                </div>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" placeholder="Subject" />
-                                </div>
-                                <div class="mb-1">
-                                    <textarea rows="3" class="form-control" placeholder="Message"></textarea>
-                                </div>
-
-                                <div class="contact-submit-wrap">
-                                    <button type="submit" class="contact-submit-btn">
-                                        <span class="contact-submit-icon-wrap">›</span>
-                                        <span>Send a message</span>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
 
 
 
-
+        <MainContact />
         <!-- FOOTER -->
         <MainFooter />
     </div>
@@ -983,6 +898,7 @@
 import { defineComponent } from "vue";
 import MainNavbar from "../components/MainNavbar.vue";
 import MainFooter from "../components/MainFooter.vue";
+import MainContact from "@/components/MainContact.vue";
 
 /** Step shape */
 interface Step {
@@ -1019,6 +935,7 @@ export default defineComponent({
     components: {
         MainNavbar,
         MainFooter,
+        MainContact
     },
 
     data() {

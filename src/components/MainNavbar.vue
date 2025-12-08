@@ -103,8 +103,7 @@
           <div class="d-flex auth-buttons">
             <button class="btn link-btn m-0 p-0" @click.prevent>Signup /</button>
             <!-- <span class="slash">/</span> -->
-            <button class="btn link-btn m-0 p-0" @click.prevent>Login /</button>
-            <button class="btn link-btn m-0 p-0" @click.prevent>Partner</button>
+            <button class="btn link-btn m-0 p-0" @click.prevent>Login</button>
           </div>
 
           <button class="nav-toggle" @click="toggleMobileMenu" aria-label="Toggle menu">

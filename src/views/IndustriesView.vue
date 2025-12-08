@@ -2,6 +2,8 @@
   <div id="top" class="industries-page">
     <MainNavbar />
 
+     <RegulatoryWidget />
+
     <!-- HERO -->
     <section class="hero">
       <div class="container">
@@ -153,6 +155,7 @@ import { defineComponent, nextTick } from "vue";
 import MainNavbar from "@/components/MainNavbar.vue";
 import MainFooter from "@/components/MainFooter.vue";
 import MainContact from "@/components/MainContact.vue";
+import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
 
 type Industry = {
   slug: string;
@@ -170,7 +173,7 @@ type Industry = {
 
 export default defineComponent({
   name: "IndustriesPage",
-  components: { MainNavbar, MainFooter, MainContact },
+  components: { MainNavbar, MainFooter, MainContact, RegulatoryWidget },
   data() {
     return {
       pageTitle: "Industries",

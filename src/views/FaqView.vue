@@ -2,6 +2,8 @@
     <div id="top">
         <MainNavbar />
 
+         <RegulatoryWidget />
+
         <!-- ========== FAQ ========= -->
         <section class="faq-section" id="faq">
             <div class="container">
@@ -66,6 +68,7 @@ import { defineComponent } from "vue";
 import MainNavbar from "../components/MainNavbar.vue";
 import MainFooter from "../components/MainFooter.vue";
 import MainContact from "@/components/MainContact.vue";
+import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
 
 type FaqItem = {
     number: string;
@@ -78,7 +81,8 @@ export default defineComponent({
     components: {
         MainNavbar,
         MainFooter,
-        MainContact
+        MainContact,
+        RegulatoryWidget
     },
     data() {
         return {

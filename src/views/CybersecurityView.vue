@@ -1,6 +1,7 @@
 <template>
     <div id="top">
         <MainNavbar />
+        <RegulatoryWidget />
 
         <section class="cyber-hero position-relative">
             <!-- Background image -->
@@ -210,6 +211,7 @@ import { defineComponent } from "vue";
 import MainNavbar from "../components/MainNavbar.vue";
 import MainFooter from "../components/MainFooter.vue";
 import MainContact from "@/components/MainContact.vue";
+import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
 
 type Tab = {
     id: string;
@@ -224,6 +226,7 @@ export default defineComponent({
     name: "CybersecurityView",
     components: {
         MainNavbar,
+        RegulatoryWidget,
         MainFooter,
         MainContact
     },

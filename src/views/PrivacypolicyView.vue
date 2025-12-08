@@ -3,6 +3,8 @@
   <div id="top">
     <MainNavbar />
 
+     <RegulatoryWidget />
+
     <!-- PRIVACY POLICY -->
     <section class="privacy-wrapper">
       <div class="container-fluid">
@@ -112,6 +114,7 @@
 import MainNavbar from "../components/MainNavbar.vue";
 import MainFooter from "../components/MainFooter.vue";
 import MainContact from "@/components/MainContact.vue";
+import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
 
 export default {
   name: "PrivacypolicyView",
@@ -119,6 +122,7 @@ export default {
     MainNavbar,
     MainFooter,
     MainContact,
+    RegulatoryWidget
   },
 };
 </script>

@@ -2,6 +2,8 @@
   <div id="top">
     <MainNavbar />
 
+     <RegulatoryWidget />
+
     <!-- HERO -->
     <section
       class="about-us-hero-section mb-5"
@@ -317,6 +319,7 @@
 import MainContact from "@/components/MainContact.vue";
 import MainFooter from "../components/MainFooter.vue";
 import MainNavbar from "../components/MainNavbar.vue";
+import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
 
 export default {
   name: "AboutusView",
@@ -324,6 +327,7 @@ export default {
     MainNavbar,
     MainContact,
     MainFooter,
+    RegulatoryWidget
   },
   data() {
     return {

@@ -8,6 +8,11 @@
                         <div class="contact-left-eyebrow">/ get in touch /</div>
                         <h2 class="contact-left-title">
                             We are always ready to help you and answer your questions
+                             <button type="submit" class="contact-submit-btn">
+
+                                    <span>SignUp</span>
+                                    <span class="contact-submit-icon-wrap">›</span>
+                                </button>
                         </h2>
                         <p class="contact-left-text">
                             Pacific hake false trevally queen parrotfish black prickleback
@@ -15,27 +20,7 @@
                         </p>
 
                         <div class="contact-info-columns">
-                            <!-- <div class="contact-info-block">
-                                <div class="contact-info-block-title">Call Center</div>
-                                <p>800 100 975 20 34</p>
-                                <p>+ (123) 1800-234-5678</p>
-                                <p style="margin-top: 10px;">800 100 975 20 34</p>
-                                <p>+ (123) 1800-234-5678</p>
-                            </div> -->
-
-                            <!-- <div class="contact-info-block">
-                                <div class="contact-info-block-title">Our Location</div>
-                                <p>USA, New York – 1060</p>
-                                <p>Str. First Avenue 1</p>
-                                <p style="margin-top: 10px;">USA, New York – 1060</p>
-                                <p>Str. First Avenue 1</p>
-                            </div> -->
-
-                            <!-- <div class="contact-info-block">
-                                <div class="contact-info-block-title">Email</div>
-                                <p><a href="mailto:neuros@mail.co">neuros@mail.co</a></p>
-                            </div> -->
-
+                           
 
 
                             <div class="contact-info-block">
@@ -46,13 +31,9 @@
                                 </div>
                             </div>
 
-                            <div class="contact-info-block">
-                                <button type="submit" class="contact-submit-btn">
-
-                                    <span>SignUp</span>
-                                    <span class="contact-submit-icon-wrap">›</span>
-                                </button>
-                            </div>
+                            <!-- <div class="contact-info-block">
+                               
+                            </div> -->
                         </div>
                     </div>
 

@@ -5,6 +5,7 @@ import IndustriesView from '@/views/IndustriesView.vue'
 import CybersecurityView from '@/views/CybersecurityView.vue'
 import FaqView from '@/views/FaqView.vue'
 import AboutusView from '@/views/AboutusView.vue'
+import PrivacypolicyView from '@/views/PrivacypolicyView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -42,6 +43,12 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: AboutusView,
+    },
+
+    {
+      path: '/privacy-policy',
+      name: 'privacy-policy',
+      component: PrivacypolicyView,
     },
   ],
 })

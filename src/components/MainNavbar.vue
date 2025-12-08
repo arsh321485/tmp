@@ -103,7 +103,8 @@
           <div class="d-flex auth-buttons">
             <button class="btn link-btn m-0 p-0" @click.prevent>Signup /</button>
             <!-- <span class="slash">/</span> -->
-            <button class="btn link-btn m-0 p-0" @click.prevent>Login</button>
+            <button class="btn link-btn m-0 p-0" @click.prevent>Login /</button>
+            <button class="btn link-btn m-0 p-0" @click.prevent>Partner</button>
           </div>
 
           <button class="nav-toggle" @click="toggleMobileMenu" aria-label="Toggle menu">
@@ -227,7 +228,7 @@ export default defineComponent({
 /* the white pill (centered) */
 .nav-shell {
   width: 100%;
-  max-width: 1242px;
+  max-width: 1315px;
   /* control width of pill */
   background: linear-gradient(180deg, #fff, #fbfdff);
   border-radius: 999px;

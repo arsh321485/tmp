@@ -14,7 +14,7 @@
                             <span class="hero-heading-line">Incident Management</span>
                             <span class="hero-heading-line">
                                 Preparedness
-                                <span class="hero-word-gradient">testing as easy as</span>
+                                <span class="hero-word-gradient">testing easier than</span>
                             </span>
                             <span class="hero-heading-line hero-word-gradient">
                                 email
@@ -236,10 +236,10 @@
                 <!-- DESKTOP HEADERS ROW: visible on md+ only -->
                 <div class="row bp-headers gx-0 d-none d-md-flex">
                     <div class="col-6 bp-col">
-                        <div class="bp-header">Manual → Bottleneck</div>
+                        <div class="bp-header">Bear the bottleneck</div>
                     </div>
                     <div class="col-6 bp-col">
-                        <div class="bp-header">Automated → Orchestrated</div>
+                        <div class="bp-header">Or use Testmyplan</div>
                     </div>
                 </div>
 
@@ -248,37 +248,37 @@
                     <!-- LEFT -->
                     <div class="col-12 col-md-6 bp-column bp-left">
                         <div class="bp-header d-block d-md-none text-center mb-2">
-                            Manual → Bottleneck
+                           Bear the bottleneck
                         </div>
 
                         <div class="bp-pile-area">
                             <div class="bp-pile" aria-hidden="true">
-                                <button class="pill" data-order="1">
+                                <button class="pill" data-order="1"><span class="idx">①</span>
                                     <span class="text">External coordination testing</span>
                                 </button>
-                                <button class="pill" data-order="2">
+                                <button class="pill" data-order="2"><span class="idx">②</span>
                                     <span class="text">Paper plans</span>
                                 </button>
-                                <button class="pill" data-order="3">
+                                <button class="pill" data-order="3"><span class="idx">③</span>
                                     <span class="text">Continual testing of plans</span>
                                 </button>
-                                <button class="pill" data-order="4">
+                                <button class="pill" data-order="4"><span class="idx">④</span>
                                     <span class="text">Not aware</span>
                                 </button>
-                                <button class="pill" data-order="5">
+                                <button class="pill" data-order="5"><span class="idx">⑤</span>
                                     <span class="text">No clear dependencies</span>
                                 </button>
-                                <button class="pill" data-order="6">
+                                <button class="pill" data-order="6"><span class="idx">⑥</span>
                                     <span class="text">Lack of matrics</span>
                                 </button>
-                                <button class="pill" data-order="7">
+                                <button class="pill" data-order="7"><span class="idx">⑦</span>
                                     <span class="text">Team unaware of roles</span>
                                 </button>
-                                <button class="pill" data-order="8">
+                                <button class="pill" data-order="8"><span class="idx">⑧</span>
                                     <span class="text">Communication issues</span>
                                 </button>
-                                <button class="pill" data-order="9">
-                                    <span class="text">Peocess steps</span>
+                                <button class="pill" data-order="9"><span class="idx">⑨</span>
+                                    <span class="text">Process steps</span>
                                 </button>
                             </div>
                         </div>
@@ -287,19 +287,19 @@
                     <!-- RIGHT -->
                     <div class="col-12 col-md-6 bp-column bp-right">
                         <div class="bp-header d-block d-md-none text-center mb-2">
-                            Automated → Orchestrated
+                           Or use Testmyplan
                         </div>
 
                         <div class="bp-stack-area">
                             <div class="bp-stack" aria-hidden="true">
-                                <div class="stack-item">
-                                    <span>Executable Plans</span>
+                                <div class="stack-item"><span class="idx">①</span>
+                                    <span>Add Users to teams</span>
                                 </div>
-                                <div class="stack-item">
-                                    <span>Clear Roles</span>
+                                <div class="stack-item"><span class="idx">②</span>
+                                    <span>Launch Plan</span>
                                 </div>
-                                <div class="stack-item">
-                                    <span>Communication Real Readiness Insights</span>
+                                <div class="stack-item"><span class="idx">③</span>
+                                    <span>Prepared and compliant</span>
                                 </div>
                             </div>
                         </div>

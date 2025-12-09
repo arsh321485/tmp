@@ -14,13 +14,12 @@
       <div class="container position-relative about-us-hero-inner">
         <div class="row align-items-center">
           <div class="col-lg-7" data-animate data-delay="100">
-            <h1 class="about-us-head-title">Who We Are</h1>
-            <p class="about-us-hero-sub lead">
+            <h1 class="about-us-head-title pt-5">Who We Are</h1>
+            <p class="about-us-hero-sub lead pt-4">
               TestMyPlan (TMP) is a modern Preparedness Automation Platform designed
               to ensure organizations are truly ready for Cybersecurity incidents,
               Business Continuity disruptions, Data Privacy breaches, and ESG-related events.
             </p>
-            <button class="about-us-btn border-0 p-2 px-3 py-2">Apply as a partner</button>
           </div>
 
           <div

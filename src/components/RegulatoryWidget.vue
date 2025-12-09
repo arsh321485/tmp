@@ -1,34 +1,13 @@
 <template>
   <div>
     <!-- Floating trigger button (GLOBAL) -->
-    <button
-      type="button"
-      class="reg-trigger"
-      @click="toggleRegModal"
-      aria-label="Open regulatory requirements"
-    >
+    <button type="button" class="reg-trigger" @click="toggleRegModal" aria-label="Open regulatory requirements">
       <span class="reg-trigger-icon">
         <!-- simple chat/info icon -->
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-          <rect
-            x="4"
-            y="4"
-            width="16"
-            height="13"
-            rx="2"
-            ry="2"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.6"
-          />
-          <path
-            d="M9 18l3 3 3-3"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.6"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+          <rect x="4" y="4" width="16" height="13" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="1.6" />
+          <path d="M9 18l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+            stroke-linejoin="round" />
         </svg>
       </span>
     </button>
@@ -47,32 +26,22 @@
             <!-- left: icon + title -->
             <div class="reg-modal-header-left">
               <div class="reg-modal-icon">
-                <span>ℹ️</span>
+                <img src="../assets/images/logo-small.png" alt="Logo" />
               </div>
+
               <div>
-                <p class="reg-modal-eyebrow">Regulatory requirement</p>
-                <h2 class="reg-modal-title">Welcome to Testmyplan.io</h2>
+                <!-- <p class="reg-modal-eyebrow">Regulatory requirement</p> -->
+                <h2 class="reg-modal-title">Regulatory requirement</h2>
               </div>
             </div>
 
             <!-- right: location selector -->
             <div class="reg-modal-header-right">
-              <label
-                class="reg-modal-location-label"
-                for="reg-location-select"
-              >
-               
+              <label class="reg-modal-location-label" for="reg-location-select">
+
               </label>
-              <select
-                id="reg-location-select"
-                class="reg-modal-location-select mx-5"
-                v-model="userCountry"
-              >
-                <option
-                  v-for="loc in locationOptions"
-                  :key="loc"
-                  :value="loc"
-                >
+              <select id="reg-location-select" class="reg-modal-location-select mx-5" v-model="userCountry">
+                <option v-for="loc in locationOptions" :key="loc" :value="loc">
                   {{ loc }}
                 </option>
               </select>
@@ -111,13 +80,9 @@
           <!-- actions -->
           <div class="reg-modal-actions">
             <button type="button" class="reg-modal-cta" @click="closeRegModal">
-              That’s great!
+              Get Started
             </button>
-            <button
-              type="button"
-              class="reg-modal-secondary"
-              @click="goToRegulatoryPage"
-            >
+            <button type="button" class="reg-modal-secondary" @click="goToRegulatoryPage">
               View all requirements
             </button>
           </div>
@@ -194,7 +159,8 @@ export default defineComponent({
 .reg-trigger {
   position: fixed;
   top: 96px;
-  right: 16px; /* ✅ right side under navbar */
+  right: 16px;
+  /* ✅ right side under navbar */
   z-index: 1040;
   width: 52px;
   height: 52px;
@@ -222,6 +188,13 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
 }
+
+.reg-modal-icon img {
+  width: 40px;       /* adjust as needed */
+  height: 48px;
+  object-fit: contain;
+}
+
 
 /* On mobile, move it to bottom-right */
 @media (max-width: 768px) {
@@ -274,6 +247,7 @@ export default defineComponent({
   cursor: pointer;
   color: #9ca3af;
 }
+
 .reg-modal-close:hover {
   color: #e5e7eb;
 }
@@ -293,7 +267,7 @@ export default defineComponent({
   gap: 0.75rem;
 }
 
-.reg-modal-icon {
+/* .reg-modal-icon {
   width: 40px;
   height: 40px;
   border-radius: 999px;
@@ -302,7 +276,7 @@ export default defineComponent({
   background: radial-gradient(circle at 30% 0%, #22c55e, #16a34a);
   box-shadow: 0 10px 24px rgba(22, 163, 74, 0.5);
   font-size: 20px;
-}
+} */
 
 /* location selector block */
 .reg-modal-header-right {
@@ -330,6 +304,7 @@ export default defineComponent({
   outline: none;
   cursor: pointer;
 }
+
 .reg-modal-location-select:focus {
   border-color: #22c55e;
   box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.55);
@@ -408,32 +383,39 @@ export default defineComponent({
 }
 
 .reg-modal-cta {
-  background: #22c55e;
-  color: #022c22;
-  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35);
-}
-.reg-modal-cta:hover {
-  background: #16a34a;
+  /* background: #22c55e; */
+      background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+  /* color: #022c22; */
+  color: #fff;
+  /* box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35); */
 }
 
+/* .reg-modal-cta:hover {
+  background: #16a34a;
+} */
+
 .reg-modal-secondary {
-  background: transparent;
-  border-color: rgba(148, 163, 184, 0.9);
+  /* background: transparent; */
+    background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+  /* border-color: rgba(148, 163, 184, 0.9); */
   color: #e5e7eb;
 }
-.reg-modal-secondary:hover {
+
+/* .reg-modal-secondary:hover {
   background: rgba(15, 23, 42, 0.9);
-}
+} */
 
 /* Vue transition – opacity only */
 .reg-slide-enter-active,
 .reg-slide-leave-active {
   transition: opacity 0.45s ease;
 }
+
 .reg-slide-enter-from,
 .reg-slide-leave-to {
   opacity: 0;
 }
+
 .reg-slide-enter-to,
 .reg-slide-leave-from {
   opacity: 1;
@@ -445,10 +427,12 @@ export default defineComponent({
     transform: translateX(120%) scale(0.96);
     opacity: 0;
   }
+
   60% {
     transform: translateX(-8px) scale(1.02);
     opacity: 1;
   }
+
   100% {
     transform: translateX(0) scale(1);
     opacity: 1;

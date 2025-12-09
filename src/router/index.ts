@@ -50,7 +50,18 @@ const router = createRouter({
       name: 'privacy-policy',
       component: PrivacypolicyView,
     },
+
+   
   ],
+
+  scrollBehavior(to) {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      };
+    }
+  },
 })
 
 export default router

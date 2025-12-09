@@ -15,13 +15,32 @@
           <div class="row gy-4">
             <div class="col-6 col-md-4 footer-links-group">
               <h6>Company</h6>
-              <ul>
+              <!-- <ul>
                 <li><a href="#industries">Industries</a></li>
                 <li><a href="#badge">Badge Verification</a></li>
                 <li><a href="#about-us">About Us</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#faq">FAQ</a></li>
+              </ul> -->
+
+              <ul>
+                <li>
+                  <router-link to="/industries">Industries</router-link>
+                </li>
+                <li>
+                  <router-link to="/badge">Badge Verification</router-link>
+                </li>
+                <li>
+                  <router-link to="/about">About Us</router-link>
+                </li>
+                <li>
+                  <router-link to="/pricing">Pricing</router-link>
+                </li>
+                <li>
+                  <router-link to="/faq">FAQ</router-link>
+                </li>
               </ul>
+
             </div>
             <div class="col-6 col-md-4 footer-links-group">
               <h6>Modules</h6>

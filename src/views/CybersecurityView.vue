@@ -154,9 +154,11 @@
         </section>
 
 
-        <section class="tmp-solves container py-5" aria-labelledby="tmp-solves-title">
-            <header class="mb-4 text-center">
-                <h2 id="tmp-solves-title" class="section-heading">How TMP Solves Cyber Preparedness</h2>
+        <section class=" steps-hero py-5 " aria-labelledby="tmp-solves-title">
+            <div class="container">
+
+            <header class="mb-4 steps-left">
+                <h2 id="tmp-solves-title" class="Steps-title" style="font-weight: 600;">How TMP Solves Cyber Preparedness</h2>
                 <p class="section-sub">Practical, continuous, and auditor-ready capabilities that close the people &amp;
                     process gap.</p>
             </header>
@@ -197,6 +199,8 @@
                         <p v-if="t.note" class="panel-note"><strong>{{ t.note }}</strong></p>
                     </article>
                 </div>
+            </div>
+
             </div>
         </section>
 

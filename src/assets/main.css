@@ -3793,7 +3793,7 @@ footer {
 .tab-label {
     font-weight: 800;
     font-size: 0.98rem;
-    color: #07122a;
+    /* color: #07122a; */
 }
 
 /* panels */
@@ -3809,11 +3809,15 @@ footer {
     transition: opacity .22s ease, transform .22s ease;
     border: 1px solid rgba(12, 18, 32, 0.04);
 }
+.panel-note{
+    color: #07122a;
+}
 
 .panel-title {
     margin: 0 0 .6rem;
     font-size: 1.04rem;
     font-weight: 900;
+    color: #07122a;
 }
 
 .panel-desc {
@@ -4283,6 +4287,8 @@ footer {
 .about-us-hero-sub {
     color: rgba(255, 255, 255, 0.92);
     max-width: 720px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .about-us-hero-card {
@@ -4329,7 +4335,7 @@ footer {
 /* ================= ABOUT CARDS ================= */
 .about-us-wrapper {
     padding: 100px 20px;
-    background: #fafafa;
+    background: #f4f5f8;
 }
 
 .about-us-container {
@@ -4482,7 +4488,7 @@ footer {
 /* ================= WHAT WE DO ================= */
 .section-heading {
     font-weight: 800;
-    color: var(--text);
+    /* color: var(--text); */
     font-size: 1.4rem;
 }
 

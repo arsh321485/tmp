@@ -311,7 +311,7 @@ export default defineComponent({
                     title: "Auditor-Ready Cyber Evidence",
                     intro: "TMP produces evidence mapped to common frameworks so audits are straightforward and defensible.",
                     items: [
-                        "ISO 27001 A.5, A.16 controls",
+                        "ISO 27001, Control 5.24 - Information security incident management planning and preparation",
                         'NIST CSF "Respond" & "Recover"',
                         "SOC 2 CC7.x",
                         "RBI Cyber Security directions",

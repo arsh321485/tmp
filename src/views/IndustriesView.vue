@@ -57,7 +57,7 @@ import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
 import { defineComponent } from "vue";
 
 // ---- TYPES ----
-type TabKey = "cybersecurity" | "businessContinuity" | "dataBreach" | "hse";
+type TabKey = "cybersecurity" | "businessContinuity" | "dataPrivacy" | "Esg";
 
 interface Section {
   title: string;
@@ -108,8 +108,8 @@ export default defineComponent({
               "Labor disputes: strikes causing widespread cancellations and delays.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "Theft of personal data: passenger PII & payment data targeted for fraud.",
@@ -119,8 +119,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Accidents: plane crashes and tarmac incidents despite heavy regulation.",
@@ -158,8 +158,8 @@ export default defineComponent({
               "Regulatory Compliance: fines and legal action.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "IP Theft: R&D and process data targeted by competitors.",
@@ -168,8 +168,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Worker Health & Safety: exposures to toxic chemicals and high-pressure systems.",
@@ -206,8 +206,8 @@ export default defineComponent({
               "Legal & Regulatory Compliance: HIPAA and other privacy laws.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "Insider Threats: internal misuse of patient data.",
@@ -217,8 +217,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Occupational Health and Safety: exposures to infectious diseases and hazardous chemicals.",
@@ -255,8 +255,8 @@ export default defineComponent({
               "Regulatory Compliance Issues: fines and shutdowns.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "Insider Threats: employees misusing sensitive info.",
@@ -266,8 +266,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Occupational Safety: slips, trips, falls and machine hazards.",
@@ -302,8 +302,8 @@ export default defineComponent({
               "Regulatory Compliance: safety and emissions rules.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "Connected Car Data Breaches: location and personal data exposure.",
@@ -312,7 +312,7 @@ export default defineComponent({
             ],
           },
 
-          hse: {
+          Esg: {
             title: "04. Hse",
             subtitle: "Protect customer data",
             points: [
@@ -350,8 +350,8 @@ export default defineComponent({
               "Employee safety: fieldwork hazards requiring strong safety programs.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "APTs: long-term targeted exfiltration of data.",
@@ -359,8 +359,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Electrocution: risks for tower and line workers.",
@@ -399,8 +399,8 @@ export default defineComponent({
               "Supply chain disruptions: shortages in F&B and linen supplies.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "Insider threats: employees exposing guest data.",
@@ -411,8 +411,8 @@ export default defineComponent({
           },
 
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Fire safety: vital precautions in kitchens and guest areas.",
@@ -451,8 +451,8 @@ export default defineComponent({
               "Economic downturns: commodity price volatility.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "Insider threats: employees or contractors leaking data.",
@@ -461,8 +461,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Occupational hazards: dust, noise, vibration, and radiation exposures.",
@@ -503,8 +503,8 @@ export default defineComponent({
               "Regulatory compliance: fines & legal action for breaches.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "Insider threats: staff exfiltrating PII or payment data.",
@@ -514,8 +514,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Fire and emergency response: needs robust procedures.",
@@ -551,8 +551,8 @@ export default defineComponent({
               "Regulatory Compliance: building code and permit problems.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "Third-party data breaches: subcontractor systems exposing project data.",
@@ -561,8 +561,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Falls from heights: scaffolding, roofs and ladders risks.",
@@ -599,8 +599,8 @@ export default defineComponent({
               "Human error: operational mistakes costing time and data.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "Phishing attacks: credential theft and account takeover.",
@@ -610,8 +610,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Falls from heights: scaffolding, roofs and ladders risks.",
@@ -647,8 +647,8 @@ export default defineComponent({
               "Health & Safety Risks: serious operational consequences.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "Phishing & Spear-phishing attacks: targeted attacks.",
@@ -657,8 +657,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Workplace accidents: drilling and transport hazards.",
@@ -696,8 +696,8 @@ export default defineComponent({
               "Data loss: affecting product availability and trials.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "Insider threats: staff leaking IP or PHI.",
@@ -706,8 +706,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Chemical hazards: exposure to APIs, solvents and reagents.",
@@ -747,8 +747,8 @@ export default defineComponent({
               "Theft & vandalism: inventory & property loss.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "POS attacks: payment card data compromises.",
@@ -757,8 +757,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Employee safety: lifting, forklift and slip/trip risks.",
@@ -795,8 +795,8 @@ export default defineComponent({
               "Accidents & equipment failure: lost cargo and downtime.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "Third-party breaches: vendor exposures leaking shipper/customer data.",
@@ -804,8 +804,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Ship collisions & groundings: pollution and crew harm.",
@@ -844,8 +844,8 @@ export default defineComponent({
               "Regulatory compliance: fines for non-compliance.",
             ],
           },
-          dataBreach: {
-            title: "03. Data Breach",
+          dataPrivacy: {
+            title: "03. Data Privacy",
             subtitle: "Protect customer data",
             points: [
               "Insider threats: staff leaking route or passenger data.",
@@ -853,8 +853,8 @@ export default defineComponent({
             ],
           },
 
-          hse: {
-            title: "04. Hse",
+          Esg: {
+            title: "04. Esg",
             subtitle: "Protect customer data",
             points: [
               "Accidents: heavy-vehicle crashes causing serious injuries.",
@@ -876,8 +876,8 @@ export default defineComponent({
     const tabs: Tab[] = [
       { key: "cybersecurity", label: "Cybersecurity" },
       { key: "businessContinuity", label: "Business Continuity" },
-      { key: "dataBreach", label: "Data Breach" },
-      { key: "hse", label: "Hse" },
+      { key: "dataPrivacy", label: "Data Privacy" },
+      { key: "Esg", label: "Esg" },
     ];
 
     return {

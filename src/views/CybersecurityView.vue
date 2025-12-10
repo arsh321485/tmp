@@ -3,7 +3,7 @@
         <MainNavbar />
         <RegulatoryWidget />
 
-        <section class="cyber-hero position-relative">
+        <section class="cyber-hero position-relative delayed-section" style="animation-delay: 100ms;">
             <!-- Background image -->
             <div class="cyber-bg"></div>
 
@@ -47,7 +47,9 @@
         </section>
 
 
-        <section class="cyber-reality container py-5" aria-labelledby="cyber-reality-title">
+        <section class="cyber-reality container py-5 delayed-section" aria-labelledby="cyber-reality-title"
+            style="animation-delay: 300ms;">
+
             <div class="header mb-4">
                 <h2 id="cyber-reality-title" class="cyber-section-title">The Cyber Reality</h2>
                 <p class="cyber-section-sub">Key problems that make technical tools ineffective without prepared people.
@@ -154,52 +156,56 @@
         </section>
 
 
-        <section class=" steps-hero py-5 " aria-labelledby="tmp-solves-title">
+        <section class="steps-hero py-5 delayed-section" aria-labelledby="tmp-solves-title"
+            style="animation-delay: 500ms;">
+
             <div class="container">
 
-            <header class="mb-4 steps-left">
-                <h2 id="tmp-solves-title" class="Steps-title" style="font-weight: 600;">How TMP Solves Cyber Preparedness</h2>
-                <p class="section-sub">Practical, continuous, and auditor-ready capabilities that close the people &amp;
-                    process gap.</p>
-            </header>
+                <header class="mb-4 steps-left">
+                    <h2 id="tmp-solves-title" class="Steps-title" style="font-weight: 600;">How TMP Solves Cyber
+                        Preparedness</h2>
+                    <p class="section-sub">Practical, continuous, and auditor-ready capabilities that close the people
+                        &amp;
+                        process gap.</p>
+                </header>
 
-            <div class="solves-wrap">
-                <!-- Tabs (left on desktop, top on mobile) -->
-                <nav class="tabs" role="tablist" :aria-orientation="isMobile ? 'horizontal' : 'vertical'">
-                    <button v-for="(t, i) in tabs" :key="t.id" :id="'tab-' + t.id"
-                        :class="['tab-btn', { active: active === i }]" role="tab"
-                        :aria-selected="active === i ? 'true' : 'false'" :aria-controls="'panel-' + t.id"
-                        @click="setActive(i)" @keyup.enter.space.prevent="setActive(i)">
-                        <span class="tab-num">{{ (i + 1).toString().padStart(2, '0') }}</span>
-                        <span class="tab-label">{{ t.title }}</span>
-                    </button>
-                </nav>
+                <div class="solves-wrap">
+                    <!-- Tabs (left on desktop, top on mobile) -->
+                    <nav class="tabs" role="tablist" :aria-orientation="isMobile ? 'horizontal' : 'vertical'">
+                        <button v-for="(t, i) in tabs" :key="t.id" :id="'tab-' + t.id"
+                            :class="['tab-btn', { active: active === i }]" role="tab"
+                            :aria-selected="active === i ? 'true' : 'false'" :aria-controls="'panel-' + t.id"
+                            @click="setActive(i)" @keyup.enter.space.prevent="setActive(i)">
+                            <span class="tab-num">{{ (i + 1).toString().padStart(2, '0') }}</span>
+                            <span class="tab-label">{{ t.title }}</span>
+                        </button>
+                    </nav>
 
-                <!-- Content panels -->
-                <div class="panels">
-                    <article v-for="(t, i) in tabs" :key="t.id" :id="'panel-' + t.id" class="panel" role="tabpanel"
-                        :aria-labelledby="'tab-' + t.id" v-show="active === i">
-                        <h3 class="panel-title">{{ t.title }}</h3>
-                        <p class="panel-desc" v-if="t.intro">{{ t.intro }}</p>
+                    <!-- Content panels -->
+                    <div class="panels">
+                        <article v-for="(t, i) in tabs" :key="t.id" :id="'panel-' + t.id" class="panel" role="tabpanel"
+                            :aria-labelledby="'tab-' + t.id" v-show="active === i">
+                            <h3 class="panel-title">{{ t.title }}</h3>
+                            <p class="panel-desc" v-if="t.intro">{{ t.intro }}</p>
 
-                        <div v-if="t.examples && t.examples.length" class="panel-examples">
-                            <strong class="examples-label">Examples:</strong>
-                            <ul class="examples-list">
-                                <li v-for="(ex, k) in t.examples" :key="k">{{ ex }}</li>
-                            </ul>
-                        </div>
+                            <div v-if="t.examples && t.examples.length" class="panel-examples">
+                                <strong class="examples-label">Examples:</strong>
+                                <ul class="examples-list">
+                                    <li v-for="(ex, k) in t.examples" :key="k">{{ ex }}</li>
+                                </ul>
+                            </div>
 
-                        <div v-if="t.items && t.items.length" class="panel-steps">
-                            <strong class="examples-label">Key steps:</strong>
-                            <ul class="steps-list">
-                                <li v-for="(it, j) in t.items" :key="j">{{ it }}</li>
-                            </ul>
-                        </div>
+                            <div v-if="t.items && t.items.length" class="panel-steps">
+                                <strong class="examples-label">Key steps:</strong>
+                                <ul class="steps-list">
+                                    <li v-for="(it, j) in t.items" :key="j">{{ it }}</li>
+                                </ul>
+                            </div>
 
-                        <p v-if="t.note" class="panel-note"><strong>{{ t.note }}</strong></p>
-                    </article>
+                            <p v-if="t.note" class="panel-note"><strong>{{ t.note }}</strong></p>
+                        </article>
+                    </div>
                 </div>
-            </div>
 
             </div>
         </section>
@@ -352,7 +358,3 @@ export default defineComponent({
     },
 });
 </script>
-
-
-
-

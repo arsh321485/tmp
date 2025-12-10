@@ -60,6 +60,15 @@
         <div>© {{ currentYear }} TestMyPlan. All rights reserved.</div>
         <div class="d-flex align-items-center gap-2">
 
+          <!-- <router-link to="/cookies">
+            <span>Cookies</span>
+          </router-link> -->
+
+          <a href="javascript:void(0)" @click="openCookies">
+            <span>Cookies</span>
+          </a>
+
+
           <router-link to="/privacy-policy">
             <span>Privacy Policy</span>
           </router-link>
@@ -71,13 +80,11 @@
   </footer>
 </template>
 
-<script lang="ts">
-export default {
-  name: "MainFooter",
-  data() {
-    return {
-      currentYear: new Date().getFullYear(),
-    };
-  },
-};
+<script setup lang="ts">
+const currentYear = new Date().getFullYear();
+
+function openCookies() {
+  window.openCookiesModal?.();
+}
 </script>
+

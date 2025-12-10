@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import CookiesModal from "@/components/CookiesModal.vue";
 // import HelloWorld from './components/HelloWorld.vue'
 </script>
 
@@ -19,5 +20,6 @@ import { RouterView } from 'vue-router'
   
 
   <RouterView />
+    <CookiesModal />
 </template>
 

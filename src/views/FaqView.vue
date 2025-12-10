@@ -2,10 +2,10 @@
     <div id="top">
         <MainNavbar />
 
-         <RegulatoryWidget />
+        <RegulatoryWidget />
 
         <!-- ========== FAQ ========= -->
-        <section class="faq-section" id="faq">
+        <section class="faq-section delayed-faq" id="faq" style="animation-delay: 300ms;">
             <div class="container">
                 <div class="faq-shell">
                     <!-- header -->
@@ -182,5 +182,3 @@ export default defineComponent({
     },
 });
 </script>
-
-

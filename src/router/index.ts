@@ -6,6 +6,8 @@ import CybersecurityView from '@/views/CybersecurityView.vue'
 import FaqView from '@/views/FaqView.vue'
 import AboutusView from '@/views/AboutusView.vue'
 import PrivacypolicyView from '@/views/PrivacypolicyView.vue'
+import CookiesModal from '@/components/CookiesModal.vue'
+import RegulatoryRequirementsView from '@/views/RegulatoryRequirementsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +52,19 @@ const router = createRouter({
       name: 'privacy-policy',
       component: PrivacypolicyView,
     },
+
+      {
+      path: '/cookies',
+      name: 'cookies',
+      component: CookiesModal,
+    },
+
+    {
+      path: '/regulatory-requirments',
+      name: 'regulatory-requirments',
+      component: RegulatoryRequirementsView,
+    },
+
 
    
   ],

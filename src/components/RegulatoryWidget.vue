@@ -79,12 +79,20 @@
 
           <!-- actions -->
           <div class="reg-modal-actions">
-            <button type="button" class="reg-modal-cta" @click="closeRegModal">
+            <!-- <button type="button" class="reg-modal-cta" @click="closeRegModal">
               Get Started
             </button>
             <button type="button" class="reg-modal-secondary" @click="goToRegulatoryPage">
               View all requirements
-            </button>
+            </button> -->
+            <router-link to="/get-started" class="reg-modal-cta">
+              Get Started
+            </router-link>
+
+            <router-link to="/regulatory-requirments" class="reg-modal-secondary">
+              View all requirements
+            </router-link>
+
           </div>
         </div>
       </div>
@@ -190,7 +198,8 @@ export default defineComponent({
 }
 
 .reg-modal-icon img {
-  width: 40px;       /* adjust as needed */
+  width: 40px;
+  /* adjust as needed */
   height: 48px;
   object-fit: contain;
 }
@@ -305,10 +314,10 @@ export default defineComponent({
   cursor: pointer;
 }
 
-.reg-modal-location-select:focus {
+/* .reg-modal-location-select:focus {
   border-color: #22c55e;
   box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.55);
-}
+} */
 
 /* eyebrow + title */
 .reg-modal-eyebrow {
@@ -384,7 +393,7 @@ export default defineComponent({
 
 .reg-modal-cta {
   /* background: #22c55e; */
-      background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
   /* color: #022c22; */
   color: #fff;
   /* box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35); */
@@ -396,7 +405,7 @@ export default defineComponent({
 
 .reg-modal-secondary {
   /* background: transparent; */
-    background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
   /* border-color: rgba(148, 163, 184, 0.9); */
   color: #e5e7eb;
 }

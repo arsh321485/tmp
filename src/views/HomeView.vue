@@ -2,7 +2,7 @@
     <div id="top">
         <MainNavbar />
 
-          <RegulatoryWidget />
+        <RegulatoryWidget />
 
 
         <!-- HERO TOP -->
@@ -248,7 +248,7 @@
                     <!-- LEFT -->
                     <div class="col-12 col-md-6 bp-column bp-left">
                         <div class="bp-header d-block d-md-none text-center mb-2">
-                           Bear the bottleneck
+                            Bear the bottleneck
                         </div>
 
                         <div class="bp-pile-area">
@@ -287,7 +287,7 @@
                     <!-- RIGHT -->
                     <div class="col-12 col-md-6 bp-column bp-right">
                         <div class="bp-header d-block d-md-none text-center mb-2">
-                           Or use Testmyplan
+                            Or use Testmyplan
                         </div>
 
                         <div class="bp-stack-area">
@@ -344,6 +344,28 @@
             </div>
         </section>
 
+        <!-- Banner section running banner -->
+        <section class="running-banner-section">
+            <div class="running-banner red-banner">
+                <div class="banner-track">
+                    <span>Technology / Artificial Intelligence</span>
+                    <span>Technology / Artificial Intelligence</span>
+                    <span>Technology / Artificial Intelligence</span>
+                    <span>Technology / Artificial Intelligence</span>
+                </div>
+            </div>
+
+            <div class="running-banner black-banner">
+                <div class="banner-track reverse">
+                    <span>Shaping the future of technology / Artificial Intelligence</span>
+                    <span>Shaping the future of technology / Artificial Intelligence</span>
+                    <span>Shaping the future of technology / Artificial Intelligence</span>
+                    <span>Shaping the future of technology / Artificial Intelligence</span>
+                </div>
+            </div>
+        </section>
+
+
         <!-- ========== HERO MAIN – UNLEASHING ========= -->
         <section class="hero-main">
             <div class="hero-main-blob-big"></div>
@@ -375,109 +397,97 @@
         </section>
 
         <!-- Faq section -->
-         <section class="faq-section" id="faq">
-    <div class="container">
-        <div class="faq-shell">
-            <!-- header -->
-            <div class="faq-header">
-                <div class="faq-eyebrow">/ faq /</div>
-                <h2 class="faq-title">Everything you need to know about</h2>
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="faq-shell">
+                    <!-- header -->
+                    <div class="faq-header">
+                        <div class="faq-eyebrow">/ faq /</div>
+                        <h2 class="faq-title">Everything you need to know about</h2>
+                    </div>
+
+                    <!-- accordion -->
+                    <div id="faqAccordion" class="faq-list">
+
+                        <!-- FAQ 01 -->
+                        <div class="faq-item">
+                            <button class="faq-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1"
+                                aria-expanded="true" aria-controls="faq-1">
+                                <span class="faq-number">01</span>
+                                <span class="faq-question">What is TestMyPlan (TMP)?</span>
+                                <span class="faq-arrow">▴</span>
+                            </button>
+
+                            <div id="faq-1" class="collapse show" data-bs-parent="#faqAccordion">
+                                <div class="faq-answer">
+                                    TMP is an automated incident preparedness platform that converts your
+                                    Cybersecurity, Business Continuity, Data Privacy, and ESG plans into
+                                    executable workflows, real-world scenarios, and measurable readiness insights.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 02 -->
+                        <div class="faq-item">
+                            <button class="faq-toggle collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq-2" aria-expanded="false" aria-controls="faq-2">
+                                <span class="faq-number">02</span>
+                                <span class="faq-question">How is TMP different from traditional tabletop drills?</span>
+                                <span class="faq-arrow">▴</span>
+                            </button>
+
+                            <div id="faq-2" class="collapse" data-bs-parent="#faqAccordion">
+                                <div class="faq-answer">
+                                    Tabletops rely on manual coordination, static documents, and subjective evaluations.
+                                    TMP automates the entire process — from scenario execution to communication,
+                                    role assignment, and reporting — making preparedness continuous, measurable,
+                                    and repeatable.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 03 -->
+                        <div class="faq-item">
+                            <button class="faq-toggle collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq-3" aria-expanded="false" aria-controls="faq-3">
+                                <span class="faq-number">03</span>
+                                <span class="faq-question">Do I need to upload my plans to get started?</span>
+                                <span class="faq-arrow">▴</span>
+                            </button>
+
+                            <div id="faq-3" class="collapse" data-bs-parent="#faqAccordion">
+                                <div class="faq-answer">
+                                    No. You can upload your plans or start with our pre-built threat and incident
+                                    templates. TMP’s Threat Agent can also guide you in selecting scenarios based
+                                    on your industry and technology environment.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 04 -->
+                        <div class="faq-item">
+                            <button class="faq-toggle collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq-4" aria-expanded="false" aria-controls="faq-4">
+                                <span class="faq-number">04</span>
+                                <span class="faq-question">
+                                    We already have documented plans. Why do we need TMP?
+                                </span>
+                                <span class="faq-arrow">▴</span>
+                            </button>
+
+                            <div id="faq-4" class="collapse" data-bs-parent="#faqAccordion">
+                                <div class="faq-answer">
+                                    Most plans are never tested or are tested only annually. TMP ensures your
+                                    plans are validated continuously, uncovering gaps, clarifying roles, and
+                                    showing how your teams actually respond under pressure.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /faq-list -->
+                </div>
             </div>
-
-            <!-- accordion -->
-            <div id="faqAccordion" class="faq-list">
-
-                <!-- FAQ 01 -->
-                <div class="faq-item">
-                    <button class="faq-toggle" type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#faq-1"
-                        aria-expanded="true"
-                        aria-controls="faq-1">
-                        <span class="faq-number">01</span>
-                        <span class="faq-question">What is TestMyPlan (TMP)?</span>
-                        <span class="faq-arrow">▴</span>
-                    </button>
-
-                    <div id="faq-1" class="collapse show" data-bs-parent="#faqAccordion">
-                        <div class="faq-answer">
-                            TMP is an automated incident preparedness platform that converts your
-                            Cybersecurity, Business Continuity, Data Privacy, and ESG plans into
-                            executable workflows, real-world scenarios, and measurable readiness insights.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 02 -->
-                <div class="faq-item">
-                    <button class="faq-toggle collapsed" type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#faq-2"
-                        aria-expanded="false"
-                        aria-controls="faq-2">
-                        <span class="faq-number">02</span>
-                        <span class="faq-question">How is TMP different from traditional tabletop drills?</span>
-                        <span class="faq-arrow">▴</span>
-                    </button>
-
-                    <div id="faq-2" class="collapse" data-bs-parent="#faqAccordion">
-                        <div class="faq-answer">
-                            Tabletops rely on manual coordination, static documents, and subjective evaluations.
-                            TMP automates the entire process — from scenario execution to communication,
-                            role assignment, and reporting — making preparedness continuous, measurable,
-                            and repeatable.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 03 -->
-                <div class="faq-item">
-                    <button class="faq-toggle collapsed" type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#faq-3"
-                        aria-expanded="false"
-                        aria-controls="faq-3">
-                        <span class="faq-number">03</span>
-                        <span class="faq-question">Do I need to upload my plans to get started?</span>
-                        <span class="faq-arrow">▴</span>
-                    </button>
-
-                    <div id="faq-3" class="collapse" data-bs-parent="#faqAccordion">
-                        <div class="faq-answer">
-                            No. You can upload your plans or start with our pre-built threat and incident
-                            templates. TMP’s Threat Agent can also guide you in selecting scenarios based
-                            on your industry and technology environment.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 04 -->
-                <div class="faq-item">
-                    <button class="faq-toggle collapsed" type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#faq-4"
-                        aria-expanded="false"
-                        aria-controls="faq-4">
-                        <span class="faq-number">04</span>
-                        <span class="faq-question">
-                            We already have documented plans. Why do we need TMP?
-                        </span>
-                        <span class="faq-arrow">▴</span>
-                    </button>
-
-                    <div id="faq-4" class="collapse" data-bs-parent="#faqAccordion">
-                        <div class="faq-answer">
-                            Most plans are never tested or are tested only annually. TMP ensures your
-                            plans are validated continuously, uncovering gaps, clarifying roles, and
-                            showing how your teams actually respond under pressure.
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- /faq-list -->
-        </div>
-    </div>
-</section>
+        </section>
 
 
         <!-- Banner with animation -->

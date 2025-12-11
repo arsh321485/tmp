@@ -17,20 +17,19 @@
                 </div>
 
                 <!-- Title -->
-                <h1 class="cyber-title">Cybersecurity Preparedness</h1>
+                <h1 class="cyber-title">Data Privacy Preparedness</h1>
 
                 <!-- Description -->
                 <p class="cyber-desc">
-                    Your tools detect threats. TMP prepares your people to handle them.<br />
-                    Modern cyberattacks evolve faster than organizations can train—and attackers count on that.<br />
-                    TMP gives your SOC, IR, Cloud, AppSec, and leadership teams the ability to respond
-                    with clarity, speed, and confidence.
+                    When a privacy breach happens, seconds matter — and regulators watch.<br />
+                    TMP ensures your privacy, security, legal, and communications teams act quickly, consistently, and
+                    in full compliance with global privacy laws.
                 </p>
 
                 <!-- Small CTA Button -->
                 <div class="cta-row">
                     <button class="btn btn-light btn-sm cyber-btn-sm">
-                        Assess Cyber Preparedness →
+                       Assess Privacy Preparedness →
                     </button>
                 </div>
             </div>
@@ -40,7 +39,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Cybersecurity Preparedness</li>
+                        <li class="breadcrumb-item active" aria-current="page">Data Privacy Preparedness</li>
                     </ol>
                 </nav>
             </div>
@@ -51,8 +50,8 @@
             style="animation-delay: 300ms;">
 
             <div class="header mb-4">
-                <h2 id="cyber-reality-title" class="cyber-section-title">The Cyber Reality</h2>
-                <p class="cyber-section-sub">Key problems that make technical tools ineffective without prepared people.
+                <h2 id="cyber-reality-title" class="cyber-section-title">The Data Privacy Reality</h2>
+                <p class="cyber-section-sub">Major Privacy Response Challenges
                 </p>
             </div>
 
@@ -63,19 +62,15 @@
                         <div class="cyber-number">01</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr1-title" class="cyber-card-title">Tools are advanced. Human readiness is not.</h3>
+                        <h3 id="pr1-title" class="cyber-card-title">The first 4 hours of a breach are chaotic</h3>
                         <p class="cyber-card-body">
-                            Security stacks get stronger; human behavior remains the weakest link. Under pressure,
-                            even trained staff hesitate, escalate incorrectly, or miss critical steps.
+                            Teams scramble to classify, log, contain, communicate — often incorrectly.
                         </p>
 
                         <ul class="cyber-list">
-                            <li>Cybersecurity tools detect threats, but TMP ensures that your teams are prepared to
-                                handle them effectively.</li>
-                            <li>Modern cyberattacks evolve faster than organizations can train; attackers exploit this
-                                gap in human readiness.</li>
-                            <li>Even trained staff may hesitate or skip critical steps under pressure during an
-                                incident.</li>
+                            <li>During a data breach’s first four hours, chaos can reign as teams scramble to classify, log, contain, and communicate — often making mistakes.</li>
+                            <li>Regulatory timelines for breach notification are unforgiving</li>
+                            <li> GDPR, KSA PDPL, and PDPB require reporting within 72 hours, CCPA imposes strict disclosure requirements, and HIPAA requires notification within 60 days.</li>
 
                         </ul>
                     </div>
@@ -87,20 +82,18 @@
                         <div class="cyber-number">02</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr2-title" class="cyber-card-title">Incident response plans are outdated the moment
-                            they're written.</h3>
+                        <h3 id="pr2-title" class="cyber-card-title"> Regulatory timelines are unforgiving</h3>
                         <p class="cyber-card-body">
                             IR playbooks often don’t reflect changes across the environment. Common gaps include:
                         </p>
                         <ul class="cyber-list">
-                            <li>tool changes</li>
-                            <li>cloud migration</li>
-                            <li>new vendors</li>
-                            <li>updated OS / app versions</li>
-                            <li>new regulatory requirements</li>
+                            <li>GDPR: 72 hours</li>
+                            <li>KSA PDPL:  72 hours</li>
+                            <li>PDPB: 72 hours</li>
+                            <li>CCPA: strict requirements</li>
+                            <li>HIPAA: 60-day notification</li>
                         </ul>
-                        <p class="cyber-card-note"><strong>TMP keeps your response living and aligned to
-                                reality.</strong></p>
+                        <p class="cyber-card-note"><strong>One misstep = major penalties.</strong></p>
                     </div>
                 </article>
 
@@ -110,24 +103,19 @@
                         <div class="cyber-number">03</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr3-title" class="cyber-card-title">SOC burnout & alert fatigue slow response</h3>
+                        <h3 id="pr3-title" class="cyber-card-title">Multi-team alignment fails under pressure</h3>
                         <p class="cyber-card-body">
-                            Analysts drown in alerts. Important decisions get delayed.
+                            ALegal, DPO, IT, PR, HR & Exec teams must work in lockstep.
                         </p>
 
                         <ul class="cyber-list">
-                            <li>TMP keeps response plans updated and aligned with reality, adapting to new tools,
-                                migrations, and regulations.</li>
-                            <li>TMP makes cybersecurity preparedness measurable, trackable, and reportable, giving
-                                leadership a clear view of team readiness.</li>
-                            <li>TMP defines clear communication channels and roles to ensure all teams work together
-                                effectively under pressure.</li>
+                            <li> One misstep can result in major penalties.</li>
+                            <li>Cross-functional alignment often fails under pressure</li>
+                            <li>legal, data protection, IT, PR, HR, and executive teams must coordinate quickly during an incident.</li>
 
                         </ul>
 
-                        <p class="cyber-card-note"><strong>TMP forces clarity—who
-                                acts,
-                                how fast, in what order.</strong></p>
+                       
                     </div>
                 </article>
 
@@ -137,20 +125,17 @@
                         <div class="cyber-number">04</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr4-title" class="cyber-card-title">Cross-team friction kills containment</h3>
+                        <h3 id="pr4-title" class="cyber-card-title">No standardized incident classification</h3>
                         <p class="cyber-card-body">
-                            Real incidents require many teams to work together:
+                            Misclassification = under-report or over-report = regulatory issues.
                         </p>
                         <ul class="cyber-list">
-                            <li>SOC</li>
-                            <li>IR</li>
-                            <li>AppSec</li>
-                            <li>DevOps</li>
-                            <li>Cloud</li>
-                            <li>Management</li>
+                            <li>Lack of standardized incident classification can lead to under-reporting or over-reporting of breaches</li>
+                            <li> causing compliance issues.</li>
+                            <li>Evidence logs often lack the required detail</li>
+                           
                         </ul>
-                        <p class="cyber-card-note"> <strong>But communication breaks down under stress, which slows containment.</strong>
-                        </p>
+                      
                     </div>
                 </article>
 
@@ -160,18 +145,17 @@
                         <div class="cyber-number">05</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr5-title" class="cyber-card-title">Leadership gets no visibility into real readiness
+                        <h3 id="pr5-title" class="cyber-card-title">Poor evidence logs
                         </h3>
                         <p class="cyber-card-body">
-                            CISOs can’t answer:
+                          Regulators require timestamped, defensible steps — rarely available.
                         </p>
                         <ul class="cyber-list">
-                            <li>“How prepared are we today?”</li>
-                            <li>“Which teams are weakest?”</li>
-                            <li>“Where are our IR bottlenecks?”</li>
+                            <li> regulators expect timestamped, defensible steps, which many organizations do not have readily available.</li>
+                            <li> GDPR, KSA PDPL, and PDPB require reporting within 72 hours, CCPA imposes strict disclosure requirements, and HIPAA requires notification within 60 days</li>
+                            <li> One misstep can result in major penalties.</li>
                         </ul>
-                        <p class="cyber-card-note"><strong>TMP makes readiness measurable, trackable, and
-                                reportable.</strong></p>
+                       
                     </div>
                 </article>
             </div>
@@ -184,11 +168,11 @@
             <div class="container">
 
                 <header class="mb-4 steps-left">
-                    <h2 id="tmp-solves-title" class="Steps-title" style="font-weight: 600;">How TMP Solves Cyber
-                        Preparedness</h2>
-                    <p class="section-sub">Practical, continuous, and auditor-ready capabilities that close the people
+                    <h2 id="tmp-solves-title" class="Steps-title" style="font-weight: 600;"> How TMP Ensures Privacy Compliance
+</h2>
+                    <!-- <p class="section-sub">Practical, continuous, and auditor-ready capabilities that close the people
                         &amp;
-                        process gap.</p>
+                        process gap.</p> -->
                 </header>
 
                 <div class="solves-wrap">
@@ -255,7 +239,7 @@ type Tab = {
 };
 
 export default defineComponent({
-    name: "CybersecurityView",
+    name: "DataPrivacy",
     components: {
         MainNavbar,
         RegulatoryWidget,
@@ -270,77 +254,50 @@ export default defineComponent({
             tabs: [
                 {
                     id: "sim",
-                    title: "Automated Cyber Simulations (No Hassle, No Setup)",
+                    title: "Automated Breach Response Workflows",
                     intro:
-                        "Launch real-world incident simulations across endpoints, cloud, apps, and users. TMP maps tasks to actual systems you use (Cloud, Windows, Linux, SaaS, Networks).",
+                        "TMP guides your team through:",
                     examples: [
-                        "Ransomware infiltration",
-                        "Compromised credentials",
-                        "Cloud IAM misconfigurations",
-                        "Phishing chain attacks",
-                        "Privilege escalation event",
-                        "Business email compromise",
-                        "API abuse",
-                        "Zero-day exploitation pattern",
+                        "immediate containment",
+                        "legal assessment",
+                        "classification",
+                        "communication prep",
+                        "authority notification",
+                        "data subject evaluation",
+                        "documentation",
+                       
                     ],
                 },
                 {
                     id: "workflows",
-                    title: "Guided Response Workflows Across All Teams",
-                    intro: "TMP ensures each stakeholder receives role-specific steps and every action is logged.",
+                    title: "Global Privacy Alignment (KSA PDPL, GDPR, HIPAA, CCPA)",
+                    intro: "TMP gives jurisdiction-specific workflows including:",
                     items: [
-                        "isolate endpoint",
-                        "suspend session",
-                        "rotate keys",
-                        "notify leadership",
-                        "check firewall logs",
-                        "update SIEM case",
-                        "engage forensics",
+                        "deadlines",
+                        "notification requirements",
+                        "severity scoring",
+                        "breach thresholds",
+                       
                     ],
-                    note: "Every action is logged.",
+                    
                 },
                 {
                     id: "metrics",
-                    title: "Real-Time Cyber Readiness Metrics",
+                    title: " Privacy Evidence Generation",
                     intro:
-                        "TMP tracks the critical readiness metrics CISOs need to measure and justify investment.",
+                        "Includes:",
                     items: [
-                        "MTTA (Mean Time to Acknowledge)",
-                        "MTTR-S (Mean Time to Respond to Simulation)",
-                        "Escalation latency",
-                        "Cross-team collaboration score",
-                        "Playbook completion %",
-                        "Decision accuracy vs ideal response",
+                        "breach log",
+                        "timeline",
+                        "decisions",
+                        "approvals",
+                        "stakeholder actions",
+                        "compliance mapping",
                     ],
                     note: "These metrics help CISOs justify budgets, staffing, and tool investment.",
                 },
-                {
-                    id: "improve",
-                    title: "Continuous IR Improvement Loop",
-                    intro:
-                        "Each simulation creates focused observations and recommended fixes so your IR program improves continuously.",
-                    items: [
-                        "gap analysis",
-                        "role misconfigurations",
-                        "slow responders",
-                        "dependency failures",
-                        "documentation errors",
-                    ],
-                    note: "TMP automatically recommends improvements.",
-                },
-                {
-                    id: "evidence",
-                    title: "Auditor-Ready Cyber Evidence",
-                    intro: "TMP produces evidence mapped to common frameworks so audits are straightforward and defensible.",
-                    items: [
-                        "ISO 27001, Control 5.24 - Information security incident management planning and preparation",
-                        'NIST CSF "Respond" & "Recover"',
-                        "SOC 2 CC7.x",
-                        "RBI Cyber Security directions",
-                        "PCI DSS incident handling",
-                        "CIS Controls",
-                    ],
-                },
+               
+               
             ] as Tab[],
         };
     },

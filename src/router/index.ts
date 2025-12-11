@@ -8,6 +8,9 @@ import AboutusView from '@/views/AboutusView.vue'
 import PrivacypolicyView from '@/views/PrivacypolicyView.vue'
 import CookiesModal from '@/components/CookiesModal.vue'
 import RegulatoryRequirementsView from '@/views/RegulatoryRequirementsView.vue'
+import BusinessContinuityView from '@/views/BusinessContinuityView.vue'
+import DataPrivacyView from '@/views/DataPrivacyView.vue'
+import EsgView from '@/views/EsgView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +37,24 @@ const router = createRouter({
       path: '/cyber-security',
       name: 'cyber-security',
       component: CybersecurityView,
+    },
+
+     {
+      path: '/business-continuity',
+      name: 'business-continuity',
+      component: BusinessContinuityView,
+    },
+
+     {
+      path: '/data-privacy',
+      name: 'data-privacy',
+      component: DataPrivacyView,
+    },
+
+      {
+      path: '/esg',
+      name: 'esg',
+      component: EsgView,
     },
 
       {

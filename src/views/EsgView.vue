@@ -255,7 +255,7 @@ type Tab = {
 };
 
 export default defineComponent({
-    name: "CybersecurityView",
+    name: "EsgView",
     components: {
         MainNavbar,
         RegulatoryWidget,

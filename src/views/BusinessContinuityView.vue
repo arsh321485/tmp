@@ -17,20 +17,19 @@
                 </div>
 
                 <!-- Title -->
-                <h1 class="cyber-title">Cybersecurity Preparedness</h1>
+                <h1 class="cyber-title">Business Continuity Preparedness</h1>
 
                 <!-- Description -->
                 <p class="cyber-desc">
-                    Your tools detect threats. TMP prepares your people to handle them.<br />
-                    Modern cyberattacks evolve faster than organizations can train—and attackers count on that.<br />
-                    TMP gives your SOC, IR, Cloud, AppSec, and leadership teams the ability to respond
-                    with clarity, speed, and confidence.
+                    Operations don’t stop for disruptions — neither should your response.<br />
+                    BC plans only work if people, vendors, and processes do.
+                    TMP ensures every stakeholder knows exactly what to do when disruption strikes.
                 </p>
 
                 <!-- Small CTA Button -->
                 <div class="cta-row">
                     <button class="btn btn-light btn-sm cyber-btn-sm">
-                        Assess Cyber Preparedness →
+                        Check BC Preparedness →
                     </button>
                 </div>
             </div>
@@ -40,7 +39,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Cybersecurity Preparedness</li>
+                        <li class="breadcrumb-item active" aria-current="page">Business Continuity Preparedness</li>
                     </ol>
                 </nav>
             </div>
@@ -51,8 +50,8 @@
             style="animation-delay: 300ms;">
 
             <div class="header mb-4">
-                <h2 id="cyber-reality-title" class="cyber-section-title">The Cyber Reality</h2>
-                <p class="cyber-section-sub">Key problems that make technical tools ineffective without prepared people.
+                <h2 id="cyber-reality-title" class="cyber-section-title">The Business Reality</h2>
+                <p class="cyber-section-sub">Real BC Challenges Organizations Face
                 </p>
             </div>
 
@@ -63,19 +62,19 @@
                         <div class="cyber-number">01</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr1-title" class="cyber-card-title">Tools are advanced. Human readiness is not.</h3>
+                        <h3 id="pr1-title" class="cyber-card-title">BC documentation is abundant—BC readiness is not.
+                        </h3>
                         <p class="cyber-card-body">
-                            Security stacks get stronger; human behavior remains the weakest link. Under pressure,
-                            even trained staff hesitate, escalate incorrectly, or miss critical steps.
+                            Organizations have 100–400 pages of continuity documents…
+                            but no practiced execution.
                         </p>
 
                         <ul class="cyber-list">
-                            <li>Cybersecurity tools detect threats, but TMP ensures that your teams are prepared to
-                                handle them effectively.</li>
-                            <li>Modern cyberattacks evolve faster than organizations can train; attackers exploit this
-                                gap in human readiness.</li>
-                            <li>Even trained staff may hesitate or skip critical steps under pressure during an
-                                incident.</li>
+                            <li>COrganizations often have extensive continuity documentation (100–400 pages) but lack
+                                practiced execution to ensure actual readiness.</li>
+                            <li>Recovery roles are frequently unclear during disruptions</li>
+                            <li>leading to confusion about who declares a crisis, contacts vendors, approves failover,
+                                or communicates with customers.</li>
 
                         </ul>
                     </div>
@@ -87,20 +86,18 @@
                         <div class="cyber-number">02</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr2-title" class="cyber-card-title">Incident response plans are outdated the moment
-                            they're written.</h3>
+                        <h3 id="pr2-title" class="cyber-card-title">Recovery roles are unclear</h3>
                         <p class="cyber-card-body">
-                            IR playbooks often don’t reflect changes across the environment. Common gaps include:
+                            During disruptions:
                         </p>
                         <ul class="cyber-list">
-                            <li>tool changes</li>
-                            <li>cloud migration</li>
-                            <li>new vendors</li>
-                            <li>updated OS / app versions</li>
-                            <li>new regulatory requirements</li>
+                            <li>who declares a crisis?</li>
+                            <li>who contacts the vendor?</li>
+                            <li>who approves failover?</li>
+                            <li>who communicates to customers?</li>
+
                         </ul>
-                        <p class="cyber-card-note"><strong>TMP keeps your response living and aligned to
-                                reality.</strong></p>
+                        <p class="cyber-card-note"><strong>Most teams don't know.</strong></p>
                     </div>
                 </article>
 
@@ -110,24 +107,20 @@
                         <div class="cyber-number">03</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr3-title" class="cyber-card-title">SOC burnout & alert fatigue slow response</h3>
+                        <h3 id="pr3-title" class="cyber-card-title"> Dependencies are invisible</h3>
                         <p class="cyber-card-body">
-                            Analysts drown in alerts. Important decisions get delayed.
+                            BC doesn't fail at the main system—
+                            it fails at the hidden dependency that nobody mapped.
                         </p>
 
                         <ul class="cyber-list">
-                            <li>TMP keeps response plans updated and aligned with reality, adapting to new tools,
-                                migrations, and regulations.</li>
-                            <li>TMP makes cybersecurity preparedness measurable, trackable, and reportable, giving
-                                leadership a clear view of team readiness.</li>
-                            <li>TMP defines clear communication channels and roles to ensure all teams work together
-                                effectively under pressure.</li>
+                            <li>Hidden dependencies can cause business continuity failures.</li>
+                            <li> often it’s the small, unmapped dependencies that break, not the main systems. </li>
+                            <li>Third-party vendors are the weakest link</li>
 
                         </ul>
 
-                        <p class="cyber-card-note"><strong>TMP forces clarity—who
-                                acts,
-                                how fast, in what order.</strong></p>
+                       
                     </div>
                 </article>
 
@@ -137,19 +130,17 @@
                         <div class="cyber-number">04</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr4-title" class="cyber-card-title">Cross-team friction kills containment</h3>
+                        <h3 id="pr4-title" class="cyber-card-title">Vendors are the weakest BC link</h3>
                         <p class="cyber-card-body">
-                            Real incidents require many teams to work together:
+                        Over 60% of disruptions come from third parties.
                         </p>
                         <ul class="cyber-list">
-                            <li>SOC</li>
-                            <li>IR</li>
-                            <li>AppSec</li>
-                            <li>DevOps</li>
-                            <li>Cloud</li>
-                            <li>Management</li>
+                            <li> over 60% of disruptions come from vendor failures, and most companies have never validated vendor continuity readiness</li>
+                            <li>Coordinating cross-functional business continuity drills typically takes weeks</li>
+                            <li> whereas TMP enables instant collaboration for drills and testing.</li>
+                           
                         </ul>
-                        <p class="cyber-card-note"> <strong>But communication breaks down under stress, which slows containment.</strong>
+                        <p class="cyber-card-note"> <strong> Most companies have never validated vendor readiness.</strong>
                         </p>
                     </div>
                 </article>
@@ -160,18 +151,17 @@
                         <div class="cyber-number">05</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr5-title" class="cyber-card-title">Leadership gets no visibility into real readiness
+                        <h3 id="pr5-title" class="cyber-card-title">Coordination takes weeks
                         </h3>
                         <p class="cyber-card-body">
-                            CISOs can’t answer:
+                           Scheduling cross-functional BC drills is nearly impossible.
                         </p>
                         <ul class="cyber-list">
-                            <li>“How prepared are we today?”</li>
-                            <li>“Which teams are weakest?”</li>
-                            <li>“Where are our IR bottlenecks?”</li>
+                            <li>leading to confusion about who declares a crisis, contacts vendors, approves failover, or communicates with customers.</li>
+                            <li>often it’s the small, unmapped dependencies that break, not the main systems.</li>
+                            <li>Recovery roles are frequently unclear during disruptions, leading to confusion about who declares a crisis, contacts vendors, approves failover, or communicates with customers.</li>
                         </ul>
-                        <p class="cyber-card-note"><strong>TMP makes readiness measurable, trackable, and
-                                reportable.</strong></p>
+                        <p class="cyber-card-note"><strong> TMP makes it instant.</strong></p>
                     </div>
                 </article>
             </div>
@@ -184,8 +174,7 @@
             <div class="container">
 
                 <header class="mb-4 steps-left">
-                    <h2 id="tmp-solves-title" class="Steps-title" style="font-weight: 600;">How TMP Solves Cyber
-                        Preparedness</h2>
+                    <h2 id="tmp-solves-title" class="Steps-title" style="font-weight: 600;">How TMP Delivers BC Preparedness</h2>
                     <p class="section-sub">Practical, continuous, and auditor-ready capabilities that close the people
                         &amp;
                         process gap.</p>
@@ -255,7 +244,7 @@ type Tab = {
 };
 
 export default defineComponent({
-    name: "CybersecurityView",
+    name: "BusinessContinuity",
     components: {
         MainNavbar,
         RegulatoryWidget,
@@ -270,75 +259,75 @@ export default defineComponent({
             tabs: [
                 {
                     id: "sim",
-                    title: "Automated Cyber Simulations (No Hassle, No Setup)",
+                    title: "End-to-End BC Recovery Simulations",
                     intro:
-                        "Launch real-world incident simulations across endpoints, cloud, apps, and users. TMP maps tasks to actual systems you use (Cloud, Windows, Linux, SaaS, Networks).",
+                        "Simulate real-life disruptions:",
                     examples: [
-                        "Ransomware infiltration",
-                        "Compromised credentials",
-                        "Cloud IAM misconfigurations",
-                        "Phishing chain attacks",
-                        "Privilege escalation event",
-                        "Business email compromise",
-                        "API abuse",
-                        "Zero-day exploitation pattern",
+                        "SAP outage",
+                        "Cloud provider downtime",
+                        "Network blackout",
+                        "Call-center outage",
+                        "CRM outage",
+                        "BHR/Payroll disruption",
+                        "Logistics failures",
+                        "Facility unavailability",
                     ],
+                    note: "TMP orchestrates actions across departments automatically."
                 },
                 {
                     id: "workflows",
-                    title: "Guided Response Workflows Across All Teams",
-                    intro: "TMP ensures each stakeholder receives role-specific steps and every action is logged.",
+                    title: "Automated RTO/RPO Validation",
+                    intro: "TMP measures if your targets are:",
                     items: [
-                        "isolate endpoint",
-                        "suspend session",
-                        "rotate keys",
-                        "notify leadership",
-                        "check firewall logs",
-                        "update SIEM case",
-                        "engage forensics",
+                        "achievable",
+                        "consistent",
+                        "aligned with business needs",
+                       
                     ],
-                    note: "Every action is logged.",
+                    note: "RTO/RPO failures get flagged automatically.",
                 },
                 {
                     id: "metrics",
-                    title: "Real-Time Cyber Readiness Metrics",
+                    title: " Cross-Departmental BC Coordination",
                     intro:
-                        "TMP tracks the critical readiness metrics CISOs need to measure and justify investment.",
+                        "TMP sequences tasks across:",
                     items: [
-                        "MTTA (Mean Time to Acknowledge)",
-                        "MTTR-S (Mean Time to Respond to Simulation)",
-                        "Escalation latency",
-                        "Cross-team collaboration score",
-                        "Playbook completion %",
-                        "Decision accuracy vs ideal response",
+                        "IT",
+                        "Operations",
+                        "HR",
+                        "Finance",
+                        "Customer Support",
+                        "Facilities",
+                        "Vendors"
                     ],
-                    note: "These metrics help CISOs justify budgets, staffing, and tool investment.",
+                    note: "Each receives only the tasks relevant to them.",
                 },
                 {
                     id: "improve",
-                    title: "Continuous IR Improvement Loop",
+                    title: "Dependency Mapping & Stress Testing",
                     intro:
-                        "Each simulation creates focused observations and recommended fixes so your IR program improves continuously.",
+                        "TMP visualizes:",
                     items: [
-                        "gap analysis",
-                        "role misconfigurations",
-                        "slow responders",
-                        "dependency failures",
-                        "documentation errors",
+                        "system-to-system dependencies",
+                        "vendor criticality",
+                        "process choke points",
+                        "single points of failure",
+                       
                     ],
-                    note: "TMP automatically recommends improvements.",
+                    note: "This replaces hundreds of hours of manual BIAs.",
                 },
                 {
                     id: "evidence",
-                    title: "Auditor-Ready Cyber Evidence",
-                    intro: "TMP produces evidence mapped to common frameworks so audits are straightforward and defensible.",
+                    title: "ISO 22301 Aligned BC Evidence",
+                    intro: "Automatic BC documentation including:",
                     items: [
-                        "ISO 27001, Control 5.24 - Information security incident management planning and preparation",
-                        'NIST CSF "Respond" & "Recover"',
-                        "SOC 2 CC7.x",
-                        "RBI Cyber Security directions",
-                        "PCI DSS incident handling",
-                        "CIS Controls",
+                        "recovery timeline logs",
+                        'decision justification',
+                        "communication trail",
+                        "leadership approvals",
+                        "BIA validation",
+                        "test summary",
+                        "improvement plan",
                     ],
                 },
             ] as Tab[],

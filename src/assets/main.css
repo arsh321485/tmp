@@ -5152,6 +5152,10 @@ footer {
 /* ================================
    CONTENT
 ================================ */
+.ihw-point-desc{
+    font-size: 15px;
+    font-weight: small;
+}
 .ihw-content {
   padding: 24px;
 }

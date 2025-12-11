@@ -17,20 +17,19 @@
                 </div>
 
                 <!-- Title -->
-                <h1 class="cyber-title">Cybersecurity Preparedness</h1>
+                <h1 class="cyber-title">ESG Preparedness</h1>
 
                 <!-- Description -->
                 <p class="cyber-desc">
-                    Your tools detect threats. TMP prepares your people to handle them.<br />
-                    Modern cyberattacks evolve faster than organizations can train—and attackers count on that.<br />
-                    TMP gives your SOC, IR, Cloud, AppSec, and leadership teams the ability to respond
-                    with clarity, speed, and confidence.
+                    Resilience is now part of ESG scoring — can you demonstrate it?<br />
+                    ESG and Sustainability Leaders must show preparedness for operational, environmental, and governance
+                    risks. TMP gives you a structured, measurable framework.
                 </p>
 
                 <!-- Small CTA Button -->
                 <div class="cta-row">
                     <button class="btn btn-light btn-sm cyber-btn-sm">
-                        Assess Cyber Preparedness →
+                        Assess ESG Preparedness →
                     </button>
                 </div>
             </div>
@@ -40,7 +39,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Cybersecurity Preparedness</li>
+                        <li class="breadcrumb-item active" aria-current="page">ESG Preparedness</li>
                     </ol>
                 </nav>
             </div>
@@ -51,9 +50,9 @@
             style="animation-delay: 300ms;">
 
             <div class="header mb-4">
-                <h2 id="cyber-reality-title" class="cyber-section-title">The Cyber Reality</h2>
-                <p class="cyber-section-sub">Key problems that make technical tools ineffective without prepared people.
-                </p>
+                <h2 id="cyber-reality-title" class="cyber-section-title">The ESG Preparedness Reality</h2>
+                <!-- <p class="cyber-section-sub">Key problems that make technical tools ineffective without prepared people.
+                </p> -->
             </div>
 
             <div class="cyber-grid">
@@ -63,10 +62,9 @@
                         <div class="cyber-number">01</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr1-title" class="cyber-card-title">Tools are advanced. Human readiness is not.</h3>
+                        <h3 id="pr1-title" class="cyber-card-title">ESG plans lack operational clarity</h3>
                         <p class="cyber-card-body">
-                            Security stacks get stronger; human behavior remains the weakest link. Under pressure,
-                            even trained staff hesitate, escalate incorrectly, or miss critical steps.
+                            Policies exist, but workflows do not.
                         </p>
 
                         <ul class="cyber-list">
@@ -87,10 +85,9 @@
                         <div class="cyber-number">02</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr2-title" class="cyber-card-title">Incident response plans are outdated the moment
-                            they're written.</h3>
+                        <h3 id="pr2-title" class="cyber-card-title"> Governance decisions are not documented</h3>
                         <p class="cyber-card-body">
-                            IR playbooks often don’t reflect changes across the environment. Common gaps include:
+                            Boards want audit trails for oversight responsibilities.
                         </p>
                         <ul class="cyber-list">
                             <li>tool changes</li>
@@ -99,8 +96,7 @@
                             <li>updated OS / app versions</li>
                             <li>new regulatory requirements</li>
                         </ul>
-                        <p class="cyber-card-note"><strong>TMP keeps your response living and aligned to
-                                reality.</strong></p>
+
                     </div>
                 </article>
 
@@ -110,9 +106,9 @@
                         <div class="cyber-number">03</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr3-title" class="cyber-card-title">SOC burnout & alert fatigue slow response</h3>
+                        <h3 id="pr3-title" class="cyber-card-title">Third-party ESG risk is rising</h3>
                         <p class="cyber-card-body">
-                            Analysts drown in alerts. Important decisions get delayed.
+                            Suppliers often cause sustainability & compliance failures.
                         </p>
 
                         <ul class="cyber-list">
@@ -125,9 +121,7 @@
 
                         </ul>
 
-                        <p class="cyber-card-note"><strong>TMP forces clarity—who
-                                acts,
-                                how fast, in what order.</strong></p>
+
                     </div>
                 </article>
 
@@ -137,9 +131,9 @@
                         <div class="cyber-number">04</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr4-title" class="cyber-card-title">Cross-team friction kills containment</h3>
+                        <h3 id="pr4-title" class="cyber-card-title">Environmental & safety risks are unpredictable</h3>
                         <p class="cyber-card-body">
-                            Real incidents require many teams to work together:
+                            Workplace incidents, environmental hazards, ethical violations.
                         </p>
                         <ul class="cyber-list">
                             <li>SOC</li>
@@ -149,8 +143,8 @@
                             <li>Cloud</li>
                             <li>Management</li>
                         </ul>
-                        <p class="cyber-card-note"> <strong>But communication breaks down under stress, which slows containment.</strong>
-                        </p>
+                        <!-- <p class="cyber-card-note"> <strong>But communication breaks down under stress, which slows containment.</strong>
+                        </p> -->
                     </div>
                 </article>
 
@@ -160,18 +154,17 @@
                         <div class="cyber-number">05</div>
                     </div>
                     <div class="cyber-right">
-                        <h3 id="pr5-title" class="cyber-card-title">Leadership gets no visibility into real readiness
+                        <h3 id="pr5-title" class="cyber-card-title">Reporting frameworks demand proof
                         </h3>
                         <p class="cyber-card-body">
-                            CISOs can’t answer:
+                            GRI, ESRS & SASB expect documented response capability.
                         </p>
                         <ul class="cyber-list">
                             <li>“How prepared are we today?”</li>
                             <li>“Which teams are weakest?”</li>
                             <li>“Where are our IR bottlenecks?”</li>
                         </ul>
-                        <p class="cyber-card-note"><strong>TMP makes readiness measurable, trackable, and
-                                reportable.</strong></p>
+
                     </div>
                 </article>
             </div>
@@ -184,11 +177,11 @@
             <div class="container">
 
                 <header class="mb-4 steps-left">
-                    <h2 id="tmp-solves-title" class="Steps-title" style="font-weight: 600;">How TMP Solves Cyber
-                        Preparedness</h2>
-                    <p class="section-sub">Practical, continuous, and auditor-ready capabilities that close the people
+                    <h2 id="tmp-solves-title" class="Steps-title" style="font-weight: 600;"> How TMP Improves ESG
+                        Readiness</h2>
+                    <!-- <p class="section-sub">Practical, continuous, and auditor-ready capabilities that close the people
                         &amp;
-                        process gap.</p>
+                        process gap.</p> -->
                 </header>
 
                 <div class="solves-wrap">
@@ -266,79 +259,77 @@ export default defineComponent({
     data() {
         return {
             active: 0 as number,
-            resizeHandlerFn: null as null | (() => void), // FIXED (no _)
+            resizeHandlerFn: null as null | (() => void), // FIXED (no _) 
             tabs: [
                 {
                     id: "sim",
-                    title: "Automated Cyber Simulations (No Hassle, No Setup)",
+                    title: "ESG-Focused Preparedness Simulations",
                     intro:
-                        "Launch real-world incident simulations across endpoints, cloud, apps, and users. TMP maps tasks to actual systems you use (Cloud, Windows, Linux, SaaS, Networks).",
+                        "Environmental events:",
                     examples: [
-                        "Ransomware infiltration",
-                        "Compromised credentials",
-                        "Cloud IAM misconfigurations",
-                        "Phishing chain attacks",
-                        "Privilege escalation event",
-                        "Business email compromise",
-                        "API abuse",
-                        "Zero-day exploitation pattern",
+                        "air quality incident",
+                        "water contamination",
+                        "waste management failure",
+                        "worker safety incident",
+                        "discrimination incident",
+                        "ethical misconduct",
+                        "corruption or bribery alert",
                     ],
                 },
                 {
                     id: "workflows",
-                    title: "Guided Response Workflows Across All Teams",
-                    intro: "TMP ensures each stakeholder receives role-specific steps and every action is logged.",
+                    title: " Multi-Department Coordination",
+                    intro: "TMP unites:",
                     items: [
-                        "isolate endpoint",
-                        "suspend session",
-                        "rotate keys",
-                        "notify leadership",
-                        "check firewall logs",
-                        "update SIEM case",
-                        "engage forensics",
+                        "Risk",
+                        "HR",
+                        "Sustainability",
+                        "Compliance",
+                        "Legal",
+                        "Operations",
+                        "Board",
                     ],
-                    note: "Every action is logged.",
+                    note: "Each sees tasks relevant to them.",
                 },
                 {
                     id: "metrics",
-                    title: "Real-Time Cyber Readiness Metrics",
+                    title: "Supplier & Third-Party Preparedness",
                     intro:
-                        "TMP tracks the critical readiness metrics CISOs need to measure and justify investment.",
+                        "Test supplier readiness for:",
                     items: [
-                        "MTTA (Mean Time to Acknowledge)",
-                        "MTTR-S (Mean Time to Respond to Simulation)",
-                        "Escalation latency",
-                        "Cross-team collaboration score",
-                        "Playbook completion %",
-                        "Decision accuracy vs ideal response",
+                        "ethical compliance",
+                        "environmental standards",
+                        "labor & safety requirements",
+                        "governance practices",
+                        "contract obligations",
+                       
                     ],
-                    note: "These metrics help CISOs justify budgets, staffing, and tool investment.",
+                    
                 },
                 {
                     id: "improve",
-                    title: "Continuous IR Improvement Loop",
+                    title: "Governance Traceability",
                     intro:
-                        "Each simulation creates focused observations and recommended fixes so your IR program improves continuously.",
+                        "Every decision is logged:",
                     items: [
-                        "gap analysis",
-                        "role misconfigurations",
-                        "slow responders",
-                        "dependency failures",
-                        "documentation errors",
+                        "who approved",
+                        "who escalated",
+                        "who communicated",
+                        "investigation notes",
+                        "documentation timeline",
                     ],
-                    note: "TMP automatically recommends improvements.",
+                    note: "Boards love this.",
                 },
                 {
                     id: "evidence",
-                    title: "Auditor-Ready Cyber Evidence",
-                    intro: "TMP produces evidence mapped to common frameworks so audits are straightforward and defensible.",
+                    title: "ESG Reporting Support",
+                    intro: "TMP outputs exportable evidence aligned to:",
                     items: [
-                        "ISO 27001, Control 5.24 - Information security incident management planning and preparation",
-                        'NIST CSF "Respond" & "Recover"',
-                        "SOC 2 CC7.x",
-                        "RBI Cyber Security directions",
-                        "PCI DSS incident handling",
-                        "CIS Controls",
+                        "GRI",
+                        'SASB',
+                        "ESRS",
+                        "UN SDGs",
+                        "Investor questionnaires", 
                     ],
                 },
             ] as Tab[],

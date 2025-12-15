@@ -179,61 +179,6 @@
         </section>
 
 
-        <!-- <section class="steps-hero py-5 delayed-section" aria-labelledby="tmp-solves-title"
-            style="animation-delay: 500ms;">
-
-            <div class="container">
-
-                <header class="mb-4 steps-left">
-                    <h2 id="tmp-solves-title" class="steps-title">How TMP Solves Cyber
-                        Preparedness</h2>
-                    <p class="section-sub">Practical, continuous, and auditor-ready capabilities that close the people
-                        &amp;
-                        process gap.</p>
-                </header>
-
-                <div class="solves-wrap">
-                   
-                    <nav class="tabs" role="tablist" :aria-orientation="isMobile ? 'horizontal' : 'vertical'">
-                        <button v-for="(t, i) in tabs" :key="t.id" :id="'tab-' + t.id"
-                            :class="['tab-btn', { active: active === i }]" role="tab"
-                            :aria-selected="active === i ? 'true' : 'false'" :aria-controls="'panel-' + t.id"
-                            @click="setActive(i)" @keyup.enter.space.prevent="setActive(i)">
-                            <span class="tab-num">{{ (i + 1).toString().padStart(2, '0') }}</span>
-                            <span class="tab-label">{{ t.title }}</span>
-                        </button>
-                    </nav>
-
-                   
-                    <div class="panels">
-                        <article v-for="(t, i) in tabs" :key="t.id" :id="'panel-' + t.id" class="panel" role="tabpanel"
-                            :aria-labelledby="'tab-' + t.id" v-show="active === i">
-                            <h3 class="panel-title">{{ t.title }}</h3>
-                            <p class="panel-desc" v-if="t.intro">{{ t.intro }}</p>
-
-                            <div v-if="t.examples && t.examples.length" class="panel-examples">
-                                <strong class="examples-label">Examples:</strong>
-                                <ul class="examples-list">
-                                    <li v-for="(ex, k) in t.examples" :key="k">{{ ex }}</li>
-                                </ul>
-                            </div>
-
-                            <div v-if="t.items && t.items.length" class="panel-steps">
-                                <strong class="examples-label">Key steps:</strong>
-                                <ul class="steps-list">
-                                    <li v-for="(it, j) in t.items" :key="j">{{ it }}</li>
-                                </ul>
-                            </div>
-
-                            <p v-if="t.note" class="panel-note"><strong>{{ t.note }}</strong></p>
-                        </article>
-                    </div>
-                </div>
-
-            </div>
-        </section> -->
-
-
         <section class="projects-hero">
             <div class="container">
 
@@ -259,42 +204,39 @@
 
                 <!-- CARDS -->
                 <div class="cards-wrap" ref="cardsWrap">
-                   <article v-for="t in tabs" :key="t.id" class="project-card">
+                    <article v-for="t in tabs" :key="t.id" class="project-card">
 
-  <img
-    src="https://images.unsplash.com/photo-1518770660439-4636190af475"
-    alt="project"
-    class="card-img"
-  />
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="project"
+                            class="card-img" />
 
-  <!-- TITLE (moves on hover) -->
-  <h3 class="card-title">
-    {{ t.title }}
-  </h3>
+                        <!-- TITLE (moves on hover) -->
+                        <h3 class="card-title">
+                            {{ t.title }}
+                        </h3>
 
-  <!-- OVERLAY CONTENT -->
-  <div class="card-overlay">
+                        <!-- OVERLAY CONTENT -->
+                        <div class="card-overlay">
 
-    <p class="overlay-intro">{{ t.intro }}</p>
+                            <p class="overlay-intro ">{{ t.intro }}</p>
 
-    <ul v-if="t.examples?.length">
-      <li v-for="(ex, k) in t.examples" :key="'ex-' + k">
-        {{ ex }}
-      </li>
-    </ul>
+                            <ul v-if="t.examples?.length">
+                                <li v-for="(ex, k) in t.examples" :key="'ex-' + k">
+                                    {{ ex }}
+                                </li>
+                            </ul>
 
-    <ul v-else-if="t.items?.length">
-      <li v-for="(it, k) in t.items" :key="'it-' + k">
-        {{ it }}
-      </li>
-    </ul>
+                            <ul v-else-if="t.items?.length">
+                                <li v-for="(it, k) in t.items" :key="'it-' + k">
+                                    {{ it }}
+                                </li>
+                            </ul>
 
-    <p v-if="t.note" class="card-note">
-      {{ t.note }}
-    </p>
+                            <p v-if="t.note" class="card-note">
+                                {{ t.note }}
+                            </p>
 
-  </div>
-</article>
+                        </div>
+                    </article>
 
 
                 </div>
@@ -474,24 +416,25 @@ export default defineComponent({
 /* STATIC TITLE (always visible) */
 
 .card-title {
-  position: absolute;
-  left: 24px;
-  right: 24px;
-  bottom: 28px;
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 28px;
 
-  font-size: 26px;      /* BIG like image */
-  font-weight: 600;
-  line-height: 1.25;
-  color: #ffffff;
+    font-size: 26px;
+    /* BIG like image */
+    font-weight: 600;
+    line-height: 1.25;
+    color: #ffffff;
 
-  z-index: 3;
-  pointer-events: none;
+    z-index: 3;
+    pointer-events: none;
 
-  transition: 
-    top 0.45s ease,
-    bottom 0.45s ease,
-    font-size 0.45s ease,
-    transform 0.45s ease;
+    transition:
+        top 0.45s ease,
+        bottom 0.45s ease,
+        font-size 0.45s ease,
+        transform 0.45s ease;
 }
 
 .card-title-static {
@@ -728,25 +671,23 @@ export default defineComponent({
 
 
 .card-overlay {
-  position: absolute;
-  inset: 0;
-  padding: 28px;
+    position: absolute;
+    inset: 0;
+    padding: 28px;
 
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.95),
-    rgba(0,0,0,0.7),
-    rgba(0,0,0,0.4)
-  );
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.95),
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.4));
 
-  opacity: 0;
-  transform: translateY(24px);
-  transition: all 0.45s ease;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all 0.45s ease;
 
-  overflow-y: auto;
+    overflow-y: auto;
 }
 
 
@@ -782,18 +723,19 @@ export default defineComponent({
 }
 
 .overlay-intro {
-  margin-top: 72px;   /* space for title */
-  font-size: 14px;
-  line-height: 1.5;
-  color: #f4f5f8;
+    margin-top: 72px;
+    /* space for title */
+    font-size: 14px;
+    line-height: 1.5;
+    color: #f4f5f8;
 }
 
 .card-overlay ul {
-  margin-top: 12px;
-  padding-left: 18px;
-  font-size: 13px;
-  line-height: 1.45;
-  color: #ffffff;
+    margin-top: 12px;
+    padding-left: 18px;
+    font-size: 13px;
+    line-height: 1.45;
+    color: #ffffff;
 }
 
 
@@ -816,11 +758,12 @@ export default defineComponent({
 }
 
 .project-card:hover .card-title {
-  top: 24px;
-  bottom: auto;
+    top: 24px;
+    bottom: auto;
 
-  font-size: 22px;        /* heading size */
-  transform: translateY(0);
+    font-size: 22px;
+    /* heading size */
+    transform: translateY(0);
 }
 
 

@@ -5105,14 +5105,14 @@ footer {
     color: #e5e7eb;
 }
 
-.ihw-content li::before {
+/* .ihw-content li::before {
     content: "•";
     position: absolute;
     left: 0;
     top: 0;
     color: #4f7cff;
     font-weight: bold;
-}
+} */
 
 /* ================================
    RESPONSIVE
@@ -5182,3 +5182,16 @@ footer {
         transform: translateY(0);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

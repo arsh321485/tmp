@@ -2,11 +2,6 @@
   <header class="nav-area" role="banner">
     <div class="nav-wrapper">
       <div class="nav-shell">
-        <!-- LEFT ICONS -->
-        <!-- <div class="nav-left-icons">
-          <div class="logo-mark">TM</div>
-        
-        </div> -->
 
         <div class="nav-left-icons">
           <img src="@/assets/images/testmyplan-logo.jpg" alt="TestMyPlan Logo" class="nav-logo" />
@@ -99,10 +94,10 @@
         </div>
 
         <!-- RIGHT SIDE -->
-        <div class="nav-right">
+        <!-- <div class="nav-right">
           <div class="d-flex auth-buttons">
             <button class="btn link-btn m-0 p-0" @click.prevent>Signup /</button>
-            <!-- <span class="slash">/</span> -->
+           
             <button class="btn link-btn m-0 p-0" @click.prevent>Login</button>
           </div>
 
@@ -110,7 +105,35 @@
             <span v-if="!isMobileMenuOpen">☰</span>
             <span v-else>✕</span>
           </button>
+        </div> -->
+
+        <!-- RIGHT SIDE -->
+        <!-- RIGHT SIDE -->
+        <div class="nav-right">
+          <ul class="main-menu auth-menu">
+
+            <li>
+              <RouterLink to="/signup" class="menu-link" @click="closeMobileMenu">
+                SIGNUP
+              </RouterLink>
+            </li>
+
+            <li class="auth-separator">/</li>
+
+            <li>
+              <RouterLink to="/login" class="menu-link" @click="closeMobileMenu">
+                LOGIN
+              </RouterLink>
+            </li>
+
+          </ul>
+
+          <button class="nav-toggle" @click="toggleMobileMenu" aria-label="Toggle menu">
+            <span v-if="!isMobileMenuOpen">☰</span>
+            <span v-else>✕</span>
+          </button>
         </div>
+
       </div>
     </div>
   </header>
@@ -235,7 +258,8 @@ export default defineComponent({
   padding: 15px 28px;
   display: flex;
   align-items: center;
-  gap: 28px;
+  /* gap: 28px; */
+  gap: 13px;
   justify-content: space-between;
   pointer-events: auto;
 }
@@ -269,7 +293,7 @@ export default defineComponent({
 .main-menu {
   display: flex;
   align-items: center;
-  gap: 30px;
+  /* gap: 30px; */
   list-style: none;
   margin: 0;
   padding: 0;

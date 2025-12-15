@@ -149,7 +149,8 @@
                             <li>Cloud</li>
                             <li>Management</li>
                         </ul>
-                        <p class="cyber-card-note"> <strong>But communication breaks down under stress, which slows containment.</strong>
+                        <p class="cyber-card-note"> <strong>But communication breaks down under stress, which slows
+                                containment.</strong>
                         </p>
                     </div>
                 </article>
@@ -178,13 +179,13 @@
         </section>
 
 
-        <section class="steps-hero py-5 delayed-section" aria-labelledby="tmp-solves-title"
+        <!-- <section class="steps-hero py-5 delayed-section" aria-labelledby="tmp-solves-title"
             style="animation-delay: 500ms;">
 
             <div class="container">
 
                 <header class="mb-4 steps-left">
-                    <h2 id="tmp-solves-title" class="Steps-title" style="font-weight: 600;">How TMP Solves Cyber
+                    <h2 id="tmp-solves-title" class="steps-title">How TMP Solves Cyber
                         Preparedness</h2>
                     <p class="section-sub">Practical, continuous, and auditor-ready capabilities that close the people
                         &amp;
@@ -192,7 +193,7 @@
                 </header>
 
                 <div class="solves-wrap">
-                    <!-- Tabs (left on desktop, top on mobile) -->
+                   
                     <nav class="tabs" role="tablist" :aria-orientation="isMobile ? 'horizontal' : 'vertical'">
                         <button v-for="(t, i) in tabs" :key="t.id" :id="'tab-' + t.id"
                             :class="['tab-btn', { active: active === i }]" role="tab"
@@ -203,7 +204,7 @@
                         </button>
                     </nav>
 
-                    <!-- Content panels -->
+                   
                     <div class="panels">
                         <article v-for="(t, i) in tabs" :key="t.id" :id="'panel-' + t.id" class="panel" role="tabpanel"
                             :aria-labelledby="'tab-' + t.id" v-show="active === i">
@@ -230,7 +231,78 @@
                 </div>
 
             </div>
+        </section> -->
+
+
+        <section class="projects-hero">
+            <div class="container">
+
+                <!-- HEADER -->
+                <div class="projects-header">
+                    <div class="left">
+                        <span class="eyebrow">/ TMP Solves /</span>
+                        <h2 class="title">How TMP Solves<br />Cyber Preparedness</h2>
+                        <p class="sub">
+                            Practical, continuous, and auditor-ready capabilities that close the
+                            people & process gap.
+                        </p>
+
+                        <!-- controls -->
+                        <div class="controls">
+                            <button @click="scrollLeft">‹</button>
+                            <button @click="scrollRight">›</button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- CARDS -->
+                <div class="cards-wrap" ref="cardsWrap">
+                   <article v-for="t in tabs" :key="t.id" class="project-card">
+
+  <img
+    src="https://images.unsplash.com/photo-1518770660439-4636190af475"
+    alt="project"
+    class="card-img"
+  />
+
+  <!-- TITLE (moves on hover) -->
+  <h3 class="card-title">
+    {{ t.title }}
+  </h3>
+
+  <!-- OVERLAY CONTENT -->
+  <div class="card-overlay">
+
+    <p class="overlay-intro">{{ t.intro }}</p>
+
+    <ul v-if="t.examples?.length">
+      <li v-for="(ex, k) in t.examples" :key="'ex-' + k">
+        {{ ex }}
+      </li>
+    </ul>
+
+    <ul v-else-if="t.items?.length">
+      <li v-for="(it, k) in t.items" :key="'it-' + k">
+        {{ it }}
+      </li>
+    </ul>
+
+    <p v-if="t.note" class="card-note">
+      {{ t.note }}
+    </p>
+
+  </div>
+</article>
+
+
+                </div>
+
+
+            </div>
         </section>
+
 
         <MainContact />
         <!-- FOOTER -->
@@ -365,6 +437,22 @@ export default defineComponent({
     },
 
     methods: {
+
+        scrollLeft() {
+            const el = this.$refs.cardsWrap as HTMLElement;
+            el.scrollBy({ left: -320, behavior: "smooth" });
+        },
+
+        scrollRight() {
+            const el = this.$refs.cardsWrap as HTMLElement;
+            el.scrollBy({ left: 320, behavior: "smooth" });
+        },
+
+        scrollToCard(index: number) {
+            const el = this.$refs.cardsWrap as HTMLElement;
+            const card = el.children[index] as HTMLElement;
+            card.scrollIntoView({ behavior: "smooth", inline: "start" });
+        },
         setActive(index: number) {
             this.active = index;
 
@@ -380,3 +468,372 @@ export default defineComponent({
     },
 });
 </script>
+
+
+<style scoped>
+/* STATIC TITLE (always visible) */
+
+.card-title {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 28px;
+
+  font-size: 26px;      /* BIG like image */
+  font-weight: 600;
+  line-height: 1.25;
+  color: #ffffff;
+
+  z-index: 3;
+  pointer-events: none;
+
+  transition: 
+    top 0.45s ease,
+    bottom 0.45s ease,
+    font-size 0.45s ease,
+    transform 0.45s ease;
+}
+
+.card-title-static {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 32px;
+
+    font-size: 24px;
+    /* BIG like image */
+    font-weight: 600;
+    line-height: 1.25;
+    color: #ffffff;
+
+    z-index: 2;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease;
+}
+
+.projects-hero {
+    background: #0f0f10;
+    color: #fff;
+    border-radius: 48px;
+    margin: 24px;
+    padding: 60px 32px;
+    overflow: hidden;
+}
+
+/* header */
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.eyebrow {
+    opacity: 0.6;
+    letter-spacing: 1px;
+}
+
+.title {
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 600;
+    line-height: 1.05;
+    margin: 12px 0;
+    color: aliceblue;
+}
+
+.sub {
+    max-width: 460px;
+    opacity: 0.8;
+    color: #e9e1de;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.controls button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, .2);
+    background: transparent;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* stat */
+.stat {
+    text-align: right;
+}
+
+.stat .big {
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(90deg, #7c3aed, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat .label {
+    opacity: 0.7;
+}
+
+/* cards */
+.cards-wrap {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+
+    /* hide scrollbar */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE & Edge */
+}
+
+.cards-wrap::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
+}
+
+
+.cards-wrap::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .3);
+}
+
+
+/* when hovering cards container */
+.cards-wrap:hover .project-card {
+    transform: scale(0.9);
+    opacity: 0.5;
+}
+
+/* hovered card becomes dominant */
+.cards-wrap .project-card:hover {
+    transform: scale(1.05);
+    opacity: 1;
+    z-index: 5;
+}
+
+
+.project-card {
+    position: relative;
+    min-width: 320px;
+    height: 420px;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #111;
+
+    /* animation */
+    transition:
+        transform 0.45s cubic-bezier(.4, 0, .2, 1),
+        opacity 0.45s ease;
+    transform: scale(0.94);
+}
+
+/* fake image bg */
+.card-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, #111, #222);
+    transition: transform .4s;
+}
+
+/* overlay */
+.cards-wrap {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    scroll-behavior: smooth;
+}
+
+.cards-wrap::-webkit-scrollbar {
+    height: 6px;
+}
+
+.cards-wrap::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .3);
+    border-radius: 6px;
+}
+
+/* CARD */
+/* .project-card {
+    position: relative;
+    min-width: 320px;
+    height: 420px;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #111;
+} */
+
+/* IMAGE */
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease;
+}
+
+/* OVERLAY (hidden initially) */
+/* .card-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, .88),
+            rgba(0, 0, 0, .35),
+            transparent);
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all .45s ease;
+   
+} */
+
+/* .card-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.4)
+  );
+
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.45s ease;
+
+  overflow-y: auto;
+} */
+
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.95),
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.4)
+  );
+
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.45s ease;
+
+  overflow-y: auto;
+}
+
+
+.card-overlay::-webkit-scrollbar {
+    width: 4px;
+}
+
+.card-overlay::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.card-overlay {
+    scrollbar-width: thin;
+    /* Firefox */
+}
+
+.card-overlay h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    /* color: aliceblue; */
+    color: #f4f5f9;
+}
+
+.card-overlay p {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    /* color: rgb(245, 219, 219); */
+    color: #f4f5f8;
+}
+
+.overlay-intro {
+  margin-top: 72px;   /* space for title */
+  font-size: 14px;
+  line-height: 1.5;
+  color: #f4f5f8;
+}
+
+.card-overlay ul {
+  margin-top: 12px;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #ffffff;
+}
+
+
+.card-note {
+    margin-top: 10px;
+    font-size: 13px;
+    opacity: 0.85;
+    font-style: italic;
+}
+
+
+/* HOVER EFFECT */
+.project-card:hover .card-img {
+    transform: scale(1.08);
+}
+
+.project-card:hover .card-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:hover .card-title {
+  top: 24px;
+  bottom: auto;
+
+  font-size: 22px;        /* heading size */
+  transform: translateY(0);
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .cards-wrap {
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+
+    .project-card {
+        min-width: 100%;
+        height: 360px;
+    }
+}
+</style>

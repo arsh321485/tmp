@@ -79,70 +79,156 @@
                     </ul>
                 </div>
 
-                <!-- 4-column features -->
-                <div class="row selling-grid">
-                    <!-- 1 -->
-                    <div class="col-md-6 col-lg-3 selling-col">
-                        <div>
-                            <h3 class="selling-title">The "Dusty Binder" Syndrome</h3>
-                            <p class="selling-text">
-                                You have comprehensive plans for Cyber Security and Business
-                                Continuity. But if they sit in a folder, they aren't
-                                plans—they are theories.
-                            </p>
+
+            </div>
+        </section>
+
+        <!-- Problem dark section next -->
+
+        <section class="problems-dark steps-hero">
+            <div class="problems-container">
+
+                <!-- LEFT SIDE -->
+                <div class="problems-left">
+                    <span class="eyebrow">/ PROBLEMS /</span>
+
+                    <h2 class="problems-title">
+                        Why traditional preparedness<br />
+                        fails organizations
+                    </h2>
+
+                    <p class="problems-desc">
+                        Having plans is not the same as being prepared.
+                        These are the hidden gaps that surface during real incidents.
+                    </p>
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="problems-grid">
+
+                    <div class="problem-card">
+                        <h3>The "Dusty Binder" Syndrome</h3>
+                        <p>
+                            You have comprehensive plans for Cyber Security and Business
+                            Continuity. But if they sit in a folder, they aren't plans —
+                            they are theories.
+                        </p>
+                        <!-- <div class="icon">📁</div> -->
+
+                        <div class="icon neural-icon">
+                            <svg viewBox="0 0 120 120" class="ring">
+                                <defs>
+                                    <linearGradient id="ringGradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#ff4d4d" />
+                                        <stop offset="100%" stop-color="#4d79ff" />
+                                    </linearGradient>
+                                </defs>
+
+                                <g fill="none" stroke="url(#ringGradient-1)" stroke-width="2">
+                                    <ellipse cx="60" cy="60" rx="42" ry="18" transform="rotate(25 60 60)" />
+                                    <ellipse cx="60" cy="60" rx="42" ry="18" transform="rotate(65 60 60)" />
+                                    <ellipse cx="60" cy="60" rx="42" ry="18" transform="rotate(105 60 60)" />
+                                </g>
+                            </svg>
                         </div>
-                        <div class="selling-icon-box">
-                            <span class="selling-icon-inner">📁</span>
-                        </div>
+
+
                     </div>
 
-                    <!-- 2 -->
-                    <div class="col-md-6 col-lg-3 selling-col">
-                        <div>
-                            <h3 class="selling-title">The 24/7 vs. 8x5 Disconnect</h3>
-                            <p class="selling-text">
-                                Attacks happen 24/7. Your response is likely 8x5. Most teams are
-                                unaware of their specific roles when a crisis hits at 2 AM.
-                            </p>
+                    <div class="problem-card">
+                        <h3>The 24/7 vs. 8×5 Disconnect</h3>
+                        <p>
+                            Attacks happen 24/7. Your response is likely 8×5.
+                            Most teams don’t know their roles when a crisis hits at 2 AM.
+                        </p>
+                        <!-- <div class="icon">⏰</div> -->
+                        <div class="icon neural-icon">
+                            <svg viewBox="0 0 120 120">
+                                <defs>
+                                    <linearGradient id="ringGradient-5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#ff4d4d" />
+                                        <stop offset="100%" stop-color="#4d79ff" />
+                                    </linearGradient>
+                                </defs>
+
+                                <g fill="none" stroke="url(#ringGradient-5)" stroke-width="2.4">
+                                    <path d="M60 20 L60 100" />
+                                    <path d="M20 60 L100 60" />
+                                    <path d="M32 32 L88 88" />
+                                    <path d="M32 88 L88 32" />
+                                    <circle cx="60" cy="60" r="22" />
+                                </g>
+                            </svg>
                         </div>
-                        <div class="selling-icon-box">
-                            <span class="selling-icon-inner">⏰</span>
-                        </div>
+
+
                     </div>
 
-                    <!-- 3 -->
-                    <div class="col-md-6 col-lg-3 selling-col">
-                        <div>
-                            <h3 class="selling-title">The Compliance Gap</h3>
-                            <p class="selling-text">
-                                "Plans are not tested" is a top audit failure. Manual coordination
-                                takes weeks. We measure effectiveness instantly, ensuring you never
-                                fail an audit on "Preparedness."
-                            </p>
+                    <div class="problem-card">
+                        <h3>The Compliance Gap</h3>
+                        <p>
+                            “Plans are not tested” is a top audit failure.
+                            Manual coordination takes weeks — real readiness needs instant proof.
+                        </p>
+                        <!-- <div class="icon">📋</div> -->
+                        <div class="icon neural-icon">
+                            <svg viewBox="0 0 120 120">
+                                <defs>
+                                    <linearGradient id="ringGradient-6" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#4d79ff" />
+                                        <stop offset="100%" stop-color="#ff4d4d" />
+                                    </linearGradient>
+                                </defs>
+
+                                <g fill="none" stroke="url(#ringGradient-6)" stroke-width="2.2">
+                                    <path d="M20 60 C40 20, 80 20, 100 60" />
+                                    <path d="M20 60 C40 100, 80 100, 100 60" />
+                                    <path d="M35 60 C50 35, 70 35, 85 60" />
+                                    <path d="M35 60 C50 85, 70 85, 85 60" />
+                                </g>
+                            </svg>
                         </div>
-                        <div class="selling-icon-box">
-                            <span class="selling-icon-inner">📋</span>
-                        </div>
+
+
+
                     </div>
 
-                    <!-- 4 -->
-                    <div class="col-md-6 col-lg-3 selling-col">
-                        <div>
-                            <h3 class="selling-title">The False Sense of Security Problem</h3>
-                            <p class="selling-text">
-                                Organizations believe they are prepared because plans exist. But
+                    <div class="problem-card">
+                        <h3>The False Sense of Security Problem</h3>
+                        <p>
+                            Organizations believe they are prepared because plans exist. But
                                 without real-world validation, leadership has no visibility into
                                 actual readiness, hidden dependencies, or team performance under
                                 pressure.
-                            </p>
+                        </p>
+                        <!-- <div class="icon">📊</div> -->
+                        <div class="icon neural-icon">
+                            <svg viewBox="0 0 120 120">
+                                <defs>
+                                    <linearGradient id="ringGradient-7" x1="50%" y1="0%" x2="50%" y2="100%">
+                                        <stop offset="0%" stop-color="#ff4d4d" />
+                                        <stop offset="100%" stop-color="#4d79ff" />
+                                    </linearGradient>
+                                </defs>
+
+                                <g fill="none" stroke="url(#ringGradient-7)" stroke-width="2">
+                                    <rect x="28" y="28" width="64" height="64" rx="14" />
+                                    <line x1="28" y1="60" x2="92" y2="60" />
+                                    <line x1="60" y1="28" x2="60" y2="92" />
+                                    <circle cx="60" cy="60" r="10" />
+                                </g>
+                            </svg>
                         </div>
-                        <div class="selling-icon-box">
-                            <span class="selling-icon-inner">📊</span>
-                        </div>
+
+
+
                     </div>
+
                 </div>
             </div>
         </section>
+
+
 
         <!--  How it works -->
         <section class="steps-hero">
@@ -309,40 +395,7 @@
             </div>
         </section>
 
-        <!-- ========== HERO BANNER STRIP ========== -->
-        <section class="hero-banner-section">
-            <div class="container">
-                <div class="hero-banner-wrapper">
-                    <div class="hero-banner-image">
-                        <img src="https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                            alt="Neural pattern background" />
-                    </div>
 
-                    <div class="hero-banner-controls">
-                        <div class="hero-banner-controls-inner">
-                            <span>↰</span>
-                            <span>↲</span>
-                        </div>
-                    </div>
-
-                    <div class="hero-banner-center">
-                        <div class="hero-banner-mark">
-                            <span class="hero-banner-symbol">⋯</span>
-                            <span class="hero-banner-wordmark">NEUROS</span>
-                        </div>
-                    </div>
-
-                    <div class="hero-banner-video">
-                        <button class="hero-banner-video-btn" type="button">
-                            <span class="hero-banner-video-icon-wrap">
-                                <span class="hero-banner-video-icon">▶</span>
-                            </span>
-                            <span>Watch video</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Banner section running banner -->
         <section class="running-banner-section">
@@ -366,35 +419,7 @@
         </section>
 
 
-        <!-- ========== HERO MAIN – UNLEASHING ========= -->
-        <section class="hero-main">
-            <div class="hero-main-blob-big"></div>
-            <div class="hero-main-circle"></div>
-            <div class="hero-main-circle-small"></div>
 
-            <div class="container">
-                <div class="hero-main-inner">
-                    <div class="hero-main-heading-wrapper">
-                        <h2 class="hero-main-heading">
-                            <span>Unleashing the</span>
-                            <span>Potential of</span>
-                            <span class="hero-main-gradient-line">Artificial</span>
-                            <span class="hero-main-gradient-line">Inelegance</span>
-                            <span>for</span>
-                            <span>Intelligent</span>
-                            <span>Solutions</span>
-                        </h2>
-
-                        <div class="hero-main-logos">
-                            <div class="hero-main-logo">Metriks Data Center</div>
-                            <div class="hero-main-logo">QUO Legal Firm</div>
-                            <div class="hero-main-logo">AGRIMAX</div>
-                            <div class="hero-main-logo">WS Studio</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Faq section -->
         <section class="faq-section" id="faq">
@@ -850,3 +875,124 @@ export default defineComponent({
     },
 });
 </script>
+
+
+<style scoped>
+.problems-dark {
+    background: #0f0f0f;
+    border-radius: 32px;
+    padding: 96px 80px;
+    color: #fff;
+}
+
+.problems-container {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: 80px;
+}
+
+/* LEFT */
+.eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 18px;
+}
+
+.problems-title {
+    font-size: 44px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: aliceblue;
+}
+
+.problems-desc {
+    color: #b5b5b5;
+    max-width: 420px;
+}
+
+/* RIGHT GRID */
+.problems-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 64px;
+}
+
+/* CARD */
+.problem-card {
+    position: relative;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.problem-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: aliceblue;
+}
+
+.problem-card p {
+    color: #bdbdbd;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 360px;
+}
+
+/* ICON */
+.problem-card .icon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .problems-container {
+        grid-template-columns: 1fr;
+    }
+
+    .problems-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .problems-title {
+        font-size: 34px;
+    }
+}
+
+.neural-icon {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+
+    background: radial-gradient(circle at center,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.02) 70%,
+            transparent 100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.neural-icon svg {
+    width: 48px;
+    height: 48px;
+
+    /* 🔥 brightness boost */
+    filter:
+        drop-shadow(0 0 6px rgba(255, 90, 90, 0.45)) drop-shadow(0 0 10px rgba(90, 120, 255, 0.35));
+
+    opacity: 1;
+}
+</style>

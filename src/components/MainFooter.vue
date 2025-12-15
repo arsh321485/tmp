@@ -15,13 +15,7 @@
           <div class="row gy-4">
             <div class="col-6 col-md-4 footer-links-group">
               <h6>Company</h6>
-              <!-- <ul>
-                <li><a href="#industries">Industries</a></li>
-                <li><a href="#badge">Badge Verification</a></li>
-                <li><a href="#about-us">About Us</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#faq">FAQ</a></li>
-              </ul> -->
+             
 
               <ul>
                 <li>

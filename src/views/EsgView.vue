@@ -177,7 +177,7 @@
             <div class="container">
 
                 <header class="mb-4 steps-left">
-                    <h2 id="tmp-solves-title" class="Steps-title" style="font-weight: 600;"> How TMP Improves ESG
+                    <h2 id="tmp-solves-title" class="steps-title"> How TMP Improves ESG
                         Readiness</h2>
                     <!-- <p class="section-sub">Practical, continuous, and auditor-ready capabilities that close the people
                         &amp;

@@ -1,9 +1,10 @@
+
 <template>
     <div id="top">
         <MainNavbar />
         <RegulatoryWidget />
 
-        <section class="cyber-hero position-relative delayed-section" style="animation-delay: 100ms;">
+        <section class="cyber-hero position-relative delayed-section" data-delay="200" style="animation-delay: 100ms;">
             <!-- Background image -->
             <div class="cyber-bg"></div>
 
@@ -17,18 +18,19 @@
                 </div>
 
                 <!-- Title -->
-                <h1 class="cyber-title">Business Continuity Preparedness</h1>
+                <h1 class="">
+                    Business Continuity Preparedness</h1>
 
                 <!-- Description -->
-                <p class="cyber-desc">
-                    Operations don’t stop for disruptions — neither should your response.<br />
-                    BC plans only work if people, vendors, and processes do.
-                    TMP ensures every stakeholder knows exactly what to do when disruption strikes.
+                <p class="hero-description">
+                    Operations don’t stop for disruptions — neither should your response.
+                    BC plans only work if people, vendors, and processes do. TMP ensures every stakeholder knows exactly
+                    what to do when disruption strikes.
                 </p>
 
                 <!-- Small CTA Button -->
                 <div class="cta-row">
-                    <button class="btn btn-light btn-sm cyber-btn-sm">
+                    <button class="btn btn-light btn-sm cyber-btn-sm ">
                         Check BC Preparedness →
                     </button>
                 </div>
@@ -46,180 +48,198 @@
         </section>
 
 
-        <section class="cyber-reality container py-5 delayed-section" aria-labelledby="cyber-reality-title"
-            style="animation-delay: 300ms;">
 
-            <div class="header mb-4">
-                <h2 id="cyber-reality-title" class="cyber-section-title">The Business Reality</h2>
-                <p class="cyber-section-sub">Real BC Challenges Organizations Face
-                </p>
-            </div>
 
-            <div class="cyber-grid">
-                <!-- 1 -->
-                <article class="cyber-card" aria-labelledby="pr1-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">01</div>
-                    </div>
-                    <div class="cyber-right">
-                        <h3 id="pr1-title" class="cyber-card-title">BC documentation is abundant—BC readiness is not.
-                        </h3>
-                        <p class="cyber-card-body">
-                            Organizations have 100–400 pages of continuity documents…
-                            but no practiced execution.
+        <section class="advantages-bg delayed-section" data-delay="300" style="background: #f4f5f8;">
+            <div class="advantages-section container delayed-section" data-delay="200">
+                <h2 class="selling-heading">The Business Reality</h2>
+                <p class="hero-description">Real BC Challenges Organizations Face</p>
+
+                <div class="advantages-grid">
+
+                    <!-- SERVICE 1 -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+
+                            <i class="bi bi-gear-fill fs-4 icon-size"></i>
+                        </div>
+                        <h3 class="selling-heading">BC documentation is abundant—BC readiness is not.</h3>
+                        <p class="hero-description">
+
+                            BC documentation is abundant—BC readiness is not.
+                            Organizations have 100–400 pages of continuity documents… but no practiced execution.
                         </p>
 
-                        <ul class="cyber-list">
+                        <ul class="hero-description">
                             <li>COrganizations often have extensive continuity documentation (100–400 pages) but lack
                                 practiced execution to ensure actual readiness.</li>
                             <li>Recovery roles are frequently unclear during disruptions</li>
                             <li>leading to confusion about who declares a crisis, contacts vendors, approves failover,
-                                or communicates with customers.</li>
-
+                                or communicates with customers.
+                            </li>
                         </ul>
                     </div>
-                </article>
 
-                <!-- 2 -->
-                <article class="cyber-card" aria-labelledby="pr2-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">02</div>
-                    </div>
-                    <div class="cyber-right">
-                        <h3 id="pr2-title" class="cyber-card-title">Recovery roles are unclear</h3>
-                        <p class="cyber-card-body">
+                    <!-- SERVICE 2 -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+                            <!-- <i class="icon-style"></i> -->
+                            <i class="bi bi-clouds-fill fs-4 icon-size"></i>
+                        </div>
+                        <h3 class="selling-heading">Recovery roles are unclear
+                        </h3>
+                        <p class="hero-description">
                             During disruptions:
                         </p>
-                        <ul class="cyber-list">
+
+                        <ul class="hero-description">
                             <li>who declares a crisis?</li>
                             <li>who contacts the vendor?</li>
                             <li>who approves failover?</li>
                             <li>who communicates to customers?</li>
 
                         </ul>
-                        <p class="cyber-card-note"><strong>Most teams don't know.</strong></p>
+                        <p>Most teams don't know.</p>
                     </div>
-                </article>
 
-                <!-- 3 -->
-                <article class="cyber-card" aria-labelledby="pr3-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">03</div>
-                    </div>
-                    <div class="cyber-right">
-                        <h3 id="pr3-title" class="cyber-card-title"> Dependencies are invisible</h3>
-                        <p class="cyber-card-body">
-                            BC doesn't fail at the main system—
-                            it fails at the hidden dependency that nobody mapped.
+                    <!-- SERVICE 3 -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+                            <!-- <i class="icon-resolution"></i> -->
+                            <i class="bi bi-exclamation-triangle-fill fs-4 icon-size"></i>
+                        </div>
+                        <h3 class="selling-heading">Dependencies are invisible</h3>
+                        <p class="hero-description">
+                            BC doesn't fail at the main system— it fails at the hidden dependency that nobody mapped.
                         </p>
 
-                        <ul class="cyber-list">
+                        <ul class="hero-description">
                             <li>Hidden dependencies can cause business continuity failures.</li>
-                            <li> often it’s the small, unmapped dependencies that break, not the main systems. </li>
+                            <li>often it’s the small, unmapped dependencies that break, not the main systems.</li>
                             <li>Third-party vendors are the weakest link</li>
-
                         </ul>
 
-                       
-                    </div>
-                </article>
 
-                <!-- 4 -->
-                <article class="cyber-card" aria-labelledby="pr4-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">04</div>
                     </div>
-                    <div class="cyber-right">
-                        <h3 id="pr4-title" class="cyber-card-title">Vendors are the weakest BC link</h3>
-                        <p class="cyber-card-body">
-                        Over 60% of disruptions come from third parties.
+
+                    <!-- SERVICE 4 -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+                            <!-- <i class="icon-edit"></i> -->
+                            <i class="bi bi-steam fs-4 icon-size"></i>
+                        </div>
+                        <h3 class="selling-heading">Vendors are the weakest BC link</h3>
+                        <p class="hero-description">
+                          Over 60% of disruptions come from third parties.
                         </p>
-                        <ul class="cyber-list">
-                            <li> over 60% of disruptions come from vendor failures, and most companies have never validated vendor continuity readiness</li>
+
+                        <ul class="hero-description">
+                            <li>over 60% of disruptions come from vendor failures, and most companies have never validated vendor continuity readiness</li>
                             <li>Coordinating cross-functional business continuity drills typically takes weeks</li>
-                            <li> whereas TMP enables instant collaboration for drills and testing.</li>
-                           
+                            <li>whereas TMP enables instant collaboration for drills and testing.</li>
+                            
                         </ul>
-                        <p class="cyber-card-note"> <strong> Most companies have never validated vendor readiness.</strong>
-                        </p>
-                    </div>
-                </article>
 
-                <!-- 5 -->
-                <article class="cyber-card" aria-labelledby="pr5-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">05</div>
+                        <p>Most companies have never validated vendor readiness.</p>
                     </div>
-                    <div class="cyber-right">
-                        <h3 id="pr5-title" class="cyber-card-title">Coordination takes weeks
-                        </h3>
-                        <p class="cyber-card-body">
-                           Scheduling cross-functional BC drills is nearly impossible.
+
+                    <!-- SERVICE 5 (CENTERED) -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+                            <!-- <i class="icon-translate"></i> -->
+                            <i class="bi bi-hypnotize fs-4 icon-size"></i>
+                        </div>
+                        <h3 class="selling-heading">
+                           Coordination takes weeks</h3>
+                        <p class="hero-description">
+                          Scheduling cross-functional BC drills is nearly impossible.
                         </p>
-                        <ul class="cyber-list">
+
+                        <ul class="hero-description">
                             <li>leading to confusion about who declares a crisis, contacts vendors, approves failover, or communicates with customers.</li>
                             <li>often it’s the small, unmapped dependencies that break, not the main systems.</li>
                             <li>Recovery roles are frequently unclear during disruptions, leading to confusion about who declares a crisis, contacts vendors, approves failover, or communicates with customers.</li>
                         </ul>
-                        <p class="cyber-card-note"><strong> TMP makes it instant.</strong></p>
+                        <p>TMP makes it instant.</p>
                     </div>
-                </article>
+
+                </div>
             </div>
         </section>
 
 
-        <section class="steps-hero py-5 delayed-section" aria-labelledby="tmp-solves-title"
-            style="animation-delay: 500ms;">
 
+        <section class="projects-hero delayed-section" data-delay="400">
             <div class="container">
 
-                <header class="mb-4 steps-left">
-                    <h2 id="tmp-solves-title" class="steps-title">How TMP Delivers BC Preparedness</h2>
-                    <p class="section-sub">Practical, continuous, and auditor-ready capabilities that close the people
-                        &amp;
-                        process gap.</p>
-                </header>
+                <!-- HEADER -->
+                <div class="projects-header">
+                    <div class="left">
+                        <!-- <span class="eyebrow">/ TMP Solves /</span> -->
+                        <span class="hero-description">/BC Preparedness/</span>
+                        <!-- <h2 class="title">How TMP Solves<br />Cyber Preparedness</h2> -->
+                        <h2 class="selling-heading-white-bg">How TMP Delivers<br />BC Preparedness</h2>
+                        <!-- <p class="sub">
+                            Practical, continuous, and auditor-ready capabilities that close the
+                            people & process gap.
+                        </p> -->
+                        <p class="hero-description-bg">
+                           Practical, continuous, and auditor-ready capabilities that close the people & process gap.
+                        </p>
 
-                <div class="solves-wrap">
-                    <!-- Tabs (left on desktop, top on mobile) -->
-                    <nav class="tabs" role="tablist" :aria-orientation="isMobile ? 'horizontal' : 'vertical'">
-                        <button v-for="(t, i) in tabs" :key="t.id" :id="'tab-' + t.id"
-                            :class="['tab-btn', { active: active === i }]" role="tab"
-                            :aria-selected="active === i ? 'true' : 'false'" :aria-controls="'panel-' + t.id"
-                            @click="setActive(i)" @keyup.enter.space.prevent="setActive(i)">
-                            <span class="tab-num">{{ (i + 1).toString().padStart(2, '0') }}</span>
-                            <span class="tab-label">{{ t.title }}</span>
-                        </button>
-                    </nav>
-
-                    <!-- Content panels -->
-                    <div class="panels">
-                        <article v-for="(t, i) in tabs" :key="t.id" :id="'panel-' + t.id" class="panel" role="tabpanel"
-                            :aria-labelledby="'tab-' + t.id" v-show="active === i">
-                            <h3 class="panel-title">{{ t.title }}</h3>
-                            <p class="panel-desc" v-if="t.intro">{{ t.intro }}</p>
-
-                            <div v-if="t.examples && t.examples.length" class="panel-examples">
-                                <strong class="examples-label">Examples:</strong>
-                                <ul class="examples-list">
-                                    <li v-for="(ex, k) in t.examples" :key="k">{{ ex }}</li>
-                                </ul>
-                            </div>
-
-                            <div v-if="t.items && t.items.length" class="panel-steps">
-                                <strong class="examples-label">Key steps:</strong>
-                                <ul class="steps-list">
-                                    <li v-for="(it, j) in t.items" :key="j">{{ it }}</li>
-                                </ul>
-                            </div>
-
-                            <p v-if="t.note" class="panel-note"><strong>{{ t.note }}</strong></p>
-                        </article>
+                        <!-- controls -->
+                        <div class="controls">
+                            <button @click="scrollLeft">‹</button>
+                            <button @click="scrollRight">›</button>
+                        </div>
                     </div>
+
+
                 </div>
+
+                <!-- CARDS -->
+                <div class="cards-wrap" ref="cardsWrap">
+                    <article v-for="t in tabs" :key="t.id" class="project-card">
+
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="project"
+                            class="card-img" />
+
+                        <!-- TITLE (moves on hover) -->
+                        <h3 class="card-title">
+                            {{ t.title }}
+                        </h3>
+
+                        <!-- OVERLAY CONTENT -->
+                        <div class="card-overlay">
+
+                            <p class="overlay-intro ">{{ t.intro }}</p>
+
+                            <ul v-if="t.examples?.length">
+                                <li v-for="(ex, k) in t.examples" :key="'ex-' + k">
+                                    {{ ex }}
+                                </li>
+                            </ul>
+
+                            <ul v-else-if="t.items?.length">
+                                <li v-for="(it, k) in t.items" :key="'it-' + k">
+                                    {{ it }}
+                                </li>
+                            </ul>
+
+                            <p v-if="t.note" class="card-note">
+                                {{ t.note }}
+                            </p>
+
+                        </div>
+                    </article>
+
+
+                </div>
+
 
             </div>
         </section>
+
 
         <MainContact />
         <!-- FOOTER -->
@@ -244,7 +264,7 @@ type Tab = {
 };
 
 export default defineComponent({
-    name: "BusinessContinuity",
+    name: "CybersecurityView",
     components: {
         MainNavbar,
         RegulatoryWidget,
@@ -282,13 +302,13 @@ export default defineComponent({
                         "achievable",
                         "consistent",
                         "aligned with business needs",
-                       
+                        
                     ],
                     note: "RTO/RPO failures get flagged automatically.",
                 },
                 {
                     id: "metrics",
-                    title: " Cross-Departmental BC Coordination",
+                    title: "Cross-Departmental BC Coordination",
                     intro:
                         "TMP sequences tasks across:",
                     items: [
@@ -298,7 +318,7 @@ export default defineComponent({
                         "Finance",
                         "Customer Support",
                         "Facilities",
-                        "Vendors"
+                        "Vendors",
                     ],
                     note: "Each receives only the tasks relevant to them.",
                 },
@@ -312,7 +332,7 @@ export default defineComponent({
                         "vendor criticality",
                         "process choke points",
                         "single points of failure",
-                       
+                        
                     ],
                     note: "This replaces hundreds of hours of manual BIAs.",
                 },
@@ -345,6 +365,32 @@ export default defineComponent({
             this.$forceUpdate();
         };
         window.addEventListener("resize", this.resizeHandlerFn);
+
+        // 🔥 SCROLL REVEAL OBSERVER
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target as HTMLElement;
+                        const delay = el.dataset.delay || "0";
+
+                        el.style.transitionDelay = `${delay}ms`;
+                        el.classList.add("is-visible");
+
+                        observer.unobserve(el);
+                    }
+                });
+            },
+            { threshold: 0.15 }
+        );
+
+        document
+            .querySelectorAll(".delayed-section")
+            .forEach((el) => observer.observe(el));
+        this.resizeHandlerFn = () => {
+            this.$forceUpdate();
+        };
+        window.addEventListener("resize", this.resizeHandlerFn);
     },
 
     beforeUnmount() {
@@ -354,6 +400,22 @@ export default defineComponent({
     },
 
     methods: {
+
+        scrollLeft() {
+            const el = this.$refs.cardsWrap as HTMLElement;
+            el.scrollBy({ left: -320, behavior: "smooth" });
+        },
+
+        scrollRight() {
+            const el = this.$refs.cardsWrap as HTMLElement;
+            el.scrollBy({ left: 320, behavior: "smooth" });
+        },
+
+        scrollToCard(index: number) {
+            const el = this.$refs.cardsWrap as HTMLElement;
+            const card = el.children[index] as HTMLElement;
+            card.scrollIntoView({ behavior: "smooth", inline: "start" });
+        },
         setActive(index: number) {
             this.active = index;
 

@@ -29,9 +29,21 @@
       <button class="lightbox-arrow right" @click.stop="nextIndustry">
         ›
       </button>
+
+      <!-- CTA -->
+      <div class="lightbox-cta">
+        <button class="cta-signup" @click="goToSignup">
+          Sign Up →
+        </button>
+      </div>
       <div class="lightbox-inner" :style="{ backgroundImage: `url(${lightboxImage})` }">
         <!-- overlay -->
         <div class="lightbox-overlay">
+
+          <!-- INDUSTRY NAME -->
+          <h2 class="industry-lightbox-title">
+            {{ currentIndustry?.name }}
+          </h2>
 
           <!-- TABS (TOP ON IMAGE) -->
           <div class="ihw-tabs floating-tabs">
@@ -48,7 +60,7 @@
 
             <ul>
               <li v-for="(point, i) in tabContent.points" :key="i">
-                <strong>{{ point.title }}</strong>
+                <h5 class="sub-heading-point">{{ point.title }}</h5>
                 <p class="ihw-point-desc">{{ point.description }}</p>
               </li>
             </ul>
@@ -108,16 +120,16 @@ export default defineComponent({
             subtitle: "Modern airlines operate on digital trust — a single vulnerability can ground fleets, halt bookings, and compromise passenger safety.",
             points: [
               {
-                 title: "Flight Operations System Intrusion", 
-                 description: " Cyberattacks targeting flight scheduling, dispatch, or crew systems that can delay thousands of passengers and disrupt global operations."
+                title: "Flight Operations System Intrusion",
+                description: " Cyberattacks targeting flight scheduling, dispatch, or crew systems that can delay thousands of passengers and disrupt global operations."
 
-               },
+              },
               {
-                 title: "Ransomware on Airport or Airline Backend Systems", 
-                 description:  "  Criminal groups encrypt critical systems like baggage handling or boarding, forcing costly shutdowns and reputational damage."
-                 },
+                title: "Ransomware on Airport or Airline Backend Systems",
+                description: "  Criminal groups encrypt critical systems like baggage handling or boarding, forcing costly shutdowns and reputational damage."
+              },
 
-                 {
+              {
                 title: "Navigation & Communication System Interference",
                 description: " Attempts to manipulate or jam aircraft communications (ACARS) or navigation systems, creating direct safety and compliance risks."
               },
@@ -174,7 +186,7 @@ export default defineComponent({
               },
             ],
           },
-            dataPrivacy: {
+          dataPrivacy: {
             title: "Data Privacy",
             subtitle: "Airlines hold some of the world’s most sensitive travel and identity data — any breach directly impacts trust and safety.",
             points: [
@@ -210,7 +222,7 @@ export default defineComponent({
             ],
           },
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Airlines operate under high public scrutiny — environmental impact, safety culture, and ethical governance define brand reputation.",
             points: [
               {
@@ -251,7 +263,7 @@ export default defineComponent({
         id: "automotive",
         name: "Automotive",
         image:
-         "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1600&auto=format&fit=crop",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -361,7 +373,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Sustainability, safety, and responsible sourcing now define brand reputation and regulatory compliance.",
             points: [
 
@@ -405,7 +417,7 @@ export default defineComponent({
         },
       },
 
-          {
+      {
         id: "banking",
         name: "Banking",
         image: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?q=80&w=1600&auto=format&fit=crop",
@@ -517,7 +529,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Ethics, sustainability, and responsible governance shape a bank’s credibility with regulators and investors.",
             points: [
               {
@@ -555,7 +567,7 @@ export default defineComponent({
       },
 
 
-         {
+      {
         id: "communication",
         name: "Communication (Telecom)",
         image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
@@ -664,7 +676,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Telecom companies must balance expansion with environmental and community responsibilities.",
             points: [
               {
@@ -697,7 +709,7 @@ export default defineComponent({
       },
 
 
-        {
+      {
         id: "construction",
         name: "Construction",
         image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop",
@@ -811,7 +823,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Hse",
+            title: "ESG",
             subtitle: "Construction faces strict scrutiny on worker safety, environmental impact, and ethical project practices.",
             points: [
               {
@@ -845,7 +857,7 @@ export default defineComponent({
 
 
 
-      
+
       {
         id: "healthcare",
         name: "Healthcare",
@@ -943,7 +955,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Healthcare organizations must ensure safety, ethical care, and environmental responsibility — without exception.",
             points: [
               {
@@ -1074,7 +1086,7 @@ export default defineComponent({
 
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Sustainable operations, ethical workforce practices, and safe facilities define hospitality leadership.",
             points: [
               {
@@ -1204,7 +1216,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Sustainability, diversity, ethical data use, and governance now define leadership in the tech sector.",
             points: [
               {
@@ -1333,7 +1345,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Manufacturing faces intense expectations around emissions, safety, and ethical sourcing.",
             points: [
               {
@@ -1464,7 +1476,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Mining is under the global ESG microscope — environmental, worker safety, and community impact risks are enormous.",
             points: [
               {
@@ -1594,7 +1606,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Environmental responsibility, safety culture, and governance practices define the social license to operate.",
             points: [
               {
@@ -1630,7 +1642,7 @@ export default defineComponent({
       {
         id: "petrochemical",
         name: "Petrochemical",
-        image:"https://images.unsplash.com/photo-1590650153855-d9e808231d41?q=80&w=1600&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1590650153855-d9e808231d41?q=80&w=1600&auto=format&fit=crop",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1724,7 +1736,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Chemical industries face intense scrutiny — safety, environment, and community welfare are non-negotiable.",
             points: [
               {
@@ -1855,7 +1867,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Ethical research, safe production, and environmental responsibility shape the pharmaceutical industry’s reputation.",
             points: [
               {
@@ -1987,7 +1999,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Ethical sourcing, waste reduction, and workforce fairness are now central to responsible retail operations.",
             points: [
               {
@@ -2119,7 +2131,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Environmental and safety compliance in shipping directly impacts global trade and public trust.",
             points: [
               {
@@ -2252,7 +2264,7 @@ export default defineComponent({
           },
 
           Esg: {
-            title: "Esg",
+            title: "ESG",
             subtitle: "Sustainable logistics demands efficient fleets, responsible operations, and strong workforce practices.",
             points: [
               {
@@ -2323,6 +2335,10 @@ export default defineComponent({
   },
 
   methods: {
+
+    goToSignup() {
+      this.$router.push("/signup");
+    },
     openLightbox(index: number) {
       this.activeIndustryIndex = index;
       this.lightboxOpen = true;
@@ -2353,313 +2369,3 @@ export default defineComponent({
   }
 });
 </script>
-
-
-<style scoped>
-/* GRID */
-.industries-wrapper {
-  padding: 80px 20px;
-}
-
-.industry-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 80px;
-}
-
-.industry-card {
-  position: relative;
-  border-radius: 28px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.industry-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-}
-
-.industry-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, .6), transparent);
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
-}
-
-.industry-card-overlay h4 {
-  color: #fff;
-  font-size: 18px;
-}
-
-/* LIGHTBOX */
-
-/* LIGHTBOX ARROWS */
-.lightbox-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.45);
-  color: #fff;
-  font-size: 36px;
-  border: none;
-  cursor: pointer;
-  z-index: 10001;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox-arrow.left {
-  left: 24px;
-}
-
-.lightbox-arrow.right {
-  right: 24px;
-}
-
-.lightbox-arrow:hover {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-
-
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, .9);
-  z-index: 9999;
-}
-
-.lightbox-inner {
-  width: 90vw;
-  height: 90vh;
-  margin: auto;
-  border-radius: 32px;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-}
-
-.lightbox-overlay {
-  height: 100%;
-  background: linear-gradient(to right,
-      rgba(0, 0, 0, 0.85),
-      rgba(0, 0, 0, 0.45),
-      rgba(0, 0, 0, 0.15));
-  padding: 48px;
-  color: #fff;
-  overflow-y: auto;
-}
-
-
-.lightbox-close {
-  position: absolute;
-  top: 20px;
-  right: 28px;
-  font-size: 28px;
-  color: #fff;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* TABS */
-.floating-tabs {
-  position: sticky;
-  top: 24px;
-  display: flex;
-  gap: 10px;
-  margin-bottom: 28px;
-  z-index: 5;
-}
-
-/* TAB PILL STYLE */
-.ihw-tab {
-  padding: 8px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(0, 0, 0, 0.45);
-  color: #fff;
-  font-size: 14px;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
-  transition: all 0.2s ease;
-}
-
-.ihw-tab:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* ACTIVE TAB (WHITE PILL) */
-.ihw-tab.is-active {
-  background: #fff;
-  color: #000;
-  border-color: #fff;
-  font-weight: 500;
-}
-
-/* CONTENT */
-.ihw-content h3 {
-  font-size: 24px;
-  color: whitesmoke;
-}
-
-.ihw-subtitle {
-  color: #bbb;
-  margin-bottom: 16px;
-}
-
-.ihw-point-desc {
-  color: #ddd;
-  font-size: 14px;
-}
-
-/* =========================
-   RESPONSIVE STYLES
-========================= */
-
-/* ---------- LARGE LAPTOPS ---------- */
-@media (max-width: 1200px) {
-  .lightbox-inner {
-    width: 94vw;
-    height: 88vh;
-  }
-
-  .lightbox-overlay {
-    padding: 36px;
-  }
-}
-
-/* ---------- TABLETS ---------- */
-@media (max-width: 992px) {
-  .industry-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .industry-card img {
-    height: 220px;
-  }
-
-  .lightbox-overlay {
-    padding: 32px;
-  }
-
-  .ihw-content h3 {
-    font-size: 22px;
-  }
-
-  .lightbox-arrow {
-    width: 46px;
-    height: 46px;
-    font-size: 30px;
-  }
-
-  .lightbox-arrow.left {
-    left: 16px;
-  }
-
-  .lightbox-arrow.right {
-    right: 16px;
-  }
-}
-
-/* ---------- MOBILE ---------- */
-@media (max-width: 768px) {
-  .industries-wrapper {
-    padding: 48px 16px;
-  }
-
-  .industry-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .industry-card img {
-    height: 200px;
-  }
-
-  .lightbox-inner {
-    width: 96vw;
-    height: 92vh;
-    border-radius: 20px;
-  }
-
-  .lightbox-overlay {
-    padding: 24px;
-  }
-
-  /* Tabs scroll horizontally */
-  .floating-tabs {
-    position: sticky;
-    top: 16px;
-    overflow-x: auto;
-    white-space: nowrap;
-    padding-bottom: 8px;
-  }
-
-  .floating-tabs::-webkit-scrollbar {
-    display: none;
-  }
-
-  .ihw-tab {
-    font-size: 13px;
-    padding: 6px 14px;
-  }
-
-  .ihw-content h3 {
-    font-size: 20px;
-  }
-
-  .ihw-point-desc {
-    font-size: 13px;
-  }
-
-  /* Smaller arrows */
-  .lightbox-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 26px;
-  }
-
-  .lightbox-arrow.left {
-    left: 10px;
-  }
-
-  .lightbox-arrow.right {
-    right: 10px;
-  }
-
-  .lightbox-close {
-    top: 14px;
-    right: 18px;
-    font-size: 24px;
-  }
-}
-
-/* ---------- SMALL MOBILES ---------- */
-@media (max-width: 480px) {
-  .lightbox-overlay {
-    padding: 20px;
-  }
-
-  .ihw-content h3 {
-    font-size: 18px;
-  }
-
-  .ihw-subtitle {
-    font-size: 13px;
-  }
-
-  .ihw-tab {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-}
-</style>

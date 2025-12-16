@@ -3,7 +3,7 @@
         <MainNavbar />
         <RegulatoryWidget />
 
-        <section class="cyber-hero position-relative delayed-section" style="animation-delay: 100ms;">
+        <section class="cyber-hero position-relative delayed-section" data-delay="200" style="animation-delay: 100ms;">
             <!-- Background image -->
             <div class="cyber-bg"></div>
 
@@ -17,11 +17,11 @@
                 </div>
 
                 <!-- Title -->
-                <h1 class="cyber-title">Cybersecurity Preparedness</h1>
+                  <h1 class="hero-heading">Cybersecurity Preparedness</h1>
 
                 <!-- Description -->
-                <p class="cyber-desc">
-                    Your tools detect threats. TMP prepares your people to handle them.<br />
+                <p class="hero-description">
+                     Your tools detect threats. TMP prepares your people to handle them.<br />
                     Modern cyberattacks evolve faster than organizations can train—and attackers count on that.<br />
                     TMP gives your SOC, IR, Cloud, AppSec, and leadership teams the ability to respond
                     with clarity, speed, and confidence.
@@ -47,101 +47,95 @@
         </section>
 
 
-        <section class="cyber-reality container py-5 delayed-section" aria-labelledby="cyber-reality-title"
-            style="animation-delay: 300ms;">
 
-            <div class="header mb-4">
-                <h2 id="cyber-reality-title" class="cyber-section-title">The Cyber Reality</h2>
-                <p class="cyber-section-sub">Key problems that make technical tools ineffective without prepared people.
-                </p>
-            </div>
 
-            <div class="cyber-grid">
-                <!-- 1 -->
-                <article class="cyber-card" aria-labelledby="pr1-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">01</div>
-                    </div>
-                    <div class="cyber-right">
-                        <h3 id="pr1-title" class="cyber-card-title">Tools are advanced. Human readiness is not.</h3>
-                        <p class="cyber-card-body">
-                            Security stacks get stronger; human behavior remains the weakest link. Under pressure,
-                            even trained staff hesitate, escalate incorrectly, or miss critical steps.
+        <section class="advantages-bg delayed-section" data-delay="300" style="background: #f4f5f8;">
+            <div class="advantages-section container delayed-section" data-delay="200">
+                 <h2 class="selling-heading">The Cyber Reality</h2>
+
+                <div class="advantages-grid">
+
+                    <!-- SERVICE 1 -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+                         
+                             <i class="bi bi-gear-fill fs-4 icon-size"></i>
+                        </div>
+                        <h3 class="selling-heading">Tools are advanced. Human readiness is not.</h3>
+                        <p class="hero-description">
+                            Security stacks get stronger; human behavior remains the weakest link. Under pressure, even
+                            trained staff hesitate, escalate incorrectly, or miss critical steps.
                         </p>
 
-                        <ul class="cyber-list">
+                        <ul class="hero-description">
                             <li>Cybersecurity tools detect threats, but TMP ensures that your teams are prepared to
-                                handle them effectively.</li>
+                                handle
+                                them effectively.</li>
                             <li>Modern cyberattacks evolve faster than organizations can train; attackers exploit this
-                                gap in human readiness.</li>
+                                gap
+                                in human readiness.</li>
                             <li>Even trained staff may hesitate or skip critical steps under pressure during an
-                                incident.</li>
-
+                                incident.
+                            </li>
                         </ul>
                     </div>
-                </article>
 
-                <!-- 2 -->
-                <article class="cyber-card" aria-labelledby="pr2-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">02</div>
-                    </div>
-                    <div class="cyber-right">
-                        <h3 id="pr2-title" class="cyber-card-title">Incident response plans are outdated the moment
-                            they're written.</h3>
-                        <p class="cyber-card-body">
+                    <!-- SERVICE 2 -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+                            <!-- <i class="icon-style"></i> -->
+                             <i class="bi bi-clouds-fill fs-4 icon-size"></i>
+                        </div>
+                        <h3  class="selling-heading">Incident response plans are outdated the moment they're written.</h3>
+                        <p  class="hero-description">
                             IR playbooks often don’t reflect changes across the environment. Common gaps include:
                         </p>
-                        <ul class="cyber-list">
+
+                        <ul  class="hero-description">
                             <li>tool changes</li>
                             <li>cloud migration</li>
                             <li>new vendors</li>
                             <li>updated OS / app versions</li>
                             <li>new regulatory requirements</li>
                         </ul>
-                        <p class="cyber-card-note"><strong>TMP keeps your response living and aligned to
-                                reality.</strong></p>
+                        <p>TMP keeps your response living and aligned to reality.</p>
                     </div>
-                </article>
 
-                <!-- 3 -->
-                <article class="cyber-card" aria-labelledby="pr3-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">03</div>
-                    </div>
-                    <div class="cyber-right">
-                        <h3 id="pr3-title" class="cyber-card-title">SOC burnout & alert fatigue slow response</h3>
-                        <p class="cyber-card-body">
+                    <!-- SERVICE 3 -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+                            <!-- <i class="icon-resolution"></i> -->
+                             <i class="bi bi-exclamation-triangle-fill fs-4 icon-size"></i>
+                        </div>
+                        <h3  class="selling-heading">SOC burnout & alert fatigue slow response</h3>
+                        <p  class="hero-description">
                             Analysts drown in alerts. Important decisions get delayed.
                         </p>
 
-                        <ul class="cyber-list">
+                        <ul  class="hero-description">
                             <li>TMP keeps response plans updated and aligned with reality, adapting to new tools,
                                 migrations, and regulations.</li>
                             <li>TMP makes cybersecurity preparedness measurable, trackable, and reportable, giving
                                 leadership a clear view of team readiness.</li>
                             <li>TMP defines clear communication channels and roles to ensure all teams work together
                                 effectively under pressure.</li>
-
                         </ul>
 
-                        <p class="cyber-card-note"><strong>TMP forces clarity—who
-                                acts,
-                                how fast, in what order.</strong></p>
+                        <p>TMP forces clarity—who acts, how fast, in what order.</p>
                     </div>
-                </article>
 
-                <!-- 4 -->
-                <article class="cyber-card" aria-labelledby="pr4-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">04</div>
-                    </div>
-                    <div class="cyber-right">
-                        <h3 id="pr4-title" class="cyber-card-title">Cross-team friction kills containment</h3>
-                        <p class="cyber-card-body">
+                    <!-- SERVICE 4 -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+                            <!-- <i class="icon-edit"></i> -->
+                             <i class="bi bi-steam fs-4 icon-size"></i>
+                        </div>
+                        <h3  class="selling-heading">Cross-team friction kills containment</h3>
+                        <p class="hero-description">
                             Real incidents require many teams to work together:
                         </p>
-                        <ul class="cyber-list">
+
+                        <ul class="hero-description">
                             <li>SOC</li>
                             <li>IR</li>
                             <li>AppSec</li>
@@ -149,45 +143,51 @@
                             <li>Cloud</li>
                             <li>Management</li>
                         </ul>
-                        <p class="cyber-card-note"> <strong>But communication breaks down under stress, which slows
-                                containment.</strong>
-                        </p>
-                    </div>
-                </article>
 
-                <!-- 5 -->
-                <article class="cyber-card" aria-labelledby="pr5-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">05</div>
+                        <p>But communication breaks down under stress, which slows containment.</p>
                     </div>
-                    <div class="cyber-right">
-                        <h3 id="pr5-title" class="cyber-card-title">Leadership gets no visibility into real readiness
-                        </h3>
-                        <p class="cyber-card-body">
+
+                    <!-- SERVICE 5 (CENTERED) -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+                            <!-- <i class="icon-translate"></i> -->
+                             <i class="bi bi-hypnotize fs-4 icon-size"></i>
+                        </div>
+                        <h3 class="selling-heading">
+                            Leadership gets no visibility into real readiness</h3>
+                        <p class="hero-description">
                             CISOs can’t answer:
                         </p>
-                        <ul class="cyber-list">
+
+                        <ul class="hero-description">
                             <li>“How prepared are we today?”</li>
                             <li>“Which teams are weakest?”</li>
                             <li>“Where are our IR bottlenecks?”</li>
                         </ul>
-                        <p class="cyber-card-note"><strong>TMP makes readiness measurable, trackable, and
-                                reportable.</strong></p>
+                        <p>TMP makes readiness measurable, trackable, and reportable.</p>
                     </div>
-                </article>
-            </div>
+
+                </div>
+                </div>
         </section>
 
 
-        <section class="projects-hero">
+
+        <section class="projects-hero delayed-section" data-delay="400">
             <div class="container">
 
                 <!-- HEADER -->
                 <div class="projects-header">
                     <div class="left">
-                        <span class="eyebrow">/ TMP Solves /</span>
-                        <h2 class="title">How TMP Solves<br />Cyber Preparedness</h2>
-                        <p class="sub">
+                        <!-- <span class="eyebrow">/ TMP Solves /</span> -->
+                        <span class="hero-description">/ TMP Solves /</span>
+                        <!-- <h2 class="title">How TMP Solves<br />Cyber Preparedness</h2> -->
+                        <h2 class="selling-heading-white-bg">How TMP Solves<br />Cyber Preparedness</h2>
+                        <!-- <p class="sub">
+                            Practical, continuous, and auditor-ready capabilities that close the
+                            people & process gap.
+                        </p> -->
+                        <p class="hero-description-bg">
                             Practical, continuous, and auditor-ready capabilities that close the
                             people & process gap.
                         </p>
@@ -370,6 +370,32 @@ export default defineComponent({
             this.$forceUpdate();
         };
         window.addEventListener("resize", this.resizeHandlerFn);
+
+        // 🔥 SCROLL REVEAL OBSERVER
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target as HTMLElement;
+                        const delay = el.dataset.delay || "0";
+
+                        el.style.transitionDelay = `${delay}ms`;
+                        el.classList.add("is-visible");
+
+                        observer.unobserve(el);
+                    }
+                });
+            },
+            { threshold: 0.15 }
+        );
+
+        document
+            .querySelectorAll(".delayed-section")
+            .forEach((el) => observer.observe(el));
+        this.resizeHandlerFn = () => {
+            this.$forceUpdate();
+        };
+        window.addEventListener("resize", this.resizeHandlerFn);
     },
 
     beforeUnmount() {
@@ -412,371 +438,4 @@ export default defineComponent({
 </script>
 
 
-<style scoped>
-/* STATIC TITLE (always visible) */
 
-.card-title {
-    position: absolute;
-    left: 24px;
-    right: 24px;
-    bottom: 28px;
-
-    font-size: 26px;
-    /* BIG like image */
-    font-weight: 600;
-    line-height: 1.25;
-    color: #ffffff;
-
-    z-index: 3;
-    pointer-events: none;
-
-    transition:
-        top 0.45s ease,
-        bottom 0.45s ease,
-        font-size 0.45s ease,
-        transform 0.45s ease;
-}
-
-.card-title-static {
-    position: absolute;
-    left: 24px;
-    right: 24px;
-    bottom: 32px;
-
-    font-size: 24px;
-    /* BIG like image */
-    font-weight: 600;
-    line-height: 1.25;
-    color: #ffffff;
-
-    z-index: 2;
-    pointer-events: none;
-
-    transition: opacity 0.3s ease;
-}
-
-.projects-hero {
-    background: #0f0f10;
-    color: #fff;
-    border-radius: 48px;
-    margin: 24px;
-    padding: 60px 32px;
-    overflow: hidden;
-}
-
-/* header */
-.projects-header {
-    display: flex;
-    justify-content: space-between;
-    gap: 32px;
-    margin-bottom: 40px;
-}
-
-.eyebrow {
-    opacity: 0.6;
-    letter-spacing: 1px;
-}
-
-.title {
-    font-size: clamp(32px, 4vw, 56px);
-    font-weight: 600;
-    line-height: 1.05;
-    margin: 12px 0;
-    color: aliceblue;
-}
-
-.sub {
-    max-width: 460px;
-    opacity: 0.8;
-    color: #e9e1de;
-}
-
-.controls {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.controls button {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, .2);
-    background: transparent;
-    color: #fff;
-    font-size: 22px;
-    cursor: pointer;
-}
-
-/* stat */
-.stat {
-    text-align: right;
-}
-
-.stat .big {
-    font-size: 96px;
-    font-weight: 700;
-    line-height: 1;
-    background: linear-gradient(90deg, #7c3aed, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.stat .label {
-    opacity: 0.7;
-}
-
-/* cards */
-.cards-wrap {
-    display: flex;
-    gap: 24px;
-    overflow-x: auto;
-    padding-bottom: 20px;
-    scroll-behavior: smooth;
-
-    /* hide scrollbar */
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE & Edge */
-}
-
-.cards-wrap::-webkit-scrollbar {
-    display: none;
-    /* Chrome, Safari */
-}
-
-
-.cards-wrap::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, .3);
-}
-
-
-/* when hovering cards container */
-.cards-wrap:hover .project-card {
-    transform: scale(0.9);
-    opacity: 0.5;
-}
-
-/* hovered card becomes dominant */
-.cards-wrap .project-card:hover {
-    transform: scale(1.05);
-    opacity: 1;
-    z-index: 5;
-}
-
-
-.project-card {
-    position: relative;
-    min-width: 320px;
-    height: 420px;
-    border-radius: 22px;
-    overflow: hidden;
-    cursor: pointer;
-    background: #111;
-
-    /* animation */
-    transition:
-        transform 0.45s cubic-bezier(.4, 0, .2, 1),
-        opacity 0.45s ease;
-    transform: scale(0.94);
-}
-
-/* fake image bg */
-.card-bg {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, #111, #222);
-    transition: transform .4s;
-}
-
-/* overlay */
-.cards-wrap {
-    display: flex;
-    gap: 24px;
-    overflow-x: auto;
-    padding-bottom: 16px;
-    scroll-behavior: smooth;
-}
-
-.cards-wrap::-webkit-scrollbar {
-    height: 6px;
-}
-
-.cards-wrap::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, .3);
-    border-radius: 6px;
-}
-
-/* CARD */
-/* .project-card {
-    position: relative;
-    min-width: 320px;
-    height: 420px;
-    border-radius: 22px;
-    overflow: hidden;
-    cursor: pointer;
-    background: #111;
-} */
-
-/* IMAGE */
-.card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform .6s ease;
-}
-
-/* OVERLAY (hidden initially) */
-/* .card-overlay {
-    position: absolute;
-    inset: 0;
-    padding: 28px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    background: linear-gradient(to top,
-            rgba(0, 0, 0, .88),
-            rgba(0, 0, 0, .35),
-            transparent);
-
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all .45s ease;
-   
-} */
-
-/* .card-overlay {
-  position: absolute;
-  inset: 0;
-  padding: 28px;
-
-  display: flex;
-  flex-direction: column;
-
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.95),
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.4)
-  );
-
-  opacity: 0;
-  transform: translateY(24px);
-  transition: all 0.45s ease;
-
-  overflow-y: auto;
-} */
-
-
-.card-overlay {
-    position: absolute;
-    inset: 0;
-    padding: 28px;
-
-    display: flex;
-    flex-direction: column;
-
-    background: linear-gradient(to top,
-            rgba(0, 0, 0, 0.95),
-            rgba(0, 0, 0, 0.7),
-            rgba(0, 0, 0, 0.4));
-
-    opacity: 0;
-    transform: translateY(24px);
-    transition: all 0.45s ease;
-
-    overflow-y: auto;
-}
-
-
-.card-overlay::-webkit-scrollbar {
-    width: 4px;
-}
-
-.card-overlay::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
-}
-
-.card-overlay {
-    scrollbar-width: thin;
-    /* Firefox */
-}
-
-.card-overlay h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    /* color: aliceblue; */
-    color: #f4f5f9;
-}
-
-.card-overlay p {
-    font-size: 14px;
-    opacity: 0.85;
-    margin-bottom: 10px;
-    line-height: 1.5;
-    /* color: rgb(245, 219, 219); */
-    color: #f4f5f8;
-}
-
-.overlay-intro {
-    margin-top: 72px;
-    /* space for title */
-    font-size: 14px;
-    line-height: 1.5;
-    color: #f4f5f8;
-}
-
-.card-overlay ul {
-    margin-top: 12px;
-    padding-left: 18px;
-    font-size: 13px;
-    line-height: 1.45;
-    color: #ffffff;
-}
-
-
-.card-note {
-    margin-top: 10px;
-    font-size: 13px;
-    opacity: 0.85;
-    font-style: italic;
-}
-
-
-/* HOVER EFFECT */
-.project-card:hover .card-img {
-    transform: scale(1.08);
-}
-
-.project-card:hover .card-overlay {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.project-card:hover .card-title {
-    top: 24px;
-    bottom: auto;
-
-    font-size: 22px;
-    /* heading size */
-    transform: translateY(0);
-}
-
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .cards-wrap {
-        flex-direction: column;
-        overflow-x: hidden;
-    }
-
-    .project-card {
-        min-width: 100%;
-        height: 360px;
-    }
-}
-</style>

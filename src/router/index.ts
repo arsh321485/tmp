@@ -11,6 +11,8 @@ import RegulatoryRequirementsView from '@/views/RegulatoryRequirementsView.vue'
 import BusinessContinuityView from '@/views/BusinessContinuityView.vue'
 import DataPrivacyView from '@/views/DataPrivacyView.vue'
 import EsgView from '@/views/EsgView.vue'
+import EmailConfirmView from '@/views/EmailConfirmView.vue'
+import MagiclinkView from '@/views/MagiclinkView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -84,6 +86,18 @@ const router = createRouter({
       path: '/regulatory-requirments',
       name: 'regulatory-requirments',
       component: RegulatoryRequirementsView,
+    },
+
+    {
+      path: '/email',
+      name: 'email',
+      component: EmailConfirmView,
+    },
+
+     {
+      path: '/magic-link',
+      name: 'magic-link',
+      component: MagiclinkView,
     },
 
 

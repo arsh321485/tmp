@@ -94,21 +94,6 @@
         </div>
 
         <!-- RIGHT SIDE -->
-        <!-- <div class="nav-right">
-          <div class="d-flex auth-buttons">
-            <button class="btn link-btn m-0 p-0" @click.prevent>Signup /</button>
-           
-            <button class="btn link-btn m-0 p-0" @click.prevent>Login</button>
-          </div>
-
-          <button class="nav-toggle" @click="toggleMobileMenu" aria-label="Toggle menu">
-            <span v-if="!isMobileMenuOpen">☰</span>
-            <span v-else>✕</span>
-          </button>
-        </div> -->
-
-        <!-- RIGHT SIDE -->
-        <!-- RIGHT SIDE -->
         <div class="nav-right">
           <ul class="main-menu auth-menu">
 
@@ -407,6 +392,28 @@ export default defineComponent({
     padding: 8px 6px;
     display: block;
     width: 100%;
+  }
+
+   /* make shell strictly left-right */
+  .nav-shell {
+    justify-content: space-between;
+     flex-wrap: wrap; /* IMPORTANT */
+  }
+
+  /* hide center menu container itself */
+  .nav-center {
+    display: none;
+  }
+
+   /* when menu opens, reveal nav-center */
+  .nav-center:has(.main-menu.is-open) {
+    display: block;
+  }
+
+  /* push right section to extreme end */
+  .nav-right {
+    margin-left: auto;
+
   }
 }
 </style>

@@ -3,7 +3,7 @@
         <MainNavbar />
         <RegulatoryWidget />
 
-        <section class="cyber-hero position-relative delayed-section" style="animation-delay: 100ms;">
+        <section class="cyber-hero position-relative delayed-section" data-delay="200" style="animation-delay: 100ms;">
             <!-- Background image -->
             <div class="cyber-bg"></div>
 
@@ -17,11 +17,12 @@
                 </div>
 
                 <!-- Title -->
-                <h1 class="cyber-title">ESG Preparedness</h1>
+                <h1 class="hero-heading">
+                    ESG Preparedness</h1>
 
                 <!-- Description -->
-                <p class="cyber-desc">
-                    Resilience is now part of ESG scoring — can you demonstrate it?<br />
+                <p class="hero-description">
+                    Resilience is now part of ESG scoring — can you demonstrate it?
                     ESG and Sustainability Leaders must show preparedness for operational, environmental, and governance
                     risks. TMP gives you a structured, measurable framework.
                 </p>
@@ -46,50 +47,50 @@
         </section>
 
 
-        <section class="cyber-reality container py-5 delayed-section" aria-labelledby="cyber-reality-title"
-            style="animation-delay: 300ms;">
 
-            <div class="header mb-4">
-                <h2 id="cyber-reality-title" class="cyber-section-title">The ESG Preparedness Reality</h2>
-                <!-- <p class="cyber-section-sub">Key problems that make technical tools ineffective without prepared people.
-                </p> -->
-            </div>
 
-            <div class="cyber-grid">
-                <!-- 1 -->
-                <article class="cyber-card" aria-labelledby="pr1-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">01</div>
-                    </div>
-                    <div class="cyber-right">
-                        <h3 id="pr1-title" class="cyber-card-title">ESG plans lack operational clarity</h3>
-                        <p class="cyber-card-body">
+        <section class="advantages-bg delayed-section" data-delay="300" style="background: #f4f5f8;">
+            <div class="advantages-section container delayed-section" data-delay="200">
+                <h2 class="selling-heading">The ESG Preparedness Reality</h2>
+
+                <div class="advantages-grid">
+
+                    <!-- SERVICE 1 -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+
+                            <i class="bi bi-gear-fill fs-4 icon-size"></i>
+                        </div>
+                        <h3 class="selling-heading">
+                            ESG plans lack operational clarity</h3>
+                        <p class="hero-description">
                             Policies exist, but workflows do not.
                         </p>
 
-                        <ul class="cyber-list">
+                        <ul class="hero-description">
                             <li>Cybersecurity tools detect threats, but TMP ensures that your teams are prepared to
                                 handle them effectively.</li>
                             <li>Modern cyberattacks evolve faster than organizations can train; attackers exploit this
                                 gap in human readiness.</li>
                             <li>Even trained staff may hesitate or skip critical steps under pressure during an
-                                incident.</li>
-
+                                incident.
+                            </li>
                         </ul>
                     </div>
-                </article>
 
-                <!-- 2 -->
-                <article class="cyber-card" aria-labelledby="pr2-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">02</div>
-                    </div>
-                    <div class="cyber-right">
-                        <h3 id="pr2-title" class="cyber-card-title"> Governance decisions are not documented</h3>
-                        <p class="cyber-card-body">
+                    <!-- SERVICE 2 -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+                            <!-- <i class="icon-style"></i> -->
+                            <i class="bi bi-clouds-fill fs-4 icon-size"></i>
+                        </div>
+                        <h3 class="selling-heading">Governance decisions are not documented
+                        </h3>
+                        <p class="hero-description">
                             Boards want audit trails for oversight responsibilities.
                         </p>
-                        <ul class="cyber-list">
+
+                        <ul class="hero-description">
                             <li>tool changes</li>
                             <li>cloud migration</li>
                             <li>new vendors</li>
@@ -98,44 +99,44 @@
                         </ul>
 
                     </div>
-                </article>
 
-                <!-- 3 -->
-                <article class="cyber-card" aria-labelledby="pr3-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">03</div>
-                    </div>
-                    <div class="cyber-right">
-                        <h3 id="pr3-title" class="cyber-card-title">Third-party ESG risk is rising</h3>
-                        <p class="cyber-card-body">
+                    <!-- SERVICE 3 -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+                            <!-- <i class="icon-resolution"></i> -->
+                            <i class="bi bi-exclamation-triangle-fill fs-4 icon-size"></i>
+                        </div>
+                        <h3 class="selling-heading">
+                            Third-party ESG risk is rising</h3>
+                        <p class="hero-description">
                             Suppliers often cause sustainability & compliance failures.
                         </p>
 
-                        <ul class="cyber-list">
+                        <ul class="hero-description">
                             <li>TMP keeps response plans updated and aligned with reality, adapting to new tools,
                                 migrations, and regulations.</li>
                             <li>TMP makes cybersecurity preparedness measurable, trackable, and reportable, giving
                                 leadership a clear view of team readiness.</li>
                             <li>TMP defines clear communication channels and roles to ensure all teams work together
                                 effectively under pressure.</li>
-
                         </ul>
 
 
                     </div>
-                </article>
 
-                <!-- 4 -->
-                <article class="cyber-card" aria-labelledby="pr4-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">04</div>
-                    </div>
-                    <div class="cyber-right">
-                        <h3 id="pr4-title" class="cyber-card-title">Environmental & safety risks are unpredictable</h3>
-                        <p class="cyber-card-body">
+                    <!-- SERVICE 4 -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+                            <!-- <i class="icon-edit"></i> -->
+                            <i class="bi bi-steam fs-4 icon-size"></i>
+                        </div>
+                        <h3 class="selling-heading">
+                            Environmental & safety risks are unpredictable</h3>
+                        <p class="hero-description">
                             Workplace incidents, environmental hazards, ethical violations.
                         </p>
-                        <ul class="cyber-list">
+
+                        <ul class="hero-description">
                             <li>SOC</li>
                             <li>IR</li>
                             <li>AppSec</li>
@@ -143,87 +144,102 @@
                             <li>Cloud</li>
                             <li>Management</li>
                         </ul>
-                        <!-- <p class="cyber-card-note"> <strong>But communication breaks down under stress, which slows containment.</strong>
-                        </p> -->
-                    </div>
-                </article>
 
-                <!-- 5 -->
-                <article class="cyber-card" aria-labelledby="pr5-title">
-                    <div class="cyber-left">
-                        <div class="cyber-number">05</div>
+
                     </div>
-                    <div class="cyber-right">
-                        <h3 id="pr5-title" class="cyber-card-title">Reporting frameworks demand proof
-                        </h3>
-                        <p class="cyber-card-body">
+
+                    <!-- SERVICE 5 (CENTERED) -->
+                    <div class="adv-card">
+                        <div class="adv-icon">
+                            <!-- <i class="icon-translate"></i> -->
+                            <i class="bi bi-hypnotize fs-4 icon-size"></i>
+                        </div>
+                        <h3 class="selling-heading">
+
+                            Reporting frameworks demand proof</h3>
+                        <p class="hero-description">
                             GRI, ESRS & SASB expect documented response capability.
                         </p>
-                        <ul class="cyber-list">
+
+                        <ul class="hero-description">
                             <li>“How prepared are we today?”</li>
                             <li>“Which teams are weakest?”</li>
                             <li>“Where are our IR bottlenecks?”</li>
                         </ul>
-
+                       
                     </div>
-                </article>
+
+                </div>
             </div>
         </section>
 
 
-        <section class="steps-hero py-5 delayed-section" aria-labelledby="tmp-solves-title"
-            style="animation-delay: 500ms;">
 
+        <section class="projects-hero delayed-section" data-delay="400">
             <div class="container">
 
-                <header class="mb-4 steps-left">
-                    <h2 id="tmp-solves-title" class="steps-title"> How TMP Improves ESG
-                        Readiness</h2>
-                    <!-- <p class="section-sub">Practical, continuous, and auditor-ready capabilities that close the people
-                        &amp;
-                        process gap.</p> -->
-                </header>
+                <!-- HEADER -->
+                <div class="projects-header">
+                    <div class="left">
+                        <!-- <span class="eyebrow">/ TMP Solves /</span> -->
+                        <span class="hero-description">/ ESG Preparedness /</span>
+                        <!-- <h2 class="title">How TMP Solves<br />Cyber Preparedness</h2> -->
+                        <h2 class="selling-heading-white-bg"> How TMP Improves <br> ESG Readiness</h2>
+                       
 
-                <div class="solves-wrap">
-                    <!-- Tabs (left on desktop, top on mobile) -->
-                    <nav class="tabs" role="tablist" :aria-orientation="isMobile ? 'horizontal' : 'vertical'">
-                        <button v-for="(t, i) in tabs" :key="t.id" :id="'tab-' + t.id"
-                            :class="['tab-btn', { active: active === i }]" role="tab"
-                            :aria-selected="active === i ? 'true' : 'false'" :aria-controls="'panel-' + t.id"
-                            @click="setActive(i)" @keyup.enter.space.prevent="setActive(i)">
-                            <span class="tab-num">{{ (i + 1).toString().padStart(2, '0') }}</span>
-                            <span class="tab-label">{{ t.title }}</span>
-                        </button>
-                    </nav>
-
-                    <!-- Content panels -->
-                    <div class="panels">
-                        <article v-for="(t, i) in tabs" :key="t.id" :id="'panel-' + t.id" class="panel" role="tabpanel"
-                            :aria-labelledby="'tab-' + t.id" v-show="active === i">
-                            <h3 class="panel-title">{{ t.title }}</h3>
-                            <p class="panel-desc" v-if="t.intro">{{ t.intro }}</p>
-
-                            <div v-if="t.examples && t.examples.length" class="panel-examples">
-                                <strong class="examples-label">Examples:</strong>
-                                <ul class="examples-list">
-                                    <li v-for="(ex, k) in t.examples" :key="k">{{ ex }}</li>
-                                </ul>
-                            </div>
-
-                            <div v-if="t.items && t.items.length" class="panel-steps">
-                                <strong class="examples-label">Key steps:</strong>
-                                <ul class="steps-list">
-                                    <li v-for="(it, j) in t.items" :key="j">{{ it }}</li>
-                                </ul>
-                            </div>
-
-                            <p v-if="t.note" class="panel-note"><strong>{{ t.note }}</strong></p>
-                        </article>
+                        <!-- controls -->
+                        <div class="controls">
+                            <button @click="scrollLeft">‹</button>
+                            <button @click="scrollRight">›</button>
+                        </div>
                     </div>
+
+
                 </div>
+
+                <!-- CARDS -->
+                <div class="cards-wrap" ref="cardsWrap">
+                    <article v-for="t in tabs" :key="t.id" class="project-card">
+
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="project"
+                            class="card-img" />
+
+                        <!-- TITLE (moves on hover) -->
+                        <h3 class="card-title">
+                            {{ t.title }}
+                        </h3>
+
+                        <!-- OVERLAY CONTENT -->
+                        <div class="card-overlay">
+
+                            <p class="overlay-intro ">{{ t.intro }}</p>
+
+                            <ul v-if="t.examples?.length">
+                                <li v-for="(ex, k) in t.examples" :key="'ex-' + k">
+                                    {{ ex }}
+                                </li>
+                            </ul>
+
+                            <ul v-else-if="t.items?.length">
+                                <li v-for="(it, k) in t.items" :key="'it-' + k">
+                                    {{ it }}
+                                </li>
+                            </ul>
+
+                            <p v-if="t.note" class="card-note">
+                                {{ t.note }}
+                            </p>
+
+                        </div>
+                    </article>
+
+
+                </div>
+
 
             </div>
         </section>
+
 
         <MainContact />
         <!-- FOOTER -->
@@ -248,7 +264,7 @@ type Tab = {
 };
 
 export default defineComponent({
-    name: "EsgView",
+    name: "CybersecurityView",
     components: {
         MainNavbar,
         RegulatoryWidget,
@@ -259,7 +275,7 @@ export default defineComponent({
     data() {
         return {
             active: 0 as number,
-            resizeHandlerFn: null as null | (() => void), // FIXED (no _) 
+            resizeHandlerFn: null as null | (() => void), // FIXED (no _)
             tabs: [
                 {
                     id: "sim",
@@ -274,11 +290,12 @@ export default defineComponent({
                         "discrimination incident",
                         "ethical misconduct",
                         "corruption or bribery alert",
+                        
                     ],
                 },
                 {
                     id: "workflows",
-                    title: " Multi-Department Coordination",
+                    title: "Multi-Department Coordination",
                     intro: "TMP unites:",
                     items: [
                         "Risk",
@@ -304,7 +321,7 @@ export default defineComponent({
                         "contract obligations",
                        
                     ],
-                    
+                   
                 },
                 {
                     id: "improve",
@@ -326,10 +343,11 @@ export default defineComponent({
                     intro: "TMP outputs exportable evidence aligned to:",
                     items: [
                         "GRI",
-                        'SASB',
+                       "SASB",
                         "ESRS",
                         "UN SDGs",
-                        "Investor questionnaires", 
+                        "Investor questionnaires",
+                       
                     ],
                 },
             ] as Tab[],
@@ -347,6 +365,32 @@ export default defineComponent({
             this.$forceUpdate();
         };
         window.addEventListener("resize", this.resizeHandlerFn);
+
+        // 🔥 SCROLL REVEAL OBSERVER
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target as HTMLElement;
+                        const delay = el.dataset.delay || "0";
+
+                        el.style.transitionDelay = `${delay}ms`;
+                        el.classList.add("is-visible");
+
+                        observer.unobserve(el);
+                    }
+                });
+            },
+            { threshold: 0.15 }
+        );
+
+        document
+            .querySelectorAll(".delayed-section")
+            .forEach((el) => observer.observe(el));
+        this.resizeHandlerFn = () => {
+            this.$forceUpdate();
+        };
+        window.addEventListener("resize", this.resizeHandlerFn);
     },
 
     beforeUnmount() {
@@ -356,6 +400,22 @@ export default defineComponent({
     },
 
     methods: {
+
+        scrollLeft() {
+            const el = this.$refs.cardsWrap as HTMLElement;
+            el.scrollBy({ left: -320, behavior: "smooth" });
+        },
+
+        scrollRight() {
+            const el = this.$refs.cardsWrap as HTMLElement;
+            el.scrollBy({ left: 320, behavior: "smooth" });
+        },
+
+        scrollToCard(index: number) {
+            const el = this.$refs.cardsWrap as HTMLElement;
+            const card = el.children[index] as HTMLElement;
+            card.scrollIntoView({ behavior: "smooth", inline: "start" });
+        },
         setActive(index: number) {
             this.active = index;
 

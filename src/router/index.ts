@@ -17,6 +17,8 @@ import DomainView from '@/views/DomainView.vue'
 import MattermostView from '@/views/MattermostView.vue'
 import WelcomeStepper from '@/components/welcomeStepper.vue'
 import OrganisationView from '@/views/OrganisationView.vue'
+import LocationView from '@/views/LocationView.vue'
+import MainSignup from '@/components/MainSignup.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -127,7 +129,19 @@ const router = createRouter({
       path: '/organisation',
       name: 'organisation',
       component: OrganisationView
+    },
+
+      {
+      path: '/location',
+      name: 'location',
+      component: LocationView
+    },
+     {
+      path: '/signup',
+      name: 'signup',
+      component: MainSignup
     }
+
 
    
   ],

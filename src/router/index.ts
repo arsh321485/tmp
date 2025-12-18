@@ -13,6 +13,10 @@ import DataPrivacyView from '@/views/DataPrivacyView.vue'
 import EsgView from '@/views/EsgView.vue'
 import EmailConfirmView from '@/views/EmailConfirmView.vue'
 import MagiclinkView from '@/views/MagiclinkView.vue'
+import DomainView from '@/views/DomainView.vue'
+import MattermostView from '@/views/MattermostView.vue'
+import WelcomeStepper from '@/components/welcomeStepper.vue'
+import OrganisationView from '@/views/OrganisationView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -100,6 +104,30 @@ const router = createRouter({
       component: MagiclinkView,
     },
 
+     {
+      path: '/domain',
+      name: 'domain',
+      component: DomainView,
+    },
+
+    
+     {
+      path: '/mattermost',
+      name: 'mattermost',
+      component: MattermostView,
+    },
+
+    {
+      path: '/welcome-stepper',
+      name: 'Welcome-stepper',
+      component: WelcomeStepper
+    },
+
+     {
+      path: '/organisation',
+      name: 'organisation',
+      component: OrganisationView
+    }
 
    
   ],

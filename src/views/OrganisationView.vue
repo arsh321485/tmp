@@ -5,41 +5,47 @@
 
         <!-- LEFT -->
         <div class="auth-left">
-          <!-- <div class="logo">*</div> -->
-
-          <div class="logo">
-            <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
-          </div>
+            <div class="logo">
+                        <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
+                    </div>
 
 
           <h1 class="title">Welcome to Testmyplan!</h1>
 
+          <p class="step-text">1/5 Add organisation details</p>
 
+          <!-- Stepper -->
+          <welcome-stepper :totalSteps="5" :current="1" />
 
-          <p class="step-text">Setup your email address and password</p>
-
-
-          <!-- Form -->
+          <!-- ✅ UPDATED FORM ONLY -->
           <form class="auth-form">
-            <label>Your email address</label>
-            <input type="email" placeholder="Your email address" />
+            <label>What is your organisation name?</label>
+            <input type="text" placeholder="Your organisation name" />
 
-            <label>Create a password</label>
-            <input type="password" placeholder="Choose a password" />
+            <label>Select your industry:</label>
+            <select>
+              <option>Information Technology</option>
+              <option>Finance</option>
+              <option>Healthcare</option>
+              <option>Education</option>
+              <option>Other</option>
+            </select>
 
-            <label>Confirm password</label>
-            <input type="password" placeholder="Your organisation name" />
+            <label>Select your country:</label>
+            <select>
+              <option>United States</option>
+              <option>United Kingdom</option>
+              <option>India</option>
+              <option>Canada</option>
+              <option>Other</option>
+            </select>
 
-            <!-- <button type="submit" class="btn-primary">
-                            Confirm your email<i class="bi bi-arrow-right-circle-fill ps-2"></i>
-                        </button> -->
 
-            <router-link to="/magic-link"
-              class="btn-primary d-inline-flex align-items-center justify-content-center">
-              Confirm your email
-              <i class="bi bi-arrow-right-circle-fill ps-2"></i>
-            </router-link>
-
+            <router-link to="/domain"
+                        class="btn-primary d-inline-flex align-items-center justify-content-center">
+                       Select domain
+                        <i class="bi bi-arrow-right-circle-fill ps-2"></i>
+                    </router-link>
           </form>
         </div>
 
@@ -56,8 +62,8 @@
             <span class="step"></span>
           </div>
 
-          <img src="@/assets/images/laptop-img.png" alt="Security Illustration" class="illustration red-tint" />
-
+           <img src="@/assets/images/laptop-img.png" alt="Security Illustration"
+                        class="illustration red-tint" />
         </div>
 
       </div>
@@ -65,15 +71,16 @@
   </main>
 </template>
 
-
 <script lang="ts">
+import WelcomeStepper from '@/components/welcomeStepper.vue';
+
+
 
 export default {
-  name: "EmailConfirm",
-}
-
+  name: "OrganisationView",
+ components: {WelcomeStepper}
+};
 </script>
-
 
 <style scoped>
 * {
@@ -88,11 +95,6 @@ export default {
   align-items: center;
 }
 
-
-/* .logo {
-  margin-bottom: 32px;
-} */
-
 .logo img {
   height: 44.94px;
   width: 43.55px;
@@ -101,10 +103,6 @@ export default {
   display: block;
 }
 
-
-/* ========================= */
-/* MAIN LAYOUT */
-/* ========================= */
 .auth-wrapper {
   display: flex;
   max-width: 1200px;
@@ -113,12 +111,8 @@ export default {
   align-items: center;
 }
 
-/* ========================= */
-/* LEFT PANEL */
-/* ========================= */
 .auth-left {
   flex: 1;
-  /* padding: 80px 0; */
   padding: 15px 0;
 }
 
@@ -160,8 +154,6 @@ export default {
   font-weight: 500;
   color: #000000;
   margin-bottom: 20px;
-  /* line-height: 28px; */
-  /* line-height: 6px; */
   letter-spacing: -0.7%;
 }
 
@@ -176,7 +168,8 @@ export default {
   color: #000000;
 }
 
-.auth-form input {
+.auth-form input,
+.auth-form select {
   width: 100%;
   padding: 10px 16px;
   margin-bottom: 22px;
@@ -185,7 +178,6 @@ export default {
   background: #F6F6F6;
   font-size: 18px;
   font-weight: 400;
-
 }
 
 .auth-form ::placeholder {
@@ -194,7 +186,8 @@ export default {
   font-weight: 500;
 }
 
-.auth-form input:focus {
+.auth-form input:focus,
+.auth-form select:focus {
   outline: none;
   border-color: #e63946;
 }
@@ -221,7 +214,6 @@ export default {
 .auth-right {
   flex: 1;
   background: #FFEFEF;
-  /* padding: 80px 70px; */
   padding: 95px 21px;
   border-radius: 24px;
   display: flex;
@@ -257,10 +249,8 @@ export default {
 }
 
 .red-tint {
-  filter:
-    sepia(1) hue-rotate(-20deg) saturate(3) brightness(0.95);
+  filter: sepia(1) hue-rotate(-20deg) saturate(3) brightness(0.95);
 }
-
 
 /* ========================= */
 /* RESPONSIVE */
@@ -290,68 +280,6 @@ export default {
   }
 }
 
-/* ========================= */
-/* LARGE DESKTOP (1400px+) */
-/* ========================= */
-@media (min-width: 1400px) {
-  .auth-wrapper {
-    max-width: 1320px;
-  }
-}
-
-/* ========================= */
-/* LAPTOPS (992px – 1199px) */
-/* ========================= */
-@media (max-width: 1199px) {
-  .title {
-    font-size: 38px;
-    line-height: 64px;
-  }
-
-  .auth-right h2 {
-    font-size: 36px;
-    line-height: 48px;
-  }
-
-  .illustration {
-    max-width: 380px;
-  }
-}
-
-/* ========================= */
-/* TABLETS & IPADS */
-/* ========================= */
-@media (max-width: 991px) {
-  .auth-wrapper {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .auth-left,
-  .auth-right {
-    width: 100%;
-  }
-
-  .auth-right {
-    padding: 60px 24px;
-  }
-
-  .auth-right h2 {
-    text-align: center;
-  }
-
-  .right-stepper {
-    justify-content: center;
-  }
-
-  .illustration {
-    width: 70%;
-  }
-}
-
-/* ========================= */
-/* MOBILE DEVICES */
-/* ========================= */
 @media (max-width: 767px) {
   .auth-page {
     align-items: flex-start;
@@ -375,7 +303,8 @@ export default {
     font-size: 16px;
   }
 
-  .auth-form input {
+  .auth-form input,
+  .auth-form select {
     font-size: 16px;
     padding: 10px 14px;
   }
@@ -384,15 +313,11 @@ export default {
     width: 100%;
   }
 
-  /* Hide right panel on mobile (UX best practice) */
   .auth-right {
     display: none;
   }
 }
 
-/* ========================= */
-/* SMALL MOBILES (320px) */
-/* ========================= */
 @media (max-width: 375px) {
   .title {
     font-size: 24px;

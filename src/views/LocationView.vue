@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts">
-import WelcomeStepper from '@/components/welcomeStepper.vue';
+import WelcomeStepper from '@/components/WelcomeStepper.vue';
 
 
 

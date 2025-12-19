@@ -11,7 +11,7 @@
 
 <script lang="ts">
 export default {
-  name: " welcomeStepper",
+  name: " WelcomeStepper",
   props: {
     // number of steps to show
     totalSteps: {

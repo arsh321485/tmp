@@ -4506,6 +4506,11 @@ footer {
   padding: 20px;
 }
 
+.industry-card:hover {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  transform: scale(1.05);
+}
+
 .industry-card-overlay h4 {
   color: #fff;
   font-size: 26px;
@@ -4794,6 +4799,13 @@ footer {
   z-index: 10002;
 }
 
+.modal-cta {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 28px;
+}
+
+
 .cta-signup {
   padding: 14px 28px;
   font-size: 15px;
@@ -4824,7 +4836,7 @@ footer {
   .cta-signup {
     width: 100%;
     text-align: center;
-    padding: 14px 0;
+    padding: 14px 14px;
   }
 }
 
@@ -4846,6 +4858,336 @@ footer {
   .industry-lightbox-title {
     font-size: 1.6rem;
     margin-bottom: 0.75rem;
+  }
+}
+
+
+
+
+/* new css for new design of industry modal */
+/* MODAL BASE */
+.industry-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+}
+
+.industry-modal-inner {
+  width: 90vw;
+  height: 85vh;
+  background: #0b1220;
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* CLOSE */
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 26px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* LEFT IMAGE */
+.modal-left {
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* 👈 put image behind */
+
+}
+
+.modal-industry-title {
+  position: absolute;
+  /* bottom: 24px;
+  left: 24px;
+  color: #fff;
+  font-size: 45px;
+  font-weight: 600; */
+  bottom: 80px; /* move slightly above button */
+  left: 24px;
+  color: #fff;
+  font-size: 45px;
+  font-weight: 600;
+  z-index: 2; /* 👈 above image */
+}
+
+/* RIGHT CONTENT */
+.modal-right {
+  position: relative;
+  padding: 36px;
+  /* overflow-y: auto; */
+  color: #fff;
+  max-height: 85vh; 
+  background: #0b1220;
+
+   /* ✅ hide scrollbar but keep scroll functional */
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE/Edge */
+}
+
+
+.modal-right::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+
+/* TABS */
+.modal-tabs {
+  display: flex;
+  gap: 12px;
+  /* position: fixed; */
+   position: sticky; /* 👈 was fixed */
+  /* z-index: 999; */
+   top: 0;           /* 👈 stick to top of scrollable area */
+  z-index: 10;
+  padding: 8px 0;
+}
+
+
+.modal-tab {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modal-tab.active {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+/* CONTENT */
+.modal-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content h3,
+.modal-subtitle {
+  position: sticky;      /* 👈 make them stay at top while scrolling */
+  top: 0;
+  background: #0b1220;   /* 👈 same color as modal background to hide overlap */
+  z-index: 5;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.modal-content h3 {
+  font-size: 22px;
+  margin-top: 0;
+  color: #fff;
+}
+
+.modal-subtitle {
+  color: #b6c0d1;
+  /* margin-bottom: 24px; */
+  margin-bottom: 12px;
+}
+
+/* POINTS */
+.modal-points {
+     flex: 1;
+  overflow-y: auto;
+  padding-top: 10px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+   /* 👇 hide scrollbar but keep scroll functional */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.modal-points::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+.modal-point {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 16px 18px;
+  border-radius: 14px;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-point:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.modal-point h5 {
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.modal-point p {
+  font-size: 14px;
+  color: #cfd6e4;
+}
+
+/* CTA */
+.modal-cta {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;          /* 👈 move to right side */
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
+
+/* media query */
+@media (max-width: 768px) {
+  .industry-modal-inner {
+    grid-template-columns: 1fr;
+    height: 92vh;
+  }
+
+  .modal-left {
+    height: 220px;
+  }
+
+  .modal-industry-title {
+    font-size: 22px;
+  }
+}
+
+
+
+@media (max-width: 1024px) {
+  .industry-modal-inner {
+    grid-template-columns: 1fr;
+    height: 88vh;
+  }
+
+  .modal-left {
+    height: 280px;
+  }
+
+  .modal-right {
+    padding: 28px;
+  }
+
+  .modal-tabs {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .modal-industry-title {
+    font-size: 24px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .industry-modal-inner {
+    grid-template-columns: 1fr;
+    height: 94vh;
+    border-radius: 18px;
+  }
+
+  .modal-left {
+    height: 200px;
+  }
+
+  .modal-left img {
+    object-position: center;
+  }
+
+  .modal-industry-title {
+    font-size: 20px;
+    bottom: 16px;
+    left: 16px;
+  }
+
+  .modal-right {
+    padding: 20px;
+  }
+
+  .modal-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 8px;
+  }
+
+  .modal-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .modal-tab {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+
+  .modal-content h3 {
+    font-size: 18px;
+  }
+
+  .modal-point h5 {
+    font-size: 14px;
+  }
+
+  .modal-point p {
+    font-size: 13px;
+  }
+
+  .modal-cta {
+    margin-top: 20px;
+    justify-content: center; /* better UX on mobile */
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .modal-left {
+    height: 170px;
+  }
+
+  .modal-right {
+    padding: 16px;
+  }
+
+  .modal-industry-title {
+    font-size: 18px;
+  }
+
+  .modal-content h3 {
+    font-size: 16px;
+  }
+
+  .modal-point {
+    padding: 14px;
   }
 }
 

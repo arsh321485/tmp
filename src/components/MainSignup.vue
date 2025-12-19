@@ -114,7 +114,7 @@ export default {
 .signup-page {
     min-height: 100vh;
     background: #ffffff;
-    padding-top: 64px;
+    padding-top: 24px;
 }
 
 .left-wrapper {
@@ -125,11 +125,11 @@ export default {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .brand-logo {
-    height: 56px;
+    height: 46px;
 }
 
 .brand-text {
@@ -140,10 +140,10 @@ export default {
 }
 
 .main-title {
-    margin-bottom: 32px;
-    font-weight: 500;
-    font-size: 69px;
-    line-height: 80px;
+    
+    font-weight: 400;
+    font-size: 59px;
+    line-height: 70px;
     letter-spacing: -2.1%;
     word-break: break-word;
     max-width: 100%;
@@ -151,7 +151,7 @@ export default {
 
 .content-divider {
     width: 80px;
-    border-top: 1px solid #e5e7eb;
+    border-top: 2px solid #e5e7eb;
     margin: 24px 0;
 }
 
@@ -166,7 +166,7 @@ export default {
 }
 
 .testimonial-text {
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     color: #444;
 }
 
@@ -225,6 +225,7 @@ export default {
     position: relative;
     text-align: center;
     width: 100%;
+    font-weight: 700;
 }
 
 .divider span {
@@ -243,7 +244,7 @@ export default {
     left: 0;
     right: 0;
     height: 1px;
-    background: #e5e7eb;
+    background: #b1b1b3;
     z-index: 0;
 }
 
@@ -259,12 +260,12 @@ export default {
 }
 
 /* Trust Block — unchanged margins */
-.trust-block {
-    margin-top: 15rem;
+.trust-block{
+    margin-top: 80px;
 }
 
 .trust-text {
-    max-width: 360px;
+    /* max-width: 360px; */
     font-size: 0.85rem;
     color: #444;
     line-height: 1.5;
@@ -291,7 +292,37 @@ export default {
     opacity: 1;
 }
 
+
+
 /* RESPONSIVE ENHANCEMENTS — without touching margins or paddings */
+@media screen and (width: 1920px) and (height: 1080px) {
+    .signup-page {
+    min-height: 100vh;
+    background: #ffffff;
+    padding-top: 74px;
+}
+.trust-block{
+    margin-top: 300px;
+}
+.brand-logo {
+    height: 56px;
+}
+.main-title {
+    
+    font-weight: 600;
+    font-size: 59px;
+    line-height: 70px;
+    letter-spacing: -2.1%;
+    word-break: break-word;
+    max-width: 100%;
+}
+.testimonial-text {
+    font-size: 0.95rem;
+    color: #444;
+}
+
+}
+
 @media (max-width: 1200px) {
     .main-title {
         font-size: 58px;
@@ -306,7 +337,7 @@ export default {
 @media (max-width: 992px) {
     .main-title {
         font-size: 46px;
-        line-height: 56px;
+        line-height: 46px;
     }
 
     .signup-card {

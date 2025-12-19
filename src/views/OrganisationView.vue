@@ -5,10 +5,9 @@
 
         <!-- LEFT -->
         <div class="auth-left">
-            <div class="logo">
-                        <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
-                    </div>
-
+          <div class="logo">
+            <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
+          </div>
 
           <h1 class="title">Welcome to Testmyplan!</h1>
 
@@ -17,35 +16,41 @@
           <!-- Stepper -->
           <welcome-stepper :totalSteps="5" :current="1" />
 
-          <!-- ✅ UPDATED FORM ONLY -->
+          <!-- ✅ FORM -->
           <form class="auth-form">
             <label>What is your organisation name?</label>
             <input type="text" placeholder="Your organisation name" />
 
             <label>Select your industry:</label>
-            <select>
-              <option>Information Technology</option>
-              <option>Finance</option>
-              <option>Healthcare</option>
-              <option>Education</option>
-              <option>Other</option>
-            </select>
+            <div class="custom-select-wrapper">
+              <select>
+                <option>Information Technology</option>
+                <option>Finance</option>
+                <option>Healthcare</option>
+                <option>Education</option>
+                <option>Other</option>
+              </select>
+              <span class="select-arrow"><i class="bi bi-chevron-down"></i></span>
+            </div>
 
             <label>Select your country:</label>
-            <select>
-              <option>United States</option>
-              <option>United Kingdom</option>
-              <option>India</option>
-              <option>Canada</option>
-              <option>Other</option>
-            </select>
+            <div class="custom-select-wrapper">
+              <select>
+                <option>United States</option>
+                <option>United Kingdom</option>
+                <option>India</option>
+                <option>Canada</option>
+                <option>Other</option>
+              </select>
+              <span class="select-arrow"><i class="bi bi-chevron-down"></i></span>
+            </div>
 
+           
 
-            <router-link to="/domain"
-                        class="btn-primary d-inline-flex align-items-center justify-content-center">
-                       Select domain
-                        <i class="bi bi-arrow-right-circle-fill ps-2"></i>
-                    </router-link>
+            <router-link to="/domain" class="btn-primary d-inline-flex align-items-center justify-content-center">
+              Next: Select domain
+              <i class="bi bi-arrow-right-circle-fill ps-2"></i>
+            </router-link>
           </form>
         </div>
 
@@ -62,8 +67,7 @@
             <span class="step"></span>
           </div>
 
-           <img src="@/assets/images/laptop-img.png" alt="Security Illustration"
-                        class="illustration red-tint" />
+          <img src="@/assets/images/laptop-img.png" alt="Security Illustration" class="illustration red-tint" />
         </div>
 
       </div>
@@ -77,12 +81,13 @@ import WelcomeStepper from '@/components/WelcomeStepper.vue';
 
 
 export default {
-  name: "OrganisationView",
- components: {WelcomeStepper}
+  name: "EmailConfirm",
+  components: { WelcomeStepper }
 };
 </script>
 
 <style scoped>
+/* ✅ Existing styles unchanged */
 * {
   box-sizing: border-box;
   font-family: "Inter", system-ui, "Suisse Intl", sans-serif;
@@ -113,7 +118,7 @@ export default {
 
 .auth-left {
   flex: 1;
-  padding: 15px 0;
+  /* padding: 15px 0; */
 }
 
 .logo {
@@ -164,12 +169,10 @@ export default {
   font-weight: 400;
   margin-bottom: 10px;
   line-height: 32px;
-  letter-spacing: -0.6%;
   color: #000000;
 }
 
-.auth-form input,
-.auth-form select {
+.auth-form input {
   width: 100%;
   padding: 10px 16px;
   margin-bottom: 22px;
@@ -186,15 +189,50 @@ export default {
   font-weight: 500;
 }
 
-.auth-form input:focus,
-.auth-form select:focus {
-  outline: none;
-  border-color: #e63946;
+/* ✅ CUSTOM SELECT */
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 60%;
+  margin-bottom: 22px;
 }
 
+.custom-select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 10px;
+  border: 1.4px solid #E0E0E0;
+  background-color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: border 0.2s ease;
+}
+
+.custom-select-wrapper select:focus {
+  outline: none;
+  border-color: #D32929;
+}
+
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 18px;
+  color: #555;
+}
+
+/* BUTTON */
 .btn-primary {
   margin-top: 8px;
-  width: 328px;
+  width: 300px;
   height: 52px;
   background: #D32929;
   color: #FFFFFF;
@@ -252,9 +290,7 @@ export default {
   filter: sepia(1) hue-rotate(-20deg) saturate(3) brightness(0.95);
 }
 
-/* ========================= */
 /* RESPONSIVE */
-/* ========================= */
 @media (max-width: 1024px) {
   .auth-wrapper {
     flex-direction: column;
@@ -263,20 +299,6 @@ export default {
 
   .auth-right {
     width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  .auth-right {
-    display: none;
-  }
-
-  .title {
-    font-size: 28px;
-  }
-
-  .auth-left {
-    padding: 40px 0;
   }
 }
 
@@ -304,9 +326,9 @@ export default {
   }
 
   .auth-form input,
-  .auth-form select {
+  .custom-select-wrapper select {
     font-size: 16px;
-    padding: 10px 14px;
+    padding: 12px 14px;
   }
 
   .btn-primary {
@@ -315,22 +337,6 @@ export default {
 
   .auth-right {
     display: none;
-  }
-}
-
-@media (max-width: 375px) {
-  .title {
-    font-size: 24px;
-    line-height: 34px;
-  }
-
-  .step-text {
-    font-size: 14px;
-  }
-
-  .logo img {
-    height: 36px;
-    width: auto;
   }
 }
 </style>

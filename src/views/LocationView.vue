@@ -4,9 +4,9 @@
       <div class="auth-wrapper">
         <!-- LEFT -->
         <div class="auth-left">
-           <div class="logo">
-                        <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
-                    </div>
+          <div class="logo">
+            <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
+          </div>
 
           <h1 class="title">Welcome to Testmyplan!</h1>
 
@@ -22,12 +22,13 @@
               <span class="limit-text">Up to 10 locations allowed</span>
             </div>
 
-            <input type="text" placeholder="Search for a location" />
+           
+                            <input type="text" class="location-input" placeholder="Search for a location" />
 
-            <button type="button" class="add-location-btn">
-              <i class="bi bi-plus-lg"></i> Add location
-            </button>
-
+                            <button class="add-location-btn">
+                                <span>+</span>
+                                Add location
+                            </button>
             <button type="submit" class="btn-primary subt-btn">
               Next: Add locations
               <i class="bi bi-arrow-right-circle-fill ps-2"></i>
@@ -48,8 +49,7 @@
             <span class="step"></span>
           </div>
 
-          <img src="@/assets/images/laptop-img.png" alt="Security Illustration"
-                        class="illustration red-tint" />
+          <img src="@/assets/images/laptop-img.png" alt="Security Illustration" class="illustration red-tint" />
         </div>
       </div>
     </div>
@@ -62,8 +62,8 @@ import WelcomeStepper from '@/components/WelcomeStepper.vue';
 
 
 export default {
-  name: "LocationView",
-  components: {WelcomeStepper}
+  name: "AddLocations",
+  components: { WelcomeStepper }
 };
 </script>
 
@@ -80,7 +80,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .auth-wrapper {
@@ -111,6 +111,41 @@ export default {
   color: #000000DE;
   line-height: 80px;
   letter-spacing: -2.1%;
+}
+
+/* SEARCH INPUT */
+.location-input {
+  width: 100%;
+  height: 44px;
+  border-radius: 8px;
+  border: none;
+  background: #F6F6F6;
+  padding: 0 14px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.location-input::placeholder {
+  color: #00000099;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* ADD LOCATION BUTTON */
+.add-location-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  /* padding: 0 18px; */
+  padding: 0 55px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid #e6b5b5;
+  color: #e6b5b5;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 /* Stepper */
@@ -184,28 +219,6 @@ export default {
   color: #00000099;
 }
 
-/* BUTTONS */
-.add-location-btn {
-  width: 57%;
-  height: 52px;
-  border: 1.4px solid #D32929;
-  background: transparent;
-  color: #D32929;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 22px;
-  transition: all 0.3s ease;
-}
-
-.add-location-btn:hover {
-  background: #fff5f5;
-}
 
 .btn-primary {
   width: 328px;
@@ -213,7 +226,7 @@ export default {
   background: #D32929;
   color: #FFFFFF;
   border: none;
-  padding: 14px 22px;
+  padding:0px 22px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 500;
@@ -222,9 +235,9 @@ export default {
   align-items: center;
 }
 
-/* ✅ Only the Next:Add locations button gets 280px top margin */
+/* ✅ Only the Next:Add locations button gets 210px top margin */
 .subt-btn {
-  margin-top: 150px;
+  margin-top: 200px;
 }
 
 /* RIGHT PANEL */

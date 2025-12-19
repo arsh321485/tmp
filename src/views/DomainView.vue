@@ -317,8 +317,9 @@ export default {
 
 .location-header-para {
  font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   color: #00000099;
+  margin-left: 250px;
 }
 
 

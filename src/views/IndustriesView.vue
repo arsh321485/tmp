@@ -17,35 +17,34 @@
     </section>
 
     <!-- LIGHTBOX (IMAGE + CONTENT TOGETHER) -->
-    <div v-if="lightboxOpen" class="lightbox" @click.self="closeLightbox">
+    <!-- <div v-if="lightboxOpen" class="lightbox" @click.self="closeLightbox">
       <button class="lightbox-close" @click="closeLightbox">✕</button>
 
-      <!-- LEFT ARROW -->
+    
       <button class="lightbox-arrow left" @click.stop="prevIndustry">
         ‹
       </button>
 
-      <!-- RIGHT ARROW -->
+    
       <button class="lightbox-arrow right" @click.stop="nextIndustry">
         ›
       </button>
 
-      <!-- CTA -->
+   
       <div class="lightbox-cta">
         <button class="cta-signup" @click="goToSignup">
           Sign Up →
         </button>
       </div>
       <div class="lightbox-inner" :style="{ backgroundImage: `url(${lightboxImage})` }">
-        <!-- overlay -->
+       
         <div class="lightbox-overlay">
 
-          <!-- INDUSTRY NAME -->
           <h2 class="industry-lightbox-title">
             {{ currentIndustry?.name }}
           </h2>
 
-          <!-- TABS (TOP ON IMAGE) -->
+        
           <div class="ihw-tabs floating-tabs">
             <button v-for="tab in tabs" :key="tab.key" class="ihw-tab" :class="{ 'is-active': activeTab === tab.key }"
               @click="activeTab = tab.key">
@@ -53,7 +52,7 @@
             </button>
           </div>
 
-          <!-- CONTENT -->
+      
           <div v-if="tabContent" class="ihw-content">
             <h3>{{ tabContent.title }}</h3>
             <p class="ihw-subtitle">{{ tabContent.subtitle }}</p>
@@ -69,7 +68,70 @@
         </div>
 
       </div>
+    </div> -->
+
+    <!-- LIGHTBOX -->
+    <div v-if="lightboxOpen" class="industry-modal" @click.self="closeLightbox">
+
+      <button class="lightbox-arrow left" @click.stop="prevIndustry">
+        ‹
+      </button>
+
+    
+      <button class="lightbox-arrow right" @click.stop="nextIndustry">
+        ›
+      </button>
+      <div class="industry-modal-inner">
+
+        <!-- CLOSE -->
+        <button class="modal-close" @click="closeLightbox">✕</button>
+
+        <!-- LEFT IMAGE COLUMN -->
+        <div class="modal-left">
+          <img :src="lightboxImage" :alt="currentIndustry?.name" />
+          <h2 class="modal-industry-title">
+            {{ currentIndustry?.name }}
+          </h2>
+
+           <!-- CTA -->
+          <div class="modal-cta">
+            <button class="cta-signup" @click="goToSignup">
+              Sign Up →
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT CONTENT COLUMN -->
+        <div class="modal-right">
+
+          <!-- TABS -->
+          <div class="modal-tabs">
+            <button v-for="tab in tabs" :key="tab.key" class="modal-tab" :class="{ active: activeTab === tab.key }"
+              @click="activeTab = tab.key">
+              {{ tab.label }}
+            </button>
+          </div>
+
+          <!-- TAB CONTENT -->
+          <div v-if="tabContent" class="modal-content">
+            <h3>{{ tabContent.title }}</h3>
+            <p class="modal-subtitle">{{ tabContent.subtitle }}</p>
+
+            <div class="modal-points">
+              <div v-for="(point, i) in tabContent.points" :key="i" class="modal-point">
+                <h5>{{ point.title }}</h5>
+                <p>{{ point.description }}</p>
+              </div>
+            </div>
+          </div>
+
+         
+
+        </div>
+      </div>
     </div>
+
+
     <MainContact />
     <MainFooter />
   </div>

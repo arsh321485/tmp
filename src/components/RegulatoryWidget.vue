@@ -332,6 +332,7 @@ export default defineComponent({
   font-size: 1.2rem;
   font-weight: 700;
   margin: 0;
+  color: #ffff;
 }
 
 /* lead text */

@@ -77,7 +77,7 @@
         ‹
       </button>
 
-    
+
       <button class="lightbox-arrow right" @click.stop="nextIndustry">
         ›
       </button>
@@ -93,7 +93,7 @@
             {{ currentIndustry?.name }}
           </h2>
 
-           <!-- CTA -->
+          <!-- CTA -->
           <div class="modal-cta">
             <button class="cta-signup" @click="goToSignup">
               Sign Up →
@@ -125,7 +125,7 @@
             </div>
           </div>
 
-         
+
 
         </div>
       </div>
@@ -174,8 +174,7 @@ export default defineComponent({
       {
         id: "airline",
         name: "Airline",
-        image:
-          "https://images.unsplash.com/photo-1542296332-2e4473faf563?q=80&w=1600&auto=format&fit=crop",
+       image: "https://cdn.prod.website-files.com/6840ded10cfd34d3bc58b303/6886959c04fb8f9bd72f59ad__5%20Ways%20High%20Resolution%20Connected%20Car%20Data%20is%20Changing%20Traffic%20Analytics.jpg?utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -324,8 +323,7 @@ export default defineComponent({
       {
         id: "automotive",
         name: "Automotive",
-        image:
-          "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1600&auto=format&fit=crop",
+      image: "https://www.welchstatebank.com/wp-content/uploads/2021/07/cyber-blog-graphic-1024x630.jpg?utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -482,7 +480,7 @@ export default defineComponent({
       {
         id: "banking",
         name: "Banking",
-        image: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?q=80&w=1600&auto=format&fit=crop",
+        image: "https://www.decta.com/media/2491/download/Digital%20Banking%20Security%20Measures.png?v=1&utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -632,7 +630,7 @@ export default defineComponent({
       {
         id: "communication",
         name: "Communication (Telecom)",
-        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+       image: "https://146a55aca6f00848c565-a7635525d40ac1c70300198708936b4e.ssl.cf1.rackcdn.com/images/c239696f47bd4457f388e21d2da410d752667fe9.jpg?utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -774,7 +772,7 @@ export default defineComponent({
       {
         id: "construction",
         name: "Construction",
-        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop",
+     image: "https://www.technologycards.net/-/media/sites/technologycards/smart-construction-site.ashx?utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -923,7 +921,7 @@ export default defineComponent({
       {
         id: "healthcare",
         name: "Healthcare",
-        image: "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=1600&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?q=80&w=1600&auto=format&fit=crop",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1053,7 +1051,7 @@ export default defineComponent({
       {
         id: "hospitality",
         name: "Hospitality",
-        image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1600&auto=format&fit=crop",
+        image: "https://cdn.prod.website-files.com/62294553e9aeea20d15d7bc2/67dbd4a607076504f262ddda_62c5b5cfb0d63a42a8b31893_Back%2520of%2520the%2520house.png?utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1184,7 +1182,7 @@ export default defineComponent({
       {
         id: "it",
         name: "Information Technology (IT)",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1600&auto=format&fit=crop",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1313,7 +1311,7 @@ export default defineComponent({
       {
         id: " manufacturing",
         name: " Manufacturing",
-        image: "https://images.unsplash.com/photo-1581090700227-1e37b190418e?q=80&w=1600&auto=format&fit=crop",
+        image: "https://inracks.com/wp-content/uploads/2019/04/Control-Room-Video-Wall-Design.jpg?utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1444,7 +1442,7 @@ export default defineComponent({
       {
         id: "mining",
         name: "Mining",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop",
+        image: "https://www.ausimm.com/globalassets/bulletin/e-edition-42/bulletin-oct-25-video-wall.jpg?utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1574,7 +1572,7 @@ export default defineComponent({
       {
         id: "oil-gas",
         name: "Oil & Gas",
-        image: "https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1600&auto=format&fit=crop",
+        image: "https://atwell.com/wp-content/uploads/2024/05/AdobeStock_552777398-scaled-1.jpeg?utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1704,7 +1702,7 @@ export default defineComponent({
       {
         id: "petrochemical",
         name: "Petrochemical",
-        image: "https://images.unsplash.com/photo-1590650153855-d9e808231d41?q=80&w=1600&auto=format&fit=crop",
+        image: "https://www.jungmann.de/wp-content/uploads/2025/03/jst-messwarte-kvm-solutions.jpg?utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1834,7 +1832,7 @@ export default defineComponent({
       {
         id: "pharmaceuticals",
         name: "Pharmaceuticals",
-        image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1600&auto=format&fit=crop",
+        image: "https://trackobit.com/wp-content/uploads/WhatsApp-Image-2023-10-04-at-11.28.38-AM.jpeg?utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1966,7 +1964,7 @@ export default defineComponent({
       {
         id: "retail",
         name: "Retail",
-        image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1600&auto=format&fit=crop",
+        image: "https://www.netsuite.com/portal/assets/img/business-articles/erp/infographic-retail-supply-chain-management.jpg?utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -2098,7 +2096,7 @@ export default defineComponent({
       {
         id: "shipping",
         name: "Shipping",
-        image: "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?q=80&w=1600&auto=format&fit=crop",
+        image: "https://www.ship-technology.com/wp-content/uploads/sites/8/2018/10/frequentis-martrx-lead.jpg?utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -2230,7 +2228,7 @@ export default defineComponent({
       {
         id: "transport",
         name: "Transport & Logistics",
-        image: "https://images.unsplash.com/photo-1506617420156-8e4536971650?q=80&w=1600&auto=format&fit=crop",
+        image: "https://lirp.cdn-website.com/f9025875/dms3rep/multi/opt/ViewPoint-Transportation-Management-System-640w.png?utm_source=chatgpt.com",
         content: {
           cybersecurity: {
             title: "Cybersecurity",

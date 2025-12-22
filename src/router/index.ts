@@ -19,6 +19,8 @@ import WelcomeStepper from '@/components/WelcomeStepper.vue'
 import OrganisationView from '@/views/OrganisationView.vue'
 import LocationView from '@/views/LocationView.vue'
 import MainSignup from '@/components/MainSignup.vue'
+import AddUsersView from '@/views/AddUsersView.vue'
+import ConfigureTeamsView from '@/views/ConfigureTeamsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -140,6 +142,18 @@ const router = createRouter({
       path: '/signup',
       name: 'signup',
       component: MainSignup
+    },
+
+     {
+      path: '/add-users',
+      name: 'add-users',
+      component: AddUsersView
+    },
+
+     {
+      path: '/config-teams',
+      name: 'config-teams',
+      component: ConfigureTeamsView
     }
 
 

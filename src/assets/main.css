@@ -4985,20 +4985,24 @@ footer {
 
 
 .modal-tab {
-    padding: 8px 18px;
-    border-radius: 999px;
-    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+    /* padding: 8px 18px; */
+    padding: 8px 12px;
+    /* border-radius: 999px; */
+    border-radius: 20px;
     border: 1px solid rgb(88, 87, 87);
+    color: #0f1724;
     background: transparent;
-    /* color: #fff; */
     cursor: pointer;
     font-size: 14px;
+    gap: 6px;
 }
 
 .modal-tab.active {
-    background: #d9d3d3;
-    color: #000;
+    background: #0f1724;
+    color: #fff;
+    padding: 9px 24px;
     border-color: #fff;
+    border-radius: 999px;
 }
 
 /* CONTENT */

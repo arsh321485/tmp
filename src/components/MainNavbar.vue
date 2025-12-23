@@ -14,17 +14,27 @@
 
             <!-- HOME -->
             <li>
-              <RouterLink to="/home" class="menu-link active-pill" @click="closeMobileMenu">
+              <!-- <RouterLink to="/home" class="menu-link active-pill" @click="closeMobileMenu">
+                HOME
+              </RouterLink> -->
+              <RouterLink to="/home" class="menu-link" exact-active-class="active-pill" @click="closeMobileMenu">
                 HOME
               </RouterLink>
+
             </li>
 
             <!-- Modules with submenu -->
             <li class="menu-item modules" @mouseenter="openModules" @mouseleave="closeModules">
 
-              <a href="#!" class="menu-link" @click.prevent="toggleModules($event)" :aria-expanded="modulesOpen">
+              <!-- <a href="#!" class="menu-link" @click.prevent="toggleModules($event)" :aria-expanded="modulesOpen">
+                Modules <span class="caret" :class="{ open: modulesOpen }">▾</span>
+              </a> -->
+
+              <a href="#!" class="menu-link" :class="{ 'active-pill': isModuleRouteActive }"
+                @click.prevent="toggleModules($event)">
                 Modules <span class="caret" :class="{ open: modulesOpen }">▾</span>
               </a>
+
 
               <ul class="submenu" :class="{ open: modulesOpen }" @click.stop>
 
@@ -57,35 +67,39 @@
 
             <!-- Industries -->
             <li>
-              <RouterLink to="/industries" class="menu-link" @click="closeMobileMenu">
+              <!-- <RouterLink to="/industries" class="menu-link" @click="closeMobileMenu">
+                Industries
+              </RouterLink> -->
+              <RouterLink to="/industries" class="menu-link" exact-active-class="active-pill" @click="closeMobileMenu">
                 Industries
               </RouterLink>
+
             </li>
 
             <!-- Badge Verification -->
             <li>
-              <RouterLink to="/badge-verification" class="menu-link" @click="closeMobileMenu">
+              <RouterLink to="/badge-verification" class="menu-link" exact-active-class="active-pill" @click="closeMobileMenu">
                 Badge Verification
               </RouterLink>
             </li>
 
             <!-- About -->
             <li>
-              <RouterLink to="/about" class="menu-link" @click="closeMobileMenu">
+              <RouterLink to="/about" class="menu-link" exact-active-class="active-pill" @click="closeMobileMenu">
                 About Us
               </RouterLink>
             </li>
 
             <!-- Pricing -->
             <li>
-              <RouterLink to="/pricing" class="menu-link" @click="closeMobileMenu">
+              <RouterLink to="/pricing" class="menu-link" exact-active-class="active-pill" @click="closeMobileMenu">
                 Pricing
               </RouterLink>
             </li>
 
             <!-- FAQ -->
             <li>
-              <RouterLink to="/faq" class="menu-link" @click="closeMobileMenu">
+              <RouterLink to="/faq" class="menu-link" exact-active-class="active-pill" @click="closeMobileMenu">
                 FAQ
               </RouterLink>
             </li>
@@ -98,7 +112,7 @@
           <ul class="main-menu auth-menu">
 
             <li>
-              <RouterLink to="/signup" class="menu-link" @click="closeMobileMenu">
+              <RouterLink to="/signup" class="menu-link" exact-active-class="active-pill" @click="closeMobileMenu">
                 SIGNUP
               </RouterLink>
             </li>
@@ -106,7 +120,7 @@
             <li class="auth-separator">/</li>
 
             <li>
-              <RouterLink to="/login" class="menu-link" @click="closeMobileMenu">
+              <RouterLink to="/login" class="menu-link" exact-active-class="active-pill" @click="closeMobileMenu">
                 LOGIN
               </RouterLink>
             </li>
@@ -137,6 +151,18 @@ export default defineComponent({
     };
   },
 
+  computed: {
+  isModuleRouteActive(): boolean {
+    return [
+      "/cyber-security",
+      "/business-continuity",
+      "/data-privacy",
+      "/esg"
+    ].includes(this.$route.path);
+  }
+},
+
+
   mounted(): void {
     // Close menu when clicking outside (mobile)
     document.addEventListener("click", this.handleDocumentClick, true);
@@ -147,6 +173,8 @@ export default defineComponent({
     document.removeEventListener("click", this.handleDocumentClick, true);
     window.removeEventListener("resize", this.handleResize);
   },
+
+
 
   methods: {
     toggleModules(e?: Event): void {
@@ -394,10 +422,11 @@ export default defineComponent({
     width: 100%;
   }
 
-   /* make shell strictly left-right */
+  /* make shell strictly left-right */
   .nav-shell {
     justify-content: space-between;
-     flex-wrap: wrap; /* IMPORTANT */
+    flex-wrap: wrap;
+    /* IMPORTANT */
   }
 
   /* hide center menu container itself */
@@ -405,7 +434,7 @@ export default defineComponent({
     display: none;
   }
 
-   /* when menu opens, reveal nav-center */
+  /* when menu opens, reveal nav-center */
   .nav-center:has(.main-menu.is-open) {
     display: block;
   }

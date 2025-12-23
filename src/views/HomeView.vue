@@ -529,7 +529,7 @@
                                 Plans on paper don’t save you. Practice does.
                             </h1>
 
-                            <a href="#drill" class="btn hero-cta-animation">
+                            <a href="#" class="btn hero-cta-animation">
                                 Launch a 2-minute drill
                             </a>
                         </div>

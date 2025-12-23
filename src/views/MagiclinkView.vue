@@ -7,10 +7,9 @@
         <div class="auth-left">
           <!-- <div class="logo">*</div> -->
 
-          <div class="logo">
-            <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
+           <div class="logo">
+            <img src="@/assets/images/tmp-new-logo.png" alt="TestMyPlan Logo" />
           </div>
-
 
           <h1 class="title">Welcome to Testmyplan!</h1>
 
@@ -93,13 +92,12 @@ export default {
 } */
 
 .logo img {
-  height: 44.94px;
-  width: 43.55px;
+  height: 52px;
+  width: 48px;
   top: 98px;
   left: 64px;
   display: block;
 }
-
 
 /* ========================= */
 /* MAIN LAYOUT */

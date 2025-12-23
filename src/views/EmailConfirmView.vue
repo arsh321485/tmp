@@ -8,7 +8,7 @@
           <!-- <div class="logo">*</div> -->
 
           <div class="logo">
-            <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
+            <img src="@/assets/images/tmp-new-logo.png" alt="TestMyPlan Logo" />
           </div>
 
 
@@ -94,8 +94,8 @@ export default {
 } */
 
 .logo img {
-  height: 44.94px;
-  width: 43.55px;
+  height: 52px;
+  width: 48px;
   top: 98px;
   left: 64px;
   display: block;

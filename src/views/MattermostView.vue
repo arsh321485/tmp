@@ -8,8 +8,9 @@
                     <!-- <div class="logo">*</div> -->
 
                     <div class="logo">
-                        <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
+                        <img src="@/assets/images/tmp-new-logo.png" alt="TestMyPlan Logo" />
                     </div>
+
 
 
                     <h1 class="title">Welcome to Testmyplan!</h1>
@@ -128,8 +129,8 @@ export default {
 } */
 
 .logo img {
-    height: 44.94px;
-    width: 43.55px;
+    height: 52px;
+    width: 48px;
     top: 98px;
     left: 64px;
     display: block;
@@ -157,7 +158,7 @@ export default {
 
 .auth-left {
     flex: 1;
-    padding: 15px 0;
+    padding: 10px 0;
     display: flex;
     flex-direction: column;
     min-height: 100%;

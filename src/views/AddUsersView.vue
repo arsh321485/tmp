@@ -7,7 +7,7 @@
                 <div class="auth-left">
 
                     <div class="logo">
-                        <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
+                        <img src="@/assets/images/tmp-new-logo.png" alt="TestMyPlan Logo" />
                     </div>
 
 
@@ -40,9 +40,14 @@
                         </button>
                     </form>
 
-                    <button class="btn-primary">
+                    <!-- <button class="btn-primary">
                         Next: Configure teams <i class="bi bi-arrow-right-circle-fill ps-2"></i>
-                    </button>
+                    </button> -->
+                    <RouterLink to="/config-teams" class="btn-primary d-inline-flex align-items-center">
+                        Next: Configure teams
+                        <i class="bi bi-arrow-right-circle-fill ps-2"></i>
+                    </RouterLink>
+
                 </div>
 
                 <!-- RIGHT SIDE -->
@@ -124,12 +129,14 @@ export default {
 
 .auth-left {
     flex: 1;
-    padding: 15px 0;
+    padding: 10px 0;
 }
 
 .logo img {
-    height: 44px;
-    width: auto;
+    height: 52px;
+    width: 48px;
+    top: 98px;
+    left: 64px;
     display: block;
 }
 

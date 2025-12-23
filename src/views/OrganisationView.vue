@@ -6,7 +6,7 @@
         <!-- LEFT -->
         <div class="auth-left">
           <div class="logo">
-            <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
+            <img src="@/assets/images/tmp-new-logo.png" alt="TestMyPlan Logo" />
           </div>
 
           <h1 class="title">Welcome to Testmyplan!</h1>
@@ -45,12 +45,21 @@
               <span class="select-arrow"><i class="bi bi-chevron-down"></i></span>
             </div>
 
-           
 
-            <router-link to="/domain" class="btn-primary d-inline-flex align-items-center justify-content-center">
+
+            <!-- <router-link to="/domain" class="btn-primary d-inline-flex align-items-center justify-content-center">
+              Next: Select domain
+              <i class="bi bi-arrow-right-circle-fill ps-2"></i>
+            </router-link> -->
+
+            <router-link :to="{
+              path: '/domain',
+              query: { provider: $route.query.provider }
+            }" class="btn-primary d-inline-flex align-items-center justify-content-center">
               Next: Select domain
               <i class="bi bi-arrow-right-circle-fill ps-2"></i>
             </router-link>
+
           </form>
         </div>
 
@@ -101,8 +110,8 @@ export default {
 }
 
 .logo img {
-  height: 44.94px;
-  width: 43.55px;
+  height: 52px;
+  width: 48px;
   top: 98px;
   left: 64px;
   display: block;

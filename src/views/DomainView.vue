@@ -1,114 +1,139 @@
 <template>
-    <main class="auth-page email-confirm-page">
-        <div class="container">
-            <div class="auth-wrapper">
+  <main class="auth-page email-confirm-page">
+    <div class="container">
+      <div class="auth-wrapper">
 
-                <!-- LEFT -->
-                <div class="auth-left">
-                    <!-- <div class="logo">*</div> -->
+        <!-- LEFT -->
+        <div class="auth-left">
+          <div class="logo">
+            <img src="@/assets/images/tmp-new-logo.png" alt="TestMyPlan Logo" />
+          </div>
 
-                    <div class="logo">
-                        <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
-                    </div>
+          <h1 class="title">Welcome to Testmyplan!</h1>
 
+          <p class="step-text mb-2">2/5 Select domain and add locations</p>
 
-                    <h1 class="title">Welcome to Testmyplan!</h1>
+          <welcome-stepper :totalSteps="5" :current="2" />
 
-
-
-                    <p class="step-text mb-2">2/5 Select domain and add locations</p>
-
-                    <!-- Stepper -->
-                    <welcome-stepper :totalSteps="5" :current="2" />
-
-                    <!-- DOMAIN SELECT -->
-                    <div class="domain-section">
-                        <div class="domain-row">
-                            <button class="domain-pill active">Cyber Security</button>
-                            <button class="domain-pill">Business Continuity</button>
-                            <button class="domain-pill">Data Privacy</button>
-                        </div>
-
-                        <div class="domain-row">
-                            <button class="domain-pill">ESG</button>
-                            <button class="domain-pill">All</button>
-
-
-                        </div>
-
-
-                        <!-- DIVIDER -->
-                        <hr class="domain-location-divider" />
-
-                        <!-- ADD LOCATIONS SECTION -->
-                        <div class="location-section">
-
-                            <div class="location-header">
-                                <h4>Add locations:</h4>
-                            </div>
-
-                           <div class="d-flex justify-content-around">
-                              <p class="location-header-para">Upto 10 locations allowed</p>
-                           </div>
-
-                            <input type="text" class="location-input" placeholder="Search for a location" />
-
-                            <button class="add-location-btn">
-                                <span>+</span>
-                                Add location
-                            </button>
-
-                        </div>
-
-
-                        <router-link to="/mattermost"
-                            class="btn-primary d-inline-flex align-items-center justify-content-center">
-                            Next: Integrate Mattermost
-                            <i class="bi bi-arrow-right-circle-fill ps-2"></i>
-                        </router-link>
-
-                    </div>
-
-                </div>
-
-                <!-- RIGHT -->
-                <div class="auth-right">
-                    <h2>
-                        Run simulated tests<br />
-                        for top threats.
-                    </h2>
-
-                    <div class="right-stepper">
-                        <span class="step active"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                    </div>
-
-                    <!-- <img src="@/assets/images/laptop-img.png" alt="Security Illustration" class="illustration" /> -->
-                    <img src="@/assets/images/laptop-img.png" alt="Security Illustration"
-                        class="illustration red-tint" />
-
-                </div>
-
+          <div class="domain-section">
+            <div class="domain-row">
+              <button class="domain-pill active">Cyber Security</button>
+              <button class="domain-pill">Business Continuity</button>
+              <button class="domain-pill">Data Privacy</button>
             </div>
+
+            <div class="domain-row">
+              <button class="domain-pill">ESG</button>
+              <button class="domain-pill">All</button>
+            </div>
+
+            <hr class="domain-location-divider" />
+
+            <div class="location-section">
+              <div class="location-header">
+                <h4>Add locations:</h4>
+              </div>
+
+              <div class="d-flex justify-content-around">
+                <p class="location-header-para">Upto 10 locations allowed</p>
+              </div>
+
+              <input
+                type="text"
+                class="location-input"
+                placeholder="Search for a location"
+              />
+
+              <button class="add-location-btn">
+                <span>+</span> Add location
+              </button>
+            </div>
+
+            <!-- ✅ SINGLE BUTTON -->
+            <button
+              class="btn-primary d-inline-flex align-items-center justify-content-center"
+              @click="goNext"
+            >
+              {{ nextButtonText }}
+              <i class="bi bi-arrow-right-circle-fill ps-2"></i>
+            </button>
+
+          </div>
         </div>
-    </main>
+
+        <!-- RIGHT -->
+        <div class="auth-right">
+          <h2>
+            Run simulated tests<br />
+            for top threats.
+          </h2>
+
+          <div class="right-stepper">
+            <span class="step active"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+          </div>
+
+          <img
+            src="@/assets/images/laptop-img.png"
+            alt="Security Illustration"
+            class="illustration red-tint"
+          />
+        </div>
+
+      </div>
+    </div>
+  </main>
 </template>
 
 
+
 <script lang="ts">
-import WelcomeStepper from '@/components/WelcomeStepper.vue';
-
-
-
-
+import WelcomeStepper from "@/components/WelcomeStepper.vue";
 
 export default {
-    name: "DomainView",
-   components: {WelcomeStepper}
-}
+  name: "DomainView",
+  components: { WelcomeStepper },
 
+  computed: {
+    // ✅ Always get provider safely
+    provider(): "email" | "slack" | "teams" {
+      const p = this.$route.query.provider;
+      if (p === "slack" || p === "teams" || p === "email") {
+        return p;
+      }
+      return "email"; // fallback
+    },
+
+    // ✅ Button text
+    nextButtonText(): string {
+      return this.provider === "email"
+        ? "Next: Integrate Mattermost"
+        : "Next: Add locations";
+    }
+  },
+
+  methods: {
+    goNext() {
+      // EMAIL → Mattermost
+      if (this.provider === "email") {
+        this.$router.push({
+          path: "/mattermost",
+          query: { provider: "email" }
+        });
+        return;
+      }
+
+      // SLACK / TEAMS → Locations (SKIP Mattermost)
+      this.$router.push({
+        path: "/location",
+        query: { provider: this.provider }
+      });
+    }
+  }
+};
 </script>
+
 
 
 <style scoped>
@@ -140,12 +165,13 @@ export default {
 } */
 
 .logo img {
-    height: 44.94px;
-    width: 43.55px;
+    height: 52px;
+    width: 48px;
     top: 98px;
     left: 64px;
     display: block;
 }
+
 
 
 /* ========================= */
@@ -169,7 +195,7 @@ export default {
 
 .auth-left {
     flex: 1;
-    padding: 15px 0;
+    padding: 10px 0;
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -287,98 +313,98 @@ export default {
 /* DOMAIN → LOCATION DIVIDER */
 /* ========================= */
 .domain-location-divider {
-  border: none;
-  border-top: 2px solid #0000001F;
-  margin: 20px 0;
+    border: none;
+    border-top: 2px solid #0000001F;
+    margin: 20px 0;
 }
 
 /* ========================= */
 /* LOCATION SECTION */
 /* ========================= */
 .location-section {
-  max-width: 520px;
+    max-width: 520px;
 }
 
 /* HEADER */
 .location-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* margin-bottom: 12px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 12px; */
 }
 
 .location-header h4 {
-  font-size: 21px;
-  font-weight: 500;
-  color: #000000DE;
-  margin-bottom: -20px;
+    font-size: 21px;
+    font-weight: 500;
+    color: #000000DE;
+    margin-bottom: -20px;
 
 }
 
 .location-header-para {
- font-size: 16px;
-  font-weight: 400;
-  color: #00000099;
-  margin-left: 250px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #00000099;
+    margin-left: 250px;
 }
 
 
 /* SEARCH INPUT */
 .location-input {
-  width: 100%;
-  height: 44px;
-  border-radius: 8px;
-  border: none;
-  background: #F6F6F6;
-  padding: 0 14px;
-  font-size: 14px;
-  margin-bottom: 10px;
+    width: 100%;
+    height: 44px;
+    border-radius: 8px;
+    border: none;
+    background: #F6F6F6;
+    padding: 0 14px;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .location-input::placeholder {
-  color: #00000099;
-  font-weight: 500;
-  font-size: 16px;
+    color: #00000099;
+    font-weight: 500;
+    font-size: 16px;
 }
 
 /* ADD LOCATION BUTTON */
 .add-location-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 44px;
-  /* padding: 0 18px; */
-  padding: 0 55px;
-  border-radius: 8px;
-  background: transparent;
-  border: 1px solid #e6b5b5;
-  color: #e6b5b5;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    /* padding: 0 18px; */
+    padding: 0 55px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid #e6b5b5;
+    color: #e6b5b5;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 .add-location-btn span {
-  font-size: 18px;
-  line-height: 1;
+    font-size: 18px;
+    line-height: 1;
 }
 
 /* ========================= */
 /* RESPONSIVE */
 /* ========================= */
 @media (max-width: 767px) {
-  .location-section {
-    max-width: 100%;
-  }
+    .location-section {
+        max-width: 100%;
+    }
 
-  .location-header-para{
-    margin-top: 30px;
-  }
+    .location-header-para {
+        margin-top: 30px;
+    }
 
-  .add-location-btn {
-    width: 100%;
-    justify-content: center;
-  }
+    .add-location-btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 

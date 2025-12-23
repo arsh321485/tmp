@@ -5,7 +5,7 @@
         <!-- LEFT -->
         <div class="auth-left">
           <div class="logo">
-            <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
+            <img src="@/assets/images/tmp-new-logo.png" alt="TestMyPlan Logo" />
           </div>
 
           <h1 class="title">Welcome to Testmyplan!</h1>
@@ -22,17 +22,21 @@
               <span class="limit-text">Up to 10 locations allowed</span>
             </div>
 
-           
-                            <input type="text" class="location-input" placeholder="Search for a location" />
 
-                            <button class="add-location-btn">
-                                <span>+</span>
-                                Add location
-                            </button>
-            <button type="submit" class="btn-primary subt-btn">
-              Next: Add locations
-              <i class="bi bi-arrow-right-circle-fill ps-2"></i>
+            <input type="text" class="location-input" placeholder="Search for a location" />
+
+            <button class="add-location-btn">
+              <span>+</span>
+              Add location
             </button>
+            <RouterLink to="/add-users" custom v-slot="{ navigate }">
+              <button type="button" class="btn-primary subt-btn d-inline-flex align-items-center justify-content-center" @click="navigate">
+                Next: Add locations
+                <i class="bi bi-arrow-right-circle-fill ps-2"></i>
+              </button>
+            </RouterLink>
+
+
           </form>
         </div>
 
@@ -99,8 +103,10 @@ export default {
 }
 
 .logo img {
-  height: 44.94px;
-  width: 43.55px;
+  height: 52px;
+  width: 48px;
+  top: 98px;
+  left: 64px;
   display: block;
 }
 
@@ -226,7 +232,7 @@ export default {
   background: #D32929;
   color: #FFFFFF;
   border: none;
-  padding:0px 22px;
+  padding: 0px 22px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 500;

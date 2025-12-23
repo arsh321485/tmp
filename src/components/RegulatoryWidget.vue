@@ -26,7 +26,7 @@
             <!-- left: icon + title -->
             <div class="reg-modal-header-left">
               <div class="reg-modal-icon">
-                <img src="../assets/images/logo-small.png" alt="Logo" />
+                <img src="../assets/images/tmp-new-logo.png" alt="Logo" />
               </div>
 
               <div>
@@ -234,7 +234,8 @@ export default defineComponent({
   max-width: min(800px, 92vw);
   max-height: calc(100vh - 140px);
 
-  background: #0b1120;
+  /* background: #0b1120; */
+  background: #f4f5f8;
   color: #f9fafb;
   border-radius: 18px;
   padding: 1.4rem 1.6rem 1.2rem;
@@ -257,9 +258,6 @@ export default defineComponent({
   color: #9ca3af;
 }
 
-.reg-modal-close:hover {
-  color: #e5e7eb;
-}
 
 /* HEADER LAYOUT */
 .reg-modal-header {
@@ -276,16 +274,7 @@ export default defineComponent({
   gap: 0.75rem;
 }
 
-/* .reg-modal-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle at 30% 0%, #22c55e, #16a34a);
-  box-shadow: 0 10px 24px rgba(22, 163, 74, 0.5);
-  font-size: 20px;
-} */
+
 
 /* location selector block */
 .reg-modal-header-right {
@@ -332,13 +321,14 @@ export default defineComponent({
   font-size: 1.2rem;
   font-weight: 700;
   margin: 0;
-  color: #ffff;
+  color: #121212;
 }
 
 /* lead text */
 .reg-modal-lead {
   font-size: 0.85rem;
-  color: #e5e7eb;
+  /* color: #e5e7eb; */
+  color: #333333;
   margin: 0.55rem 0 0.8rem;
 }
 

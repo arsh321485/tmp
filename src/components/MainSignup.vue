@@ -41,28 +41,35 @@
                 <!-- RIGHT SIGNUP CARD -->
                 <div class="col-12 col-lg-5 d-flex justify-content-center">
                     <div class="signup-card shadow-sm">
-                        <button class="btn btn-slack w-100 mb-3">
-                            <i class="bi bi-slack me-2"></i> Signup with Slack
+
+
+                       
+
+                        <button class="btn btn-slack w-100 mb-3 d-inline-flex align-items-center justify-content-center"
+                            @click="signup('slack')">
+                            <i class="bi bi-slack me-2"></i>
+                            Signup with Slack
                         </button>
 
-                        <button class="btn btn-teams w-100 mb-3">
-                            <i class="bi bi-microsoft-teams me-2"></i> Signup with Teams
+                        <button class="btn btn-teams w-100 mb-3 d-inline-flex align-items-center justify-content-center"
+                            @click="signup('teams')">
+                            <i class="bi bi-microsoft-teams me-2"></i>
+                            Signup with Teams
                         </button>
 
-                        <div class="divider my-3">
+                         <div class="divider my-3">
                             <span>OR</span>
                         </div>
 
-                        <!-- <button class="btn btn-email w-100 mb-4">
-              <i class="bi bi-envelope-fill me-2"></i> Signup with Email
-            </button> -->
-
-                        <RouterLink to="/email"
-                            class="btn btn-email w-100 mb-4 d-flex align-items-center justify-content-center">
+                        <button class="btn btn-email w-100 mb-4 d-flex align-items-center justify-content-center"
+                            @click="signup('email')">
                             <i class="bi bi-envelope-fill me-2"></i>
                             Signup with Email
-                        </RouterLink>
+                        </button>
 
+
+
+                        
 
                         <div class="terms-text text-black">
                             By signing up, you agree to Testmyplan
@@ -89,25 +96,53 @@
     </div>
 </template>
 
+
+
 <script lang="ts">
+import type { Router } from "vue-router";
+
 export default {
-    name: "MainSignup",
-    data() {
-        return {
-            logos: [
-                { name: "Decagon", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-                { name: "Palantir", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-                { name: "Windsurf", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-                { name: "Hightouch", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-                { name: "Augment Code", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-                { name: "Nooks", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-                { name: "Scale", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-                { name: "Persona", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-            ],
-        };
-    },
+  name: "MainSignup",
+
+  data() {
+    return {
+      logos: [
+        { name: "Decagon", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
+        { name: "Palantir", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
+        { name: "Windsurf", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
+        { name: "Hightouch", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
+        { name: "Augment Code", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
+        { name: "Nooks", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
+        { name: "Scale", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
+        { name: "Persona", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
+      ],
+    };
+  },
+
+  methods: {
+    signup(this: { $router?: Router }, provider: "slack" | "teams" | "email") {
+      const router = this.$router;
+
+      // EMAIL → email page first
+      if (provider === "email") {
+        router?.push({
+          path: "/email",
+          query: { provider }
+        });
+        return;
+      }
+
+      // SLACK / TEAMS → directly to organisation
+      router?.push({
+        path: "/organisation",
+        query: { provider }
+      });
+    }
+  }
 };
 </script>
+
+
 
 <style scoped>
 /* Your existing layout untouched */
@@ -140,7 +175,7 @@ export default {
 }
 
 .main-title {
-    
+
     font-weight: 400;
     font-size: 59px;
     line-height: 70px;
@@ -260,7 +295,7 @@ export default {
 }
 
 /* Trust Block — unchanged margins */
-.trust-block{
+.trust-block {
     margin-top: 80px;
 }
 
@@ -297,29 +332,33 @@ export default {
 /* RESPONSIVE ENHANCEMENTS — without touching margins or paddings */
 @media screen and (width: 1920px) and (height: 1080px) {
     .signup-page {
-    min-height: 100vh;
-    background: #ffffff;
-    padding-top: 74px;
-}
-.trust-block{
-    margin-top: 300px;
-}
-.brand-logo {
-    height: 56px;
-}
-.main-title {
-    
-    font-weight: 600;
-    font-size: 59px;
-    line-height: 70px;
-    letter-spacing: -2.1%;
-    word-break: break-word;
-    max-width: 100%;
-}
-.testimonial-text {
-    font-size: 0.95rem;
-    color: #444;
-}
+        min-height: 100vh;
+        background: #ffffff;
+        padding-top: 74px;
+    }
+
+    .trust-block {
+        margin-top: 300px;
+    }
+
+    .brand-logo {
+        height: 56px;
+    }
+
+    .main-title {
+
+        font-weight: 600;
+        font-size: 59px;
+        line-height: 70px;
+        letter-spacing: -2.1%;
+        word-break: break-word;
+        max-width: 100%;
+    }
+
+    .testimonial-text {
+        font-size: 0.95rem;
+        color: #444;
+    }
 
 }
 

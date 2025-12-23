@@ -43,31 +43,31 @@ const router = createRouter({
       component: IndustriesView,
     },
 
-      {
+    {
       path: '/cyber-security',
       name: 'cyber-security',
       component: CybersecurityView,
     },
 
-     {
+    {
       path: '/business-continuity',
       name: 'business-continuity',
       component: BusinessContinuityView,
     },
 
-     {
+    {
       path: '/data-privacy',
       name: 'data-privacy',
       component: DataPrivacyView,
     },
 
-      {
+    {
       path: '/esg',
       name: 'esg',
       component: EsgView,
     },
 
-      {
+    {
       path: '/faq',
       name: 'faq',
       component: FaqView,
@@ -84,7 +84,7 @@ const router = createRouter({
       component: PrivacypolicyView,
     },
 
-      {
+    {
       path: '/cookies',
       name: 'cookies',
       component: CookiesModal,
@@ -102,24 +102,35 @@ const router = createRouter({
       component: EmailConfirmView,
     },
 
-     {
+    {
       path: '/magic-link',
       name: 'magic-link',
       component: MagiclinkView,
     },
 
-     {
+    {
       path: '/domain',
       name: 'domain',
       component: DomainView,
     },
 
-    
-     {
-      path: '/mattermost',
-      name: 'mattermost',
-      component: MattermostView,
+
+    //  {
+    //   path: '/mattermost',
+    //   name: 'mattermost',
+    //   component: MattermostView,
+    // },
+
+    {
+      path: "/mattermost",
+        component: MattermostView,
+      beforeEnter: (to) => {
+        if (to.query.provider !== "email") {
+          return "/location";
+        }
+      }
     },
+
 
     {
       path: '/welcome-stepper',
@@ -127,37 +138,37 @@ const router = createRouter({
       component: WelcomeStepper
     },
 
-     {
+    {
       path: '/organisation',
       name: 'organisation',
       component: OrganisationView
     },
 
-      {
+    {
       path: '/location',
       name: 'location',
       component: LocationView
     },
-     {
+    {
       path: '/signup',
       name: 'signup',
       component: MainSignup
     },
 
-     {
+    {
       path: '/add-users',
       name: 'add-users',
       component: AddUsersView
     },
 
-     {
+    {
       path: '/config-teams',
       name: 'config-teams',
       component: ConfigureTeamsView
     }
 
 
-   
+
   ],
 
   scrollBehavior(to) {

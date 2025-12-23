@@ -5,8 +5,9 @@
                 <div class="auth-left">
                     <!-- LOGO -->
                     <div class="logo">
-                        <img src="@/assets/images/logo-small.png" alt="TestMyPlan Logo" />
+                        <img src="@/assets/images/tmp-new-logo.png" alt="TestMyPlan Logo" />
                     </div>
+
 
                     <!-- TITLE -->
                     <h1 class="title">Welcome to Testmyplan!</h1>
@@ -18,7 +19,7 @@
                     </div>
 
                     <!-- TEAMS + LOCATION INLINE -->
-                    <section class="teams-section">
+                    <div class="teams-section">
                         <div class="teams-inline">
                             <!-- Available Teams -->
                             <div class="teams-column">
@@ -44,12 +45,12 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
 
                     <hr class="divider" />
 
                     <!-- MEMBERS TABLE -->
-                    <section class="members-section">
+                    <div class="members-section">
                         <h3>Available members</h3>
 
                         <div class="members-table">
@@ -89,7 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
 
                     <!-- CTA BUTTON -->
                     <button class="btn-primary mt-5">
@@ -133,10 +134,13 @@ export default defineComponent({
 }
 
 .logo img {
-    height: 44px;
-    width: auto;
+    height: 52px;
+    width: 48px;
+    top: 98px;
+    left: 64px;
     display: block;
 }
+
 
 .auth-page {
     min-height: 100vh;
@@ -149,7 +153,7 @@ export default defineComponent({
 .auth-wrapper {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 40px 0;
+    /* padding: 40px 0; */
 }
 
 .title {
@@ -186,9 +190,7 @@ export default defineComponent({
 }
 
 /* TEAMS SECTION */
-.teams-section {
-    margin-bottom: 28px;
-}
+
 
 .teams-inline {
     display: flex;
@@ -269,7 +271,7 @@ export default defineComponent({
 .divider {
     border: none;
     border-top: 1px solid #e0e0e0;
-    margin: 32px 0;
+    /* margin: 32px 0; */
 }
 
 /* MEMBERS SECTION */

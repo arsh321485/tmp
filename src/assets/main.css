@@ -4953,7 +4953,8 @@ footer {
     color: #fff;
     max-height: 85vh;
     /* background: #0b1220; */
-background: #d3ddf0;
+    /* background: #d3ddf0; */
+    background: #f4f5f8;
     /* ✅ hide scrollbar but keep scroll functional */
     scrollbar-width: none;
     /* Firefox */
@@ -4995,7 +4996,7 @@ background: #d3ddf0;
 }
 
 .modal-tab.active {
-    background: #fff;
+    background: #d9d3d3;
     color: #000;
     border-color: #fff;
 }
@@ -5014,7 +5015,7 @@ background: #d3ddf0;
     /* 👈 make them stay at top while scrolling */
     top: 0;
     /* background: #0b1220; */
-     background: #d3ddf0;
+     background: #f4f5f8;
     /* 👈 same color as modal background to hide overlap */
     z-index: 5;
     padding-top: 10px;
@@ -5032,7 +5033,7 @@ background: #d3ddf0;
 
 .modal-subtitle {
     /* color: #b6c0d1; */
-    color: #58595bb0;
+    color: #333333;
     font-size: 16px;
     line-height: 1.7;
     margin-bottom: 12px;
@@ -5102,7 +5103,7 @@ background: #d3ddf0;
     font-size: 16px;
     line-height: 1.7;
     /* color: #cfd6e4; */
-    color: #58595bb0;
+    color: #333333;
 }
 
 /* CTA */

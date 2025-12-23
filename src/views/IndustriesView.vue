@@ -16,59 +16,7 @@
       </div>
     </section>
 
-    <!-- LIGHTBOX (IMAGE + CONTENT TOGETHER) -->
-    <!-- <div v-if="lightboxOpen" class="lightbox" @click.self="closeLightbox">
-      <button class="lightbox-close" @click="closeLightbox">✕</button>
-
     
-      <button class="lightbox-arrow left" @click.stop="prevIndustry">
-        ‹
-      </button>
-
-    
-      <button class="lightbox-arrow right" @click.stop="nextIndustry">
-        ›
-      </button>
-
-   
-      <div class="lightbox-cta">
-        <button class="cta-signup" @click="goToSignup">
-          Sign Up →
-        </button>
-      </div>
-      <div class="lightbox-inner" :style="{ backgroundImage: `url(${lightboxImage})` }">
-       
-        <div class="lightbox-overlay">
-
-          <h2 class="industry-lightbox-title">
-            {{ currentIndustry?.name }}
-          </h2>
-
-        
-          <div class="ihw-tabs floating-tabs">
-            <button v-for="tab in tabs" :key="tab.key" class="ihw-tab" :class="{ 'is-active': activeTab === tab.key }"
-              @click="activeTab = tab.key">
-              {{ tab.label }}
-            </button>
-          </div>
-
-      
-          <div v-if="tabContent" class="ihw-content">
-            <h3>{{ tabContent.title }}</h3>
-            <p class="ihw-subtitle">{{ tabContent.subtitle }}</p>
-
-            <ul>
-              <li v-for="(point, i) in tabContent.points" :key="i">
-                <h5 class="sub-heading-point">{{ point.title }}</h5>
-                <p class="ihw-point-desc">{{ point.description }}</p>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-
-      </div>
-    </div> -->
 
     <!-- LIGHTBOX -->
     <div v-if="lightboxOpen" class="industry-modal" @click.self="closeLightbox">
@@ -144,8 +92,43 @@ import MainNavbar from "@/components/MainNavbar.vue";
 import MainFooter from "@/components/MainFooter.vue";
 import MainContact from "@/components/MainContact.vue";
 import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
+import airlineImg from '@/assets/images/industries-img/airline.jpg';
+import automotiveImg from '@/assets/images/industries-img/automtive.jpg';
+import bankingImg from '@/assets/images/industries-img/bank.jpg';
+import communicationImg from '@/assets/images/industries-img/telco.jpg';
+import constructionImg from '@/assets/images/industries-img/contruction.jpg';
+import healthcareImg from '@/assets/images/industries-img/hospital.jpg';
+import hospitalityImg from '@/assets/images/industries-img/hospitality.jpg';
+import itImg from '@/assets/images/industries-img/information_tech.jpg';
+import manufacturingImg from '@/assets/images/industries-img/manufacturing.jpg';
+import miningImg from '@/assets/images/industries-img/mining.jpg';
+import oilGasImg from '@/assets/images/industries-img/oilandgas.jpg';
+import petrochemicalImg from '@/assets/images/industries-img/chemical_petrochemical.jpg';
+import pharmaceuticalsImg from '@/assets/images/industries-img/pharmaceuticals.jpg';
+import retailImg from '@/assets/images/industries-img/retails.jpg';
+import shippingImg from '@/assets/images/industries-img/shipping.jpg';
+import transportImg from '@/assets/images/industries-img/road_transport.jpg'
+
 
 type TabKey = "cybersecurity" | "businessContinuity" | "dataPrivacy" | "Esg";
+type IndustryId =
+  | "airline"
+  | "automotive"
+  | "banking"
+  | "communication"
+  | "construction"
+  | "healthcare"
+  | "hospitality"
+  | "it"
+  | "manufacturing"
+  | "mining"
+  | "oil-gas"
+  | "petrochemical"
+  | "pharmaceuticals"
+  | "retail"
+  | "shipping"
+  | "transport";
+
 
 interface Tab {
   key: TabKey;
@@ -165,6 +148,27 @@ interface Industry {
   content: Record<TabKey, Section>;
 }
 
+const industryImages: Record<IndustryId, string> = {
+  airline: airlineImg,
+  automotive: automotiveImg,
+  banking: bankingImg,
+  communication: communicationImg,
+  construction: constructionImg,
+  healthcare: healthcareImg,
+  hospitality: hospitalityImg,
+  it: itImg,
+  manufacturing: manufacturingImg,
+  mining: miningImg,
+  "oil-gas": oilGasImg,
+  petrochemical: petrochemicalImg,
+  pharmaceuticals: pharmaceuticalsImg,
+  retail: retailImg,
+  shipping: shippingImg,
+  transport: transportImg
+};
+
+
+
 export default defineComponent({
   name: "IndustriesView",
   components: { MainNavbar, RegulatoryWidget, MainContact, MainFooter },
@@ -174,7 +178,7 @@ export default defineComponent({
       {
         id: "airline",
         name: "Airline",
-       image: "https://cdn.prod.website-files.com/6840ded10cfd34d3bc58b303/6886959c04fb8f9bd72f59ad__5%20Ways%20High%20Resolution%20Connected%20Car%20Data%20is%20Changing%20Traffic%20Analytics.jpg?utm_source=chatgpt.com",
+        image: industryImages.airline,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -323,7 +327,7 @@ export default defineComponent({
       {
         id: "automotive",
         name: "Automotive",
-      image: "https://www.welchstatebank.com/wp-content/uploads/2021/07/cyber-blog-graphic-1024x630.jpg?utm_source=chatgpt.com",
+        image: industryImages.automotive,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -480,7 +484,7 @@ export default defineComponent({
       {
         id: "banking",
         name: "Banking",
-        image: "https://www.decta.com/media/2491/download/Digital%20Banking%20Security%20Measures.png?v=1&utm_source=chatgpt.com",
+        image: industryImages.banking,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -630,7 +634,7 @@ export default defineComponent({
       {
         id: "communication",
         name: "Communication (Telecom)",
-       image: "https://146a55aca6f00848c565-a7635525d40ac1c70300198708936b4e.ssl.cf1.rackcdn.com/images/c239696f47bd4457f388e21d2da410d752667fe9.jpg?utm_source=chatgpt.com",
+        image: industryImages.communication,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -772,7 +776,7 @@ export default defineComponent({
       {
         id: "construction",
         name: "Construction",
-     image: "https://www.technologycards.net/-/media/sites/technologycards/smart-construction-site.ashx?utm_source=chatgpt.com",
+        image: industryImages.construction,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -921,7 +925,7 @@ export default defineComponent({
       {
         id: "healthcare",
         name: "Healthcare",
-        image: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?q=80&w=1600&auto=format&fit=crop",
+        image: industryImages.healthcare,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1051,7 +1055,7 @@ export default defineComponent({
       {
         id: "hospitality",
         name: "Hospitality",
-        image: "https://cdn.prod.website-files.com/62294553e9aeea20d15d7bc2/67dbd4a607076504f262ddda_62c5b5cfb0d63a42a8b31893_Back%2520of%2520the%2520house.png?utm_source=chatgpt.com",
+        image: industryImages.hospitality,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1182,7 +1186,7 @@ export default defineComponent({
       {
         id: "it",
         name: "Information Technology (IT)",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1600&auto=format&fit=crop",
+        image: industryImages.it,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1311,7 +1315,7 @@ export default defineComponent({
       {
         id: " manufacturing",
         name: " Manufacturing",
-        image: "https://inracks.com/wp-content/uploads/2019/04/Control-Room-Video-Wall-Design.jpg?utm_source=chatgpt.com",
+        image: industryImages.manufacturing,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1442,7 +1446,7 @@ export default defineComponent({
       {
         id: "mining",
         name: "Mining",
-        image: "https://www.ausimm.com/globalassets/bulletin/e-edition-42/bulletin-oct-25-video-wall.jpg?utm_source=chatgpt.com",
+        image: industryImages.mining,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1572,7 +1576,7 @@ export default defineComponent({
       {
         id: "oil-gas",
         name: "Oil & Gas",
-        image: "https://atwell.com/wp-content/uploads/2024/05/AdobeStock_552777398-scaled-1.jpeg?utm_source=chatgpt.com",
+        image: industryImages["oil-gas"],
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1702,7 +1706,7 @@ export default defineComponent({
       {
         id: "petrochemical",
         name: "Petrochemical",
-        image: "https://www.jungmann.de/wp-content/uploads/2025/03/jst-messwarte-kvm-solutions.jpg?utm_source=chatgpt.com",
+        image: industryImages.petrochemical,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1832,7 +1836,7 @@ export default defineComponent({
       {
         id: "pharmaceuticals",
         name: "Pharmaceuticals",
-        image: "https://trackobit.com/wp-content/uploads/WhatsApp-Image-2023-10-04-at-11.28.38-AM.jpeg?utm_source=chatgpt.com",
+        image: industryImages.pharmaceuticals,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -1964,7 +1968,7 @@ export default defineComponent({
       {
         id: "retail",
         name: "Retail",
-        image: "https://www.netsuite.com/portal/assets/img/business-articles/erp/infographic-retail-supply-chain-management.jpg?utm_source=chatgpt.com",
+        image: industryImages.retail,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -2096,7 +2100,7 @@ export default defineComponent({
       {
         id: "shipping",
         name: "Shipping",
-        image: "https://www.ship-technology.com/wp-content/uploads/sites/8/2018/10/frequentis-martrx-lead.jpg?utm_source=chatgpt.com",
+        image: industryImages.shipping,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -2228,7 +2232,7 @@ export default defineComponent({
       {
         id: "transport",
         name: "Transport & Logistics",
-        image: "https://lirp.cdn-website.com/f9025875/dms3rep/multi/opt/ViewPoint-Transportation-Management-System-640w.png?utm_source=chatgpt.com",
+        image: industryImages.transport,
         content: {
           cybersecurity: {
             title: "Cybersecurity",
@@ -2355,7 +2359,6 @@ export default defineComponent({
           }
         },
       },
-
 
 
 

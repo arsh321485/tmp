@@ -15,7 +15,7 @@
         <div class="row align-items-center">
           <div class="col-lg-7" data-animate data-delay="100">
             <h1 class="hero-heading pt-5">Who We Are</h1>
-            <p class="hero-description pt-4 text-secondary">
+            <p class="hero-description pt-4 heading-para text-white">
               TestMyPlan (TMP) is a modern Preparedness Automation Platform designed
               to ensure organizations are truly ready for Cybersecurity incidents,
               Business Continuity disruptions, Data Privacy breaches, and ESG-related events.

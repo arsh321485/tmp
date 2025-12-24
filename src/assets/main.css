@@ -644,6 +644,23 @@ section {
     margin-bottom: 60px;
 }
 
+.hero-description.heading-para {
+  color: #ffffff; /* white text */
+  
+  /* background highlight */
+  /* background: rgba(0, 0, 0, 0.55); */
+  padding: 16px 20px;
+  border-radius: 8px;
+
+  /* readability enhancement */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+
+  /* layout safety */
+  display: inline-block;
+  max-width: 820px;
+}
+
+
 .hero-cta-btn {
     display: inline-flex;
     align-items: center;
@@ -997,11 +1014,12 @@ section {
     place-items: center;
     width: 36px;
     height: 36px;
-    border-radius: 999px;
+    /* border-radius: 999px; */
     background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    /* border: 1px solid rgba(0, 0, 0, 0.12); */
     font-weight: 800;
-    font-size: 14px;
+    /* font-size: 14px; */
+    font-size: 22px;
 }
 
 /* flow keyframes for left scattered pills */
@@ -1239,7 +1257,16 @@ section {
 .stack-item .idx {
     width: 36px;
     height: 36px;
-    font-size: 14px;
+    /* font-size: 14px; */
+    font-size: 22px;
+    display: inline-grid;
+    place-items: center;
+    /* border-radius: 999px; */
+    background: rgba(255, 255, 255, 0.9);
+    /* border: 1px solid rgba(0, 0, 0, 0.12); */
+    font-weight: 800;
+
+
 }
 
 .bp-stack .stack-item:nth-child(1) {

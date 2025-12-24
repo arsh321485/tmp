@@ -7,22 +7,23 @@
                 <div class="col-lg-6">
                     <div class="contact-left-eyebrow">/ get in touch /</div>
                     <h2 class="contact-left-title">
-                        We are always ready to help you and answer your questions
-                        
-                        <RouterLink to="/signup" class="contact-submit-btn">
-                            <span>SignUp</span>
-                            <span class="contact-submit-icon-wrap">›</span>
-                        </RouterLink>
+                        Test, validate, and improve your readiness with TestMyPlan.
+
+
 
                     </h2>
                     <p class="contact-left-text">
-                        Pacific hake false trevally queen parrotfish black prickleback
-                        mosshead warbonnet sweeper. Greenling sleeper.
+                        TestMyPlan helps organizations proactively test, validate, and strengthen their cyber, business continuity, and operational resilience strategies.
                     </p>
 
                     <div class="contact-info-columns">
 
-
+                        <div class="contact-info-block">
+                            <RouterLink to="/signup" class="contact-submit-btn">
+                                <span>SignUp</span>
+                                <span class="contact-submit-icon-wrap">›</span>
+                            </RouterLink>
+                        </div>
 
                         <div class="contact-info-block">
                             <div class="contact-info-block-title fs-6">Social network</div>
@@ -32,9 +33,7 @@
                             </div>
                         </div>
 
-                        <!-- <div class="contact-info-block">
-                               
-                            </div> -->
+
                     </div>
                 </div>
 

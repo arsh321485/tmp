@@ -43,7 +43,7 @@
                     <div class="signup-card shadow-sm">
 
 
-                       
+
 
                         <button class="btn btn-slack w-100 mb-3 d-inline-flex align-items-center justify-content-center"
                             @click="signup('slack')">
@@ -57,7 +57,7 @@
                             Signup with Teams
                         </button>
 
-                         <div class="divider my-3">
+                        <div class="divider my-3">
                             <span>OR</span>
                         </div>
 
@@ -69,7 +69,7 @@
 
 
 
-                        
+
 
                         <div class="terms-text text-black">
                             By signing up, you agree to Testmyplan
@@ -86,9 +86,17 @@
                         <strong>500+ organisations.</strong>
                     </p>
 
-                    <div class="logos">
+                    <!-- <div class="logos">
                         <img v-for="logo in logos" :key="logo.name" :src="logo.src" :alt="logo.name" class="logo-img" />
+                    </div> -->
+
+                    <div class="logos">
+                        <div v-for="logo in logos" :key="logo.name" class="logo-item">
+                            <img :src="logo.src" :alt="logo.name" class="logo-img" />
+                            <span class="logo-name">{{ logo.name }}</span>
+                        </div>
                     </div>
+
                 </div>
 
             </div>
@@ -100,51 +108,68 @@
 
 <script lang="ts">
 import type { Router } from "vue-router";
+import logo3 from "@/assets/images/logo-3.jpg";
+
 
 export default {
-  name: "MainSignup",
+    name: "MainSignup",
 
-  data() {
-    return {
-      logos: [
-        { name: "Decagon", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-        { name: "Palantir", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-        { name: "Windsurf", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-        { name: "Hightouch", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-        { name: "Augment Code", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-        { name: "Nooks", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-        { name: "Scale", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-        { name: "Persona", src: "https://upload.wikimedia.org/wikipedia/commons/5/59/Placeholder_logo.png" },
-      ],
-    };
-  },
+  
 
-  methods: {
-    signup(this: { $router?: Router }, provider: "slack" | "teams" | "email") {
-      const router = this.$router;
+    data() {
+        return {
+            logos: [
+                { name: "Decagon", src: logo3 },
+                { name: "Palantir", src: logo3 },
+                { name: "Windsurf", src: logo3 },
+                { name: "Hightouch", src: logo3 },
+                { name: "Augment Code", src: logo3 },
+                { name: "Nooks", src: logo3 },
+                { name: "Scale", src: logo3 },
+               
+            ],
+        };
+    },
 
-      // EMAIL → email page first
-      if (provider === "email") {
-        router?.push({
-          path: "/email",
-          query: { provider }
-        });
-        return;
-      }
 
-      // SLACK / TEAMS → directly to organisation
-      router?.push({
-        path: "/organisation",
-        query: { provider }
-      });
+    methods: {
+        signup(this: { $router?: Router }, provider: "slack" | "teams" | "email") {
+            const router = this.$router;
+
+            // EMAIL → email page first
+            if (provider === "email") {
+                router?.push({
+                    path: "/email",
+                    query: { provider }
+                });
+                return;
+            }
+
+            // SLACK / TEAMS → directly to organisation
+            router?.push({
+                path: "/organisation",
+                query: { provider }
+            });
+        }
     }
-  }
 };
 </script>
 
 
 
 <style scoped>
+.logo-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.logo-name {
+    color: #555;
+    text-align: center;
+    white-space: nowrap;
+}
+
 /* Your existing layout untouched */
 .signup-page {
     min-height: 100vh;

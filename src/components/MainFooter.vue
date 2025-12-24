@@ -67,7 +67,7 @@
             <span>Privacy Policy</span>
           </router-link>
 
-          <div class="footer-mini-btn">↑</div>
+          
         </div>
       </div>
     </div>

@@ -17,11 +17,11 @@
                 </div>
 
                 <!-- Title -->
-                  <h1 class="hero-heading">Cybersecurity Preparedness</h1>
+                <h1 class="hero-heading">Cybersecurity Preparedness</h1>
 
                 <!-- Description -->
                 <p class="hero-description">
-                     Your tools detect threats. TMP prepares your people to handle them.<br />
+                    Your tools detect threats. TMP prepares your people to handle them.<br />
                     Modern cyberattacks evolve faster than organizations can train—and attackers count on that.<br />
                     TMP gives your SOC, IR, Cloud, AppSec, and leadership teams the ability to respond
                     with clarity, speed, and confidence.
@@ -51,15 +51,15 @@
 
         <section class="advantages-bg delayed-section" data-delay="300" style="background: #f4f5f8;">
             <div class="advantages-section container delayed-section" data-delay="200">
-                 <h2 class="selling-heading">The Cyber Reality</h2>
+                <h2 class="selling-heading">The Cyber Reality</h2>
 
                 <div class="advantages-grid">
 
                     <!-- SERVICE 1 -->
                     <div class="adv-card">
                         <div class="adv-icon">
-                         
-                             <i class="bi bi-gear-fill fs-4 icon-size"></i>
+
+                            <i class="bi bi-gear-fill fs-4 icon-size"></i>
                         </div>
                         <h3 class="selling-heading">Tools are advanced. Human readiness is not.</h3>
                         <p class="hero-description">
@@ -84,14 +84,15 @@
                     <div class="adv-card">
                         <div class="adv-icon">
                             <!-- <i class="icon-style"></i> -->
-                             <i class="bi bi-clouds-fill fs-4 icon-size"></i>
+                            <i class="bi bi-clouds-fill fs-4 icon-size"></i>
                         </div>
-                        <h3  class="selling-heading">Incident response plans are outdated the moment they're written.</h3>
-                        <p  class="hero-description">
+                        <h3 class="selling-heading">Incident response plans are outdated the moment they're written.
+                        </h3>
+                        <p class="hero-description">
                             IR playbooks often don’t reflect changes across the environment. Common gaps include:
                         </p>
 
-                        <ul  class="hero-description">
+                        <ul class="hero-description">
                             <li>tool changes</li>
                             <li>cloud migration</li>
                             <li>new vendors</li>
@@ -105,14 +106,14 @@
                     <div class="adv-card">
                         <div class="adv-icon">
                             <!-- <i class="icon-resolution"></i> -->
-                             <i class="bi bi-exclamation-triangle-fill fs-4 icon-size"></i>
+                            <i class="bi bi-exclamation-triangle-fill fs-4 icon-size"></i>
                         </div>
-                        <h3  class="selling-heading">SOC burnout & alert fatigue slow response</h3>
-                        <p  class="hero-description">
+                        <h3 class="selling-heading">SOC burnout & alert fatigue slow response</h3>
+                        <p class="hero-description">
                             Analysts drown in alerts. Important decisions get delayed.
                         </p>
 
-                        <ul  class="hero-description">
+                        <ul class="hero-description">
                             <li>TMP keeps response plans updated and aligned with reality, adapting to new tools,
                                 migrations, and regulations.</li>
                             <li>TMP makes cybersecurity preparedness measurable, trackable, and reportable, giving
@@ -128,9 +129,9 @@
                     <div class="adv-card">
                         <div class="adv-icon">
                             <!-- <i class="icon-edit"></i> -->
-                             <i class="bi bi-steam fs-4 icon-size"></i>
+                            <i class="bi bi-steam fs-4 icon-size"></i>
                         </div>
-                        <h3  class="selling-heading">Cross-team friction kills containment</h3>
+                        <h3 class="selling-heading">Cross-team friction kills containment</h3>
                         <p class="hero-description">
                             Real incidents require many teams to work together:
                         </p>
@@ -151,7 +152,7 @@
                     <div class="adv-card">
                         <div class="adv-icon">
                             <!-- <i class="icon-translate"></i> -->
-                             <i class="bi bi-hypnotize fs-4 icon-size"></i>
+                            <i class="bi bi-hypnotize fs-4 icon-size"></i>
                         </div>
                         <h3 class="selling-heading">
                             Leadership gets no visibility into real readiness</h3>
@@ -168,7 +169,7 @@
                     </div>
 
                 </div>
-                </div>
+            </div>
         </section>
 
 
@@ -179,67 +180,80 @@
                 <!-- HEADER -->
                 <div class="projects-header">
                     <div class="left">
-                        <!-- <span class="eyebrow">/ TMP Solves /</span> -->
+
                         <span class="hero-description">/ TMP Solves /</span>
-                        <!-- <h2 class="title">How TMP Solves<br />Cyber Preparedness</h2> -->
+
                         <h2 class="selling-heading-white-bg">How TMP Solves<br />Cyber Preparedness</h2>
-                        <!-- <p class="sub">
-                            Practical, continuous, and auditor-ready capabilities that close the
-                            people & process gap.
-                        </p> -->
+
                         <p class="hero-description-bg">
                             Practical, continuous, and auditor-ready capabilities that close the
                             people & process gap.
                         </p>
 
                         <!-- controls -->
-                        <div class="controls">
+                        <!-- <div class="controls">
                             <button @click="scrollLeft">‹</button>
                             <button @click="scrollRight">›</button>
-                        </div>
+                        </div> -->
                     </div>
 
 
                 </div>
 
                 <!-- CARDS -->
-                <div class="cards-wrap" ref="cardsWrap">
-                    <article v-for="t in tabs" :key="t.id" class="project-card">
+                <div class="cards-container">
 
-                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="project"
-                            class="card-img" />
+                    <!-- LEFT ARROW -->
+                    <button class="slider-arrow left" @click="scrollLeft">
+                        ‹
+                    </button>
 
-                        <!-- TITLE (moves on hover) -->
-                        <h3 class="card-title">
-                            {{ t.title }}
-                        </h3>
+                    <div class="cards-wrap" ref="cardsWrap">
+                        <article v-for="t in tabs" :key="t.id" class="project-card">
 
-                        <!-- OVERLAY CONTENT -->
-                        <div class="card-overlay">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="project"
+                                class="card-img" />
 
-                            <p class="overlay-intro ">{{ t.intro }}</p>
+                            <!-- TITLE (moves on hover) -->
+                            <h3 class="card-title">
+                                {{ t.title }}
+                            </h3>
 
-                            <ul v-if="t.examples?.length">
-                                <li v-for="(ex, k) in t.examples" :key="'ex-' + k">
-                                    {{ ex }}
-                                </li>
-                            </ul>
+                            <!-- OVERLAY CONTENT -->
+                            <div class="card-overlay">
 
-                            <ul v-else-if="t.items?.length">
-                                <li v-for="(it, k) in t.items" :key="'it-' + k">
-                                    {{ it }}
-                                </li>
-                            </ul>
+                                <p class="overlay-intro ">{{ t.intro }}</p>
 
-                            <p v-if="t.note" class="card-note">
-                                {{ t.note }}
-                            </p>
+                                <ul v-if="t.examples?.length">
+                                    <li v-for="(ex, k) in t.examples" :key="'ex-' + k">
+                                        {{ ex }}
+                                    </li>
+                                </ul>
 
-                        </div>
-                    </article>
+                                <ul v-else-if="t.items?.length">
+                                    <li v-for="(it, k) in t.items" :key="'it-' + k">
+                                        {{ it }}
+                                    </li>
+                                </ul>
+
+                                <p v-if="t.note" class="card-note">
+                                    {{ t.note }}
+                                </p>
+
+                            </div>
+                        </article>
 
 
+                    </div>
+
+                    <!-- RIGHT ARROW -->
+                    <button class="slider-arrow right" @click="scrollRight">
+                        ›
+                    </button>
                 </div>
+
+
+
 
 
             </div>
@@ -249,6 +263,7 @@
         <MainContact />
         <!-- FOOTER -->
         <MainFooter />
+        <ScrollToTop />
     </div>
 </template>
 
@@ -258,6 +273,7 @@ import MainNavbar from "../components/MainNavbar.vue";
 import MainFooter from "../components/MainFooter.vue";
 import MainContact from "@/components/MainContact.vue";
 import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
+import ScrollToTop from "@/components/ScrollToTop.vue";
 
 type Tab = {
     id: string;
@@ -274,7 +290,8 @@ export default defineComponent({
         MainNavbar,
         RegulatoryWidget,
         MainFooter,
-        MainContact
+        MainContact,
+        ScrollToTop,
     },
 
     data() {
@@ -436,6 +453,3 @@ export default defineComponent({
     },
 });
 </script>
-
-
-

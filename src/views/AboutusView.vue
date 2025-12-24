@@ -311,6 +311,7 @@
 
     <MainContact />
     <MainFooter />
+    <ScrollToTop />
   </div>
 </template>
 
@@ -319,6 +320,7 @@ import MainContact from "@/components/MainContact.vue";
 import MainFooter from "../components/MainFooter.vue";
 import MainNavbar from "../components/MainNavbar.vue";
 import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
+import ScrollToTop from "@/components/ScrollToTop.vue";
 
 export default {
   name: "AboutusView",
@@ -326,7 +328,8 @@ export default {
     MainNavbar,
     MainContact,
     MainFooter,
-    RegulatoryWidget
+    RegulatoryWidget,
+    ScrollToTop,
   },
   data() {
     return {

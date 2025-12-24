@@ -1,8 +1,20 @@
-<script setup lang="ts">
-import { RouterView } from 'vue-router'
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import { RouterView } from "vue-router";
 import CookiesModal from "@/components/CookiesModal.vue";
-// import HelloWorld from './components/HelloWorld.vue'
+import ScrollToTop from "@/components/ScrollToTop.vue";
+
+export default defineComponent({
+  name: "App",
+  components: {
+    RouterView,
+    CookiesModal,
+    ScrollToTop,
+  },
+});
 </script>
+
 
 <template>
   <!-- <header>
@@ -20,6 +32,7 @@ import CookiesModal from "@/components/CookiesModal.vue";
   
 
   <RouterView />
+   <ScrollToTop />
     <CookiesModal />
 </template>
 

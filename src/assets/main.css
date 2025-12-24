@@ -4221,6 +4221,68 @@ footer {
 }
 
 
+/* container */
+.cards-container {
+  position: relative;
+}
+
+/* arrows */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.25s ease;
+}
+
+/* left & right positioning */
+.slider-arrow.left {
+  /* left: -12px; */
+  left: -52px;
+}
+
+.slider-arrow.right {
+  /* right: -12px; */
+  right: -60px;
+}
+
+/* hover effect */
+.slider-arrow:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* optional: show arrows only when hovering cards area */
+.cards-container:hover .slider-arrow {
+  opacity: 1;
+}
+
+.slider-arrow {
+  opacity: 0.85;
+}
+
+/* mobile: hide arrows */
+@media (max-width: 768px) {
+  .slider-arrow {
+    display: none;
+  }
+}
+
+
+
 /* ===============================
    SCROLL REVEAL BASE
 =============================== */

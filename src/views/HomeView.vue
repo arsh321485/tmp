@@ -547,6 +547,7 @@
 
         <MainContact />
         <MainFooter />
+        <ScrollToTop />
     </div>
 </template>
 
@@ -562,6 +563,7 @@ import MainNavbar from "../components/MainNavbar.vue";
 import MainFooter from "../components/MainFooter.vue";
 import MainContact from "@/components/MainContact.vue";
 import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
+import ScrollToTop from "@/components/ScrollToTop.vue";
 
 interface Step {
     id: number;
@@ -596,6 +598,7 @@ export default defineComponent({
         RegulatoryWidget,
         MainFooter,
         MainContact,
+        ScrollToTop,
     },
 
     data() {

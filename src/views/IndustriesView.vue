@@ -82,6 +82,7 @@
 
     <MainContact />
     <MainFooter />
+    <ScrollToTop />
   </div>
 </template>
 
@@ -108,6 +109,7 @@ import pharmaceuticalsImg from '@/assets/images/industries-img/pharmaceuticals.j
 import retailImg from '@/assets/images/industries-img/retails.jpg';
 import shippingImg from '@/assets/images/industries-img/shipping.jpg';
 import transportImg from '@/assets/images/industries-img/road_transport.jpg'
+import ScrollToTop from "@/components/ScrollToTop.vue";
 
 
 type TabKey = "cybersecurity" | "businessContinuity" | "dataPrivacy" | "Esg";
@@ -171,7 +173,7 @@ const industryImages: Record<IndustryId, string> = {
 
 export default defineComponent({
   name: "IndustriesView",
-  components: { MainNavbar, RegulatoryWidget, MainContact, MainFooter },
+  components: { MainNavbar, RegulatoryWidget, MainContact, MainFooter, ScrollToTop },
 
   data() {
     const industries: Industry[] = [

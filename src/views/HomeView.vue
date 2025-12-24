@@ -38,50 +38,6 @@
             </div>
         </section>
 
-        <!-- ========== UNIQUE SELLING POINTS ========== -->
-        <section class="selling-section">
-            <div class="container">
-                <!-- big heading only -->
-                <div class="selling-header">
-                    <h2 class="selling-heading wow animate__animated animate__fadeInUp" data-wow-delay="2s">
-                        WHY Test My Plan (TMP) ?
-                    </h2>
-                </div>
-
-                <!-- Insert this right after .selling-header -->
-                <div class="selling-painpoints-wrapper">
-                    <ul class="selling-painpoints" id="sellingPainpoints">
-                        <li class="painpoint">
-                            <span class="pp-icon" aria-hidden="true">➤</span>
-                            <div class="pp-text">Teams don’t know their roles or when to act.</div>
-                        </li>
-                        <li class="painpoint">
-                            <span class="pp-icon" aria-hidden="true">➤</span>
-                            <div class="pp-text">
-                                Recollection of what to do is fuzzy during stress.
-                            </div>
-                        </li>
-                        <li class="painpoint">
-                            <span class="pp-icon" aria-hidden="true">➤</span>
-                            <div class="pp-text">
-                                Managers lack a clear view of threats, causes, dependencies and
-                                readiness.
-                            </div>
-                        </li>
-                        <li class="painpoint">
-                            <span class="pp-icon" aria-hidden="true">➤</span>
-                            <div class="pp-text">Running drills is manual, takes weeks or months.</div>
-                        </li>
-                        <li class="painpoint">
-                            <span class="pp-icon" aria-hidden="true">➤</span>
-                            <div class="pp-text">Effectiveness of tests is not measured.</div>
-                        </li>
-                    </ul>
-                </div>
-
-
-            </div>
-        </section>
 
         <!-- Problem dark section next -->
 
@@ -197,9 +153,9 @@
                         <h3>The False Sense of Security Problem</h3>
                         <p>
                             Organizations believe they are prepared because plans exist. But
-                                without real-world validation, leadership has no visibility into
-                                actual readiness, hidden dependencies, or team performance under
-                                pressure.
+                            without real-world validation, leadership has no visibility into
+                            actual readiness, hidden dependencies, or team performance under
+                            pressure.
                         </p>
                         <!-- <div class="icon">📊</div> -->
                         <div class="icon neural-icon">
@@ -228,6 +184,53 @@
             </div>
         </section>
 
+
+        <!-- ========== UNIQUE SELLING POINTS ========== -->
+        <section class="selling-section">
+            <div class="container">
+                <!-- big heading only -->
+                <div class="selling-header">
+                    <h2 class="selling-heading wow animate__animated animate__fadeInUp" data-wow-delay="2s">
+                        WHY Test My Plan (TMP) ?
+                    </h2>
+                </div>
+
+                <!-- Insert this right after .selling-header -->
+                <div class="selling-painpoints-wrapper">
+                    <ul class="selling-painpoints" id="sellingPainpoints">
+                        <li class="painpoint">
+                            <span class="pp-icon" aria-hidden="true">➤</span>
+                            <div class="pp-text">Teams don’t know their roles or when to act.</div>
+                        </li>
+                        <li class="painpoint">
+                            <span class="pp-icon" aria-hidden="true">➤</span>
+                            <div class="pp-text">
+                                Recollection of what to do is fuzzy during stress.
+                            </div>
+                        </li>
+                        <li class="painpoint">
+                            <span class="pp-icon" aria-hidden="true">➤</span>
+                            <div class="pp-text">
+                                Managers lack a clear view of threats, causes, dependencies and
+                                readiness.
+                            </div>
+                        </li>
+                        <li class="painpoint">
+                            <span class="pp-icon" aria-hidden="true">➤</span>
+                            <div class="pp-text">Running drills is manual, takes weeks or months.</div>
+                        </li>
+                        <li class="painpoint">
+                            <span class="pp-icon" aria-hidden="true">➤</span>
+                            <div class="pp-text">Effectiveness of tests is not measured.</div>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </section>
+
+        
 
 
         <!--  How it works -->
@@ -308,9 +311,13 @@
                             </ul>
                         </div>
 
+                        <!-- <div class="content-right">
+                            <img :src="currentTab.image" :alt="currentTab.title" class="content-media" />
+                        </div> -->
                         <div class="content-right">
                             <img :src="currentTab.image" :alt="currentTab.title" class="content-media" />
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -598,7 +605,7 @@ export default defineComponent({
                 num: "01",
                 pane: "pane-1",
                 title: "Sign up",
-                img: "https://via.placeholder.com/640x360.png?text=Video+Placeholder",
+                img: new URL("@/assets/images/signup-home.jpeg", import.meta.url).href,
                 desc:
                     "Create your workspace in seconds using SSO or email. No setup barriers — just log in and get started instantly.",
             },
@@ -607,7 +614,7 @@ export default defineComponent({
                 num: "02",
                 pane: "pane-2",
                 title: "Configure users & teams",
-                img: "https://via.placeholder.com/640x360.png?text=Choose+Placeholder",
+                img: new URL("@/assets/images/configure-teams.jpeg", import.meta.url).href,
                 desc:
                     "Add your teams and assign them to communication channels like Slack, Teams, or Mattermost. Everyone is mapped, reachable, and ready for action.",
             },
@@ -616,7 +623,7 @@ export default defineComponent({
                 num: "03",
                 pane: "pane-3",
                 title: " Configure threats",
-                img: "https://via.placeholder.com/640x360.png?text=Build+Placeholder",
+                img: new URL("@/assets/images/config-threat.webp", import.meta.url).href,
                 desc:
                     "Use the built-in Threat Agent to identify what needs testing. It recommends relevant threats and helps you configure precise, context-aware scenarios.",
             },
@@ -625,7 +632,7 @@ export default defineComponent({
                 num: "04",
                 pane: "pane-4",
                 title: "Initiate preparedness",
-                img: "https://via.placeholder.com/640x360.png?text=Share+Placeholder",
+                img: new URL("@/assets/images/initiate-preparedness.jpg", import.meta.url).href,
                 desc:
                     "Launch tests with just a few clicks. TMP orchestrates the entire workflow — notifications, tasks, timing, escalations — automatically.",
             },
@@ -634,7 +641,7 @@ export default defineComponent({
                 num: "05",
                 pane: "pane-5",
                 title: "Report & improve",
-                img: "https://via.placeholder.com/640x360.png?text=Streamline+Placeholder",
+                img: new URL("@/assets/images/report-improve.jpg", import.meta.url).href,
                 desc:
                     "Access analytics that show real-world readiness. Get compliance-ready reports aligned to regulatory standards, complete with insights and actionable gaps.",
             },
@@ -642,7 +649,7 @@ export default defineComponent({
 
         const tabs: Tab[] = [
             {
-                id: "marketing",
+                id: "cybersecurity",
                 label: "Cybersecurity",
                 title:
                     "Raise your organization’s cyber readiness before attackers test it for you",
@@ -654,10 +661,10 @@ export default defineComponent({
                     "Role-mapped task execution with time-bound decision prompts",
                     "Compliance-ready reporting aligned with ISO 27001, NIST CSF, SOC 2, RBI, NIS2",
                 ],
-                image: "https://via.placeholder.com/720x420.png?text=Marketing+Image",
+                image: new URL("@/assets/images/cybersecurity.jpg", import.meta.url).href,
             },
             {
-                id: "sales",
+                id: "business-continuity",
                 label: "Business Continuity",
                 title: "Ensure your business keeps running — no matter what breaks",
                 lead:
@@ -668,10 +675,10 @@ export default defineComponent({
                     "Automate communication workflows for executives, teams & vendors",
                     "Evidence packs aligned with ISO 22301 and enterprise audit needs",
                 ],
-                image: "https://via.placeholder.com/720x420.png?text=Sales+Image",
+                image: new URL("@/assets/images/business-continuty.png", import.meta.url).href,
             },
             {
-                id: "product",
+                id: "data-privacy",
                 label: "Data Privacy",
                 title: "Protect customer data and prove compliance — with confidence",
                 lead:
@@ -682,10 +689,10 @@ export default defineComponent({
                     "Prebuilt privacy incident templates: unauthorized access, misdelivery, deletion failures",
                     "Generate audit-ready evidence for investigations, reporting & post-incident reviews",
                 ],
-                image: "https://via.placeholder.com/720x420.png?text=Product+Image",
+                image: new URL("@/assets/images/data-privacy.jpg", import.meta.url).href,
             },
             {
-                id: "it",
+                id: "esg",
                 label: "Environmental Security & Governance",
                 title:
                     "Strengthen resilience across environmental, operational & governance risks",
@@ -697,7 +704,7 @@ export default defineComponent({
                     "Validate response alignment with sustainability and compliance frameworks",
                     "Produce assurance-ready reports for auditors, regulators & stakeholders",
                 ],
-                image: "https://via.placeholder.com/720x420.png?text=IT+Image",
+                image: new URL("@/assets/images/esg.jpg", import.meta.url).href,
             },
         ];
 

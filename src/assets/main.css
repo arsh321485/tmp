@@ -2382,12 +2382,52 @@ section {
 }
 
 /* Video placeholder */
-.video-placeholder {
+/* .video-placeholder {
     width: 100%;
     height: 260px;
     background: #dfe6eb;
     display: grid;
     place-items: center;
+} */
+
+.content-right {
+  width: 100%;
+  max-width: 520px;          /* optional: control layout width */
+  height: 320px;             /* ✅ SAME height for all tabs */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.content-media {
+  width: 100%;               /* ✅ same width */
+  height: 100%;              /* ✅ same height */
+  object-fit: contain;       /* ✅ no distortion */
+  border-radius: 12px;
+  display: block;
+}
+
+
+
+.video-placeholder {
+  width: 100%;
+  height: auto;              /* ✅ allow image height */
+  background: #dfe6eb;
+  display: flex;             /* ✅ better than grid here */
+  justify-content: center;
+  align-items: flex-start;   /* ✅ image starts from top */
+  padding: 16px 0;           /* spacing */
+}
+
+.video-placeholder img {
+  width: 100%;
+  max-height: 240px;
+  max-width: 92%;
+  height: auto;              /* ✅ maintain aspect ratio */
+  object-fit: contain;       /* ✅ no cropping */
+  border-radius: 12px;
+  display: block;
 }
 
 /* Hide all content panes by default, show the active one */
@@ -5464,13 +5504,44 @@ footer {
     flex: 1;
 }
 
-.card-title {
+/* .card-title {
     margin: 0;
     font-size: 1.05rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+} */
+
+.card-title {
+  position: absolute;                 /* ✅ overlay on image */
+  bottom: 16px;                       /* position over image */
+  left: 16px;
+
+  margin: 0;
+  /* font-size: 18px;               */
+  font-size: 30px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #fff;                        /* white text */
+  z-index: 2;
+
+  /* 🔥 readability on any image */
+  /* background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.25)
+  ); */
+  padding: 8px 14px;
+  border-radius: 10px;
+
+  /* subtle clarity boost */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
+
 
 .card-excerpt {
     margin: 0.25rem 0 0 0;

@@ -434,6 +434,14 @@
                     </div>
                 </div>
                 <!-- /bp-main -->
+
+                <!-- BOTTOM CTA BAR -->
+                <div class="bp-cta-bar">
+                    <RouterLink to="/signup" class="bp-cta-btn">
+                        Start automating today <span>→</span>
+                    </RouterLink>
+                </div>
+
             </div>
         </section>
 

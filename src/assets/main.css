@@ -926,16 +926,20 @@ a {
 
 
 .bp-headers {
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    /* border-top: 1px solid rgba(0, 0, 0, 0.08);
     border-left: 1px solid rgba(0, 0, 0, 0.08);
-    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    border-right: 1px solid rgba(0, 0, 0, 0.08); */
+    border-top: 1px solid #0c0d19;
+    border-left: 1px solid #0c0d19;
+    border-right: 1px solid #0c0d19;
     margin: 8px 8px 0 8px;
 }
 
 .bp-header {
     font-weight: 700;
     padding: 12px 14px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.06); */
+    border-bottom: 1px solid #0c0d19;
     text-align: center;
     font-size: 15px;
     background: transparent;
@@ -943,8 +947,8 @@ a {
 
 .bp-main {
     margin: 0 8px;
-    border-left: 1px solid rgba(0, 0, 0, 0.06);
-    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 1px solid #0c0d19;
+    border-right: 1px solid #0c0d19;
     min-height: 360px;
     position: relative;
 }
@@ -957,7 +961,7 @@ a {
     top: 0;
     bottom: 0;
     width: 1px;
-    background: rgba(0, 0, 0, 0.06);
+    background: #0c0d19;
     transform: translateX(-0.5px);
     pointer-events: none;
 }
@@ -1059,33 +1063,7 @@ a {
     font-size: 22px;
 }
 
-/* flow keyframes for left scattered pills */
-/* @keyframes flow {
-    0% {
-        transform: translateY(-260px) rotate(0deg);
-        opacity: 0;
-    }
 
-    10% {
-        transform: translateY(0) rotate(var(--rot, 0deg));
-        opacity: 1;
-    }
-
-    55% {
-        transform: translateY(0) rotate(var(--rot, 0deg));
-        opacity: 1;
-    }
-
-    65% {
-        transform: translateY(-40px) rotate(var(--rot, 0deg));
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(-260px) rotate(0deg);
-        opacity: 0;
-    }
-} */
 
 
 /* LEFT side pills – come in one-by-one, stay long, leave one-by-one */
@@ -1401,32 +1379,6 @@ a {
     }
 }
 
-/* @keyframes flow-mobile {
-    0% {
-        opacity: 0;
-        transform: translateY(-18px);
-    }
-
-    10% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    70% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    85% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-18px);
-    }
-} */
 
 
 @keyframes flow-mobile {
@@ -1495,6 +1447,64 @@ a {
         height: 1px;
     }
 }
+
+
+/* ---------- Bottom CTA strip ---------- */
+.bp-cta-bar {
+    margin: 0 8px 12px;
+    border-top: 1px solid #0c0d19;
+    border-left: 1px solid #0c0d19;
+    border-right: 1px solid #0c0d19;
+    border-bottom: 1px solid #0c0d19;
+    height: 68px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: #f4f5f8;
+}
+
+/* CTA button */
+.bp-cta-btn {
+    height: 100%;
+    padding: 0 36px;
+    /* background: #ff5a00; */
+    background: #f3473c;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    border-left: 1px solid #0c0d19;
+    transition: background 0.25s ease, gap 0.25s ease;
+}
+
+.bp-cta-btn span {
+    transition: transform 0.25s ease;
+}
+
+.bp-cta-btn:hover {
+    background: #e54f00;
+}
+
+.bp-cta-btn:hover span {
+    transform: translateX(4px);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .bp-cta-bar {
+        justify-content: center;
+    }
+
+    .bp-cta-btn {
+        width: 100%;
+        justify-content: center;
+        border-left: none;
+    }
+}
+
 
 
 /* Running Banner Section */

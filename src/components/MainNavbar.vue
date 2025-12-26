@@ -78,7 +78,8 @@
 
             <!-- Badge Verification -->
             <li>
-              <RouterLink to="/badge-verification" class="menu-link" exact-active-class="active-pill" @click="closeMobileMenu">
+              <RouterLink to="/badge-verification" class="menu-link" exact-active-class="active-pill"
+                @click="closeMobileMenu">
                 Badge Verification
               </RouterLink>
             </li>
@@ -103,6 +104,20 @@
                 FAQ
               </RouterLink>
             </li>
+
+            <!-- MOBILE AUTH LINKS -->
+            <li class="mobile-auth">
+              <RouterLink to="/signup" class="menu-link" @click="closeMobileMenu">
+                SIGNUP
+              </RouterLink>
+            </li>
+
+            <li class="mobile-auth">
+              <RouterLink to="/login" class="menu-link" @click="closeMobileMenu">
+                LOGIN
+              </RouterLink>
+            </li>
+
 
           </ul>
         </div>
@@ -152,15 +167,15 @@ export default defineComponent({
   },
 
   computed: {
-  isModuleRouteActive(): boolean {
-    return [
-      "/cyber-security",
-      "/business-continuity",
-      "/data-privacy",
-      "/esg"
-    ].includes(this.$route.path);
-  }
-},
+    isModuleRouteActive(): boolean {
+      return [
+        "/cyber-security",
+        "/business-continuity",
+        "/data-privacy",
+        "/esg"
+      ].includes(this.$route.path);
+    }
+  },
 
 
   mounted(): void {
@@ -379,8 +394,32 @@ export default defineComponent({
   position: relative;
 }
 
+/* hidden by default (desktop) */
+.mobile-auth {
+  display: none;
+}
+
 /* mobile behavior */
 @media (max-width: 991.98px) {
+   .mobile-auth {
+    display: block;
+    width: 100%;
+  }
+
+  .mobile-auth .menu-link {
+    width: 100%;
+    padding: 10px 6px;
+  }
+
+  /* optional divider above signup */
+  .mobile-auth:first-of-type {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #eef2f7;
+  }
+
+
+
   .nav-area {
     top: 8px;
   }
@@ -444,5 +483,7 @@ export default defineComponent({
     margin-left: auto;
 
   }
+
+
 }
 </style>

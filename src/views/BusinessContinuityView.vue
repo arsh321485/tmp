@@ -6,7 +6,7 @@
 
         <section class="cyber-hero position-relative delayed-section" data-delay="200" style="animation-delay: 100ms;">
             <!-- Background image -->
-            <div class="cyber-bg"></div>
+            <div class="business-bg"></div>
 
             <!-- Content area -->
             <div class="container content-wrap d-flex flex-column justify-content-center">
@@ -18,11 +18,11 @@
                 </div>
 
                 <!-- Title -->
-                <h1 class="">
+                <h1 class="hero-heading heading-shadow pt-4">
                     Business Continuity Preparedness</h1>
 
                 <!-- Description -->
-                <p class="hero-description">
+                <p class="hero-description-bg">
                     Operations don’t stop for disruptions — neither should your response.
                     BC plans only work if people, vendors, and processes do. TMP ensures every stakeholder knows exactly
                     what to do when disruption strikes.

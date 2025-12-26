@@ -1,11 +1,24 @@
 <template>
     <div id="top">
         <MainNavbar />
+        <div class="cyber-hero position-relative">
+            <div class="cyber-bg"></div>
+            <div class="container content-wrap">
+                <div class="faq-cta">
+                    <h3 class="faq-cta-title">Ready to strengthen your preparedness?</h3>
+
+                    <RouterLink to="/signup" class="faq-cta-btn">
+                        Contact us and get started today →
+                    </RouterLink>
+                </div>
+
+            </div>
+        </div>
 
         <RegulatoryWidget />
 
         <!-- ========== FAQ ========= -->
-        <section class="faq-section delayed-faq" id="faq" style="animation-delay: 300ms;">
+        <div class="faq-section delayed-faq" id="faq" style="animation-delay: 300ms;">
             <div class="container">
                 <div class="faq-shell">
                     <!-- header -->
@@ -46,16 +59,9 @@
                 </div>
 
                 <!-- CTA inside FAQ section -->
-                <div class="ps-5">
-                    <h3 class="faq-cta-title">Ready to strengthen your preparedness?</h3>
-
-                    <RouterLink to="/contact" class="faq-cta-btn">
-                        Contact us and get started today →
-                    </RouterLink>
-                </div>
 
             </div>
-        </section>
+        </div>
 
         <MainContact />
         <!-- FOOTER -->

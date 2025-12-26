@@ -17,10 +17,10 @@
                 </div>
 
                 <!-- Title -->
-                <h1 class="hero-heading">Cybersecurity Preparedness</h1>
+                <h1 class="hero-heading heading-shadow pt-4">Cybersecurity Preparedness</h1>
 
                 <!-- Description -->
-                <p class="hero-description">
+                <p class="hero-description-bg">
                     Your tools detect threats. TMP prepares your people to handle them.<br />
                     Modern cyberattacks evolve faster than organizations can train—and attackers count on that.<br />
                     TMP gives your SOC, IR, Cloud, AppSec, and leadership teams the ability to respond

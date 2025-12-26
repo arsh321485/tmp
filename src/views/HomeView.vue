@@ -186,16 +186,16 @@
 
 
         <!-- ========== UNIQUE SELLING POINTS ========== -->
-        <section class="selling-section">
+        <!-- <section class="selling-section">
             <div class="container">
-                <!-- big heading only -->
+                
                 <div class="selling-header">
                     <h2 class="selling-heading wow animate__animated animate__fadeInUp" data-wow-delay="2s">
                         WHY Test My Plan (TMP) ?
                     </h2>
                 </div>
 
-                <!-- Insert this right after .selling-header -->
+             
                 <div class="selling-painpoints-wrapper">
                     <ul class="selling-painpoints" id="sellingPainpoints">
                         <li class="painpoint">
@@ -228,56 +228,91 @@
 
 
             </div>
+        </section> -->
+
+        <section class="audit-section">
+            <div class="audit-container">
+
+                <header class="hero-heading">
+                    <h2>WHY <span>Test My Plan?</span></h2>
+                </header>
+
+                <div class="analysis-grid">
+                    <div class="analysis-item" data-delay="0">
+                        <span class="stat-badge">74% RESPONSE DELAY</span>
+                        <h3>Ambiguity in Action</h3>
+                        <p class="hero-description">Teams lack definitive role clarity during live incidents. Without
+                            precise assignments,
+                            critical response windows are lost to coordination friction.</p>
+                        <div class="data-point"><span>●</span> Impact: Tactical Fragmentation</div>
+                    </div>
+
+                    <div class="analysis-item" data-delay="120">
+                        <span class="stat-badge">60% RECALL DEGRADATION</span>
+                        <h3>Cognitive Stress</h3>
+                        <p class="hero-description">High-pressure environments induce "procedural fuzziness." Static
+                            plans fail when memory is
+                            compromised by acute operational stress.</p>
+                        <div class="data-point"><span>●</span> Impact: Execution Failure</div>
+                    </div>
+
+                    <div class="analysis-item" data-delay="240">
+                        <span class="stat-badge">85% VISIBILITY GAP</span>
+                        <h3>Invisible Threats</h3>
+                        <p class="hero-description">Leadership lacks a unified view of emerging threats and departmental
+                            inter-dependencies,
+                            resulting in fragmented risk awareness.</p>
+                        <div class="data-point"><span>●</span> Impact: Strategic Blindness</div>
+                    </div>
+
+                    <div class="analysis-item" data-delay="360">
+                        <span class="stat-badge">90-DAY LATENCY</span>
+                        <h3>Manual Fatigue</h3>
+                        <p class="hero-description">Manual drills are slow and resource-heavy. By the time a drill is
+                            completed, the underlying
+                            threat landscape has already shifted.</p>
+                        <div class="data-point"><span>●</span> Impact: Stale Intelligence</div>
+                    </div>
+
+                    <div class="analysis-item" data-delay="480">
+                        <span class="stat-badge">0% DATA VALIDATION</span>
+                        <h3>Unmeasured Results</h3>
+                        <p class="hero-description">Plan effectiveness is currently an assumption. Without automated
+                            testing, organizational
+                            resilience remains unverified for audit and compliance.</p>
+                        <div class="data-point"><span>●</span> Impact: Compliance Liability</div>
+                    </div>
+
+
+
+                    <RouterLink to="/signup" class="analysis-link">
+                        <div class="analysis-item secure-tile-full" data-delay="600">
+                            <p>SECURE YOUR<br />OPERATIONAL CORE</p>
+                        </div>
+                    </RouterLink>
+
+
+                </div>
+
+
+
+
+            </div>
         </section>
 
-        
 
 
         <!--  How it works -->
         <section class="steps-hero">
             <div class="container">
                 <div class="row gy-4 align-items-center">
-                    <!-- LEFT: Steps -->
-                    <div class="col-12 col-lg-6 steps-left">
-                        <div class="steps-title">How it works</div>
 
-                        <ul class="steps-list" role="tablist" aria-orientation="vertical">
-                            <li class="mb-2" v-for="step in steps" :key="step.id">
-                                <button class="step-btn" :class="{ active: activePane === step.pane }"
-                                    @click="activate(step.pane, $event)" :aria-expanded="activePane === step.pane"
-                                    type="button">
-                                    <span class="num">{{ step.num }}</span>
-                                    <span class="label">
-                                        <strong>{{ step.title }}</strong>
-                                    </span>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- RIGHT: Content panes -->
-                    <div class="col-12 col-lg-6">
-                        <div class="step-content">
-                            <div v-for="step in steps" :key="step.pane" :id="step.pane" class="content-pane"
-                                :class="{ active: activePane === step.pane }">
-                                <div class="video-placeholder">
-                                    <img :src="step.img" :alt="step.title"
-                                        style="max-width: 92%; border-radius: 12px" />
-                                </div>
-
-                                <div class="step-card-body">
-                                    <div class="step-card-title">
-                                        {{ step.num }}. {{ step.title }}
-                                    </div>
-                                    <div class="step-card-desc">{{ step.desc }}</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- step-content -->
-                    </div>
+                    <HowTo />
                 </div>
             </div>
         </section>
+
+
 
         <!-- modules details -->
         <section class="usecases-section">
@@ -408,19 +443,20 @@
         <section class="running-banner-section">
             <div class="running-banner red-banner">
                 <div class="banner-track">
-                    <span>Technology / Artificial Intelligence</span>
-                    <span>Technology / Artificial Intelligence</span>
-                    <span>Technology / Artificial Intelligence</span>
-                    <span>Technology / Artificial Intelligence</span>
+                    <span>Strategy is a / Guess</span>
+                    <span>Validation is a / Choice</span>
+                    <span>Strategy is a / Guess</span>
+                    <span>Validation is a / Choice</span>
                 </div>
             </div>
 
             <div class="running-banner black-banner">
                 <div class="banner-track reverse">
-                    <span>Shaping the future of technology / Artificial Intelligence</span>
-                    <span>Shaping the future of technology / Artificial Intelligence</span>
-                    <span>Shaping the future of technology / Artificial Intelligence</span>
-                    <span>Shaping the future of technology / Artificial Intelligence</span>
+                    <span>Hard-Test Your / Future with Testmyplan</span>
+                    <span>Hard-Test Your / Future with Testmyplan</span>
+                    <span>Hard-Test Your / Future with Testmyplan</span>
+                    <span>Hard-Test Your / Future with Testmyplan</span>
+
                 </div>
             </div>
         </section>
@@ -536,9 +572,14 @@
                                 Plans on paper don’t save you. Practice does.
                             </h1>
 
-                            <a href="#" class="btn hero-cta-animation">
+                            <!-- <a href="#" class="btn hero-cta-animation">
                                 Launch a 2-minute drill
-                            </a>
+                            </a> -->
+
+                            <RouterLink to="/signup" class="btn hero-cta-animation">
+                                Launch a 2-minute drill
+                            </RouterLink>
+
                         </div>
                     </div>
                 </div>
@@ -564,6 +605,7 @@ import MainFooter from "../components/MainFooter.vue";
 import MainContact from "@/components/MainContact.vue";
 import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
 import ScrollToTop from "@/components/ScrollToTop.vue";
+import HowTo from "@/components/HowTo.vue";
 
 interface Step {
     id: number;
@@ -599,56 +641,11 @@ export default defineComponent({
         MainFooter,
         MainContact,
         ScrollToTop,
+        HowTo
     },
 
     data() {
-        const steps: Step[] = [
-            {
-                id: 1,
-                num: "01",
-                pane: "pane-1",
-                title: "Sign up",
-                img: new URL("@/assets/images/signup-home.jpeg", import.meta.url).href,
-                desc:
-                    "Create your workspace in seconds using SSO or email. No setup barriers — just log in and get started instantly.",
-            },
-            {
-                id: 2,
-                num: "02",
-                pane: "pane-2",
-                title: "Configure users & teams",
-                img: new URL("@/assets/images/configure-teams.jpeg", import.meta.url).href,
-                desc:
-                    "Add your teams and assign them to communication channels like Slack, Teams, or Mattermost. Everyone is mapped, reachable, and ready for action.",
-            },
-            {
-                id: 3,
-                num: "03",
-                pane: "pane-3",
-                title: " Configure threats",
-                img: new URL("@/assets/images/config-threat.webp", import.meta.url).href,
-                desc:
-                    "Use the built-in Threat Agent to identify what needs testing. It recommends relevant threats and helps you configure precise, context-aware scenarios.",
-            },
-            {
-                id: 4,
-                num: "04",
-                pane: "pane-4",
-                title: "Initiate preparedness",
-                img: new URL("@/assets/images/initiate-preparedness.jpg", import.meta.url).href,
-                desc:
-                    "Launch tests with just a few clicks. TMP orchestrates the entire workflow — notifications, tasks, timing, escalations — automatically.",
-            },
-            {
-                id: 5,
-                num: "05",
-                pane: "pane-5",
-                title: "Report & improve",
-                img: new URL("@/assets/images/report-improve.jpg", import.meta.url).href,
-                desc:
-                    "Access analytics that show real-world readiness. Get compliance-ready reports aligned to regulatory standards, complete with insights and actionable gaps.",
-            },
-        ];
+
 
         const tabs: Tab[] = [
             {
@@ -664,7 +661,7 @@ export default defineComponent({
                     "Role-mapped task execution with time-bound decision prompts",
                     "Compliance-ready reporting aligned with ISO 27001, NIST CSF, SOC 2, RBI, NIS2",
                 ],
-                image: new URL("@/assets/images/cybersecurity.jpg", import.meta.url).href,
+                image: new URL("@/assets/images/cyber-security.jpeg", import.meta.url).href,
             },
             {
                 id: "business-continuity",
@@ -678,7 +675,7 @@ export default defineComponent({
                     "Automate communication workflows for executives, teams & vendors",
                     "Evidence packs aligned with ISO 22301 and enterprise audit needs",
                 ],
-                image: new URL("@/assets/images/business-continuty.png", import.meta.url).href,
+                image: new URL("@/assets/images/business-continuity.jpeg", import.meta.url).href,
             },
             {
                 id: "data-privacy",
@@ -692,7 +689,7 @@ export default defineComponent({
                     "Prebuilt privacy incident templates: unauthorized access, misdelivery, deletion failures",
                     "Generate audit-ready evidence for investigations, reporting & post-incident reviews",
                 ],
-                image: new URL("@/assets/images/data-privacy.jpg", import.meta.url).href,
+                image: new URL("@/assets/images/data-privacy.jpeg", import.meta.url).href,
             },
             {
                 id: "esg",
@@ -707,12 +704,12 @@ export default defineComponent({
                     "Validate response alignment with sustainability and compliance frameworks",
                     "Produce assurance-ready reports for auditors, regulators & stakeholders",
                 ],
-                image: new URL("@/assets/images/esg.jpg", import.meta.url).href,
+                image: new URL("@/assets/images/esg.jpeg", import.meta.url).href,
             },
         ];
 
         return {
-            steps,
+
             activePane: "pane-1",
             tabs,
             activeTab: "sales",
@@ -752,6 +749,8 @@ export default defineComponent({
         };
     },
 
+
+
     computed: {
         currentTab(): Tab {
             const instance = this as unknown as HomeViewInstance;
@@ -761,6 +760,39 @@ export default defineComponent({
     },
 
     mounted(): void {
+
+        // --- Analysis cards staggered animation ---
+        const analysisItems = document.querySelectorAll(".analysis-item");
+
+        if ("IntersectionObserver" in window) {
+            const analysisObserver = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const el = entry.target as HTMLElement;
+                            const delay = Number(el.dataset.delay) || 0;
+
+                            setTimeout(() => {
+                                el.classList.add("is-visible");
+                            }, delay);
+
+                            observer.unobserve(el);
+                        }
+                    });
+                },
+                { threshold: 0.2 }
+            );
+
+            analysisItems.forEach((item) => analysisObserver.observe(item));
+        } else {
+            // Fallback for very old browsers
+            analysisItems.forEach((item) =>
+                item.classList.add("is-visible")
+            );
+        }
+
+
+
         // --- Selling-points IntersectionObserver logic ---
         const list = document.getElementById("sellingPainpoints");
         if (list) {
@@ -1005,4 +1037,23 @@ export default defineComponent({
 
     opacity: 1;
 }
+
+
+
+
+
+/* :root {
+    --bg: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --brand-blue: #2563eb;
+    --highlight: #eff6ff;
+    --border: #f1f5f9;
+} */
+
+/* body {
+    margin: 0;
+    background: var(--bg);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+} */
 </style>

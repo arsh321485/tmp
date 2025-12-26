@@ -46,7 +46,7 @@
 
                 <!-- LEFT SIDE -->
                 <div class="problems-left">
-                    <span class="eyebrow">/ PROBLEMS /</span>
+                    <!-- <span class="eyebrow">/ PROBLEMS /</span> -->
 
                     <h2 class="problems-title">
                         Why traditional preparedness<br />
@@ -185,53 +185,10 @@
         </section>
 
 
-        <!-- ========== UNIQUE SELLING POINTS ========== -->
-        <!-- <section class="selling-section">
-            <div class="container">
-                
-                <div class="selling-header">
-                    <h2 class="selling-heading wow animate__animated animate__fadeInUp" data-wow-delay="2s">
-                        WHY Test My Plan (TMP) ?
-                    </h2>
-                </div>
-
-             
-                <div class="selling-painpoints-wrapper">
-                    <ul class="selling-painpoints" id="sellingPainpoints">
-                        <li class="painpoint">
-                            <span class="pp-icon" aria-hidden="true">➤</span>
-                            <div class="pp-text">Teams don’t know their roles or when to act.</div>
-                        </li>
-                        <li class="painpoint">
-                            <span class="pp-icon" aria-hidden="true">➤</span>
-                            <div class="pp-text">
-                                Recollection of what to do is fuzzy during stress.
-                            </div>
-                        </li>
-                        <li class="painpoint">
-                            <span class="pp-icon" aria-hidden="true">➤</span>
-                            <div class="pp-text">
-                                Managers lack a clear view of threats, causes, dependencies and
-                                readiness.
-                            </div>
-                        </li>
-                        <li class="painpoint">
-                            <span class="pp-icon" aria-hidden="true">➤</span>
-                            <div class="pp-text">Running drills is manual, takes weeks or months.</div>
-                        </li>
-                        <li class="painpoint">
-                            <span class="pp-icon" aria-hidden="true">➤</span>
-                            <div class="pp-text">Effectiveness of tests is not measured.</div>
-                        </li>
-                    </ul>
-                </div>
-
-
-            </div>
-        </section> -->
+        <!-- Audit section -->
 
         <section class="audit-section">
-            <div class="audit-container">
+            <div class="container">
 
                 <header class="hero-heading">
                     <h2>WHY <span>Test My Plan?</span></h2>
@@ -318,7 +275,7 @@
         <section class="usecases-section">
             <div class="container">
                 <div class="intro">
-                    <h1 class="heading">Module Details</h1>
+                    <h2 class="hero-heading">Module Details</h2>
                     <p class="sub">
                         Not sure where to start with AI and agents? These teams have AI
                         handling real work, right now.

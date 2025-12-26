@@ -727,7 +727,7 @@ a {
 
 /* Module details */
 .usecases-section {
-    padding: 64px 16px;
+    /* padding: 64px 16px; */
     background: #f4f5f8;
     color: #1f1411;
 }
@@ -750,7 +750,7 @@ a {
     line-height: 1.02;
     margin: 0 0 18px;
     color: #1b0f0c;
-    font-weight: 800;
+    /* font-weight: 800; */
 }
 
 .sub {

@@ -1468,10 +1468,10 @@ a {
     height: 100%;
     padding: 0 36px;
     /* background: #ff5a00; */
-    background: #f3473c;
-    color: #fff;
-    font-weight: 700;
-    font-size: 18px;
+    background: #333333;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -1483,10 +1483,10 @@ a {
 .bp-cta-btn span {
     transition: transform 0.25s ease;
 }
-
+/* 
 .bp-cta-btn:hover {
     background: #e54f00;
-}
+} */
 
 .bp-cta-btn:hover span {
     transform: translateX(4px);

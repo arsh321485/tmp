@@ -438,7 +438,7 @@
                 <!-- BOTTOM CTA BAR -->
                 <div class="bp-cta-bar">
                     <RouterLink to="/signup" class="bp-cta-btn">
-                        Start automating today <span>→</span>
+                        Start automating today <span class="hero-cta-icon"><i class="bi bi-arrow-right"></i></span>
                     </RouterLink>
                 </div>
 

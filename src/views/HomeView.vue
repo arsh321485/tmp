@@ -29,10 +29,15 @@
                             platform.
                         </p>
 
-                        <button class="hero-cta-btn">
+                      
+
+                        <RouterLink to="/signup" class="hero-cta-btn">
                             <span>Start Preparedness Now</span>
-                            <span class="hero-cta-icon"><i class="bi bi-arrow-right"></i></span>
-                        </button>
+                            <span class="hero-cta-icon">
+                                <i class="bi bi-arrow-right"></i>
+                            </span>
+                        </RouterLink>
+
                     </div>
                 </div>
             </div>

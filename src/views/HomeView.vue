@@ -400,7 +400,7 @@
                 <!-- BOTTOM CTA BAR -->
                 <div class="bp-cta-bar">
                     <RouterLink to="/signup" class="bp-cta-btn">
-                        Start automating today <span class="hero-cta-icon"><i class="bi bi-arrow-right"></i></span>
+                       Start Preparedness Now <span class="hero-cta-icon"><i class="bi bi-arrow-right"></i></span>
                     </RouterLink>
                 </div>
 
@@ -413,7 +413,7 @@
         <section class="running-banner-section">
             <div class="running-banner red-banner">
                 <div class="banner-track">
-                    <span>Strategy is a / Guess</span>
+                    <span>Strategy is a Guess</span>
                     <span>Validation is a / Choice</span>
                     <span>Strategy is a / Guess</span>
                     <span>Validation is a / Choice</span>
@@ -422,7 +422,7 @@
 
             <div class="running-banner black-banner">
                 <div class="banner-track reverse">
-                    <span>Hard-Test Your / Future with Testmyplan</span>
+                    <span>Hard-Test Your Future with Testmyplan</span>
                     <span>Hard-Test Your / Future with Testmyplan</span>
                     <span>Hard-Test Your / Future with Testmyplan</span>
                     <span>Hard-Test Your / Future with Testmyplan</span>

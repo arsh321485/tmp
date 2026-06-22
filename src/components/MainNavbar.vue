@@ -62,6 +62,18 @@
                   </RouterLink>
                 </li>
 
+                <li>
+                  <RouterLink to="/command-center" class="submenu-link" @click="closeMobileMenu">
+                    Command Center
+                  </RouterLink>
+                </li>
+
+                <li>
+                  <RouterLink to="/participant-flow" class="submenu-link" @click="closeMobileMenu">
+                    Participant Flow
+                  </RouterLink>
+                </li>
+
               </ul>
             </li>
 
@@ -172,7 +184,9 @@ export default defineComponent({
         "/cyber-security",
         "/business-continuity",
         "/data-privacy",
-        "/esg"
+        "/esg",
+        "/command-center",
+        "/participant-flow",
       ].includes(this.$route.path);
     }
   },

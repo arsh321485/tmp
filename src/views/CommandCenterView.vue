@@ -165,8 +165,8 @@
                 <circle cx="75" cy="75" r="55" fill="none" stroke="#d4a017" stroke-width="11"
                   stroke-dasharray="181.4 164.2" stroke-dashoffset="0"
                   transform="rotate(135 75 75)" stroke-linecap="round"/>
-                <text x="75" y="70" text-anchor="middle" font-size="36" font-weight="800" fill="#111" font-family="Inter">74</text>
-                <text x="75" y="90" text-anchor="middle" font-size="13" fill="#888" font-family="Inter">Grade B</text>
+                <text x="75" y="70" text-anchor="middle" font-size="36" font-weight="500" fill="#111" font-family="Plus Jakarta Sans">74</text>
+                <text x="75" y="90" text-anchor="middle" font-size="13" fill="#888" font-family="Plus Jakarta Sans">Grade B</text>
               </svg>
             </div>
             <div class="cc-overall-bottom">
@@ -192,7 +192,7 @@
                 <svg width="64" height="64" viewBox="0 0 64 64">
                   <circle cx="32" cy="32" r="26" fill="none" stroke="#f0f0f0" stroke-width="5" stroke-dasharray="122.5 40.8" stroke-dashoffset="0" transform="rotate(135 32 32)" stroke-linecap="round"/>
                   <circle cx="32" cy="32" r="26" fill="none" stroke="#0d9488" stroke-width="5" stroke-dasharray="105.4 57.9" stroke-dashoffset="0" transform="rotate(135 32 32)" stroke-linecap="round"/>
-                  <text x="32" y="37" text-anchor="middle" font-size="15" font-weight="700" fill="#111" font-family="Inter">86</text>
+                  <text x="32" y="37" text-anchor="middle" font-size="15" font-weight="600" fill="#111" font-family="Plus Jakarta Sans">86</text>
                 </svg>
               </div>
               <div class="cc-domain-stats">
@@ -221,7 +221,7 @@
                 <svg width="64" height="64" viewBox="0 0 64 64">
                   <circle cx="32" cy="32" r="26" fill="none" stroke="#f0f0f0" stroke-width="5" stroke-dasharray="122.5 40.8" stroke-dashoffset="0" transform="rotate(135 32 32)" stroke-linecap="round"/>
                   <circle cx="32" cy="32" r="26" fill="none" stroke="#f59e0b" stroke-width="5" stroke-dasharray="87 75.3" stroke-dashoffset="0" transform="rotate(135 32 32)" stroke-linecap="round"/>
-                  <text x="32" y="37" text-anchor="middle" font-size="15" font-weight="700" fill="#111" font-family="Inter">71</text>
+                  <text x="32" y="37" text-anchor="middle" font-size="15" font-weight="600" fill="#111" font-family="Plus Jakarta Sans">71</text>
                 </svg>
               </div>
               <div class="cc-domain-stats">
@@ -250,7 +250,7 @@
                 <svg width="64" height="64" viewBox="0 0 64 64">
                   <circle cx="32" cy="32" r="26" fill="none" stroke="#f0f0f0" stroke-width="5" stroke-dasharray="122.5 40.8" stroke-dashoffset="0" transform="rotate(135 32 32)" stroke-linecap="round"/>
                   <circle cx="32" cy="32" r="26" fill="none" stroke="#ef4444" stroke-width="5" stroke-dasharray="77.2 86.1" stroke-dashoffset="0" transform="rotate(135 32 32)" stroke-linecap="round"/>
-                  <text x="32" y="37" text-anchor="middle" font-size="15" font-weight="700" fill="#111" font-family="Inter">63</text>
+                  <text x="32" y="37" text-anchor="middle" font-size="15" font-weight="600" fill="#111" font-family="Plus Jakarta Sans">63</text>
                 </svg>
               </div>
               <div class="cc-domain-stats">
@@ -279,7 +279,7 @@
                 <svg width="64" height="64" viewBox="0 0 64 64">
                   <circle cx="32" cy="32" r="26" fill="none" stroke="#f0f0f0" stroke-width="5" stroke-dasharray="122.5 40.8" stroke-dashoffset="0" transform="rotate(135 32 32)" stroke-linecap="round"/>
                   <circle cx="32" cy="32" r="26" fill="none" stroke="#ef4444" stroke-width="5" stroke-dasharray="69.8 93.5" stroke-dashoffset="0" transform="rotate(135 32 32)" stroke-linecap="round"/>
-                  <text x="32" y="37" text-anchor="middle" font-size="15" font-weight="700" fill="#111" font-family="Inter">57</text>
+                  <text x="32" y="37" text-anchor="middle" font-size="15" font-weight="600" fill="#111" font-family="Plus Jakarta Sans">57</text>
                 </svg>
               </div>
               <div class="cc-domain-stats">
@@ -308,7 +308,7 @@
                 <svg width="64" height="64" viewBox="0 0 64 64">
                   <circle cx="32" cy="32" r="26" fill="none" stroke="#f0f0f0" stroke-width="5" stroke-dasharray="122.5 40.8" stroke-dashoffset="0" transform="rotate(135 32 32)" stroke-linecap="round"/>
                   <circle cx="32" cy="32" r="26" fill="none" stroke="#0d9488" stroke-width="5" stroke-dasharray="110.3 53" stroke-dashoffset="0" transform="rotate(135 32 32)" stroke-linecap="round"/>
-                  <text x="32" y="37" text-anchor="middle" font-size="15" font-weight="700" fill="#111" font-family="Inter">90</text>
+                  <text x="32" y="37" text-anchor="middle" font-size="15" font-weight="600" fill="#111" font-family="Plus Jakarta Sans">90</text>
                 </svg>
               </div>
               <div class="cc-domain-stats">
@@ -820,7 +820,12 @@ export default defineComponent({
 .cc-layout {
   display: flex;
   min-height: 100vh;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  font-weight: 400;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background: #f4f5f7;
 }
 
@@ -855,8 +860,8 @@ export default defineComponent({
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
-.cc-logo-name { font-size: 14px; font-weight: 700; color: #fff; }
-.cc-logo-sub  { font-size: 9px;  font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; margin-top: 1px; }
+.cc-logo-name { font-size: 14px; font-weight: 600; color: #fff; }
+.cc-logo-sub  { font-size: var(--h6);  font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; margin-top: 1px; }
 
 .cc-workspace {
   display: flex;
@@ -873,19 +878,19 @@ export default defineComponent({
   background: linear-gradient(135deg, #ff5f3f, #e03030);
   border-radius: 7px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 700; color: #fff;
+  font-size: var(--text-sm); font-weight: 600; color: #fff;
   flex-shrink: 0;
 }
 .cc-ws-info { flex: 1; }
-.cc-ws-name { font-size: 13px; font-weight: 600; color: #fff; }
-.cc-ws-tier { font-size: 9px; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; }
+.cc-ws-name { font-size: var(--text-sm); font-weight: 600; color: #fff; }
+.cc-ws-tier { font-size: var(--h6); font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; }
 
 .cc-nav { display: flex; flex-direction: column; gap: 1px; padding: 8px 8px; }
 .cc-nav-item {
   display: flex; align-items: center; gap: 10px;
   padding: 9px 10px;
   border-radius: 7px;
-  font-size: 13px; font-weight: 500;
+  font-size: var(--text-sm); font-weight: 500;
   color: rgba(255,255,255,0.5);
   cursor: pointer;
   text-decoration: none;
@@ -896,7 +901,7 @@ export default defineComponent({
 .cc-badge {
   margin-left: auto;
   background: #e03030; color: #fff;
-  font-size: 10px; font-weight: 700;
+  font-size: var(--text-xs); font-weight: 600;
   width: 18px; height: 18px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
 }
@@ -908,7 +913,7 @@ export default defineComponent({
 }
 
 .cc-channels-label {
-  font-size: 10px; font-weight: 700;
+  font-size: var(--text-xs); font-weight: 600;
   color: rgba(255,255,255,0.3); letter-spacing: 0.1em;
   padding: 14px 18px 6px;
 }
@@ -920,13 +925,13 @@ export default defineComponent({
 .cc-ch-avatar {
   width: 30px; height: 30px; border-radius: 7px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;
+  font-size: var(--text-sm); font-weight: 600; color: #fff; flex-shrink: 0;
 }
 .cc-ch-teams { background: #5059c9; }
 .cc-ch-slack { background: #4a154b; }
 .cc-ch-info { flex: 1; }
-.cc-ch-name { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.8); }
-.cc-ch-meta { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 1px; }
+.cc-ch-name { font-size: var(--text-xs); font-weight: 600; color: rgba(255,255,255,0.8); }
+.cc-ch-meta { font-size: var(--text-xs); color: rgba(255,255,255,0.35); margin-top: 1px; }
 .cc-online-dot {
   width: 8px; height: 8px; background: #22c55e;
   border-radius: 50%; flex-shrink: 0;
@@ -942,11 +947,11 @@ export default defineComponent({
   width: 32px; height: 32px; border-radius: 50%;
   background: #3a3b44;
   display: flex; align-items: center; justify-content: center;
-  font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.7);
+  font-size: var(--text-xs); font-weight: 600; color: rgba(255,255,255,0.7);
 }
-.cc-user-name  { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.85); }
-.cc-user-role  { font-size: 10px; color: rgba(255,255,255,0.4); }
-.cc-temp { font-size: 11px; color: rgba(255,255,255,0.35); padding: 4px 12px 8px; }
+.cc-user-name  { font-size: var(--text-xs); font-weight: 600; color: rgba(255,255,255,0.85); }
+.cc-user-role  { font-size: var(--text-xs); color: rgba(255,255,255,0.4); }
+.cc-temp { font-size: var(--text-xs); color: rgba(255,255,255,0.35); padding: 4px 12px 8px; }
 
 /* ═══════════════════════════════════════
    MAIN
@@ -961,8 +966,8 @@ export default defineComponent({
   gap: 16px; flex-wrap: wrap;
   position: sticky; top: 0; z-index: 10;
 }
-.cc-topbar-breadcrumb { font-size: 10px; font-weight: 700; color: #e03030; letter-spacing: 0.1em; margin-bottom: 4px; }
-.cc-topbar-title { font-size: 22px; font-weight: 800; color: #111; }
+.cc-topbar-breadcrumb { font-size: var(--h6); font-weight: 700; color: #e03030; letter-spacing: 0.1em; margin-bottom: 4px; }
+.cc-topbar-title { font-size: var(--h4); font-weight: 500; color: #111; }
 .cc-topbar-right { display: flex; align-items: center; gap: 10px; padding-top: 22px; }
 .cc-search {
   display: flex; align-items: center; gap: 8px;
@@ -971,10 +976,10 @@ export default defineComponent({
 }
 .cc-search input {
   background: none; border: none; outline: none;
-  font-size: 13px; color: #555; flex: 1; font-family: inherit;
+  font-size: var(--text-sm); color: #555; flex: 1; font-family: inherit;
 }
 .cc-search-slash {
-  font-size: 10px; color: #aaa; background: #e8e8e8;
+  font-size: var(--text-xs); color: #aaa; background: #e8e8e8;
   padding: 1px 5px; border-radius: 3px;
 }
 .cc-bell {
@@ -992,7 +997,7 @@ export default defineComponent({
   display: flex; align-items: center; gap: 7px;
   background: #e03030; color: #fff; border: none;
   border-radius: 8px; padding: 9px 18px;
-  font-size: 13px; font-weight: 700; cursor: pointer;
+  font-size: var(--text-sm); font-weight: 600; cursor: pointer;
   white-space: nowrap;
   transition: background 0.2s;
 }
@@ -1010,9 +1015,9 @@ export default defineComponent({
   padding: 18px 20px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.07);
 }
-.cc-stat-num   { font-size: 30px; font-weight: 800; color: #111; line-height: 1; margin-bottom: 6px; }
-.cc-stat-label { font-size: 13px; font-weight: 500; color: #333; margin-bottom: 3px; }
-.cc-stat-sub   { font-size: 11px; color: #999; }
+.cc-stat-num   { font-size: 30px; font-weight: 500; color: #111; line-height: 1; margin-bottom: 6px; }
+.cc-stat-label { font-size: var(--text-sm); font-weight: 500; color: #333; margin-bottom: 3px; }
+.cc-stat-sub   { font-size: var(--text-xs); color: #999; }
 
 /* READINESS GRID — Overall spans 2 rows, 5 domain cards fill remaining cells */
 .cc-readiness-grid {
@@ -1034,17 +1039,17 @@ export default defineComponent({
   grid-row: span 2;
 }
 .cc-overall-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-.cc-section-tiny { font-size: 9px; font-weight: 700; color: #aaa; letter-spacing: 0.1em; }
+.cc-section-tiny { font-size: var(--h6); font-weight: 700; color: #aaa; letter-spacing: 0.1em; }
 .cc-improving-badge {
-  font-size: 10px; font-weight: 700; background: #dcfce7; color: #16a34a;
+  font-size: var(--text-xs); font-weight: 600; background: #dcfce7; color: #16a34a;
   padding: 3px 8px; border-radius: 20px;
 }
 .cc-gauge-large-wrap { display: flex; justify-content: center; margin: 4px 0 8px; }
 .cc-overall-bottom {}
-.cc-pts-line { font-size: 12px; margin-bottom: 4px; }
+.cc-pts-line { font-size: var(--text-xs); margin-bottom: 4px; }
 .cc-pts-up   { color: #16a34a; font-weight: 600; }
 .cc-pts-gray { color: #888; }
-.cc-review-line { font-size: 11px; color: #888; }
+.cc-review-line { font-size: var(--text-xs); color: #888; }
 
 /* Domain cards */
 .cc-domain-card { padding: 14px; }
@@ -1054,10 +1059,10 @@ export default defineComponent({
 
 .cc-domain-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; }
 .cc-domain-title-row { display: flex; align-items: flex-start; gap: 8px; }
-.cc-domain-name { font-size: 13px; font-weight: 700; color: #111; }
-.cc-domain-sub  { font-size: 10px; color: #888; margin-top: 1px; }
+.cc-domain-name { font-size: var(--text-sm); font-weight: 600; color: #111; }
+.cc-domain-sub  { font-size: var(--text-xs); color: #888; margin-top: 1px; }
 
-.cc-status-badge { font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+.cc-status-badge { font-size: var(--h6); font-weight: 600; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
 .cc-ready    { background: #dcfce7; color: #16a34a; }
 .cc-due-soon { background: #fef3c7; color: #d97706; }
 .cc-overdue  { background: #fee2e2; color: #dc2626; }
@@ -1066,14 +1071,14 @@ export default defineComponent({
 .cc-mini-gauge { flex-shrink: 0; }
 .cc-domain-stats { flex: 1; display: flex; flex-direction: column; gap: 4px; }
 .cc-ds-row { display: flex; justify-content: space-between; align-items: center; }
-.cc-ds-label { font-size: 9px; font-weight: 700; color: #aaa; letter-spacing: 0.07em; }
-.cc-ds-val   { font-size: 11px; font-weight: 600; color: #333; }
+.cc-ds-label { font-size: var(--h6); font-weight: 600; color: #aaa; letter-spacing: 0.07em; }
+.cc-ds-val   { font-size: var(--text-xs); font-weight: 600; color: #333; }
 .cc-teal     { color: #0d9488 !important; }
 .cc-orange   { color: #d97706 !important; }
 .cc-red      { color: #dc2626 !important; }
 .cc-gray     { color: #888 !important; }
 
-.cc-domain-note { font-size: 11px; color: #777; line-height: 1.4; }
+.cc-domain-note { font-size: var(--text-xs); color: #777; line-height: 1.4; }
 
 /* ═══════════════════════════════════════
    BOTTOM ROW
@@ -1090,25 +1095,25 @@ export default defineComponent({
 }
 .cc-live-title-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .cc-live-pill {
-  background: #dc2626; color: #fff; font-size: 10px; font-weight: 700;
+  background: #dc2626; color: #fff; font-size: var(--text-xs); font-weight: 600;
   padding: 3px 10px; border-radius: 20px; white-space: nowrap;
   animation: live-pulse 1.5s infinite;
 }
 @keyframes live-pulse { 0%,100% { opacity:1; } 50% { opacity:0.7; } }
-.cc-live-title { font-size: 16px; font-weight: 700; color: #111; }
+.cc-live-title { font-size: var(--text-md); font-weight: 600; color: #111; }
 .cc-live-timer-wrap { text-align: right; flex-shrink: 0; }
-.cc-live-time  { font-size: 26px; font-weight: 800; color: #111; display: block; line-height: 1; }
-.cc-live-elapsed { font-size: 10px; color: #888; letter-spacing: 0.07em; }
+.cc-live-time  { font-size: 26px; font-weight: 500; color: #111; display: block; line-height: 1; }
+.cc-live-elapsed { font-size: var(--text-xs); color: #888; letter-spacing: 0.07em; }
 
 .cc-live-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
 .cc-ch-teams-badge {
   width: 20px; height: 20px; background: #5059c9; border-radius: 5px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 10px; font-weight: 700; color: #fff; flex-shrink: 0;
+  font-size: var(--text-xs); font-weight: 600; color: #fff; flex-shrink: 0;
 }
-.cc-live-channel { font-size: 13px; font-weight: 600; color: #3b82f6; }
+.cc-live-channel { font-size: var(--text-sm); font-weight: 600; color: #3b82f6; }
 .cc-live-dot-sep { color: #ccc; }
-.cc-live-facilitator { font-size: 12px; color: #888; }
+.cc-live-facilitator { font-size: var(--text-xs); color: #888; }
 
 /* Progress bar steps */
 .cc-progress-bar {
@@ -1123,10 +1128,10 @@ export default defineComponent({
   min-width: 0;
 }
 .cc-pb-num {
-  font-size: 10px; font-weight: 700; color: #bbb; margin-bottom: 2px;
+  font-size: var(--text-xs); font-weight: 600; color: #bbb; margin-bottom: 2px;
 }
 .cc-pb-label {
-  font-size: 10px; color: #888; white-space: nowrap;
+  font-size: var(--text-xs); color: #888; white-space: nowrap;
   overflow: hidden; text-overflow: ellipsis; max-width: 100%;
   margin-bottom: 8px;
 }
@@ -1138,7 +1143,7 @@ export default defineComponent({
 .cc-pb-line-active { background: #e03030; }
 .cc-pb-done .cc-pb-num   { color: #0d9488; }
 .cc-pb-done .cc-pb-label { color: #555; }
-.cc-pb-active .cc-pb-num   { color: #e03030; font-weight: 800; }
+.cc-pb-active .cc-pb-num   { color: #e03030; font-weight: 500; }
 .cc-pb-active .cc-pb-label { color: #111; font-weight: 600; }
 
 /* System notice */
@@ -1148,8 +1153,8 @@ export default defineComponent({
   border-bottom: 1px solid #f4f5f7;
   margin-bottom: 12px;
 }
-.cc-sys-notice span { font-size: 11px; color: #aaa; flex: 1; }
-.cc-sys-time { font-size: 11px; color: #ccc; flex: none !important; }
+.cc-sys-notice span { font-size: var(--text-xs); color: #aaa; flex: 1; }
+.cc-sys-time { font-size: var(--text-xs); color: #ccc; flex: none !important; }
 
 /* Chat */
 .cc-chat-section { display: flex; gap: 14px; margin-bottom: 14px; }
@@ -1159,7 +1164,7 @@ export default defineComponent({
 .cc-msg-avatar {
   width: 38px; height: 38px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 11px; font-weight: 700; color: #fff; flex-shrink: 0;
+  font-size: var(--text-xs); font-weight: 600; color: #fff; flex-shrink: 0;
   background: #e8e8e8;
 }
 .cc-av-teal   { background: #0d9488; }
@@ -1168,11 +1173,11 @@ export default defineComponent({
 .cc-av-orange { background: #f59e0b; }
 .cc-av-gray   { background: #6b7280; }
 .cc-msg-body  { flex: 1; min-width: 0; }
-.cc-msg-meta  { font-size: 12px; color: #111; font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
-.cc-msg-role  { font-size: 9px; color: #aaa; font-weight: 500; letter-spacing: 0.07em; }
-.cc-msg-time  { font-size: 10px; color: #bbb; font-weight: 400; }
+.cc-msg-meta  { font-size: var(--text-xs); color: #111; font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.cc-msg-role  { font-size: var(--h6); color: #aaa; font-weight: 500; letter-spacing: 0.07em; }
+.cc-msg-time  { font-size: var(--text-xs); color: #bbb; font-weight: 400; }
 .cc-msg-bubble {
-  font-size: 13px; color: #333; line-height: 1.5;
+  font-size: var(--text-sm); color: #333; line-height: 1.5;
   background: #f8f8f8; border-radius: 0 10px 10px 10px;
   padding: 10px 14px;
 }
@@ -1185,7 +1190,7 @@ export default defineComponent({
   border: 1px solid #efefef;
 }
 .cc-part-hdr {
-  font-size: 9px; font-weight: 700; color: #aaa;
+  font-size: var(--h6); font-weight: 600; color: #aaa;
   letter-spacing: 0.08em; margin-bottom: 10px;
   display: flex; justify-content: space-between;
 }
@@ -1198,20 +1203,20 @@ export default defineComponent({
 .cc-part-av {
   width: 38px; height: 38px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 11px; font-weight: 700; color: #fff; flex-shrink: 0;
+  font-size: var(--text-xs); font-weight: 600; color: #fff; flex-shrink: 0;
 }
 .cc-part-info { flex: 1; min-width: 0; }
-.cc-part-info p { font-size: 12px; font-weight: 600; color: #222; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.cc-part-role { font-size: 10px; color: #888; font-weight: 400; }
+.cc-part-info p { font-size: var(--text-xs); font-weight: 600; color: #222; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cc-part-role { font-size: var(--text-xs); color: #888; font-weight: 400; }
 .cc-part-stat { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; flex-shrink: 0; }
 .cc-dot-green, .cc-dot-gray {
   width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-bottom: 1px;
 }
 .cc-dot-green { background: #22c55e; }
 .cc-dot-gray  { background: #d1d5db; }
-.cc-stat-label { font-size: 11px; color: #22c55e; font-weight: 600; }
-.cc-stat-time  { font-size: 10px; color: #888; }
-.cc-typing-dots { color: #3b82f6; font-weight: 700; font-size: 13px; letter-spacing: 1px; }
+.cc-stat-label { font-size: var(--text-xs); color: #22c55e; font-weight: 600; }
+.cc-stat-time  { font-size: var(--text-xs); color: #888; }
+.cc-typing-dots { color: #3b82f6; font-weight: 600; font-size: var(--text-sm); letter-spacing: 1px; }
 .cc-stat-label.cc-typing  { color: #3b82f6; }
 .cc-stat-label.cc-awaiting { color: #9ca3af; }
 
@@ -1220,15 +1225,15 @@ export default defineComponent({
   display: flex; align-items: center; justify-content: space-between;
   padding-top: 14px; border-top: 1px solid #f0f0f0; margin-top: 4px;
 }
-.cc-live-step-label { font-size: 12px; color: #888; }
+.cc-live-step-label { font-size: var(--text-xs); color: #888; }
 .cc-live-actions { display: flex; gap: 8px; }
 .cc-end-btn {
-  padding: 9px 16px; font-size: 12px; font-weight: 600;
+  padding: 9px 16px; font-size: var(--text-xs); font-weight: 600;
   border: 1.5px solid #d0d0d0; border-radius: 8px;
   background: #fff; color: #333; cursor: pointer;
 }
 .cc-inject-btn {
-  padding: 9px 16px; font-size: 12px; font-weight: 600;
+  padding: 9px 16px; font-size: var(--text-xs); font-weight: 600;
   border: none; border-radius: 8px;
   background: #e03030; color: #fff; cursor: pointer;
   display: flex; align-items: center; gap: 6px;
@@ -1242,9 +1247,9 @@ export default defineComponent({
 .cc-attention-top  { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
 .cc-flagged-badge  {
   background: #fee2e2; color: #dc2626;
-  font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px;
+  font-size: var(--text-xs); font-weight: 600; padding: 3px 10px; border-radius: 20px;
 }
-.cc-attention-title { font-size: 16px; font-weight: 700; color: #111; margin-bottom: 14px; }
+.cc-attention-title { font-size: var(--text-md); font-weight: 600; color: #111; margin-bottom: 14px; }
 .cc-attention-list { display: flex; flex-direction: column; gap: 8px; }
 .cc-att-card {
   display: flex; align-items: center; gap: 12px;
@@ -1257,11 +1262,11 @@ export default defineComponent({
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .cc-att-info { flex: 1; min-width: 0; }
-.cc-att-name { font-size: 13px; font-weight: 700; color: #111; line-height: 1.3; }
-.cc-att-meta { font-size: 11px; color: #888; margin-top: 2px; }
-.cc-att-due  { font-size: 11px; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
+.cc-att-name { font-size: var(--text-sm); font-weight: 600; color: #111; line-height: 1.3; }
+.cc-att-meta { font-size: var(--text-xs); color: #888; margin-top: 2px; }
+.cc-att-due  { font-size: var(--text-xs); font-weight: 600; white-space: nowrap; flex-shrink: 0; }
 .cc-test-btn {
-  font-size: 11px; font-weight: 600; padding: 6px 12px;
+  font-size: var(--text-xs); font-weight: 600; padding: 6px 12px;
   border: 1.5px solid #e0e0e0; border-radius: 8px;
   background: #fff; cursor: pointer; white-space: nowrap;
   color: #444; display: flex; align-items: center; gap: 4px; flex-shrink: 0;
@@ -1271,24 +1276,24 @@ export default defineComponent({
 /* Scheduled */
 .cc-scheduled-card { padding: 16px 18px; }
 .cc-sched-header   { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
-.cc-sched-title    { font-size: 16px; font-weight: 700; color: #111; margin-top: 3px; }
-.cc-calendar-link  { font-size: 12px; color: #3b82f6; cursor: pointer; text-decoration: none; white-space: nowrap; padding-top: 22px; }
+.cc-sched-title    { font-size: var(--text-md); font-weight: 600; color: #111; margin-top: 3px; }
+.cc-calendar-link  { font-size: var(--text-xs); color: #3b82f6; cursor: pointer; text-decoration: none; white-space: nowrap; padding-top: 22px; }
 .cc-sched-list     { display: flex; flex-direction: column; gap: 12px; }
 .cc-sched-item     { display: flex; align-items: center; gap: 12px; }
 .cc-sched-date     { text-align: center; min-width: 36px; }
-.cc-sched-day      { font-size: 9px; font-weight: 700; color: #aaa; letter-spacing: 0.05em; }
-.cc-sched-num      { font-size: 20px; font-weight: 800; color: #111; line-height: 1; }
+.cc-sched-day      { font-size: var(--h6); font-weight: 600; color: #aaa; letter-spacing: 0.05em; }
+.cc-sched-num      { font-size: 20px; font-weight: 500; color: #111; line-height: 1; }
 .cc-sched-info     { flex: 1; }
-.cc-sched-name     { font-size: 13px; font-weight: 600; color: #111; }
-.cc-sched-ch       { font-size: 11px; color: #888; margin-top: 2px; display: flex; align-items: center; gap: 5px; }
+.cc-sched-name     { font-size: var(--text-sm); font-weight: 600; color: #111; }
+.cc-sched-ch       { font-size: var(--text-xs); color: #888; margin-top: 2px; display: flex; align-items: center; gap: 5px; }
 .cc-sch-icon {
   width: 16px; height: 16px; border-radius: 4px;
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 9px; font-weight: 700; color: #fff; flex-shrink: 0;
+  font-size: var(--h6); font-weight: 600; color: #fff; flex-shrink: 0;
 }
 .cc-sch-teams { background: #5059c9; }
 .cc-sch-slack { background: #4a154b; }
-.cc-tag { font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 6px; white-space: nowrap; background: #f0f0f0; color: #555; }
+.cc-tag { font-size: var(--text-xs); font-weight: 600; padding: 4px 10px; border-radius: 6px; white-space: nowrap; background: #f0f0f0; color: #555; }
 .cc-tag-privacy    { background: #f3e8ff; color: #7c3aed; }
 .cc-tag-continuity { background: #ffe4e6; color: #e11d48; }
 .cc-tag-cyber      { background: #dbeafe; color: #1d4ed8; }
@@ -1323,11 +1328,11 @@ export default defineComponent({
   padding: 28px 28px 20px;
 }
 .lm-breadcrumb {
-  font-size: 10px; font-weight: 700; color: #e03030;
+  font-size: var(--h6); font-weight: 700; color: #e03030;
   letter-spacing: 0.12em; margin-bottom: 6px;
 }
 .lm-title {
-  font-size: 22px; font-weight: 800; color: #111;
+  font-size: var(--h4); font-weight: 500; color: #111;
 }
 .lm-close {
   width: 36px; height: 36px;
@@ -1352,17 +1357,17 @@ export default defineComponent({
 .lm-step-num {
   width: 26px; height: 26px; border-radius: 50%;
   background: #f0f0f0; color: #aaa;
-  font-size: 12px; font-weight: 700;
+  font-size: var(--text-xs); font-weight: 600;
   display: flex; align-items: center; justify-content: center;
 }
 .lm-step-label {
-  font-size: 13px; color: #aaa; font-weight: 500;
+  font-size: var(--text-sm); color: #aaa; font-weight: 500;
 }
 .lm-step-active .lm-step-num {
   background: #e03030; color: #fff;
 }
 .lm-step-active .lm-step-label {
-  color: #111; font-weight: 700;
+  color: #111; font-weight: 600;
 }
 .lm-step-line {
   flex: 1; height: 1px; background: #e8e8e8;
@@ -1406,10 +1411,10 @@ export default defineComponent({
   margin-bottom: 14px;
 }
 .lm-domain-name {
-  font-size: 16px; font-weight: 700; color: #111; margin-bottom: 5px;
+  font-size: var(--text-md); font-weight: 600; color: #111; margin-bottom: 5px;
 }
 .lm-domain-meta {
-  font-size: 12px; color: #888;
+  font-size: var(--text-xs); color: #888;
 }
 
 /* Footer */
@@ -1421,13 +1426,13 @@ export default defineComponent({
   border-radius: 0 0 20px 20px;
 }
 .lm-footer-hint {
-  font-size: 13px; color: #aaa;
+  font-size: var(--text-sm); color: #aaa;
 }
 .lm-continue-btn {
   padding: 11px 28px;
   border-radius: 10px;
   border: none;
-  font-size: 14px; font-weight: 700;
+  font-size: 14px; font-weight: 600;
   background: #e8e8e8; color: #aaa;
   cursor: not-allowed;
   transition: background 0.2s, color 0.2s;
@@ -1468,8 +1473,8 @@ export default defineComponent({
 .cc-results-header {
   display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;
 }
-.cc-results-title { font-size: 18px; font-weight: 700; color: #111; margin-top: 4px; }
-.cc-all-link { font-size: 13px; color: #555; cursor: pointer; padding-top: 26px; }
+.cc-results-title { font-size: var(--text-lg); font-weight: 600; color: #111; margin-top: 4px; }
+.cc-all-link { font-size: var(--text-sm); color: #555; cursor: pointer; padding-top: 26px; }
 .cc-all-link:hover { color: #111; }
 .cc-results-list { display: flex; flex-direction: column; }
 
@@ -1484,19 +1489,19 @@ export default defineComponent({
 .cc-score-badge {
   width: 52px; height: 52px; border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 19px; font-weight: 800; flex-shrink: 0;
+  font-size: 19px; font-weight: 500; flex-shrink: 0;
   border: 2.5px solid;
 }
 .cc-score-teal   { border-color: #0d9488; color: #0d9488; background: #f0fdfa; }
 .cc-score-orange { border-color: #f59e0b; color: #f59e0b; background: #fffbeb; }
 
 .cc-result-info  { flex: 1; }
-.cc-result-name  { font-size: 15px; font-weight: 600; color: #111; margin-bottom: 4px; }
-.cc-result-meta  { font-size: 12px; color: #888; display: flex; align-items: center; gap: 5px; }
+.cc-result-name  { font-size: var(--text-base); font-weight: 600; color: #111; margin-bottom: 4px; }
+.cc-result-meta  { font-size: var(--text-xs); color: #888; display: flex; align-items: center; gap: 5px; }
 .cc-ri-icon {
   width: 16px; height: 16px; border-radius: 4px;
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 9px; font-weight: 700; color: #fff; flex-shrink: 0;
+  font-size: var(--h6); font-weight: 600; color: #fff; flex-shrink: 0;
 }
 .cc-ri-teams { background: #5059c9; }
 .cc-ri-slack  { background: #4a154b; }
@@ -1507,6 +1512,6 @@ export default defineComponent({
 .cc-rs-col {
   text-align: right; display: flex; flex-direction: column; gap: 2px;
 }
-.cc-rs-val   { font-size: 17px; font-weight: 700; color: #111; line-height: 1; }
-.cc-rs-sub   { font-size: 10px; color: #aaa; letter-spacing: 0.08em; font-weight: 600; }
+.cc-rs-val   { font-size: 17px; font-weight: 600; color: #111; line-height: 1; }
+.cc-rs-sub   { font-size: var(--text-xs); color: #aaa; letter-spacing: 0.08em; font-weight: 600; }
 </style>

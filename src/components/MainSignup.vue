@@ -134,21 +134,9 @@ export default {
 
     methods: {
         signup(this: { $router?: Router }, provider: "slack" | "teams" | "email") {
-            const router = this.$router;
-
-            // EMAIL → email page first
-            if (provider === "email") {
-                router?.push({
-                    path: "/email",
-                    query: { provider }
-                });
-                return;
-            }
-
-            // SLACK / TEAMS → directly to organisation
-            router?.push({
-                path: "/organisation",
-                query: { provider }
+            this.$router?.push({
+                path: "/command-center",
+                query: { provider },
             });
         }
     }

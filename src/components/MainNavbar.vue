@@ -62,18 +62,6 @@
                   </RouterLink>
                 </li>
 
-                <li>
-                  <RouterLink to="/command-center" class="submenu-link" @click="closeMobileMenu">
-                    Command Center
-                  </RouterLink>
-                </li>
-
-                <li>
-                  <RouterLink to="/participant-flow" class="submenu-link" @click="closeMobileMenu">
-                    Participant Flow
-                  </RouterLink>
-                </li>
-
               </ul>
             </li>
 
@@ -89,10 +77,18 @@
             </li>
 
             <!-- Badge Verification -->
-            <li>
+            <!-- <li>
               <RouterLink to="/badge-verification" class="menu-link" exact-active-class="active-pill"
                 @click="closeMobileMenu">
                 Badge Verification
+              </RouterLink>
+            </li> -->
+
+            <!-- Participant Flow -->
+            <li>
+              <RouterLink to="/participant-flow" class="menu-link" exact-active-class="active-pill"
+                @click="closeMobileMenu">
+                Participant Flow
               </RouterLink>
             </li>
 
@@ -185,8 +181,6 @@ export default defineComponent({
         "/business-continuity",
         "/data-privacy",
         "/esg",
-        "/command-center",
-        "/participant-flow",
       ].includes(this.$route.path);
     }
   },

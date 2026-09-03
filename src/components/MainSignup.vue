@@ -134,10 +134,19 @@ export default {
 
     methods: {
         signup(this: { $router?: Router }, provider: "slack" | "teams" | "email") {
-            this.$router?.push({
-                path: "/command-center",
-                query: { provider },
-            });
+            if (provider === "email") {
+                this.$router?.push({
+                    path: "/command-center",
+                    query: { provider },
+                });
+                return;
+            }
+
+            // Slack/Teams sign-in is handled by the backend's OAuth flow, not
+            // the SPA router: it redirects the whole browser to Slack/Microsoft,
+            // then back to our callback, then to the frontend.
+            const apiBaseUrl = import.meta.env.VITE_API_BASE_URL as string;
+            window.location.href = `${apiBaseUrl}/api/auth/${provider}/`;
         }
     }
 };

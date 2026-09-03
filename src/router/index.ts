@@ -23,6 +23,7 @@ import AddUsersView from "@/views/AddUsersView.vue";
 import ConfigureTeamsView from "@/views/ConfigureTeamsView.vue";
 import ParticipantFlowView from "@/views/ParticipantFlowView.vue";
 import CommandCenterView from "@/views/CommandCenterView.vue";
+import DashboardView from "@/views/DashboardView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -177,6 +178,12 @@ const router = createRouter({
       path: "/command-center",
       name: "command-center",
       component: CommandCenterView,
+    },
+
+    {
+      path: "/dashboard",
+      name: "dashboard",
+      component: DashboardView,
     },
   ],
 

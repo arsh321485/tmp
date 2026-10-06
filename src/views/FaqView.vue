@@ -7,9 +7,9 @@
                 <div class="faq-cta">
                     <h3 class="faq-cta-title">Ready to strengthen your preparedness?</h3>
 
-                    <RouterLink to="/signup" class="faq-cta-btn">
+                    <a href="#" class="faq-cta-btn" @click.prevent="openSignupModal">
                         Contact us and get started today →
-                    </RouterLink>
+                    </a>
                 </div>
 
             </div>
@@ -77,6 +77,7 @@ import MainFooter from "../components/MainFooter.vue";
 import MainContact from "@/components/MainContact.vue";
 import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
 import ScrollToTop from "@/components/ScrollToTop.vue";
+import { openSignupModal } from "@/utils/signup";
 
 type FaqItem = {
     number: string;
@@ -179,6 +180,7 @@ export default defineComponent({
         },
     },
     methods: {
+        openSignupModal,
         toggleShowAll() {
             this.showAllFaq = !this.showAllFaq;
 

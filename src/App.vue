@@ -4,6 +4,7 @@ import { defineComponent } from "vue";
 import { RouterView } from "vue-router";
 import CookiesModal from "@/components/CookiesModal.vue";
 import ScrollToTop from "@/components/ScrollToTop.vue";
+import SignupModal from "@/components/SignupModal.vue";
 
 export default defineComponent({
   name: "App",
@@ -11,6 +12,7 @@ export default defineComponent({
     RouterView,
     CookiesModal,
     ScrollToTop,
+    SignupModal,
   },
 });
 </script>
@@ -34,5 +36,6 @@ export default defineComponent({
   <RouterView />
    <ScrollToTop />
     <CookiesModal />
+    <SignupModal />
 </template>
 

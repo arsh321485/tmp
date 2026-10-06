@@ -115,15 +115,9 @@
 
             <!-- MOBILE AUTH LINKS -->
             <li class="mobile-auth">
-              <RouterLink to="/signup" class="menu-link" @click="closeMobileMenu">
+              <a href="#" class="menu-link" @click.prevent="openSignup">
                 SIGNUP
-              </RouterLink>
-            </li>
-
-            <li class="mobile-auth">
-              <RouterLink to="/login" class="menu-link" @click="closeMobileMenu">
-                LOGIN
-              </RouterLink>
+              </a>
             </li>
 
 
@@ -135,17 +129,9 @@
           <ul class="main-menu auth-menu">
 
             <li>
-              <RouterLink to="/signup" class="menu-link" exact-active-class="active-pill" @click="closeMobileMenu">
+              <a href="#" class="menu-link" @click.prevent="openSignup">
                 SIGNUP
-              </RouterLink>
-            </li>
-
-            <li class="auth-separator">/</li>
-
-            <li>
-              <RouterLink to="/login" class="menu-link" exact-active-class="active-pill" @click="closeMobileMenu">
-                LOGIN
-              </RouterLink>
+              </a>
             </li>
 
           </ul>
@@ -231,6 +217,15 @@ export default defineComponent({
     closeMobileMenu(): void {
       this.isMobileMenuOpen = false;
       this.modulesOpen = false;
+    },
+
+    openSignup(): void {
+      this.closeMobileMenu();
+      // Exposed by SignupModal.vue (mounted once in App.vue), same pattern
+      // as window.openCookiesModal -- avoids needing a shared store just
+      // for one button to open one modal.
+      const win = window as unknown as { openSignupModal?: () => void };
+      win.openSignupModal?.();
     },
 
     handleDocumentClick(event: MouseEvent): void {

@@ -18,7 +18,6 @@ import MattermostView from "@/views/MattermostView.vue";
 import WelcomeStepper from "@/components/WelcomeStepper.vue";
 import OrganisationView from "@/views/OrganisationView.vue";
 import LocationView from "@/views/LocationView.vue";
-import MainSignup from "@/components/MainSignup.vue";
 import AddUsersView from "@/views/AddUsersView.vue";
 import ConfigureTeamsView from "@/views/ConfigureTeamsView.vue";
 import ParticipantFlowView from "@/views/ParticipantFlowView.vue";
@@ -150,12 +149,6 @@ const router = createRouter({
       name: "location",
       component: LocationView,
     },
-    {
-      path: "/signup",
-      name: "signup",
-      component: MainSignup,
-    },
-
     {
       path: "/add-users",
       name: "add-users",

@@ -19,10 +19,10 @@
                     <div class="contact-info-columns">
 
                         <div class="contact-info-block">
-                            <RouterLink to="/signup" class="contact-submit-btn">
+                            <a href="#" class="contact-submit-btn" @click.prevent="openSignupModal">
                                 <span>SignUp</span>
                                 <span class="contact-submit-icon-wrap">›</span>
-                            </RouterLink>
+                            </a>
                         </div>
 
                         <div class="contact-info-block">
@@ -77,7 +77,12 @@
 
 
 <script lang="ts">
+import { openSignupModal } from "@/utils/signup";
+
 export default {
     name: "MainContact",
+    methods: {
+        openSignupModal,
+    },
 }
 </script>

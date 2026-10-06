@@ -92,6 +92,7 @@ import { defineComponent } from "vue";
 import MainNavbar from "@/components/MainNavbar.vue";
 import MainFooter from "@/components/MainFooter.vue";
 import MainContact from "@/components/MainContact.vue";
+import { openSignupModal } from "@/utils/signup";
 import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
 import airlineImg from '@/assets/images/industries-img/airline.jpg';
 import automotiveImg from '@/assets/images/industries-img/automtive.jpg';
@@ -2402,7 +2403,7 @@ export default defineComponent({
   methods: {
 
     goToSignup() {
-      this.$router.push("/signup");
+      openSignupModal();
     },
     openLightbox(index: number) {
       this.activeIndustryIndex = index;

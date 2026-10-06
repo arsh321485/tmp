@@ -31,12 +31,12 @@
 
                       
 
-                        <RouterLink to="/signup" class="hero-cta-btn">
+                        <a href="#" class="hero-cta-btn" @click.prevent="openSignupModal">
                             <span>Start Preparedness Now</span>
                             <span class="hero-cta-icon">
                                 <i class="bi bi-arrow-right"></i>
                             </span>
-                        </RouterLink>
+                        </a>
 
                     </div>
                 </div>
@@ -247,11 +247,11 @@
 
 
 
-                    <RouterLink to="/signup" class="analysis-link">
+                    <a href="#" class="analysis-link" @click.prevent="openSignupModal">
                         <div class="analysis-item secure-tile-full" data-delay="600">
                             <p>SECURE YOUR<br />OPERATIONAL CORE</p>
                         </div>
-                    </RouterLink>
+                    </a>
 
 
                 </div>
@@ -399,9 +399,9 @@
 
                 <!-- BOTTOM CTA BAR -->
                 <div class="bp-cta-bar">
-                    <RouterLink to="/signup" class="bp-cta-btn">
+                    <a href="#" class="bp-cta-btn" @click.prevent="openSignupModal">
                        Start Preparedness Now <span class="hero-cta-icon"><i class="bi bi-arrow-right"></i></span>
-                    </RouterLink>
+                    </a>
                 </div>
 
             </div>
@@ -546,9 +546,9 @@
                                 Launch a 2-minute drill
                             </a> -->
 
-                            <RouterLink to="/signup" class="btn hero-cta-animation">
+                            <a href="#" class="btn hero-cta-animation" @click.prevent="openSignupModal">
                                 Launch a 2-minute drill
-                            </RouterLink>
+                            </a>
 
                         </div>
                     </div>
@@ -576,6 +576,7 @@ import MainContact from "@/components/MainContact.vue";
 import RegulatoryWidget from "@/components/RegulatoryWidget.vue";
 import ScrollToTop from "@/components/ScrollToTop.vue";
 import HowTo from "@/components/HowTo.vue";
+import { openSignupModal } from "@/utils/signup";
 
 interface Step {
     id: number;
@@ -831,6 +832,8 @@ export default defineComponent({
     },
 
     methods: {
+        openSignupModal,
+
         // ░░ POPUP HANDLERS ░░
         closeRegModal(): void {
             this.showRegModal = false;

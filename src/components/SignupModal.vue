@@ -28,6 +28,21 @@
                     </div>
 
                     <div class="org-field">
+                        <label>Sub-industry</label>
+                        <div class="org-input-wrap">
+                            <input type="text" class="org-input" v-model="orgProfile.sub_industry" placeholder="e.g. Capital Markets, Retail Banking" />
+                        </div>
+                    </div>
+
+                    <div class="org-field">
+                        <label>Company size</label>
+                        <select class="org-input" v-model="orgProfile.company_size">
+                            <option value="" disabled>Select…</option>
+                            <option v-for="opt in companySizeOptions" :key="opt" :value="opt">{{ opt }}</option>
+                        </select>
+                    </div>
+
+                    <div class="org-field">
                         <label>Website URL *</label>
                         <div class="org-input-wrap">
                             <i class="bi bi-globe2 org-input-icon"></i>
@@ -36,13 +51,34 @@
                     </div>
 
                     <div class="org-field">
-                        <label>Where do you operate?</label>
-                        <div class="pill-group">
-                            <div class="pill-row">
-                                <button type="button" v-for="r in regionOptions" :key="r" class="org-pill"
-                                    :class="{ active: orgProfile.regions.includes(r) }" @click="togglePill(orgProfile.regions, r)">
+                        <label>Which countries do you operate in?</label>
+                        <div class="country-dropdown" ref="countryDropdown">
+                            <div class="org-input country-input-field" @click="focusCountrySearch">
+                                <span v-for="r in orgProfile.regions" :key="r" class="country-tag">
                                     {{ r }}
-                                </button>
+                                    <button type="button" class="country-tag-remove" @click.stop="togglePill(orgProfile.regions, r)">×</button>
+                                </span>
+                                <input
+                                    type="text"
+                                    ref="countrySearchInput"
+                                    class="country-inline-input"
+                                    v-model="countrySearch"
+                                    :placeholder="orgProfile.regions.length === 0 ? 'Select countries…' : ''"
+                                    @focus="countryDropdownOpen = true"
+                                />
+                            </div>
+                            <div class="country-dropdown-panel" v-if="countryDropdownOpen">
+                                <div class="country-option-list">
+                                    <div
+                                        v-for="r in filteredRegionOptions"
+                                        :key="r"
+                                        class="country-option-plain"
+                                        @click="selectCountry(r)"
+                                    >
+                                        {{ r }}
+                                    </div>
+                                    <div v-if="filteredRegionOptions.length === 0" class="country-option-empty">No matches</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -107,6 +143,8 @@ export default {
             orgProfile: {
                 org_name: "",
                 industry: "",
+                sub_industry: "",
+                company_size: "",
                 website_url: "",
                 regions: [] as string[],
                 regulations: [] as string[],
@@ -115,10 +153,41 @@ export default {
                 "Healthcare", "Financial Services", "Retail", "Manufacturing", "Technology",
                 "Legal", "Education", "Government", "Energy", "Other",
             ],
-            regionOptions: ["North America", "UK", "EU", "APAC", "Middle East", "Other"],
+            companySizeOptions: ["1-50", "51-200", "201-1000", "1000+"],
+            GLOBAL_REGION: "Global (All Countries)",
+            regionOptions: [
+                "United States", "Canada", "United Kingdom", "Ireland", "Germany", "France", "Netherlands",
+                "Spain", "Italy", "Switzerland", "Sweden", "Norway", "Denmark", "Finland", "Poland",
+                "Belgium", "Austria", "Portugal", "Greece", "Czech Republic", "Romania",
+                "Saudi Arabia", "United Arab Emirates", "Qatar", "Kuwait", "Bahrain", "Oman", "Egypt",
+                "Jordan", "Israel", "Turkey", "South Africa", "Nigeria", "Kenya",
+                "India", "Pakistan", "Bangladesh", "Sri Lanka", "China", "Japan", "South Korea",
+                "Singapore", "Malaysia", "Indonesia", "Philippines", "Vietnam", "Thailand",
+                "Australia", "New Zealand", "Hong Kong", "Taiwan",
+                "Brazil", "Mexico", "Argentina", "Chile", "Colombia", "Peru",
+                "Other",
+            ],
             regulationOptions: ["GDPR", "HIPAA", "NIS2", "DSPT", "SOC 2", "PCI DSS", "Not sure yet"],
             formError: "",
+            countryDropdownOpen: false,
+            countrySearch: "",
         };
+    },
+
+    computed: {
+        filteredRegionOptions(this: any): string[] {
+            // Once "Global (All Countries)" is picked, it replaces the
+            // whole list (sir's call -- operating everywhere shouldn't
+            // mean clicking every country one by one), so no point
+            // offering individual countries underneath it anymore.
+            if (this.orgProfile.regions.includes(this.GLOBAL_REGION)) return [];
+
+            const q = this.countrySearch.trim().toLowerCase();
+            const notYetSelected = this.regionOptions.filter((r: string) => !this.orgProfile.regions.includes(r));
+            const withGlobal = q ? [] : [this.GLOBAL_REGION];
+            if (!q) return [...withGlobal, ...notYetSelected];
+            return notYetSelected.filter((r: string) => r.toLowerCase().includes(q));
+        },
     },
 
     mounted() {
@@ -135,9 +204,40 @@ export default {
             this.formError = "";
             signupModal.show();
         };
+
+        document.addEventListener("mousedown", this.handleCountryDropdownOutsideClick);
+    },
+
+    beforeUnmount() {
+        document.removeEventListener("mousedown", this.handleCountryDropdownOutsideClick);
     },
 
     methods: {
+        handleCountryDropdownOutsideClick(this: any, e: MouseEvent) {
+            const el = this.$refs.countryDropdown as HTMLElement | undefined;
+            if (el && !el.contains(e.target as Node)) {
+                this.countryDropdownOpen = false;
+            }
+        },
+
+        focusCountrySearch(this: any) {
+            this.countryDropdownOpen = true;
+            this.$nextTick(() => (this.$refs.countrySearchInput as HTMLInputElement | undefined)?.focus());
+        },
+
+        selectCountry(this: any, country: string) {
+            if (country === this.GLOBAL_REGION) {
+                // Exclusive -- replaces any individual countries already
+                // picked instead of sitting alongside them as just one
+                // more tag.
+                this.orgProfile.regions = [this.GLOBAL_REGION];
+            } else {
+                this.orgProfile.regions.push(country);
+            }
+            this.countrySearch = "";
+            this.$nextTick(() => (this.$refs.countrySearchInput as HTMLInputElement | undefined)?.focus());
+        },
+
         togglePill(list: string[], value: string) {
             const i = list.indexOf(value);
             if (i === -1) list.push(value);
@@ -323,6 +423,96 @@ select.org-input {
     background: #f7f8fa;
     border-radius: 12px;
     padding: 12px;
+}
+
+.country-dropdown {
+    position: relative;
+}
+
+.country-input-field {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    min-height: 42px;
+    height: auto;
+    cursor: text;
+    padding: 6px 8px;
+}
+
+.country-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #eef0ff;
+    color: #3a46c4;
+    border-radius: 6px;
+    padding: 3px 6px 3px 10px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.country-tag-remove {
+    background: none;
+    border: none;
+    color: #3a46c4;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0 2px;
+    cursor: pointer;
+}
+
+.country-tag-remove:hover {
+    color: #c81440;
+}
+
+.country-inline-input {
+    flex: 1 1 80px;
+    min-width: 80px;
+    border: none;
+    outline: none;
+    font-size: 0.88rem;
+    color: #111;
+    background: transparent;
+    height: 28px;
+}
+
+.country-dropdown-panel {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: #fff;
+    border: 1px solid #d7d9dc;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+}
+
+.country-option-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.country-option-plain {
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.country-option-plain:hover {
+    background: #f7f8fa;
+}
+
+.country-option-empty {
+    padding: 8px;
+    font-size: 0.82rem;
+    color: #9aa0a6;
+    text-align: center;
 }
 
 .pill-row {

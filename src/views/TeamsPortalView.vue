@@ -229,6 +229,50 @@
                   </div>
                 </div>
               </div>
+
+              <!-- "Apply same user to other teams" -- moved here from
+              the Slack Teams card per sir's call, same real logic
+              (cards/team_copy_modal_v2.apply_to_other_teams), just a
+              website panel instead of a Slack modal. -->
+              <div v-if="staffedRoles(activeTeam).length" class="apply-same-user">
+                <button class="apply-toggle" @click="applyOpen = !applyOpen">
+                  🔁 Apply same user to other teams
+                </button>
+
+                <div v-if="applyOpen" class="apply-panel">
+                  <label class="apply-label">Apply this person</label>
+                  <div class="select-wrap">
+                    <select v-model="applySourceRole">
+                      <option value="">Select a staffed role…</option>
+                      <option v-for="m in staffedRoles(activeTeam)" :key="m.role" :value="m.role">
+                        {{ m.role }} ({{ nameFor(m.primary_slack_user_ids[0]) }}
+                        <template v-if="m.backup_slack_user_ids[0]"> · backup {{ nameFor(m.backup_slack_user_ids[0]) }}</template>)
+                      </option>
+                    </select>
+                  </div>
+
+                  <label class="apply-label">Apply to</label>
+                  <div class="apply-targets">
+                    <label v-for="t in siblingTeams(activeTeam)" :key="t.slug" class="apply-target-checkbox">
+                      <input type="checkbox" :value="t.slug" v-model="applyTargets" />
+                      {{ t.name }}
+                    </label>
+                    <p v-if="!siblingTeams(activeTeam).length" class="info-value">No other team in this tier.</p>
+                  </div>
+
+                  <p class="apply-hint">Fills every still-open role on the selected team(s) -- doesn't overwrite existing assignments.</p>
+
+                  <p v-if="applyMessage" class="apply-message">{{ applyMessage }}</p>
+
+                  <button
+                    class="btn-primary apply-submit"
+                    :disabled="applying || !applySourceRole || !applyTargets.length"
+                    @click="applySameUser(activeTeam)"
+                  >
+                    {{ applying ? "Applying…" : "Apply" }}
+                  </button>
+                </div>
+              </div>
             </div>
           </template>
 
@@ -314,6 +358,11 @@ export default defineComponent({
       activeTier: "Mandatory",
       activeTeamSlug: "",
       activePriority: "",
+      applyOpen: false,
+      applySourceRole: "",
+      applyTargets: [] as string[],
+      applying: false,
+      applyMessage: "",
     };
   },
   mounted() {
@@ -332,6 +381,10 @@ export default defineComponent({
       // team's active sub-tab onto a team that may not even have it.
       const team = this.activeTeam;
       this.activePriority = team ? this.rolePriorities(team)[0] || "" : "";
+      this.applyOpen = false;
+      this.applySourceRole = "";
+      this.applyTargets = [];
+      this.applyMessage = "";
     },
   },
   methods: {
@@ -541,6 +594,53 @@ export default defineComponent({
       if (status === "acknowledged") return "status-tag-ack";
       if (status === "failed") return "status-tag-failed";
       return "status-tag-sent";
+    },
+    nameFor(id: string | undefined): string {
+      if (!id) return "?";
+      return this.members.find((p) => p.i === id)?.n || "?";
+    },
+    staffedRoles(team: TeamDoc): TeamMemberRow[] {
+      return team.members.filter((m) => m.primary_slack_user_ids[0]);
+    },
+    siblingTeams(team: TeamDoc): TeamDoc[] {
+      return this.teams.filter((t) => t.tier === team.tier && t.slug !== team.slug);
+    },
+    async applySameUser(team: TeamDoc) {
+      this.applying = true;
+      this.applyMessage = "";
+      try {
+        const resp = await this.apiFetch("/api/teams-portal/teams/apply-same-user/", {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            source_team_slug: team.slug,
+            source_role: this.applySourceRole,
+            target_team_slugs: this.applyTargets,
+          }),
+        });
+        const data = await resp.json();
+        if (!resp.ok) {
+          this.applyMessage = "Couldn't apply -- please try again.";
+          return;
+        }
+        const count = (data.filled || []).length;
+        const message = count
+          ? `Applied to ${count} open role${count === 1 ? "" : "s"} -- they've been sent their Welcome card.`
+          : "Nothing to apply -- those teams' roles are already staffed.";
+        this.applyTargets = [];
+        // Refresh so the sibling teams' now-filled roles (and this
+        // page's own "staffed" counts) reflect it immediately -- the
+        // activeTeamSlug watcher clears applyMessage as a side effect
+        // of switching teams, so it's restored after settling back on
+        // this same team.
+        await this.loadTeamsData();
+        this.activeTeamSlug = team.slug;
+        this.applyOpen = true;
+        this.applyMessage = message;
+      } finally {
+        this.applying = false;
+      }
     },
   },
 });
@@ -1173,6 +1273,81 @@ export default defineComponent({
 .brand-footer-bar span:nth-child(2) {
   flex: 0.6;
   background: var(--footer-teal);
+}
+
+.apply-same-user {
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--card-border);
+}
+
+.apply-toggle {
+  background: none;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.apply-toggle:hover {
+  border-color: var(--teal);
+}
+
+.apply-panel {
+  margin-top: 16px;
+  background: var(--bg-cream);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.apply-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 12px 0 6px;
+}
+
+.apply-label:first-child {
+  margin-top: 0;
+}
+
+.apply-targets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.apply-target-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.apply-hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 12px 0;
+}
+
+.apply-message {
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.apply-submit {
+  width: auto;
+  height: auto;
+  padding: 10px 20px;
 }
 
 @media (max-width: 720px) {

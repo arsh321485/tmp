@@ -47,8 +47,27 @@
           <!-- STEP: real Teams data, loaded fresh after a verified OTP -->
           <template v-else-if="stage === 'assign'">
             <div class="assign-header">
-              <h1 class="title">Assign your teams</h1>
+              <h1 class="title">Assign your <span class="title-accent">teams</span></h1>
               <p class="step-para">Pick a primary and backup for each role. Saves instantly.</p>
+            </div>
+
+            <div class="progress-summary">
+              <div class="progress-fraction">
+                <span class="progress-num">{{ staffedCountInTier('Mandatory') }}</span>
+                <span class="progress-denom">/{{ teamsInTier('Mandatory').length }}</span>
+                <div class="progress-caption">Mandatory teams staffed</div>
+              </div>
+              <div class="progress-bar-track">
+                <div
+                  class="progress-bar-fill"
+                  :style="{ width: progressPercent() + '%' }"
+                ></div>
+              </div>
+              <div class="progress-people">
+                <span class="progress-people-icon">👥</span>
+                <span class="progress-people-count">{{ totalMembersAdded() }}</span>
+                <span class="progress-people-label">members added</span>
+              </div>
             </div>
 
             <div class="tier-tabs">
@@ -72,7 +91,7 @@
 
             <div class="select-wrap jump-select">
               <select v-model="activeTeamSlug">
-                <option :value="''">Jump to a team…</option>
+                <option :value="''">🔎 Jump to a team…</option>
                 <option v-for="team in teamsInTier(activeTier)" :key="team.slug" :value="team.slug">
                   {{ team.name }}
                 </option>
@@ -105,19 +124,19 @@
 
               <div class="info-fields">
                 <div class="info-field">
-                  <div class="info-label">Purpose</div>
+                  <div class="info-label">🎯 Purpose</div>
                   <div class="info-value">{{ activeTeam.purpose }}</div>
                 </div>
                 <div class="info-field">
-                  <div class="info-label">Primary IR phases</div>
+                  <div class="info-label">📅 Primary IR phases</div>
                   <div class="info-value">{{ activeTeam.phases }}</div>
                 </div>
                 <div class="info-field">
-                  <div class="info-label">Team type</div>
+                  <div class="info-label">🏢 Team type</div>
                   <div class="info-value">{{ activeTeam.type }}</div>
                 </div>
                 <div class="info-field">
-                  <div class="info-label">Can be outsourced</div>
+                  <div class="info-label">🔄 Can be outsourced</div>
                   <div class="info-value">{{ activeTeam.outsource }}</div>
                 </div>
               </div>
@@ -195,7 +214,7 @@
                 </div>
 
                 <div v-if="member.responsibility" class="responsibility-block">
-                  <div class="info-label">Responsibility</div>
+                  <div class="info-label">🗒️ Responsibility</div>
                   <div class="info-value">{{ member.responsibility }}</div>
                 </div>
 
@@ -470,6 +489,24 @@ export default defineComponent({
     staffedCountInTier(tier: string): number {
       return this.teamsInTier(tier).filter((t) => this.isTeamStaffed(t)).length;
     },
+    progressPercent(): number {
+      const total = this.teamsInTier("Mandatory").length;
+      if (total === 0) return 0;
+      return Math.round((this.staffedCountInTier("Mandatory") / total) * 100);
+    },
+    totalMembersAdded(): number {
+      // Every distinct real person currently holding a primary or
+      // backup slot anywhere, across every team -- same "members
+      // added" count the Slack Teams card header itself shows.
+      const ids = new Set<string>();
+      for (const team of this.teams) {
+        for (const m of team.members) {
+          if (m.primary_slack_user_ids[0]) ids.add(m.primary_slack_user_ids[0]);
+          if (m.backup_slack_user_ids[0]) ids.add(m.backup_slack_user_ids[0]);
+        }
+      }
+      return ids.size;
+    },
     isTeamStaffed(team: TeamDoc): boolean {
       // Same rule Slack's own _team_is_staffed uses: every Mandatory-
       // priority role needs BOTH a primary and a backup, not just a
@@ -558,13 +595,107 @@ export default defineComponent({
 }
 
 .brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--teal);
-  background: var(--teal-bg);
+  color: var(--ink);
+  border: 2px solid var(--card-border);
   border-radius: 999px;
   padding: 6px 16px;
+}
+
+.brand-badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.title-accent {
+  color: var(--brand-red);
+}
+
+.progress-summary {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.progress-fraction {
+  flex-shrink: 0;
+}
+
+.progress-num {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--brand-red);
+}
+
+.progress-denom {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.progress-caption {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.progress-bar-track {
+  flex: 1;
+  min-width: 140px;
+  height: 14px;
+  border-radius: 999px;
+  background: #e6e3dd;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--brand-red);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.progress-people {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.progress-people-icon {
+  font-size: 18px;
+}
+
+.progress-people-count {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.progress-people-label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+@media (max-width: 700px) {
+  .progress-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .progress-bar-track {
+    width: 100%;
+  }
 }
 
 .title {

@@ -1235,7 +1235,9 @@ export default defineComponent({
 
 .role-picker-table .table-header,
 .role-picker-table .table-row {
-  grid-template-columns: 1fr 1fr 110px;
+  grid-template-columns: 220px 220px 110px;
+  justify-content: start;
+  gap: 12px;
 }
 
 .role-buttons {
@@ -1482,6 +1484,11 @@ export default defineComponent({
 
   .role-cell {
     font-weight: 600;
+  }
+
+  .role-picker-table .table-header,
+  .role-picker-table .table-row {
+    grid-template-columns: 1fr;
   }
 }
 </style>

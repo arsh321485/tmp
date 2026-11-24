@@ -282,6 +282,14 @@
                 </div>
               </div>
             </div>
+
+            <div class="submit-section">
+              <p v-if="submitMessage" class="submit-message">{{ submitMessage }}</p>
+              <button class="btn-primary submit-btn" :disabled="submitting" @click="submitToSlack">
+                {{ submitting ? "Updating Slack…" : "Submit" }}
+              </button>
+              <p class="submit-hint">Every change already saved as you went -- this pushes a live refresh of the Teams card in Slack too, so it matches right away.</p>
+            </div>
           </template>
 
           <!-- STEP: anything that stops the flow (bad/expired link, etc.) -->
@@ -372,6 +380,8 @@ export default defineComponent({
       applyTargets: [] as string[],
       applying: false,
       applyMessage: "",
+      submitting: false,
+      submitMessage: "",
     };
   },
   mounted() {
@@ -672,6 +682,28 @@ export default defineComponent({
         this.applyMessage = message;
       } finally {
         this.applying = false;
+      }
+    },
+    async submitToSlack() {
+      this.submitting = true;
+      this.submitMessage = "";
+      try {
+        const resp = await this.apiFetch("/api/teams-portal/teams/submit/", {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({}),
+        });
+        const data = await resp.json();
+        if (!resp.ok) {
+          this.submitMessage = "Couldn't reach Slack -- your assignments are still saved, just try Submit again.";
+          return;
+        }
+        this.submitMessage = data.updated_in_slack
+          ? "✓ Done -- the Teams card in Slack now shows everything you assigned."
+          : "Saved, but there's no live Teams card in Slack to refresh yet -- it'll show this the next time it's opened.";
+      } finally {
+        this.submitting = false;
       }
     },
   },
@@ -1408,6 +1440,32 @@ export default defineComponent({
   width: auto;
   height: auto;
   padding: 10px 20px;
+}
+
+.submit-section {
+  margin-top: 12px;
+  padding-top: 24px;
+  border-top: 2px solid var(--card-border);
+  text-align: left;
+}
+
+.submit-btn {
+  width: auto;
+  height: auto;
+  padding: 14px 32px;
+}
+
+.submit-hint {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.submit-message {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 12px;
 }
 
 @media (max-width: 720px) {

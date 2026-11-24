@@ -194,7 +194,7 @@
                         <option v-for="p in members" :key="p.i" :value="p.i">{{ p.n }}</option>
                       </select>
                     </div>
-                    <div>
+                    <div class="role-buttons">
                       <button
                         class="save-btn"
                         :class="{ 'save-btn-saved': savedKey === activeTeam.slug + member.role }"
@@ -208,6 +208,14 @@
                             ? "✓ Saved"
                             : "Save"
                         }}
+                      </button>
+                      <button
+                        v-if="member.primary_slack_user_ids[0] || member.backup_slack_user_ids[0]"
+                        class="remove-btn"
+                        :disabled="removingKey === activeTeam.slug + member.role"
+                        @click="removeAssignment(activeTeam, member)"
+                      >
+                        {{ removingKey === activeTeam.slug + member.role ? "Removing…" : "✕ Remove" }}
                       </button>
                     </div>
                   </div>
@@ -354,6 +362,7 @@ export default defineComponent({
       teams: [] as TeamDoc[],
       savingKey: "",
       savedKey: "",
+      removingKey: "",
       tierOrder: TIER_ORDER,
       activeTier: "Mandatory",
       activeTeamSlug: "",
@@ -531,6 +540,29 @@ export default defineComponent({
         }, 2000);
       } finally {
         this.savingKey = "";
+      }
+    },
+    async removeAssignment(team: TeamDoc, member: TeamMemberRow) {
+      // Same real confirm Slack's own "Remove" button had -- clears
+      // BOTH Primary and Backup, not reversible from here.
+      if (!window.confirm(`This clears Primary and Backup for "${member.role}". You'll need to reassign both. Remove?`)) {
+        return;
+      }
+      const key = team.slug + member.role;
+      this.removingKey = key;
+      try {
+        await this.apiFetch("/api/teams-portal/teams/remove/", {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ team_slug: team.slug, role: member.role }),
+        });
+        member.primary_slack_user_ids = [undefined];
+        member.backup_slack_user_ids = [undefined];
+        member.primary_status = null;
+        member.backup_status = null;
+      } finally {
+        this.removingKey = "";
       }
     },
     filledCount(team: TeamDoc): number {
@@ -1171,7 +1203,35 @@ export default defineComponent({
 
 .role-picker-table .table-header,
 .role-picker-table .table-row {
-  grid-template-columns: 1fr 1fr 96px;
+  grid-template-columns: 1fr 1fr 110px;
+}
+
+.role-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.remove-btn {
+  border: 1.4px solid var(--brand-red);
+  color: #fff;
+  background: var(--brand-red);
+  border-radius: 8px;
+  padding: 8px 0;
+  width: 100%;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.remove-btn:hover {
+  opacity: 0.9;
+}
+
+.remove-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .responsibility-block {

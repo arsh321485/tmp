@@ -89,15 +89,6 @@
               {{ activeTier }} tier: {{ staffedCountInTier(activeTier) }} / {{ teamsInTier(activeTier).length }} staffed
             </p>
 
-            <div class="select-wrap jump-select">
-              <select v-model="activeTeamSlug">
-                <option :value="''">🔎 Jump to a team…</option>
-                <option v-for="team in teamsInTier(activeTier)" :key="team.slug" :value="team.slug">
-                  {{ team.name }}
-                </option>
-              </select>
-            </div>
-
             <div class="team-pills">
               <button
                 v-for="team in teamsInTier(activeTier)"
@@ -988,17 +979,6 @@ export default defineComponent({
   font-size: 14px;
   color: var(--muted);
   margin-bottom: 14px;
-}
-
-.jump-select {
-  max-width: 320px;
-  margin-bottom: 18px;
-}
-
-.jump-select select {
-  color: var(--brand-red);
-  font-weight: 600;
-  background: var(--card-bg);
 }
 
 .team-pills {

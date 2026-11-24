@@ -18,7 +18,7 @@
             <h1 class="title">Check Slack for your code</h1>
             <p class="step-para">
               We just sent a 6-digit code as a Slack DM from the TestMyPlan bot.
-              Enter it below -- it expires in 5 minutes.
+              Enter it below -- it expires in 10 minutes.
             </p>
 
             <div class="auth-form">
@@ -36,6 +36,10 @@
 
             <button class="btn-primary" :disabled="verifying" @click="verifyCode">
               {{ verifying ? "Checking…" : "Verify code" }}
+            </button>
+
+            <button class="resend-link" :disabled="resending" @click="resendCode">
+              {{ resending ? "Sending a new code…" : "Didn't get it? Resend code" }}
             </button>
           </template>
 
@@ -121,6 +125,7 @@ export default defineComponent({
       otpId: "",
       otpCode: "",
       verifying: false,
+      resending: false,
       errorMessage: "",
       members: [] as Member[],
       teams: [] as TeamDoc[],
@@ -161,6 +166,16 @@ export default defineComponent({
       } catch {
         this.stage = "error";
         this.errorMessage = "Couldn't reach TestMyPlan. Check your connection and try again.";
+      }
+    },
+    async resendCode() {
+      this.resending = true;
+      this.otpCode = "";
+      this.errorMessage = "";
+      try {
+        await this.requestOtp();
+      } finally {
+        this.resending = false;
       }
     },
     async verifyCode() {
@@ -304,6 +319,23 @@ export default defineComponent({
 }
 
 .btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.resend-link {
+  display: block;
+  margin-top: 14px;
+  background: none;
+  border: none;
+  color: #d32929;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+}
+
+.resend-link:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }

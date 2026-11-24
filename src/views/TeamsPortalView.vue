@@ -28,6 +28,7 @@
                 maxlength="6"
                 inputmode="numeric"
                 placeholder="••••••"
+                :disabled="verifying"
                 @keyup.enter="verifyCode"
               />
             </div>
@@ -179,6 +180,12 @@ export default defineComponent({
       }
     },
     async verifyCode() {
+      // Guards against a double-submit (e.g. pressing Enter and then
+      // also clicking the button before Vue's :disabled re-render lands)
+      // firing verify TWICE -- the first call would genuinely succeed,
+      // but the second then hit the "already verified" guard and show a
+      // confusing error over what was actually a success.
+      if (this.verifying) return;
       if (this.otpCode.length !== 6) {
         this.errorMessage = "Enter the full 6-digit code.";
         return;
@@ -194,12 +201,21 @@ export default defineComponent({
         });
         const data = await resp.json();
         if (!resp.ok) {
-          this.errorMessage =
-            data.error === "incorrect_code"
-              ? "That code's not right -- check Slack and try again."
-              : data.error === "too_many_attempts"
-              ? "Too many tries -- go back to Slack and request a new code."
-              : "That code has expired -- go back to Slack and request a new one.";
+          // Each real backend error gets its own accurate message --
+          // previously anything not "incorrect_code"/"too_many_attempts"
+          // (including "invalid_otp", e.g. a stale/already-used code)
+          // was shown as "expired" even when that wasn't the real reason.
+          if (data.error === "incorrect_code") {
+            this.errorMessage = "That code's not right -- check Slack and try again.";
+          } else if (data.error === "too_many_attempts") {
+            this.errorMessage = "Too many tries -- go back to Slack and request a new code.";
+          } else if (data.error === "expired_otp") {
+            this.errorMessage = "That code has expired -- click \"Resend code\" below for a new one.";
+          } else if (data.error === "invalid_otp") {
+            this.errorMessage = "That code isn't valid any more -- click \"Resend code\" below for a new one.";
+          } else {
+            this.errorMessage = "Something went wrong verifying that code -- try \"Resend code\" below.";
+          }
           return;
         }
         await this.loadTeamsData();
@@ -212,6 +228,14 @@ export default defineComponent({
         fetch(`${this.apiBase()}/api/teams-portal/members/`, { credentials: "include" }),
         fetch(`${this.apiBase()}/api/teams-portal/teams/`, { credentials: "include" }),
       ]);
+      if (!membersResp.ok || !teamsResp.ok) {
+        // Session cookie didn't make it (e.g. a privacy-strict browser
+        // refusing a cross-site cookie) -- loading silently with empty
+        // data would look like "no teams exist" instead of the real
+        // "you're not actually logged in" problem.
+        this.errorMessage = "Couldn't load your teams -- your session may not have carried over. Try \"Resend code\" below.";
+        return;
+      }
       const membersData = await membersResp.json();
       const teamsData = await teamsResp.json();
       this.members = membersData.members || [];

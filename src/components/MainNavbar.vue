@@ -92,6 +92,14 @@
               </RouterLink>
             </li>
 
+            <!-- Teams -->
+            <li>
+              <RouterLink to="/teams-portal" class="menu-link" exact-active-class="active-pill"
+                @click="closeMobileMenu">
+                Teams
+              </RouterLink>
+            </li>
+
             <!-- About -->
             <li>
               <RouterLink to="/about" class="menu-link" exact-active-class="active-pill" @click="closeMobileMenu">

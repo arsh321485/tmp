@@ -51,11 +51,51 @@
               <p class="step-para">Pick a primary and backup for each role. Saves instantly.</p>
             </div>
 
-            <div v-for="team in teams" :key="team.id" class="team-card">
+            <div class="tier-tabs">
+              <button
+                v-for="tier in tierOrder"
+                :key="tier"
+                class="tier-tab"
+                :class="{ 'tier-tab-active': activeTier === tier }"
+                @click="selectTier(tier)"
+              >
+                <span class="tier-dot" :style="{ background: tierColor(tier) }"></span>
+                {{ tier }} ({{ teamsInTier(tier).length }})
+              </button>
+            </div>
+
+            <div class="tier-divider"></div>
+
+            <p class="tier-summary">
+              {{ activeTier }} tier: {{ staffedCountInTier(activeTier) }} / {{ teamsInTier(activeTier).length }} staffed
+            </p>
+
+            <div class="select-wrap jump-select">
+              <select v-model="activeTeamSlug">
+                <option :value="''">Jump to a team…</option>
+                <option v-for="team in teamsInTier(activeTier)" :key="team.slug" :value="team.slug">
+                  {{ team.name }}
+                </option>
+              </select>
+            </div>
+
+            <div class="team-pills">
+              <button
+                v-for="team in teamsInTier(activeTier)"
+                :key="team.slug"
+                class="team-pill"
+                :class="{ 'team-pill-active': activeTeamSlug === team.slug }"
+                @click="activeTeamSlug = team.slug"
+              >
+                {{ isTeamStaffed(team) ? "✅" : "⏳" }} {{ team.name }}
+              </button>
+            </div>
+
+            <div v-if="activeTeam" class="team-card">
               <div class="team-card-head">
-                <h3>{{ team.name }}</h3>
+                <h3>{{ activeTeam.name }}</h3>
                 <span class="team-count-pill">
-                  {{ filledCount(team) }} / {{ team.members.length }} staffed
+                  {{ filledCount(activeTeam) }} / {{ activeTeam.members.length }} staffed
                 </span>
               </div>
 
@@ -67,7 +107,7 @@
                   <div></div>
                 </div>
 
-                <div v-for="member in team.members" :key="member.role" class="table-row">
+                <div v-for="member in activeTeam.members" :key="member.role" class="table-row">
                   <div class="role-cell">{{ member.role }}</div>
                   <div class="select-wrap">
                     <select v-model="member.primary_slack_user_ids[0]">
@@ -84,14 +124,14 @@
                   <div>
                     <button
                       class="save-btn"
-                      :class="{ 'save-btn-saved': savedKey === team.id + member.role }"
-                      :disabled="savingKey === team.id + member.role"
-                      @click="saveAssignment(team, member)"
+                      :class="{ 'save-btn-saved': savedKey === activeTeam.slug + member.role }"
+                      :disabled="savingKey === activeTeam.slug + member.role"
+                      @click="saveAssignment(activeTeam, member)"
                     >
                       {{
-                        savingKey === team.id + member.role
+                        savingKey === activeTeam.slug + member.role
                           ? "Saving…"
-                          : savedKey === team.id + member.role
+                          : savedKey === activeTeam.slug + member.role
                           ? "✓ Saved"
                           : "Save"
                       }}
@@ -129,12 +169,20 @@ interface TeamMemberRow {
 
 interface TeamDoc {
   id: string;
-  module: string;
   slug: string;
+  tier: string;
   name: string;
   is_mandatory: boolean;
   members: TeamMemberRow[];
 }
+
+const TIER_ORDER = ["Mandatory", "Recommended", "Optional", "External"];
+const TIER_COLORS: Record<string, string> = {
+  Mandatory: "#d32929",
+  Recommended: "#d08a1e",
+  Optional: "#2f9e52",
+  External: "#9ca3af",
+};
 
 export default defineComponent({
   name: "TeamsPortal",
@@ -150,10 +198,18 @@ export default defineComponent({
       teams: [] as TeamDoc[],
       savingKey: "",
       savedKey: "",
+      tierOrder: TIER_ORDER,
+      activeTier: "Mandatory",
+      activeTeamSlug: "",
     };
   },
   mounted() {
     this.requestOtp();
+  },
+  computed: {
+    activeTeam(): TeamDoc | undefined {
+      return this.teams.find((t) => t.slug === this.activeTeamSlug);
+    },
   },
   methods: {
     apiBase(): string {
@@ -274,10 +330,12 @@ export default defineComponent({
       const teamsData = await teamsResp.json();
       this.members = membersData.members || [];
       this.teams = teamsData.teams || [];
+      const firstInTier = this.teamsInTier(this.activeTier)[0];
+      this.activeTeamSlug = firstInTier ? firstInTier.slug : "";
       this.stage = "assign";
     },
     async saveAssignment(team: TeamDoc, member: TeamMemberRow) {
-      const key = team.id + member.role;
+      const key = team.slug + member.role;
       this.savingKey = key;
       try {
         await this.apiFetch("/api/teams-portal/teams/assign/", {
@@ -285,7 +343,7 @@ export default defineComponent({
           credentials: "include",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            team_doc_id: team.id,
+            team_slug: team.slug,
             role: member.role,
             primary_slack_user_ids: member.primary_slack_user_ids.filter(Boolean),
             backup_slack_user_ids: member.backup_slack_user_ids.filter(Boolean),
@@ -301,6 +359,23 @@ export default defineComponent({
     },
     filledCount(team: TeamDoc): number {
       return team.members.filter((m) => m.primary_slack_user_ids[0]).length;
+    },
+    teamsInTier(tier: string): TeamDoc[] {
+      return this.teams.filter((t) => t.tier === tier);
+    },
+    staffedCountInTier(tier: string): number {
+      return this.teamsInTier(tier).filter((t) => this.isTeamStaffed(t)).length;
+    },
+    isTeamStaffed(team: TeamDoc): boolean {
+      return team.members.length > 0 && team.members.every((m) => m.primary_slack_user_ids[0]);
+    },
+    tierColor(tier: string): string {
+      return TIER_COLORS[tier] || "#9ca3af";
+    },
+    selectTier(tier: string) {
+      this.activeTier = tier;
+      const firstInTier = this.teamsInTier(tier)[0];
+      this.activeTeamSlug = firstInTier ? firstInTier.slug : "";
     },
   },
 });
@@ -407,7 +482,100 @@ export default defineComponent({
 }
 
 .assign-header {
-  margin-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.tier-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tier-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.tier-tab:hover {
+  border-color: #c8c8c8;
+}
+
+.tier-tab-active {
+  background: #1a7a42;
+  border-color: #1a7a42;
+  color: #fff;
+}
+
+.tier-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tier-divider {
+  border-top: 1px solid #ececec;
+  margin-bottom: 16px;
+}
+
+.tier-summary {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 14px;
+}
+
+.jump-select {
+  max-width: 320px;
+  margin-bottom: 18px;
+}
+
+.jump-select select {
+  color: #d32929;
+  font-weight: 500;
+  background: #fff;
+}
+
+.team-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.team-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.team-pill:hover {
+  border-color: #c8c8c8;
+}
+
+.team-pill-active {
+  background: #1a7a42;
+  border-color: #1a7a42;
+  color: #fff;
 }
 
 .team-card {

@@ -575,17 +575,18 @@ export default defineComponent({
       return Math.round((this.staffedCountInTier("Mandatory") / total) * 100);
     },
     totalMembersAdded(): number {
-      // Every distinct real person currently holding a primary or
-      // backup slot anywhere, across every team -- same "members
-      // added" count the Slack Teams card header itself shows.
-      const ids = new Set<string>();
+      // Matches Slack's own real definition exactly (teams_v2_data.py's
+      // "total_members = sum(len(m) for m in teams.values())") -- every
+      // STAFFED ROLE-SLOT across every team, not distinct people. The
+      // same person filling 3 different roles counts as 3 here, same
+      // as it always has in Slack.
+      let count = 0;
       for (const team of this.teams) {
         for (const m of team.members) {
-          if (m.primary_slack_user_ids[0]) ids.add(m.primary_slack_user_ids[0]);
-          if (m.backup_slack_user_ids[0]) ids.add(m.backup_slack_user_ids[0]);
+          if (m.primary_slack_user_ids[0] || m.backup_slack_user_ids[0]) count++;
         }
       }
-      return ids.size;
+      return count;
     },
     isTeamStaffed(team: TeamDoc): boolean {
       // Same rule Slack's own _team_is_staffed uses: every Mandatory-

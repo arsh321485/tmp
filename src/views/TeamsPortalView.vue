@@ -183,32 +183,26 @@
                   </div>
                   <div class="table-row">
                     <div class="select-wrap">
-                      <select v-model="member.primary_slack_user_ids[0]">
+                      <select
+                        v-model="member.primary_slack_user_ids[0]"
+                        @change="saveAssignment(activeTeam, member)"
+                      >
                         <option :value="undefined">— none —</option>
                         <option v-for="p in members" :key="p.i" :value="p.i">{{ p.n }}</option>
                       </select>
                     </div>
                     <div class="select-wrap">
-                      <select v-model="member.backup_slack_user_ids[0]">
+                      <select
+                        v-model="member.backup_slack_user_ids[0]"
+                        @change="saveAssignment(activeTeam, member)"
+                      >
                         <option :value="undefined">— none —</option>
                         <option v-for="p in members" :key="p.i" :value="p.i">{{ p.n }}</option>
                       </select>
                     </div>
                     <div class="role-buttons">
-                      <button
-                        class="save-btn"
-                        :class="{ 'save-btn-saved': savedKey === activeTeam.slug + member.role }"
-                        :disabled="savingKey === activeTeam.slug + member.role"
-                        @click="saveAssignment(activeTeam, member)"
-                      >
-                        {{
-                          savingKey === activeTeam.slug + member.role
-                            ? "Saving…"
-                            : savedKey === activeTeam.slug + member.role
-                            ? "✓ Saved"
-                            : "Save"
-                        }}
-                      </button>
+                      <span v-if="savingKey === activeTeam.slug + member.role" class="save-status">Saving…</span>
+                      <span v-else-if="savedKey === activeTeam.slug + member.role" class="save-status save-status-saved">✓ Saved & sent</span>
                       <button
                         v-if="member.primary_slack_user_ids[0] || member.backup_slack_user_ids[0]"
                         class="remove-btn"
@@ -1244,6 +1238,16 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+
+.save-status {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.save-status-saved {
+  color: var(--teal);
 }
 
 .remove-btn {

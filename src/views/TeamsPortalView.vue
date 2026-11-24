@@ -140,6 +140,18 @@ export default defineComponent({
     apiBase(): string {
       return import.meta.env.VITE_API_BASE_URL as string;
     },
+    apiFetch(path: string, options: RequestInit = {}): Promise<Response> {
+      // Every call through the free ngrok tunnel was silently hitting its
+      // "you are about to visit..." browser-warning page instead of our
+      // API (confirmed by opening the URL directly) -- that warning page
+      // has no CORS headers at all, which is what actually caused every
+      // "CORS error"/"missing Access-Control-Allow-Origin" symptom.
+      // ngrok's own fix: send this header to skip the warning entirely.
+      return fetch(`${this.apiBase()}${path}`, {
+        ...options,
+        headers: { ...(options.headers || {}), "ngrok-skip-browser-warning": "true" },
+      });
+    },
     async requestOtp() {
       const token = (this.$route.query.token as string) || "";
       if (!token) {
@@ -148,7 +160,7 @@ export default defineComponent({
         return;
       }
       try {
-        const resp = await fetch(`${this.apiBase()}/api/teams-portal/otp/request/`, {
+        const resp = await this.apiFetch("/api/teams-portal/otp/request/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ token }),
@@ -193,7 +205,7 @@ export default defineComponent({
       this.verifying = true;
       this.errorMessage = "";
       try {
-        const resp = await fetch(`${this.apiBase()}/api/teams-portal/otp/verify/`, {
+        const resp = await this.apiFetch("/api/teams-portal/otp/verify/", {
           method: "POST",
           credentials: "include",
           headers: { "Content-Type": "application/json" },
@@ -229,8 +241,8 @@ export default defineComponent({
       // blocked as a CORS/connection failure only when both landed
       // simultaneously), even though each one is correct and fast on
       // its own (confirmed directly against the backend).
-      const membersResp = await fetch(`${this.apiBase()}/api/teams-portal/members/`, { credentials: "include" });
-      const teamsResp = await fetch(`${this.apiBase()}/api/teams-portal/teams/`, { credentials: "include" });
+      const membersResp = await this.apiFetch("/api/teams-portal/members/", { credentials: "include" });
+      const teamsResp = await this.apiFetch("/api/teams-portal/teams/", { credentials: "include" });
       if (!membersResp.ok || !teamsResp.ok) {
         // Session cookie didn't make it (e.g. a privacy-strict browser
         // refusing a cross-site cookie) -- loading silently with empty
@@ -248,7 +260,7 @@ export default defineComponent({
     async saveAssignment(team: TeamDoc, member: TeamMemberRow) {
       this.savingKey = team.id + member.role;
       try {
-        await fetch(`${this.apiBase()}/api/teams-portal/teams/assign/`, {
+        await this.apiFetch("/api/teams-portal/teams/assign/", {
           method: "POST",
           credentials: "include",
           headers: { "Content-Type": "application/json" },

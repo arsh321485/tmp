@@ -1303,11 +1303,12 @@ export default defineComponent({
 
 .select-wrap select {
   width: 100%;
-  padding: 9px 12px;
+  max-width: 220px;
+  padding: 7px 10px;
   border-radius: 8px;
   border: 1px solid var(--card-border);
   background: var(--bg-cream);
-  font-size: 14px;
+  font-size: 13px;
   color: var(--ink);
   transition: border-color 0.15s ease, background 0.15s ease;
 }

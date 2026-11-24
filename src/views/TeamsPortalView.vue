@@ -99,6 +99,29 @@
                 </span>
               </div>
 
+              <div class="status-badge" :class="{ 'status-badge-done': isTeamStaffed(activeTeam) }">
+                {{ isTeamStaffed(activeTeam) ? "✅ Complete" : "⏳ Pending" }}
+              </div>
+
+              <div class="info-fields">
+                <div class="info-field">
+                  <div class="info-label">Purpose</div>
+                  <div class="info-value">{{ activeTeam.purpose }}</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">Primary IR phases</div>
+                  <div class="info-value">{{ activeTeam.phases }}</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">Team type</div>
+                  <div class="info-value">{{ activeTeam.type }}</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">Can be outsourced</div>
+                  <div class="info-value">{{ activeTeam.outsource }}</div>
+                </div>
+              </div>
+
               <!-- Same split Slack itself uses (cards/teams_v2_data.py's
               _team_block): only one priority's roles shown at a time,
               sub-tabs only appear when a team actually has more than
@@ -193,6 +216,10 @@ interface TeamDoc {
   tier: string;
   name: string;
   is_mandatory: boolean;
+  purpose: string;
+  phases: string;
+  type: string;
+  outsource: string;
   members: TeamMemberRow[];
 }
 
@@ -398,7 +425,13 @@ export default defineComponent({
       return this.teamsInTier(tier).filter((t) => this.isTeamStaffed(t)).length;
     },
     isTeamStaffed(team: TeamDoc): boolean {
-      return team.members.length > 0 && team.members.every((m) => m.primary_slack_user_ids[0]);
+      // Same rule Slack's own _team_is_staffed uses: every Mandatory-
+      // priority role needs BOTH a primary and a backup, not just a
+      // primary -- falls back to "at least one fully-filled role" if
+      // this team has no Mandatory-priority roles at all.
+      const mandatoryRoles = team.members.filter((m) => m.priority === "Mandatory");
+      const roles = mandatoryRoles.length > 0 ? mandatoryRoles : team.members;
+      return roles.length > 0 && roles.every((m) => m.primary_slack_user_ids[0] && m.backup_slack_user_ids[0]);
     },
     tierColor(tier: string): string {
       return TIER_COLORS[tier] || "#9ca3af";
@@ -660,6 +693,48 @@ export default defineComponent({
   background: #1a7a42;
   border-color: #1a7a42;
   color: #fff;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #b45309;
+  margin-bottom: 18px;
+}
+
+.status-badge-done {
+  color: #1a7a42;
+}
+
+.info-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 32px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ececec;
+}
+
+.info-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.info-value {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .info-fields {
+    grid-template-columns: 1fr;
+  }
 }
 
 .team-card-head h3 {

@@ -139,43 +139,74 @@
                 </button>
               </div>
 
-              <div class="members-table">
-                <div class="table-header">
-                  <div>Role</div>
-                  <div>Primary</div>
-                  <div>Backup</div>
-                  <div></div>
+              <div
+                v-for="member in rolesForActivePriority(activeTeam)"
+                :key="member.role"
+                class="role-block"
+              >
+                <div class="role-block-head">
+                  <h4>{{ member.role }}</h4>
+                  <span class="status-tags">
+                    <span v-if="member.primary_status" class="status-tag" :class="statusTagClass(member.primary_status)">
+                      Primary {{ statusTagLabel(member.primary_status) }}
+                    </span>
+                    <span v-if="member.backup_status" class="status-tag" :class="statusTagClass(member.backup_status)">
+                      Backup {{ statusTagLabel(member.backup_status) }}
+                    </span>
+                  </span>
                 </div>
 
-                <div v-for="member in rolesForActivePriority(activeTeam)" :key="member.role" class="table-row">
-                  <div class="role-cell">{{ member.role }}</div>
-                  <div class="select-wrap">
-                    <select v-model="member.primary_slack_user_ids[0]">
-                      <option :value="undefined">— none —</option>
-                      <option v-for="p in members" :key="p.i" :value="p.i">{{ p.n }}</option>
-                    </select>
+                <div class="members-table role-picker-table">
+                  <div class="table-header">
+                    <div>Primary</div>
+                    <div>Backup</div>
+                    <div></div>
                   </div>
-                  <div class="select-wrap">
-                    <select v-model="member.backup_slack_user_ids[0]">
-                      <option :value="undefined">— none —</option>
-                      <option v-for="p in members" :key="p.i" :value="p.i">{{ p.n }}</option>
-                    </select>
+                  <div class="table-row">
+                    <div class="select-wrap">
+                      <select v-model="member.primary_slack_user_ids[0]">
+                        <option :value="undefined">— none —</option>
+                        <option v-for="p in members" :key="p.i" :value="p.i">{{ p.n }}</option>
+                      </select>
+                    </div>
+                    <div class="select-wrap">
+                      <select v-model="member.backup_slack_user_ids[0]">
+                        <option :value="undefined">— none —</option>
+                        <option v-for="p in members" :key="p.i" :value="p.i">{{ p.n }}</option>
+                      </select>
+                    </div>
+                    <div>
+                      <button
+                        class="save-btn"
+                        :class="{ 'save-btn-saved': savedKey === activeTeam.slug + member.role }"
+                        :disabled="savingKey === activeTeam.slug + member.role"
+                        @click="saveAssignment(activeTeam, member)"
+                      >
+                        {{
+                          savingKey === activeTeam.slug + member.role
+                            ? "Saving…"
+                            : savedKey === activeTeam.slug + member.role
+                            ? "✓ Saved"
+                            : "Save"
+                        }}
+                      </button>
+                    </div>
                   </div>
-                  <div>
-                    <button
-                      class="save-btn"
-                      :class="{ 'save-btn-saved': savedKey === activeTeam.slug + member.role }"
-                      :disabled="savingKey === activeTeam.slug + member.role"
-                      @click="saveAssignment(activeTeam, member)"
-                    >
-                      {{
-                        savingKey === activeTeam.slug + member.role
-                          ? "Saving…"
-                          : savedKey === activeTeam.slug + member.role
-                          ? "✓ Saved"
-                          : "Save"
-                      }}
-                    </button>
+                </div>
+
+                <div v-if="member.responsibility" class="responsibility-block">
+                  <div class="info-label">Responsibility</div>
+                  <div class="info-value">{{ member.responsibility }}</div>
+                </div>
+
+                <div v-if="member.activities.length" class="activity-table">
+                  <div class="activity-header">
+                    <div>Activity</div>
+                    <div>Phase</div>
+                  </div>
+                  <div v-for="(a, idx) in member.activities" :key="idx" class="activity-row">
+                    <div>{{ a.activity }}</div>
+                    <div>{{ a.phase }}</div>
                   </div>
                 </div>
               </div>
@@ -201,11 +232,20 @@ interface Member {
   n: string;
 }
 
+interface Activity {
+  activity: string;
+  phase: string;
+}
+
 interface TeamMemberRow {
   role: string;
   priority: string;
   primary_slack_user_ids: (string | undefined)[];
   backup_slack_user_ids: (string | undefined)[];
+  primary_status: string | null;
+  backup_status: string | null;
+  responsibility: string;
+  activities: Activity[];
 }
 
 const PRIORITY_ORDER = ["Mandatory", "Recommended", "Optional"];
@@ -447,6 +487,17 @@ export default defineComponent({
     },
     rolesForActivePriority(team: TeamDoc): TeamMemberRow[] {
       return team.members.filter((m) => m.priority === this.activePriority);
+    },
+    statusTagLabel(status: string): string {
+      if (status === "acknowledged") return "✓ Acknowledged";
+      if (status === "sent") return "✉ Card sent";
+      if (status === "failed") return "⚠ Failed to send";
+      return "";
+    },
+    statusTagClass(status: string): string {
+      if (status === "acknowledged") return "status-tag-ack";
+      if (status === "failed") return "status-tag-failed";
+      return "status-tag-sent";
     },
   },
 });
@@ -785,6 +836,92 @@ export default defineComponent({
 
 .table-row:last-child {
   border-bottom: none;
+}
+
+.role-block {
+  padding: 18px 0;
+  border-bottom: 1px solid #ececec;
+}
+
+.role-block:last-child {
+  border-bottom: none;
+}
+
+.role-block-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.role-block-head h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.status-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.status-tag {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.status-tag-ack {
+  background: #effaf3;
+  color: #1a7a42;
+}
+
+.status-tag-sent {
+  background: #eef4ff;
+  color: #2563eb;
+}
+
+.status-tag-failed {
+  background: #fff3f3;
+  color: #b91c1c;
+}
+
+.role-picker-table .table-header,
+.role-picker-table .table-row {
+  grid-template-columns: 1fr 1fr 96px;
+}
+
+.responsibility-block {
+  margin: 14px 0;
+}
+
+.activity-table {
+  margin-top: 12px;
+}
+
+.activity-header,
+.activity-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+  padding: 6px 0;
+  font-size: 13px;
+}
+
+.activity-header {
+  color: #9ca3af;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+}
+
+.activity-row {
+  color: #333;
 }
 
 .role-cell {

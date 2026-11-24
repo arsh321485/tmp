@@ -3,8 +3,11 @@
     <div class="container">
       <div class="auth-wrapper">
         <div class="auth-left">
-          <div class="logo">
-            <img src="@/assets/images/tmp-new-logo.png" alt="TestMyPlan Logo" />
+          <div class="brand-header">
+            <div class="logo">
+              <img src="@/assets/images/tmp-new-logo.png" alt="TestMyPlan Logo" />
+            </div>
+            <span class="brand-badge">TEAMS PORTAL</span>
           </div>
 
           <!-- STEP: requesting the OTP (brief, auto-fires on page load) -->
@@ -220,6 +223,9 @@
           </template>
         </div>
       </div>
+      <div class="brand-footer-bar">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </main>
 </template>
@@ -264,11 +270,14 @@ interface TeamDoc {
 }
 
 const TIER_ORDER = ["Mandatory", "Recommended", "Optional", "External"];
+// Same brand colors as the rest of this page's CSS vars (kept as a
+// plain object since the colored dot is bound via inline :style, not
+// a CSS class, and can't reach a scoped CSS custom property there).
 const TIER_COLORS: Record<string, string> = {
-  Mandatory: "#d32929",
-  Recommended: "#d08a1e",
-  Optional: "#2f9e52",
-  External: "#9ca3af",
+  Mandatory: "#d31e28",
+  Recommended: "#963e16",
+  Optional: "#0e6e69",
+  External: "#6e767d",
 };
 
 export default defineComponent({
@@ -504,6 +513,27 @@ export default defineComponent({
 </script>
 
 <style scoped>
+/* Exact TestMyPlan brand palette, same values as the backend's
+   cards/card_image_common.py (BG/INK/MUTED/TEAL/TEAL_BG/CARD_BORDER/
+   BRAND_RED/FOOTER_TEAL) -- so this website page reads as the same
+   product as every Slack card, not a separately-styled page. */
+.auth-page {
+  --bg-cream: #faf8f5;
+  --ink: #11181c;
+  --muted: #6e767d;
+  --teal: #0e6e69;
+  --teal-bg: #dff1ee;
+  --footer-teal: #4ac7b7;
+  --card-bg: #ffffff;
+  --card-border: #e1ded8;
+  --brand-red: #d31e28;
+  --brand-black: #141414;
+  --draft-bg: #fae0d5;
+  --draft-fg: #963e16;
+  --urgent-bg: #fadddd;
+  --urgent-fg: #be2832;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Inter", system-ui, sans-serif;
@@ -517,7 +547,7 @@ export default defineComponent({
 
 .auth-page {
   min-height: 100vh;
-  background: #ffffff;
+  background: var(--bg-cream);
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -529,21 +559,38 @@ export default defineComponent({
   padding: 40px 0;
 }
 
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.brand-badge {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--teal);
+  background: var(--teal-bg);
+  border-radius: 999px;
+  padding: 6px 16px;
+}
+
 .title {
   font-size: 36px;
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: 10px;
-  color: #000;
+  color: var(--ink);
 }
 
 .step-para {
   font-size: 16px;
-  color: #333;
+  color: var(--muted);
   margin-bottom: 24px;
 }
 
 .form-error {
-  color: #d32929;
+  color: var(--brand-red);
   font-size: 14px;
   margin-bottom: 12px;
 }
@@ -553,7 +600,7 @@ export default defineComponent({
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 8px;
-  color: #000;
+  color: var(--ink);
 }
 
 .auth-form input {
@@ -561,21 +608,27 @@ export default defineComponent({
   padding: 14px 16px;
   margin-bottom: 18px;
   border-radius: 8px;
-  border: 1px solid #e6e6e6;
-  background: #f6f6f6;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
   font-size: 24px;
   letter-spacing: 8px;
   text-align: center;
+  color: var(--ink);
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--brand-red);
 }
 
 .btn-primary {
-  background: #d32929;
+  background: var(--brand-red);
   color: #fff;
   border: none;
   padding: 14px 22px;
   border-radius: 8px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   width: 220px;
   height: 52px;
@@ -591,9 +644,9 @@ export default defineComponent({
   margin-top: 14px;
   background: none;
   border: none;
-  color: #d32929;
+  color: var(--brand-red);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   padding: 0;
 }
@@ -620,9 +673,9 @@ export default defineComponent({
   gap: 8px;
   padding: 9px 16px;
   border-radius: 999px;
-  border: 1px solid #e0e0e0;
-  background: #fff;
-  color: #1a1a1a;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--ink);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -630,12 +683,12 @@ export default defineComponent({
 }
 
 .tier-tab:hover {
-  border-color: #c8c8c8;
+  border-color: var(--teal);
 }
 
 .tier-tab-active {
-  background: #1a7a42;
-  border-color: #1a7a42;
+  background: var(--teal);
+  border-color: var(--teal);
   color: #fff;
 }
 
@@ -647,13 +700,13 @@ export default defineComponent({
 }
 
 .tier-divider {
-  border-top: 1px solid #ececec;
+  border-top: 1px solid var(--card-border);
   margin-bottom: 16px;
 }
 
 .tier-summary {
   font-size: 14px;
-  color: #444;
+  color: var(--muted);
   margin-bottom: 14px;
 }
 
@@ -663,9 +716,9 @@ export default defineComponent({
 }
 
 .jump-select select {
-  color: #d32929;
-  font-weight: 500;
-  background: #fff;
+  color: var(--brand-red);
+  font-weight: 600;
+  background: var(--card-bg);
 }
 
 .team-pills {
@@ -681,9 +734,9 @@ export default defineComponent({
   gap: 6px;
   padding: 9px 14px;
   border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  background: #fff;
-  color: #1a1a1a;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--ink);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -691,18 +744,18 @@ export default defineComponent({
 }
 
 .team-pill:hover {
-  border-color: #c8c8c8;
+  border-color: var(--teal);
 }
 
 .team-pill-active {
-  background: #1a7a42;
-  border-color: #1a7a42;
+  background: var(--teal);
+  border-color: var(--teal);
   color: #fff;
 }
 
 .team-card {
-  background: #fff;
-  border: 1px solid #ececec;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 20px 24px;
   margin-bottom: 20px;
@@ -727,9 +780,9 @@ export default defineComponent({
 .priority-tab {
   padding: 7px 14px;
   border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  background: #fff;
-  color: #1a1a1a;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--ink);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -737,12 +790,12 @@ export default defineComponent({
 }
 
 .priority-tab:hover {
-  border-color: #c8c8c8;
+  border-color: var(--teal);
 }
 
 .priority-tab-active {
-  background: #1a7a42;
-  border-color: #1a7a42;
+  background: var(--teal);
+  border-color: var(--teal);
   color: #fff;
 }
 
@@ -751,13 +804,17 @@ export default defineComponent({
   align-items: center;
   gap: 6px;
   font-size: 14px;
-  font-weight: 600;
-  color: #b45309;
+  font-weight: 700;
+  color: var(--draft-fg);
+  background: var(--draft-bg);
+  border-radius: 999px;
+  padding: 5px 14px;
   margin-bottom: 18px;
 }
 
 .status-badge-done {
-  color: #1a7a42;
+  color: var(--teal);
+  background: var(--teal-bg);
 }
 
 .info-fields {
@@ -766,19 +823,19 @@ export default defineComponent({
   gap: 16px 32px;
   margin-bottom: 24px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .info-label {
   font-size: 13px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--ink);
   margin-bottom: 4px;
 }
 
 .info-value {
   font-size: 14px;
-  color: #444;
+  color: var(--muted);
   line-height: 1.5;
 }
 
@@ -790,17 +847,17 @@ export default defineComponent({
 
 .team-card-head h3 {
   font-size: 17px;
-  font-weight: 600;
-  color: #000;
+  font-weight: 700;
+  color: var(--ink);
   margin: 0;
 }
 
 .team-count-pill {
   flex-shrink: 0;
   font-size: 12px;
-  font-weight: 600;
-  color: #6b7280;
-  background: #f3f4f6;
+  font-weight: 700;
+  color: var(--teal);
+  background: var(--teal-bg);
   border-radius: 999px;
   padding: 4px 12px;
   white-space: nowrap;
@@ -819,19 +876,19 @@ export default defineComponent({
 }
 
 .table-header {
-  color: #9ca3af;
-  font-weight: 600;
+  color: var(--muted);
+  font-weight: 700;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   padding-bottom: 8px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--card-border);
   margin-bottom: 4px;
 }
 
 .table-row {
   padding: 12px 0;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .table-row:last-child {
@@ -840,7 +897,7 @@ export default defineComponent({
 
 .role-block {
   padding: 18px 0;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .role-block:last-child {
@@ -857,8 +914,8 @@ export default defineComponent({
 
 .role-block-head h4 {
   font-size: 15px;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-weight: 700;
+  color: var(--ink);
   margin: 0;
 }
 
@@ -870,24 +927,24 @@ export default defineComponent({
 
 .status-tag {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 3px 10px;
   border-radius: 999px;
 }
 
 .status-tag-ack {
-  background: #effaf3;
-  color: #1a7a42;
+  background: var(--teal-bg);
+  color: var(--teal);
 }
 
 .status-tag-sent {
-  background: #eef4ff;
-  color: #2563eb;
+  background: var(--draft-bg);
+  color: var(--draft-fg);
 }
 
 .status-tag-failed {
-  background: #fff3f3;
-  color: #b91c1c;
+  background: var(--urgent-bg);
+  color: var(--urgent-fg);
 }
 
 .role-picker-table .table-header,
@@ -913,59 +970,59 @@ export default defineComponent({
 }
 
 .activity-header {
-  color: #9ca3af;
-  font-weight: 600;
+  color: var(--muted);
+  font-weight: 700;
   text-transform: uppercase;
   font-size: 11px;
   letter-spacing: 0.03em;
 }
 
 .activity-row {
-  color: #333;
+  color: var(--ink);
 }
 
 .role-cell {
   font-size: 14px;
   font-weight: 500;
-  color: #1a1a1a;
+  color: var(--ink);
 }
 
 .select-wrap select {
   width: 100%;
   padding: 9px 12px;
   border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  background: #fafafa;
+  border: 1px solid var(--card-border);
+  background: var(--bg-cream);
   font-size: 14px;
-  color: #1a1a1a;
+  color: var(--ink);
   transition: border-color 0.15s ease, background 0.15s ease;
 }
 
 .select-wrap select:hover {
-  border-color: #d0d0d0;
+  border-color: var(--teal);
 }
 
 .select-wrap select:focus {
   outline: none;
-  border-color: #d32929;
-  background: #fff;
+  border-color: var(--brand-red);
+  background: var(--card-bg);
 }
 
 .save-btn {
-  border: 1.4px solid #d32929;
-  color: #d32929;
+  border: 1.4px solid var(--brand-red);
+  color: var(--brand-red);
   background: transparent;
   border-radius: 8px;
   padding: 8px 0;
   width: 100%;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 13px;
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .save-btn:hover {
-  background: #fff5f5;
+  background: var(--draft-bg);
 }
 
 .save-btn:disabled {
@@ -974,9 +1031,26 @@ export default defineComponent({
 }
 
 .save-btn-saved {
-  border-color: #1a9d5c;
-  color: #1a9d5c;
-  background: #effaf3;
+  border-color: var(--teal);
+  color: var(--teal);
+  background: var(--teal-bg);
+}
+
+.brand-footer-bar {
+  display: flex;
+  width: 100%;
+  height: 10px;
+  margin-top: 32px;
+}
+
+.brand-footer-bar span {
+  flex: 1;
+  background: var(--brand-red);
+}
+
+.brand-footer-bar span:nth-child(2) {
+  flex: 0.6;
+  background: var(--footer-teal);
 }
 
 @media (max-width: 720px) {

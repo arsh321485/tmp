@@ -224,10 +224,13 @@ export default defineComponent({
       }
     },
     async loadTeamsData() {
-      const [membersResp, teamsResp] = await Promise.all([
-        fetch(`${this.apiBase()}/api/teams-portal/members/`, { credentials: "include" }),
-        fetch(`${this.apiBase()}/api/teams-portal/teams/`, { credentials: "include" }),
-      ]);
+      // Sequential, not Promise.all -- firing both at once was hitting a
+      // real wall every time on the free ngrok tunnel (consistently
+      // blocked as a CORS/connection failure only when both landed
+      // simultaneously), even though each one is correct and fast on
+      // its own (confirmed directly against the backend).
+      const membersResp = await fetch(`${this.apiBase()}/api/teams-portal/members/`, { credentials: "include" });
+      const teamsResp = await fetch(`${this.apiBase()}/api/teams-portal/teams/`, { credentials: "include" });
       if (!membersResp.ok || !teamsResp.ok) {
         // Session cookie didn't make it (e.g. a privacy-strict browser
         // refusing a cross-site cookie) -- loading silently with empty

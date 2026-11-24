@@ -4,9 +4,6 @@
       <div class="auth-wrapper">
         <div class="auth-left">
           <div class="brand-header">
-            <div class="logo">
-              <img src="@/assets/images/tmp-new-logo.png" alt="TestMyPlan Logo" />
-            </div>
             <span class="brand-badge">TEAMS PORTAL</span>
           </div>
 
@@ -539,12 +536,6 @@ export default defineComponent({
   font-family: "Inter", system-ui, sans-serif;
 }
 
-.logo img {
-  height: 52px;
-  width: 48px;
-  display: block;
-}
-
 .auth-page {
   min-height: 100vh;
   background: var(--bg-cream);
@@ -562,8 +553,8 @@ export default defineComponent({
 .brand-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 8px;
+  justify-content: flex-end;
+  margin-bottom: 24px;
 }
 
 .brand-badge {

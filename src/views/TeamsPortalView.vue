@@ -99,6 +99,23 @@
                 </span>
               </div>
 
+              <!-- Same split Slack itself uses (cards/teams_v2_data.py's
+              _team_block): only one priority's roles shown at a time,
+              sub-tabs only appear when a team actually has more than
+              one -- a role under a tab you haven't clicked isn't
+              "missing", it's just not the active one yet. -->
+              <div v-if="rolePriorities(activeTeam).length > 1" class="priority-tabs">
+                <button
+                  v-for="p in rolePriorities(activeTeam)"
+                  :key="p"
+                  class="priority-tab"
+                  :class="{ 'priority-tab-active': activePriority === p }"
+                  @click="activePriority = p"
+                >
+                  {{ p }} roles ({{ activeTeam.members.filter(m => m.priority === p).length }})
+                </button>
+              </div>
+
               <div class="members-table">
                 <div class="table-header">
                   <div>Role</div>
@@ -107,7 +124,7 @@
                   <div></div>
                 </div>
 
-                <div v-for="member in activeTeam.members" :key="member.role" class="table-row">
+                <div v-for="member in rolesForActivePriority(activeTeam)" :key="member.role" class="table-row">
                   <div class="role-cell">{{ member.role }}</div>
                   <div class="select-wrap">
                     <select v-model="member.primary_slack_user_ids[0]">
@@ -163,9 +180,12 @@ interface Member {
 
 interface TeamMemberRow {
   role: string;
+  priority: string;
   primary_slack_user_ids: (string | undefined)[];
   backup_slack_user_ids: (string | undefined)[];
 }
+
+const PRIORITY_ORDER = ["Mandatory", "Recommended", "Optional"];
 
 interface TeamDoc {
   id: string;
@@ -201,6 +221,7 @@ export default defineComponent({
       tierOrder: TIER_ORDER,
       activeTier: "Mandatory",
       activeTeamSlug: "",
+      activePriority: "",
     };
   },
   mounted() {
@@ -209,6 +230,16 @@ export default defineComponent({
   computed: {
     activeTeam(): TeamDoc | undefined {
       return this.teams.find((t) => t.slug === this.activeTeamSlug);
+    },
+  },
+  watch: {
+    activeTeamSlug() {
+      // Switching teams always resets to that team's own first present
+      // priority (Mandatory > Recommended > Optional), same default
+      // Slack's own _team_block uses -- never carries over the last
+      // team's active sub-tab onto a team that may not even have it.
+      const team = this.activeTeam;
+      this.activePriority = team ? this.rolePriorities(team)[0] || "" : "";
     },
   },
   methods: {
@@ -376,6 +407,13 @@ export default defineComponent({
       this.activeTier = tier;
       const firstInTier = this.teamsInTier(tier)[0];
       this.activeTeamSlug = firstInTier ? firstInTier.slug : "";
+    },
+    rolePriorities(team: TeamDoc): string[] {
+      const present = new Set(team.members.map((m) => m.priority));
+      return PRIORITY_ORDER.filter((p) => present.has(p));
+    },
+    rolesForActivePriority(team: TeamDoc): TeamMemberRow[] {
+      return team.members.filter((m) => m.priority === this.activePriority);
     },
   },
 });
@@ -593,6 +631,35 @@ export default defineComponent({
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 14px;
+}
+
+.priority-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.priority-tab {
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.priority-tab:hover {
+  border-color: #c8c8c8;
+}
+
+.priority-tab-active {
+  background: #1a7a42;
+  border-color: #1a7a42;
+  color: #fff;
 }
 
 .team-card-head h3 {

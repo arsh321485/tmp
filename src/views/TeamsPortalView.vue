@@ -46,11 +46,18 @@
 
           <!-- STEP: real Teams data, loaded fresh after a verified OTP -->
           <template v-else-if="stage === 'assign'">
-            <h1 class="title">Assign your teams</h1>
-            <p class="step-para">Pick a primary and backup for each role. Saves instantly.</p>
+            <div class="assign-header">
+              <h1 class="title">Assign your teams</h1>
+              <p class="step-para">Pick a primary and backup for each role. Saves instantly.</p>
+            </div>
 
-            <div v-for="team in teams" :key="team.id" class="team-block">
-              <h3>{{ team.name }}</h3>
+            <div v-for="team in teams" :key="team.id" class="team-card">
+              <div class="team-card-head">
+                <h3>{{ team.name }}</h3>
+                <span class="team-count-pill">
+                  {{ filledCount(team) }} / {{ team.members.length }} staffed
+                </span>
+              </div>
 
               <div class="members-table">
                 <div class="table-header">
@@ -62,21 +69,32 @@
 
                 <div v-for="member in team.members" :key="member.role" class="table-row">
                   <div class="role-cell">{{ member.role }}</div>
-                  <div>
+                  <div class="select-wrap">
                     <select v-model="member.primary_slack_user_ids[0]">
                       <option :value="undefined">— none —</option>
                       <option v-for="p in members" :key="p.i" :value="p.i">{{ p.n }}</option>
                     </select>
                   </div>
-                  <div>
+                  <div class="select-wrap">
                     <select v-model="member.backup_slack_user_ids[0]">
                       <option :value="undefined">— none —</option>
                       <option v-for="p in members" :key="p.i" :value="p.i">{{ p.n }}</option>
                     </select>
                   </div>
                   <div>
-                    <button class="save-btn" @click="saveAssignment(team, member)">
-                      {{ savingKey === team.id + member.role ? "Saving…" : "Save" }}
+                    <button
+                      class="save-btn"
+                      :class="{ 'save-btn-saved': savedKey === team.id + member.role }"
+                      :disabled="savingKey === team.id + member.role"
+                      @click="saveAssignment(team, member)"
+                    >
+                      {{
+                        savingKey === team.id + member.role
+                          ? "Saving…"
+                          : savedKey === team.id + member.role
+                          ? "✓ Saved"
+                          : "Save"
+                      }}
                     </button>
                   </div>
                 </div>
@@ -131,6 +149,7 @@ export default defineComponent({
       members: [] as Member[],
       teams: [] as TeamDoc[],
       savingKey: "",
+      savedKey: "",
     };
   },
   mounted() {
@@ -258,7 +277,8 @@ export default defineComponent({
       this.stage = "assign";
     },
     async saveAssignment(team: TeamDoc, member: TeamMemberRow) {
-      this.savingKey = team.id + member.role;
+      const key = team.id + member.role;
+      this.savingKey = key;
       try {
         await this.apiFetch("/api/teams-portal/teams/assign/", {
           method: "POST",
@@ -271,9 +291,16 @@ export default defineComponent({
             backup_slack_user_ids: member.backup_slack_user_ids.filter(Boolean),
           }),
         });
+        this.savedKey = key;
+        setTimeout(() => {
+          if (this.savedKey === key) this.savedKey = "";
+        }, 2000);
       } finally {
         this.savingKey = "";
       }
+    },
+    filledCount(team: TeamDoc): number {
+      return team.members.filter((m) => m.primary_slack_user_ids[0]).length;
     },
   },
 });
@@ -379,15 +406,43 @@ export default defineComponent({
   cursor: not-allowed;
 }
 
-.team-block {
-  margin-bottom: 32px;
+.assign-header {
+  margin-bottom: 8px;
 }
 
-.team-block h3 {
-  font-size: 18px;
+.team-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.team-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.team-card-head h3 {
+  font-size: 17px;
   font-weight: 600;
-  margin-bottom: 12px;
   color: #000;
+  margin: 0;
+}
+
+.team-count-pill {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  background: #f3f4f6;
+  border-radius: 999px;
+  padding: 4px 12px;
+  white-space: nowrap;
 }
 
 .members-table {
@@ -397,36 +452,56 @@ export default defineComponent({
 .table-header,
 .table-row {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 100px;
+  grid-template-columns: 1.3fr 1fr 1fr 96px;
   align-items: center;
   gap: 16px;
 }
 
 .table-header {
-  color: #555;
-  font-weight: 500;
-  font-size: 14px;
-  margin-bottom: 8px;
+  color: #9ca3af;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 4px;
 }
 
 .table-row {
-  padding: 8px 0;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 12px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.table-row:last-child {
+  border-bottom: none;
 }
 
 .role-cell {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  color: #000;
+  color: #1a1a1a;
 }
 
-.table-row select {
+.select-wrap select {
   width: 100%;
-  padding: 10px 12px;
+  padding: 9px 12px;
   border-radius: 8px;
-  border: 1px solid #e6e6e6;
-  background: #fff;
+  border: 1px solid #e0e0e0;
+  background: #fafafa;
   font-size: 14px;
+  color: #1a1a1a;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.select-wrap select:hover {
+  border-color: #d0d0d0;
+}
+
+.select-wrap select:focus {
+  outline: none;
+  border-color: #d32929;
+  background: #fff;
 }
 
 .save-btn {
@@ -434,13 +509,42 @@ export default defineComponent({
   color: #d32929;
   background: transparent;
   border-radius: 8px;
-  padding: 6px 14px;
-  font-weight: 500;
-  font-size: 14px;
+  padding: 8px 0;
+  width: 100%;
+  font-weight: 600;
+  font-size: 13px;
   cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .save-btn:hover {
   background: #fff5f5;
+}
+
+.save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.save-btn-saved {
+  border-color: #1a9d5c;
+  color: #1a9d5c;
+  background: #effaf3;
+}
+
+@media (max-width: 720px) {
+  .table-header {
+    display: none;
+  }
+
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px 0;
+  }
+
+  .role-cell {
+    font-weight: 600;
+  }
 }
 </style>

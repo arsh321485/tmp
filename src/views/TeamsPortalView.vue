@@ -867,7 +867,9 @@ export default defineComponent({
 
 .container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .auth-wrapper {

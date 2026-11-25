@@ -1,11 +1,21 @@
 <template>
   <main class="auth-page">
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <div class="top-bar-logo">
+          <span class="top-bar-logo-mark">TMP</span>
+          <span class="top-bar-logo-text">TestMyPlan</span>
+        </div>
+        <div class="top-bar-icons">
+          <span class="top-bar-icon">🔔</span>
+          <span class="top-bar-icon">❓</span>
+          <span class="top-bar-avatar">A</span>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <div class="auth-wrapper">
         <div class="auth-left">
-          <div class="brand-header">
-            <span class="brand-badge">TEAMS PORTAL</span>
-          </div>
 
           <!-- STEP: requesting the OTP (brief, auto-fires on page load) -->
           <template v-if="stage === 'requesting'">
@@ -47,8 +57,17 @@
           <!-- STEP: real Teams data, loaded fresh after a verified OTP -->
           <template v-else-if="stage === 'assign'">
             <div class="assign-header">
-              <h1 class="title">Assign your <span class="title-accent">teams</span></h1>
-              <p class="step-para">Pick a primary and backup for each role. Saves instantly.</p>
+              <div class="assign-header-left">
+                <span class="assign-header-icon">👥</span>
+                <div>
+                  <h1 class="title"><span class="title-plain">Manage</span> <span class="title-accent">Team Assignments</span></h1>
+                  <p class="step-para">Assign primary, backup and team members with roles and responsibilities.</p>
+                </div>
+              </div>
+              <div class="assign-header-actions">
+                <button class="header-btn" @click="$router.back()">← Back</button>
+                <a class="header-btn header-btn-accent" href="/teams-portal" target="_blank" rel="noopener">Teams Portal ⧉</a>
+              </div>
             </div>
 
             <div class="progress-summary">
@@ -97,12 +116,14 @@
                 :class="{ 'team-pill-active': activeTeamSlug === team.slug }"
                 @click="activeTeamSlug = team.slug"
               >
-                {{ isTeamStaffed(team) ? "✅" : "⏳" }} {{ team.name }}
+                <span class="team-pill-icon">{{ activeTeamSlug === team.slug ? "✓" : teamIcon(team) }}</span>
+                {{ team.name }}
               </button>
             </div>
 
             <div v-if="activeTeam" class="team-card">
               <div class="team-card-head">
+                <span class="team-card-icon">👥</span>
                 <h3>{{ activeTeam.name }}</h3>
                 <span class="team-count-pill">
                   {{ filledCount(activeTeam) }} / {{ activeTeam.members.length }} staffed
@@ -110,25 +131,38 @@
               </div>
 
               <div class="status-badge" :class="{ 'status-badge-done': isTeamStaffed(activeTeam) }">
-                {{ isTeamStaffed(activeTeam) ? "✅ Complete" : "⏳ Pending" }}
+                <span class="status-badge-dot">{{ isTeamStaffed(activeTeam) ? "✓" : "⏳" }}</span>
+                {{ isTeamStaffed(activeTeam) ? "Complete" : "Pending" }}
               </div>
 
               <div class="info-fields">
                 <div class="info-field">
-                  <div class="info-label">🎯 Purpose</div>
-                  <div class="info-value">{{ activeTeam.purpose }}</div>
+                  <span class="info-icon">ⓘ</span>
+                  <div>
+                    <div class="info-label">Purpose</div>
+                    <div class="info-value">{{ activeTeam.purpose }}</div>
+                  </div>
                 </div>
                 <div class="info-field">
-                  <div class="info-label">📅 Primary IR phases</div>
-                  <div class="info-value">{{ activeTeam.phases }}</div>
+                  <span class="info-icon">🚩</span>
+                  <div>
+                    <div class="info-label">Primary IR phases</div>
+                    <div class="info-value">{{ activeTeam.phases }}</div>
+                  </div>
                 </div>
                 <div class="info-field">
-                  <div class="info-label">🏢 Team type</div>
-                  <div class="info-value">{{ activeTeam.type }}</div>
+                  <span class="info-icon">👥</span>
+                  <div>
+                    <div class="info-label">Team type</div>
+                    <div class="info-value">{{ activeTeam.type }}</div>
+                  </div>
                 </div>
                 <div class="info-field">
-                  <div class="info-label">🔄 Can be outsourced</div>
-                  <div class="info-value">{{ activeTeam.outsource }}</div>
+                  <span class="info-toggle" :class="{ 'info-toggle-on': outsourceIsYes(activeTeam) }"><span class="info-toggle-knob"></span></span>
+                  <div>
+                    <div class="info-label">Can be outsourced</div>
+                    <div class="info-value">{{ activeTeam.outsource }}</div>
+                  </div>
                 </div>
               </div>
 
@@ -154,7 +188,8 @@
                 :key="member.role"
                 class="role-block"
               >
-                <div class="role-block-head">
+                <div class="role-block-head" @click="toggleRole(member.role)">
+                  <span class="role-block-icon">👥</span>
                   <h4>{{ member.role }}</h4>
                   <span class="status-tags">
                     <span v-if="member.primary_status" class="status-tag" :class="statusTagClass(member.primary_status)">
@@ -164,61 +199,64 @@
                       Backup {{ statusTagLabel(member.backup_status) }}
                     </span>
                   </span>
+                  <span class="role-block-chevron">{{ expandedRole === member.role ? "▲" : "▼" }}</span>
                 </div>
 
-                <div class="members-table role-picker-table">
-                  <div class="table-header">
-                    <div>Primary</div>
-                    <div>Backup</div>
-                    <div></div>
+                <div v-show="expandedRole === member.role" class="role-block-body">
+                  <div class="members-table role-picker-table">
+                    <div class="table-header">
+                      <div>Primary</div>
+                      <div>Backup</div>
+                      <div></div>
+                    </div>
+                    <div class="table-row">
+                      <div class="select-wrap">
+                        <select
+                          v-model="member.primary_slack_user_ids[0]"
+                          @change="saveAssignment(activeTeam, member)"
+                        >
+                          <option :value="undefined">— none —</option>
+                          <option v-for="p in members" :key="p.i" :value="p.i">{{ p.n }}</option>
+                        </select>
+                      </div>
+                      <div class="select-wrap">
+                        <select
+                          v-model="member.backup_slack_user_ids[0]"
+                          @change="saveAssignment(activeTeam, member)"
+                        >
+                          <option :value="undefined">— none —</option>
+                          <option v-for="p in members" :key="p.i" :value="p.i">{{ p.n }}</option>
+                        </select>
+                      </div>
+                      <div class="role-buttons">
+                        <span v-if="savingKey === activeTeam.slug + member.role" class="save-status">Saving…</span>
+                        <span v-else-if="savedKey === activeTeam.slug + member.role" class="save-status save-status-saved">✓ Saved & sent</span>
+                        <button
+                          v-if="member.primary_slack_user_ids[0] || member.backup_slack_user_ids[0]"
+                          class="remove-btn"
+                          :disabled="removingKey === activeTeam.slug + member.role"
+                          @click="removeAssignment(activeTeam, member)"
+                        >
+                          {{ removingKey === activeTeam.slug + member.role ? "Removing…" : "🗑 Remove" }}
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div class="table-row">
-                    <div class="select-wrap">
-                      <select
-                        v-model="member.primary_slack_user_ids[0]"
-                        @change="saveAssignment(activeTeam, member)"
-                      >
-                        <option :value="undefined">— none —</option>
-                        <option v-for="p in members" :key="p.i" :value="p.i">{{ p.n }}</option>
-                      </select>
-                    </div>
-                    <div class="select-wrap">
-                      <select
-                        v-model="member.backup_slack_user_ids[0]"
-                        @change="saveAssignment(activeTeam, member)"
-                      >
-                        <option :value="undefined">— none —</option>
-                        <option v-for="p in members" :key="p.i" :value="p.i">{{ p.n }}</option>
-                      </select>
-                    </div>
-                    <div class="role-buttons">
-                      <span v-if="savingKey === activeTeam.slug + member.role" class="save-status">Saving…</span>
-                      <span v-else-if="savedKey === activeTeam.slug + member.role" class="save-status save-status-saved">✓ Saved & sent</span>
-                      <button
-                        v-if="member.primary_slack_user_ids[0] || member.backup_slack_user_ids[0]"
-                        class="remove-btn"
-                        :disabled="removingKey === activeTeam.slug + member.role"
-                        @click="removeAssignment(activeTeam, member)"
-                      >
-                        {{ removingKey === activeTeam.slug + member.role ? "Removing…" : "✕ Remove" }}
-                      </button>
-                    </div>
-                  </div>
-                </div>
 
-                <div v-if="member.responsibility" class="responsibility-block">
-                  <div class="info-label">🗒️ Responsibility</div>
-                  <div class="info-value">{{ member.responsibility }}</div>
-                </div>
-
-                <div v-if="member.activities.length" class="activity-table">
-                  <div class="activity-header">
-                    <div>Activity</div>
-                    <div>Phase</div>
+                  <div v-if="member.responsibility" class="responsibility-block">
+                    <div class="info-label">📄 Responsibility</div>
+                    <div class="info-value">{{ member.responsibility }}</div>
                   </div>
-                  <div v-for="(a, idx) in member.activities" :key="idx" class="activity-row">
-                    <div>{{ a.activity }}</div>
-                    <div>{{ a.phase }}</div>
+
+                  <div v-if="member.activities.length" class="activity-table">
+                    <div class="activity-header">
+                      <div>☰ Activity</div>
+                      <div>▤ Phase</div>
+                    </div>
+                    <div v-for="(a, idx) in member.activities" :key="idx" class="activity-row">
+                      <div><span class="activity-check">✓</span>{{ a.activity }}</div>
+                      <div>{{ a.phase }}</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -360,6 +398,7 @@ export default defineComponent({
       activeTier: "Mandatory",
       activeTeamSlug: "",
       activePriority: "",
+      expandedRole: "",
       applyOpen: false,
       applySourceRole: "",
       applyTargets: [] as string[],
@@ -385,10 +424,18 @@ export default defineComponent({
       // team's active sub-tab onto a team that may not even have it.
       const team = this.activeTeam;
       this.activePriority = team ? this.rolePriorities(team)[0] || "" : "";
+      this.expandedRole = team ? this.rolesForActivePriority(team)[0]?.role || "" : "";
       this.applyOpen = false;
       this.applySourceRole = "";
       this.applyTargets = [];
       this.applyMessage = "";
+    },
+    activePriority() {
+      // Switching priority sub-tab (Mandatory/Recommended/Optional)
+      // defaults to that tab's own first role expanded, same reasoning
+      // as the team switch above.
+      const team = this.activeTeam;
+      this.expandedRole = team ? this.rolesForActivePriority(team)[0]?.role || "" : "";
     },
   },
   methods: {
@@ -605,6 +652,27 @@ export default defineComponent({
       const firstInTier = this.teamsInTier(tier)[0];
       this.activeTeamSlug = firstInTier ? firstInTier.slug : "";
     },
+    toggleRole(role: string) {
+      this.expandedRole = this.expandedRole === role ? "" : role;
+    },
+    teamIcon(team: TeamDoc): string {
+      // Purely decorative, picked from the team's real name/type -- no
+      // new data, just a nicer glance than a bare checkmark/hourglass.
+      const name = team.name.toLowerCase();
+      if (name.includes("legal") || name.includes("regulatory")) return "⚖️";
+      if (name.includes("communications") || name.includes("pr")) return "📣";
+      if (name.includes("executive") || name.includes("crisis")) return "👑";
+      if (name.includes("it ") || name.includes("infrastructure") || name.includes("technical")) return "💻";
+      if (name.includes("legal counsel") || name.includes("breach coach")) return "⚖️";
+      if (name.includes("insurance")) return "🛡️";
+      if (name.includes("law enforcement") || name.includes("cert")) return "🚓";
+      if (team.type === "External") return "🤝";
+      return "🛡️";
+    },
+    outsourceIsYes(team: TeamDoc): boolean {
+      const v = (team.outsource || "").toLowerCase();
+      return v.startsWith("yes") || v.startsWith("partially");
+    },
     rolePriorities(team: TeamDoc): string[] {
       const present = new Set(team.members.map((m) => m.priority));
       return PRIORITY_ORDER.filter((p) => present.has(p));
@@ -702,20 +770,25 @@ export default defineComponent({
    BRAND_RED/FOOTER_TEAL) -- so this website page reads as the same
    product as every Slack card, not a separately-styled page. */
 .auth-page {
-  --bg-cream: #faf8f5;
+  --bg-cream: #fdf2f3;
   --ink: #11181c;
   --muted: #6e767d;
   --teal: #0e6e69;
   --teal-bg: #dff1ee;
   --footer-teal: #4ac7b7;
   --card-bg: #ffffff;
-  --card-border: #e1ded8;
+  --card-border: #f1d9db;
   --brand-red: #d31e28;
   --brand-black: #141414;
   --draft-bg: #fae0d5;
   --draft-fg: #963e16;
   --urgent-bg: #fadddd;
   --urgent-fg: #be2832;
+  --pink-bg: #fdecee;
+  --green: #16a34a;
+  --green-bg: #dcfce7;
+  --orange: #c2650a;
+  --orange-bg: #fef0dc;
 }
 
 * {
@@ -725,36 +798,83 @@ export default defineComponent({
 
 .auth-page {
   min-height: 100vh;
-  background: var(--bg-cream);
+  background: linear-gradient(180deg, var(--bg-cream) 0%, #fdfaf9 60%);
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.top-bar {
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.top-bar-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-bar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-bar-logo-mark {
+  background: var(--brand-red);
+  color: #fff;
+  font-weight: 800;
+  font-size: 13px;
+  border-radius: 8px;
+  padding: 6px 9px;
+}
+
+.top-bar-logo-text {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+}
+
+.top-bar-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.top-bar-icon {
+  font-size: 17px;
+  cursor: default;
+  color: var(--muted);
+}
+
+.top-bar-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--brand-red);
+  color: #fff;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.container {
+  display: flex;
   justify-content: center;
 }
 
 .auth-wrapper {
-  max-width: 1100px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 0;
-}
-
-.brand-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-bottom: 24px;
-}
-
-.brand-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--ink);
-  border: 2px solid var(--card-border);
-  border-radius: 999px;
-  padding: 6px 16px;
+  padding: 32px 24px;
 }
 
 .brand-badge::before {
@@ -849,9 +969,13 @@ export default defineComponent({
 }
 
 .title {
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+
+.title-plain {
   color: var(--ink);
 }
 
@@ -929,7 +1053,56 @@ export default defineComponent({
 }
 
 .assign-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
   margin-bottom: 20px;
+}
+
+.assign-header-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.assign-header-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--pink-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.assign-header-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.header-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.header-btn-accent {
+  color: var(--brand-red);
+  border-color: var(--urgent-bg);
 }
 
 .tier-tabs {
@@ -955,12 +1128,12 @@ export default defineComponent({
 }
 
 .tier-tab:hover {
-  border-color: var(--teal);
+  border-color: var(--brand-red);
 }
 
 .tier-tab-active {
-  background: var(--teal);
-  border-color: var(--teal);
+  background: var(--brand-red);
+  border-color: var(--brand-red);
   color: #fff;
 }
 
@@ -1005,13 +1178,17 @@ export default defineComponent({
 }
 
 .team-pill:hover {
-  border-color: var(--teal);
+  border-color: var(--brand-red);
 }
 
 .team-pill-active {
-  background: var(--teal);
-  border-color: var(--teal);
+  background: var(--brand-red);
+  border-color: var(--brand-red);
   color: #fff;
+}
+
+.team-pill-icon {
+  font-size: 13px;
 }
 
 .team-card {
@@ -1051,12 +1228,12 @@ export default defineComponent({
 }
 
 .priority-tab:hover {
-  border-color: var(--teal);
+  border-color: var(--brand-red);
 }
 
 .priority-tab-active {
-  background: var(--teal);
-  border-color: var(--teal);
+  background: var(--brand-red);
+  border-color: var(--brand-red);
   color: #fff;
 }
 
@@ -1064,18 +1241,120 @@ export default defineComponent({
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  color: var(--draft-fg);
-  background: var(--draft-bg);
+  color: var(--orange);
+  background: var(--orange-bg);
   border-radius: 999px;
   padding: 5px 14px;
   margin-bottom: 18px;
 }
 
+.status-badge-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .status-badge-done {
-  color: var(--teal);
-  background: var(--teal-bg);
+  color: var(--green);
+  background: var(--green-bg);
+}
+
+.team-card-head {
+  gap: 10px;
+}
+
+.team-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--pink-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.info-icon,
+.info-toggle {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.info-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--pink-bg);
+  color: var(--brand-red);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.info-toggle {
+  width: 36px;
+  height: 20px;
+  border-radius: 999px;
+  background: #e2e2e2;
+  position: relative;
+  display: inline-block;
+}
+
+.info-toggle-on {
+  background: var(--brand-red);
+}
+
+.info-toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transition: left 0.15s ease;
+}
+
+.info-toggle-on .info-toggle-knob {
+  left: 18px;
+}
+
+.info-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.role-block-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--pink-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.role-block-chevron {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.role-block-body {
+  padding-top: 4px;
+}
+
+.activity-check {
+  color: var(--brand-red);
+  margin-right: 8px;
+  font-weight: 700;
 }
 
 .info-fields {
@@ -1117,8 +1396,8 @@ export default defineComponent({
   flex-shrink: 0;
   font-size: 12px;
   font-weight: 700;
-  color: var(--teal);
-  background: var(--teal-bg);
+  color: var(--green);
+  background: var(--green-bg);
   border-radius: 999px;
   padding: 4px 12px;
   white-space: nowrap;
@@ -1171,6 +1450,7 @@ export default defineComponent({
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .role-block-head h4 {
@@ -1194,13 +1474,13 @@ export default defineComponent({
 }
 
 .status-tag-ack {
-  background: var(--teal-bg);
-  color: var(--teal);
+  background: var(--green-bg);
+  color: var(--green);
 }
 
 .status-tag-sent {
-  background: var(--draft-bg);
-  color: var(--draft-fg);
+  background: var(--orange-bg);
+  color: var(--orange);
 }
 
 .status-tag-failed {
@@ -1228,7 +1508,7 @@ export default defineComponent({
 }
 
 .save-status-saved {
-  color: var(--teal);
+  color: var(--green);
 }
 
 .remove-btn {
@@ -1301,7 +1581,7 @@ export default defineComponent({
 }
 
 .select-wrap select:hover {
-  border-color: var(--teal);
+  border-color: var(--brand-red);
 }
 
 .select-wrap select:focus {
@@ -1333,9 +1613,9 @@ export default defineComponent({
 }
 
 .save-btn-saved {
-  border-color: var(--teal);
-  color: var(--teal);
-  background: var(--teal-bg);
+  border-color: var(--green);
+  color: var(--green);
+  background: var(--green-bg);
 }
 
 .brand-footer-bar {
@@ -1373,7 +1653,7 @@ export default defineComponent({
 }
 
 .apply-toggle:hover {
-  border-color: var(--teal);
+  border-color: var(--brand-red);
 }
 
 .apply-panel {
@@ -1419,7 +1699,7 @@ export default defineComponent({
 
 .apply-message {
   font-size: 13px;
-  color: var(--teal);
+  color: var(--green);
   font-weight: 600;
   margin-bottom: 12px;
 }
@@ -1452,7 +1732,7 @@ export default defineComponent({
 .submit-message {
   font-size: 14px;
   font-weight: 600;
-  color: var(--teal);
+  color: var(--green);
   margin-bottom: 12px;
 }
 

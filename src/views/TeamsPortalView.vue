@@ -6,11 +6,6 @@
           <span class="top-bar-logo-mark">TMP</span>
           <span class="top-bar-logo-text">TestMyPlan</span>
         </div>
-        <div class="top-bar-icons">
-          <span class="top-bar-icon">🔔</span>
-          <span class="top-bar-icon">❓</span>
-          <span class="top-bar-avatar">A</span>
-        </div>
       </div>
     </div>
     <div class="container">
@@ -838,31 +833,6 @@ export default defineComponent({
   font-weight: 700;
   font-size: 17px;
   color: var(--ink);
-}
-
-.top-bar-icons {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.top-bar-icon {
-  font-size: 17px;
-  cursor: default;
-  color: var(--muted);
-}
-
-.top-bar-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--brand-red);
-  color: #fff;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
 }
 
 .container {

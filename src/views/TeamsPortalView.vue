@@ -59,9 +59,6 @@
                   <p class="step-para">Assign primary, backup and team members with roles and responsibilities.</p>
                 </div>
               </div>
-              <div class="assign-header-actions">
-                <button class="header-btn" @click="$router.back()">← Back</button>
-              </div>
             </div>
 
             <div class="progress-summary">
@@ -1043,27 +1040,6 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   font-size: 24px;
-}
-
-.assign-header-actions {
-  display: flex;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
-.header-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 10px;
-  padding: 9px 16px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink);
-  cursor: pointer;
-  text-decoration: none;
 }
 
 .tier-tabs {

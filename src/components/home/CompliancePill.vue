@@ -2,7 +2,7 @@
   <div>
     <button type="button" class="cp-pill" :class="{ solo: cur === 'GL' }" @click="open = true">
       <i v-if="cur !== 'GL'">{{ cur }}</i>
-      {{ cur === "GL" ? "Compliance" : "Compliance in " + regions[cur].n }}
+      {{ cur === "GL" ? "Compliance" : "Compliance in " + (regions[cur]?.n ?? "") }}
     </button>
 
     <div v-if="open" class="cp-ov" role="dialog" aria-modal="true" aria-label="Regulatory requirements" @click.self="open = false">

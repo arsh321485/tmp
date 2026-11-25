@@ -317,9 +317,6 @@
           </template>
         </div>
       </div>
-      <div class="brand-footer-bar">
-        <span></span><span></span><span></span>
-      </div>
     </div>
   </main>
 </template>
@@ -1588,23 +1585,6 @@ export default defineComponent({
   border-color: var(--green);
   color: var(--green);
   background: var(--green-bg);
-}
-
-.brand-footer-bar {
-  display: flex;
-  width: 100%;
-  height: 10px;
-  margin-top: 32px;
-}
-
-.brand-footer-bar span {
-  flex: 1;
-  background: var(--brand-red);
-}
-
-.brand-footer-bar span:nth-child(2) {
-  flex: 0.6;
-  background: var(--footer-teal);
 }
 
 .apply-same-user {

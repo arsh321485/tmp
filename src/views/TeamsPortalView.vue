@@ -61,7 +61,6 @@
               </div>
               <div class="assign-header-actions">
                 <button class="header-btn" @click="$router.back()">← Back</button>
-                <a class="header-btn header-btn-accent" href="/teams-portal" target="_blank" rel="noopener">Teams Portal ⧉</a>
               </div>
             </div>
 
@@ -1065,11 +1064,6 @@ export default defineComponent({
   color: var(--ink);
   cursor: pointer;
   text-decoration: none;
-}
-
-.header-btn-accent {
-  color: var(--brand-red);
-  border-color: var(--urgent-bg);
 }
 
 .tier-tabs {

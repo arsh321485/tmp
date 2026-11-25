@@ -3,7 +3,7 @@
     <div class="top-bar">
       <div class="top-bar-inner">
         <div class="top-bar-logo">
-          <span class="top-bar-logo-mark">TMP</span>
+          <img src="@/assets/images/tmp-app-icon.png" alt="TestMyPlan" class="top-bar-logo-mark" />
           <span class="top-bar-logo-text">TestMyPlan</span>
         </div>
       </div>
@@ -818,12 +818,10 @@ export default defineComponent({
 }
 
 .top-bar-logo-mark {
-  background: var(--brand-red);
-  color: #fff;
-  font-weight: 800;
-  font-size: 13px;
+  height: 34px;
+  width: auto;
   border-radius: 8px;
-  padding: 6px 9px;
+  display: block;
 }
 
 .top-bar-logo-text {

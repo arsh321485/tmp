@@ -20,33 +20,42 @@
 
           <!-- STEP: enter the OTP that was just DMed to them in Slack -->
           <template v-else-if="stage === 'otp'">
-            <h1 class="title">Check Slack for your code</h1>
-            <p class="step-para">
-              We just sent a 6-digit code as a Slack DM from the TestMyPlan bot.
-              Enter it below -- it expires in 10 minutes.
-            </p>
+            <div class="otp-card">
+              <span class="otp-icon">🛡️</span>
+              <h1 class="otp-title">Verify your identity</h1>
+              <p class="otp-subtitle">A one-time password (OTP) has been sent to your Slack Bot.</p>
 
-            <div class="auth-form">
-              <label>Code</label>
-              <input
-                v-model="otpCode"
-                maxlength="6"
-                inputmode="numeric"
-                placeholder="••••••"
-                :disabled="verifying"
-                @keyup.enter="verifyCode"
-              />
+              <div class="otp-digits">
+                <input
+                  v-for="(d, i) in otpDigits"
+                  :key="i"
+                  :ref="el => setOtpDigitRef(el, i)"
+                  v-model="otpDigits[i]"
+                  class="otp-digit"
+                  maxlength="1"
+                  inputmode="numeric"
+                  :disabled="verifying"
+                  @input="onOtpDigitInput(i)"
+                  @keydown="onOtpDigitKeydown($event, i)"
+                  @paste="onOtpPaste($event)"
+                />
+              </div>
+
+              <p v-if="errorMessage" class="form-error">{{ errorMessage }}</p>
+
+              <p class="resend-row">
+                <button v-if="resendCooldown > 0" class="resend-link resend-link-disabled" disabled>
+                  Resend OTP in {{ formattedCooldown }}
+                </button>
+                <button v-else class="resend-link" :disabled="resending" @click="resendCode">
+                  {{ resending ? "Sending a new code…" : "Resend OTP" }}
+                </button>
+              </p>
+
+              <button class="btn-primary otp-submit" :disabled="verifying || otpCode.length !== 6" @click="verifyCode">
+                {{ verifying ? "Checking…" : "Verify & Continue →" }}
+              </button>
             </div>
-
-            <p v-if="errorMessage" class="form-error">{{ errorMessage }}</p>
-
-            <button class="btn-primary" :disabled="verifying" @click="verifyCode">
-              {{ verifying ? "Checking…" : "Verify code" }}
-            </button>
-
-            <button class="resend-link" :disabled="resending" @click="resendCode">
-              {{ resending ? "Sending a new code…" : "Didn't get it? Resend code" }}
-            </button>
           </template>
 
           <!-- STEP: real Teams data, loaded fresh after a verified OTP -->
@@ -373,7 +382,10 @@ export default defineComponent({
     return {
       stage: "requesting" as "requesting" | "otp" | "assign" | "error",
       otpId: "",
-      otpCode: "",
+      otpDigits: ["", "", "", "", "", ""] as string[],
+      otpDigitRefs: [] as (HTMLInputElement | null)[],
+      resendCooldown: 0,
+      resendCooldownTimer: 0 as number | ReturnType<typeof setInterval>,
       verifying: false,
       resending: false,
       errorMessage: "",
@@ -399,9 +411,20 @@ export default defineComponent({
   mounted() {
     this.requestOtp();
   },
+  beforeUnmount() {
+    clearInterval(this.resendCooldownTimer as number);
+  },
   computed: {
     activeTeam(): TeamDoc | undefined {
       return this.teams.find((t) => t.slug === this.activeTeamSlug);
+    },
+    otpCode(): string {
+      return this.otpDigits.join("");
+    },
+    formattedCooldown(): string {
+      const m = Math.floor(this.resendCooldown / 60);
+      const s = this.resendCooldown % 60;
+      return `${m}:${String(s).padStart(2, "0")}`;
     },
   },
   watch: {
@@ -466,6 +489,9 @@ export default defineComponent({
         }
         this.otpId = data.otp_id;
         this.stage = "otp";
+        this.otpDigits = ["", "", "", "", "", ""];
+        this.startResendCooldown();
+        this.$nextTick(() => this.otpDigitRefs[0]?.focus());
       } catch {
         this.stage = "error";
         this.errorMessage = "Couldn't reach TestMyPlan. Check your connection and try again.";
@@ -473,13 +499,57 @@ export default defineComponent({
     },
     async resendCode() {
       this.resending = true;
-      this.otpCode = "";
       this.errorMessage = "";
       try {
         await this.requestOtp();
       } finally {
         this.resending = false;
       }
+    },
+    startResendCooldown() {
+      clearInterval(this.resendCooldownTimer as number);
+      this.resendCooldown = 30;
+      this.resendCooldownTimer = setInterval(() => {
+        if (this.resendCooldown <= 1) {
+          this.resendCooldown = 0;
+          clearInterval(this.resendCooldownTimer as number);
+        } else {
+          this.resendCooldown -= 1;
+        }
+      }, 1000);
+    },
+    setOtpDigitRef(el: unknown, i: number) {
+      this.otpDigitRefs[i] = el as HTMLInputElement | null;
+    },
+    onOtpDigitInput(i: number) {
+      // Only ever keep the last typed character (covers a stray IME/
+      // double-key edge case), and auto-advance to the next box so
+      // typing flows straight through all 6 without clicking each one.
+      const value = this.otpDigits[i] || "";
+      if (value.length > 1) {
+        this.otpDigits[i] = value.slice(-1);
+      }
+      if (this.otpDigits[i] && i < 5) {
+        this.otpDigitRefs[i + 1]?.focus();
+      }
+    },
+    onOtpDigitKeydown(event: KeyboardEvent, i: number) {
+      if (event.key === "Backspace" && !this.otpDigits[i] && i > 0) {
+        this.otpDigitRefs[i - 1]?.focus();
+      }
+    },
+    onOtpPaste(event: ClipboardEvent) {
+      // Pasting the whole 6-digit code at once (common when copying it
+      // straight from the Slack DM) fills every box instead of just
+      // dumping it all into whichever one was focused.
+      const pasted = (event.clipboardData?.getData("text") || "").replace(/\D/g, "").slice(0, 6);
+      if (!pasted) return;
+      event.preventDefault();
+      for (let i = 0; i < 6; i++) {
+        this.otpDigits[i] = pasted[i] || "";
+      }
+      const lastIndex = Math.min(pasted.length, 6) - 1;
+      if (lastIndex >= 0) this.otpDigitRefs[lastIndex]?.focus();
     },
     async verifyCode() {
       // Guards against a double-submit (e.g. pressing Enter and then
@@ -931,6 +1001,75 @@ export default defineComponent({
   }
 }
 
+.otp-card {
+  max-width: 400px;
+  margin: 40px auto 0;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.otp-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--pink-bg);
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.otp-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.otp-subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.otp-digits {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.otp-digit {
+  width: 44px;
+  height: 52px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  border: 1.5px solid var(--card-border);
+  border-radius: 10px;
+  color: var(--ink);
+}
+
+.otp-digit:focus {
+  outline: none;
+  border-color: var(--brand-red);
+}
+
+.resend-row {
+  margin-bottom: 20px;
+}
+
+.resend-link-disabled {
+  color: var(--muted) !important;
+  cursor: default;
+}
+
 .title {
   font-size: 30px;
   font-weight: 700;
@@ -996,6 +1135,10 @@ export default defineComponent({
 .btn-primary:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.otp-submit {
+  width: 100%;
 }
 
 .resend-link {

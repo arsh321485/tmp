@@ -26,6 +26,7 @@
           <a href="#live">Live threats</a>
           <a href="#why">Knowledge base</a>
           <a href="#mssp">Partners</a>
+          <router-link to="/teams-portal">Teams</router-link>
           <router-link to="/faq">Support</router-link>
         </nav>
         <div class="nav-cta">

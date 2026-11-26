@@ -130,6 +130,12 @@
                 </span>
               </div>
 
+              <div class="team-meta-badges">
+                <span class="meta-badge">{{ activeTeam.tier }}</span>
+                <span class="meta-badge-sep">·</span>
+                <span class="meta-badge">{{ activeTeam.type }}</span>
+              </div>
+
               <div class="status-badge" :class="{ 'status-badge-done': isTeamStaffed(activeTeam) }">
                 <span class="status-badge-dot">{{ isTeamStaffed(activeTeam) ? "✓" : "⏳" }}</span>
                 {{ isTeamStaffed(activeTeam) ? "Complete" : "Pending" }}
@@ -315,6 +321,12 @@
             </div>
           </template>
 
+          <!-- STEP: came here directly, not via the Slack link -->
+          <template v-else-if="stage === 'need_slack'">
+            <h1 class="title">Open this from Slack</h1>
+            <p class="step-para">{{ errorMessage }}</p>
+          </template>
+
           <!-- STEP: anything that stops the flow (bad/expired link, etc.) -->
           <template v-else-if="stage === 'error'">
             <h1 class="title">Something's not right</h1>
@@ -468,8 +480,8 @@ export default defineComponent({
     async requestOtp() {
       const token = (this.$route.query.token as string) || "";
       if (!token) {
-        this.stage = "error";
-        this.errorMessage = "This link is missing its token -- open it again from the Slack button.";
+        this.stage = "need_slack";
+        this.errorMessage = "To manage your team assignments, go to Slack and click \"Assign on testmyplan.ai\" -- that link brings you here signed in.";
         return;
       }
       try {
@@ -1481,6 +1493,28 @@ export default defineComponent({
   border-radius: 999px;
   padding: 4px 12px;
   white-space: nowrap;
+}
+
+.team-meta-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0 14px;
+}
+
+.meta-badge {
+  font-size: 12px;
+  font-weight: 600;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color: var(--text-muted, #6b7280);
+  background: var(--surface-muted, #f3f4f6);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+.meta-badge-sep {
+  color: var(--text-muted, #6b7280);
+  font-size: 12px;
 }
 
 .members-table {

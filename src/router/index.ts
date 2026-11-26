@@ -24,6 +24,7 @@ import ParticipantFlowView from "@/views/ParticipantFlowView.vue";
 import CommandCenterView from "@/views/CommandCenterView.vue";
 import DashboardView from "@/views/DashboardView.vue";
 import TeamsPortalView from "@/views/TeamsPortalView.vue";
+import ScenarioPortalView from "@/views/ScenarioPortalView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -184,6 +185,12 @@ const router = createRouter({
       path: "/teams-portal",
       name: "teams-portal",
       component: TeamsPortalView,
+    },
+
+    {
+      path: "/scenario-portal",
+      name: "scenario-portal",
+      component: ScenarioPortalView,
     },
   ],
 

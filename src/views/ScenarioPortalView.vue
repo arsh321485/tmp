@@ -69,9 +69,28 @@
 
             <div v-if="approved" class="approved-banner">✅ Approved</div>
 
-            <div v-for="(phase, pi) in phasesWithInjects" :key="pi" class="phase-block">
-              <h2 class="phase-title">{{ phase.name }}</h2>
-              <div v-for="inject in phase.injects" :key="inject.inject_id" class="inject-card">
+            <div class="phase-tabs">
+              <button
+                v-for="phase in phasesWithInjects"
+                :key="phase.name"
+                class="phase-tab"
+                :class="{ 'phase-tab-active': activePhaseTab === phase.name }"
+                @click="activePhaseTab = phase.name"
+              >
+                {{ phase.name }}
+              </button>
+              <button
+                v-if="scenario?.consequence_injects?.length"
+                class="phase-tab"
+                :class="{ 'phase-tab-active': activePhaseTab === 'Consequences' }"
+                @click="activePhaseTab = 'Consequences'"
+              >
+                Consequences
+              </button>
+            </div>
+
+            <div v-if="activePhaseTab !== 'Consequences'" class="phase-block">
+              <div v-for="inject in activePhaseInjects" :key="inject.inject_id" class="inject-card">
                 <div class="inject-meta">
                   <span class="inject-num">{{ inject.seq }}.</span>
                   <span class="inject-title">{{ inject.title }}</span>
@@ -90,10 +109,9 @@
               </div>
             </div>
 
-            <div v-if="scenario?.consequence_injects?.length" class="phase-block">
-              <h2 class="phase-title">Consequences</h2>
+            <div v-else class="phase-block">
               <p class="step-para consequences-note">Triggered by a Poor choice during the drill.</p>
-              <div v-for="inject in scenario.consequence_injects" :key="inject.inject_id" class="inject-card">
+              <div v-for="inject in scenario?.consequence_injects || []" :key="inject.inject_id" class="inject-card">
                 <div class="inject-meta">
                   <span class="inject-title">{{ inject.title }}</span>
                 </div>
@@ -174,6 +192,7 @@ export default defineComponent({
       resending: false,
       errorMessage: "",
       scenario: null as Scenario | null,
+      activePhaseTab: "",
     };
   },
   mounted() {
@@ -204,6 +223,9 @@ export default defineComponent({
             .sort((a, b) => (a.seq || 0) - (b.seq || 0)),
         }))
         .filter((p) => p.injects.length > 0);
+    },
+    activePhaseInjects(): Inject[] {
+      return this.phasesWithInjects.find((p) => p.name === this.activePhaseTab)?.injects || [];
     },
   },
   methods: {
@@ -340,6 +362,7 @@ export default defineComponent({
       const data = await resp.json();
       this.scenario = data.scenario;
       this.stage = "review";
+      this.activePhaseTab = this.phasesWithInjects[0]?.name || (this.scenario?.consequence_injects.length ? "Consequences" : "");
     },
   },
 });
@@ -584,6 +607,30 @@ export default defineComponent({
   padding: 8px 16px;
   border-radius: 8px;
   margin-bottom: 20px;
+}
+
+.phase-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.phase-tab {
+  background: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.phase-tab-active {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
 }
 
 .phase-block {

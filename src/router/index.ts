@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import MarketingPage from "../views/MarketingPage.vue";
 import MainSignin from "@/components/MainSignin.vue";
 import IndustriesView from "@/views/IndustriesView.vue";
 import CybersecurityView from "@/views/CybersecurityView.vue";
@@ -38,7 +38,92 @@ const router = createRouter({
     {
       path: "/home",
       name: "home",
-      component: HomeView,
+      component: MarketingPage,
+      meta: {
+        marketingSrc: "/marketing/home.html",
+        frameName: "tmp|Landing Page.html|",
+      },
+    },
+    {
+      path: "/home/how-it-works",
+      name: "how-it-works",
+      component: MarketingPage,
+      meta: {
+        marketingSrc: "/marketing/how-it-works.html",
+        frameName: "tmp|How It Works.html|",
+      },
+    },
+    {
+      path: "/home/live-threats",
+      name: "live-threats",
+      component: MarketingPage,
+      meta: {
+        marketingSrc: "/marketing/live-threats.html",
+        frameName: "tmp|Live Threats.html|",
+      },
+    },
+    {
+      path: "/home/knowledge-base",
+      name: "knowledge-base",
+      component: MarketingPage,
+      meta: {
+        marketingSrc: "/marketing/knowledge-base.html",
+        frameName: "tmp|Knowledge Base.html|",
+      },
+    },
+    {
+      path: "/home/partners",
+      name: "partners",
+      component: MarketingPage,
+      meta: {
+        marketingSrc: "/marketing/partners.html",
+        frameName: "tmp|Partners.html|",
+      },
+    },
+    {
+      path: "/home/support",
+      name: "support",
+      component: MarketingPage,
+      meta: {
+        marketingSrc: "/marketing/support.html",
+        frameName: "tmp|Support.html|",
+      },
+    },
+    {
+      path: "/home/privacy",
+      name: "home-privacy",
+      component: MarketingPage,
+      meta: {
+        marketingSrc: "/marketing/privacy.html",
+        frameName: "tmp|Privacy.html|",
+      },
+    },
+    {
+      path: "/home/terms",
+      name: "home-terms",
+      component: MarketingPage,
+      meta: {
+        marketingSrc: "/marketing/terms.html",
+        frameName: "tmp|Terms.html|",
+      },
+    },
+    {
+      path: "/home/dpa",
+      name: "home-dpa",
+      component: MarketingPage,
+      meta: {
+        marketingSrc: "/marketing/dpa.html",
+        frameName: "tmp|DPA.html|",
+      },
+    },
+    {
+      path: "/home/sub-processors",
+      name: "home-sub-processors",
+      component: MarketingPage,
+      meta: {
+        marketingSrc: "/marketing/sub-processors.html",
+        frameName: "tmp|Sub-processors.html|",
+      },
     },
 
     {
@@ -195,7 +280,7 @@ const router = createRouter({
   ],
 
   scrollBehavior(to) {
-    if (to.hash) {
+    if (to.hash && !to.meta.marketingSrc) {
       return {
         el: to.hash,
         behavior: "smooth",

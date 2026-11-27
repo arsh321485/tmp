@@ -392,7 +392,7 @@ export default defineComponent({
   name: "TeamsPortal",
   data() {
     return {
-      stage: "requesting" as "requesting" | "otp" | "assign" | "error",
+      stage: "requesting" as "requesting" | "otp" | "assign" | "need_slack" | "error",
       otpId: "",
       otpDigits: ["", "", "", "", "", ""] as string[],
       otpDigitRefs: [] as (HTMLInputElement | null)[],

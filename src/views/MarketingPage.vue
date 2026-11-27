@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { openSignupModal } from "@/utils/signup";
 
 const PAGES: Record<string, string> = {
   "Landing Page.html": "/home",
@@ -27,15 +28,38 @@ const frameName = computed(() => {
   return `tmp|${page}|${hash}`;
 });
 
+function attachSignup(loaded: HTMLIFrameElement | null) {
+  const doc = loaded?.contentDocument;
+  if (!doc || doc.readyState !== "complete") return;
+  if (doc.documentElement.dataset.signupHook === "1") return;
+  doc.documentElement.dataset.signupHook = "1";
+  if (doc.title) document.title = doc.title;
+  const script = doc.createElement("script");
+  script.textContent = `
+    document.addEventListener("click", function (event) {
+      var target = event.target && event.target.closest && event.target.closest("[data-signup]");
+      if (!target) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      parent.postMessage({ tmpSignup: true }, "*");
+    }, true);
+  `;
+  doc.documentElement.appendChild(script);
+}
+
 function onLoad(event: Event) {
-  const loaded = event.target as HTMLIFrameElement;
-  const title = loaded.contentDocument?.title;
-  if (title) document.title = title;
+  attachSignup(event.target as HTMLIFrameElement);
 }
 
 function onMessage(event: MessageEvent) {
-  const data = event.data as { tmpGo?: string; hash?: string } | null;
-  if (!data || typeof data.tmpGo !== "string") return;
+  const data = event.data as { tmpGo?: string; hash?: string; tmpSignup?: boolean } | null;
+  if (!data) return;
+  if (data.tmpSignup) {
+    if (frame.value && event.source !== frame.value.contentWindow) return;
+    openSignupModal();
+    return;
+  }
+  if (typeof data.tmpGo !== "string") return;
   if (frame.value && event.source !== frame.value.contentWindow) return;
   const path = PAGES[data.tmpGo];
   if (!path) return;
@@ -44,7 +68,10 @@ function onMessage(event: MessageEvent) {
   router.push(path + hash);
 }
 
-onMounted(() => window.addEventListener("message", onMessage));
+onMounted(() => {
+  attachSignup(frame.value);
+  window.addEventListener("message", onMessage);
+});
 onUnmounted(() => window.removeEventListener("message", onMessage));
 </script>
 
